@@ -5,21 +5,25 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PnU_Application">
         <activity
-            android:name=".NotifcationActivity"
-            android:exported="true">
+            android:name=".Loading_Screen"
+            android:exported="true" android:theme="@style/Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".NotifcationActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".Home_Screen"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SignIn_Screen"
@@ -27,7 +31,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
-
     </application>
 
 </manifest>
