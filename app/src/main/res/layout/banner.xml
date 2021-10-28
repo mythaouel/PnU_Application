@@ -5,10 +5,9 @@
 
     <ImageView
         android:id="@+id/imvThumb"
-        android:layout_width="393dp"
-        android:layout_height="180dp"
-        android:src="@drawable/banner_1" />
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
 
 
 </LinearLayout>

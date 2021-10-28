@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -16,8 +17,11 @@ import com.example.model.Banner;
 
 import java.util.ArrayList;
 
+import me.relex.circleindicator.CircleIndicator3;
+
 public class Home_Screen extends AppCompatActivity {
-    RecyclerView rcvBanner;
+    private ViewPager2 nViewPager2;
+    private CircleIndicator3 nCircleIndicator3;
     BannerAdapter bannerAdapter;
 
     @Override
@@ -26,20 +30,12 @@ public class Home_Screen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
 
         linkView();
-        configRecyclerView();
         initData();
     }
 
     private void linkView() {
-        rcvBanner=findViewById(R.id.rcvBanner);
-    }
-
-    private void configRecyclerView() {
-        LinearLayoutManager manager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-        rcvBanner.setLayoutManager(manager);
-
-        rcvBanner.setHasFixedSize(true);
-        rcvBanner.setItemAnimator(new DefaultItemAnimator());
+        nViewPager2=findViewById(R.id.vpBanner);
+        nCircleIndicator3=findViewById(R.id.circleIndicator);
     }
 
     private void initData() {
@@ -50,7 +46,8 @@ public class Home_Screen extends AppCompatActivity {
         banners.add(new Banner(R.drawable.banner_4));
 
         bannerAdapter=new BannerAdapter(getApplicationContext(),banners);
-        rcvBanner.setAdapter(bannerAdapter);
+        nViewPager2.setAdapter(bannerAdapter);
+        nCircleIndicator3.setViewPager(nViewPager2);
 
 
     }

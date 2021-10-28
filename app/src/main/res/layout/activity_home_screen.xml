@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home_Screen"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/default_color">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -41,16 +42,73 @@
         </TableRow>
     </TableLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvBanner"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpBanner"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@color/white"/>
+
+    <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/circleIndicator"
+        android:layout_width="wrap_content"
+        app:ci_drawable="@drawable/background_indicator"
+        android:layout_height="20dp"
+        android:layout_gravity="center"/>
+
+
+    <TableLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/default_color"/>
-    <LinearLayout
+        android:background="@color/white">
+        <TableRow android:layout_marginTop="10dp">
+            <ImageView
+                android:src="@drawable/ic_cat"
+                android:layout_width="123dp"
+                android:layout_height="137dp"
+                android:layout_weight="1"/>
+            <ImageView
+                android:src="@drawable/ic_dog"
+                android:layout_weight="1"
+                android:layout_width="123dp"
+                android:layout_height="137dp"/>
+        </TableRow>
+        <TableRow android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:text="Sản phẩm cho mèo"
+                android:layout_weight="1"
+                android:gravity="center"/>
+            <TextView
+                android:text="Sản phẩm cho chó"
+                android:layout_weight="1"
+                android:gravity="center"/>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/primary_yellow"/>
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white">
+        <TableRow>
+            <TextView
+                android:text="Hôm nay có gì HOT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+        </TableRow>
+        <TableRow>
+            <ImageView
+                />
+        </TableRow>
+
+
+    </TableLayout>
 
 
 </LinearLayout>
