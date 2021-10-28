@@ -9,16 +9,16 @@
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:text="Nội dung chính"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
     <TextView
         android:id="@+id/txtDetail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:text="Nội dung chi tiết của thông báo được hiện ở đây"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
 </LinearLayout>
