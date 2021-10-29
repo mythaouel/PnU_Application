@@ -20,7 +20,7 @@ public class Loading_Screen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //Home_Fragment.class - màn hình sau khi load xong
+                //MainActivity.class - màn hình sau khi load xong
                 Intent intent = new Intent(Loading_Screen.this, MainActivity.class);
                 startActivity(intent);
 
