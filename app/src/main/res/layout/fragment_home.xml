@@ -9,18 +9,18 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:background="@color/primary_yellow">
 
         <TableRow>
             <ImageView
                 android:id="@+id/imvMenuDoc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/menu_3gach"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="15dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -32,82 +32,335 @@
 
             <ImageView
                 android:id="@+id/imvFind"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_find"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="25dp" />
+                android:layout_marginTop="15dp" />
         </TableRow>
     </TableLayout>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vpBanner"
+
+
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:background="@color/white"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vpBanner"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@color/white"/>
 
-    <me.relex.circleindicator.CircleIndicator3
-        android:id="@+id/circleIndicator"
-        android:layout_width="wrap_content"
-        app:ci_drawable="@drawable/background_indicator"
-        android:layout_height="20dp"
-        android:layout_gravity="center"/>
+            <me.relex.circleindicator.CircleIndicator3
+                android:id="@+id/circleIndicator"
+                android:layout_width="wrap_content"
+                app:ci_drawable="@drawable/background_indicator"
+                android:layout_height="12dp"
+                android:layout_gravity="center"/>
 
 
-    <TableLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white">
-        <TableRow android:layout_marginTop="10dp">
-            <ImageView
-                android:src="@drawable/ic_cat"
-                android:layout_width="123dp"
-                android:layout_height="137dp"
-                android:layout_weight="1"/>
-            <ImageView
-                android:src="@drawable/ic_dog"
-                android:layout_weight="1"
-                android:layout_width="123dp"
-                android:layout_height="137dp"/>
-        </TableRow>
-        <TableRow android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp">
-            <TextView
-                android:text="Sản phẩm cho mèo"
-                android:layout_weight="1"
-                android:gravity="center"/>
-            <TextView
-                android:text="Sản phẩm cho chó"
-                android:layout_weight="1"
-                android:gravity="center"/>
-        </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/white">
-        <TableRow>
-            <TextView
-                android:text="Hôm nay có gì HOT"
+            <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:textSize="16sp"
+                android:background="@color/white">
+                <TableRow android:layout_marginTop="10dp">
+                    <ImageView
+                        android:src="@drawable/ic_cat"
+                        android:layout_width="123dp"
+                        android:layout_height="137dp"
+                        android:layout_weight="1"/>
+                    <ImageView
+                        android:src="@drawable/ic_dog"
+                        android:layout_weight="1"
+                        android:layout_width="123dp"
+                        android:layout_height="137dp"/>
+                </TableRow>
+                <TableRow android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp">
+                    <TextView
+                        android:text="Sản phẩm cho mèo"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+                    <TextView
+                        android:text="Sản phẩm cho chó"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/white">
+                <TableRow>
+                    <TextView
+                        android:text="Hôm nay có gì HOT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+                </TableRow>
+                <TableRow android:layout_marginTop="10dp">
+                    <ImageView
+                        android:layout_width="168dp"
+                        android:layout_height="143dp"
+                        android:src="@drawable/home_bst"
+                        android:layout_weight="1"
+                        />
+                    <ImageView
+                        android:layout_width="168dp"
+                        android:layout_height="143dp"
+                        android:src="@drawable/home_giam30"
+                        android:layout_weight="1"/>
+                </TableRow>
+            </TableLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="145dp"
+                app:cardCornerRadius="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:src="@drawable/about_us"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="SỨ MỆNH"
+                            android:textSize="13sp"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/black"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="PnU ra đời để có thể gắn kết mọi người, đem đến những sản phẩm tiện ích, tốt nhất cho thú cưng của bạn, đáp ứng mọi nhu cầu của thú cưng, giá cả bình ổn, hợp lý nhất thị trường."
+                            android:textSize="11sp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/black"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_crown"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sản phẩm nổi bật"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XEM TẤT CẢ"
+                    android:textColor="@color/available"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"/>
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_margin="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/primary_yellow">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="120dp"
+                                android:src="@drawable/sp_4"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yếm kèm dây dắt"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:textSize="14sp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_margin="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/primary_yellow">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="120dp"
+                                android:src="@drawable/sp_16"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nệm chấm bi hồng"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:textSize="14sp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_margin="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/primary_yellow">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="120dp"
+                                android:src="@drawable/sp_11"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bộ yếm và áo"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:textSize="14sp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_margin="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/primary_yellow">
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="120dp"
+                                android:src="@drawable/sp_14"
+                                android:scaleType="centerCrop"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bát ăn hình cute"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:textSize="14sp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bài viết nổi bật"
+                android:layout_gravity="left"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"/>
-        </TableRow>
-        <TableRow>
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="2dp"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="154dp"
+                app:cardCornerRadius="10dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="154dp"
+                        android:src="@drawable/img_pregnantdog"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CHẾ ĐỘ CHO CHÓ MANG THAI"
+                            android:textSize="12sp"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:layout_marginTop="15dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Chó thường mang thai trong 62 ngày, cộng hoặc trừ 2 ngày. Mang thai được chia thành tam cá nguyệt, và một con chó khỏe mạnh, được nuôi dưỡng tốt sẽ tăng khoảng 15-20%..."
+                            android:textSize="12sp"
+                            android:layout_margin="8dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="XEM THÊM"
+                            android:textColor="@color/available"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="5dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
             <ImageView
-                />
-        </TableRow>
-
-
-    </TableLayout>
-
-
+                android:layout_width="match_parent"
+                android:layout_height="103dp"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/home_footer"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
