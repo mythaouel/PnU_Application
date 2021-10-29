@@ -8,6 +8,12 @@
     android:orientation="vertical"
     android:background="@color/white">
 
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/navContainer" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navContainer"
         android:layout_width="match_parent"
