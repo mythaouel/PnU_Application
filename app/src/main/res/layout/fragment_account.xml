@@ -2,15 +2,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="7"
+    android:background="@color/ink_03"
     tools:context="com.example.fragment.CategoryFragment">
 
 
-    <TextView
+    <FrameLayout
+        android:background="@color/white"
+        android:layout_weight="2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="ACCOUNT"
-        android:background="#009688"
-        android:gravity="center"
-        android:textSize="28dp"/>
+        android:layout_height="0dp">
+        <ImageView
+            android:src="@drawable/act_bg"
+            android:scaleType="fitXY"
+            android:layout_marginBottom="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/user_avt_default"
+                android:layout_width="110dp"
+                android:layout_height="110dp"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Họ Tên"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/ink_01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/btnUpdateInf"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/ink_02"
+                    android:text="Chỉnh sửa thông tin"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+    <!--Khung Chuc Nang-->
+    <LinearLayout
+        android:layout_weight="5"
+        android:weightSum="3"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <TextView
+                android:text="Tài khoản:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ListView
+                android:layout_marginBottom="10dp"
+                android:id="@+id/lvTaiKhoan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
