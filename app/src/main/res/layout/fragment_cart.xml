@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.fragment.CategoryFragment">
+    tools:context="com.example.fragment.CategoryFragment"
+    android:background="@color/default_color">
 
     <com.google.android.material.appbar.AppBarLayout
         app:layout_constraintTop_toTopOf="parent"
@@ -14,8 +15,9 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
-
+            android:layout_height="?actionBarSize"
+            app:title="Giỏ hàng của tôi"
+            app:titleTextColor="@color/white">
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -53,10 +55,10 @@
 
             <EditText
                 android:id="@+id/edtGiamGia"
-                android:layout_width="180dp"
+                android:layout_width="170dp"
                 android:layout_height="35dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:hint="Nhập mã giảm giá"
                 android:textSize="10sp" />
 
@@ -79,7 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:backgroundTint="@color/yellow_03">
+        android:backgroundTint="@color/ink_03">
 
         <LinearLayout
             android:layout_width="match_parent"
