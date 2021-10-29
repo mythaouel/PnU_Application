@@ -21,10 +21,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NotifcationActivity"
-            android:exported="true">
-        </activity>
-        <activity
             android:name=".SignIn_Screen"
             android:exported="true" />
         <activity

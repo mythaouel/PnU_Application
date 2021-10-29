@@ -5,34 +5,41 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.fragment.BlogFragment;
 import com.example.fragment.NotificationFragment;
 
-public class ViewPagerAdapter extends FragmentStateAdapter {
+import java.util.ArrayList;
 
+public class ViewPagerAdapter extends FragmentPagerAdapter{
+    private ArrayList<Fragment> arrFragment = new ArrayList<>();
+    private ArrayList<String> arrFragTitle = new ArrayList<>();
 
-    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
-        super(fragmentActivity);
+    public ViewPagerAdapter(@NonNull FragmentManager fm) {
+        super(fm);
     }
 
     @NonNull
     @Override
-    public Fragment createFragment(int position) {
-        switch(position){
-            case 0:
-                return new NotificationFragment();
-            case 1:
-                return new BlogFragment();
-            default:
-                return new NotificationFragment();
+    public Fragment getItem(int position) {
+        return arrFragment.get(position);
         }
-    }
 
     @Override
-    public int getItemCount() {
-        return 2;
+    public int getCount() {
+        return arrFragment.size();
+    }
+    public void addFragment (Fragment fragment, String title){
+        arrFragment.add(fragment);
+        arrFragTitle.add(title);
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return arrFragTitle.get(position);
     }
 }

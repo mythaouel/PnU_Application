@@ -11,6 +11,7 @@ import com.example.fragment.AccountFragment;
 import com.example.fragment.CartFragment;
 import com.example.fragment.CategoryFragment;
 import com.example.fragment.HomeFragment;
+import com.example.fragment.NotificationBlogFragment;
 import com.example.fragment.NotificationFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = new CartFragment();
                     break;
                 case R.id.itNotification:
-                    selectedFragment = new NotificationFragment();
+                    selectedFragment = new NotificationBlogFragment();
                     break;
                 case R.id.itAccount:
                     selectedFragment = new AccountFragment();
