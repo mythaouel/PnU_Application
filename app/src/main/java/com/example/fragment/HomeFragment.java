@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +26,7 @@ import me.relex.circleindicator.CircleIndicator3;
 
 public class HomeFragment extends Fragment {
 
+    ImageButton btnFind;
     private ViewPager2 nViewPager2;
     private CircleIndicator3 nCircleIndicator3;
     BannerAdapter bannerAdapter;
@@ -36,6 +40,16 @@ public class HomeFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_home, container, false);
 
         nViewPager2=view.findViewById(R.id.vpBanner);
+
+        btnFind=view.findViewById(R.id.btnFindItem);
+        btnFind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragmentContainer,new FindFragment());
+                transaction.commit();
+            }
+        });
 
         nCircleIndicator3=view.findViewById(R.id.circleIndicator);
         initData();

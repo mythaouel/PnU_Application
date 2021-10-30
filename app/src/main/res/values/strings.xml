@@ -7,4 +7,5 @@
     <string name="thieu_OTP">Bạn chưa nhập mã xác thực</string>
     <string name="error_password">Mật khẩu phải chứa ít nhất 5 ký tự</string>
     <string name="error_OTP">OTP chưa chính xác</string>
+    <string name="import_find">Nhập từ khóa tìm kiếm</string>
 </resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Toolbar
+        android:id="@+id/toolBarFind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_yellow">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_back"
+            android:background="@null"
+            android:layout_marginRight="5dp"/>
+        <SearchView
+            android:id="@+id/svFind"
+            android:queryHint="@string/import_find"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:iconifiedByDefault="false"
+            android:layout_margin="5dp"
+
+            />
+        <TextView
+            android:id="@+id/txtHuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hủy"
+            android:textSize="20sp"/>
+    </Toolbar>
+    <ImageView
+        android:layout_width="372dp"
+        android:layout_height="195dp"
+        android:src="@drawable/img_find"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chưa có lịch sử. Bắt đầu tìm kiếm bây giờ !"
+        android:layout_gravity="center"
+        android:textSize="16sp"/>
+
+</LinearLayout>
