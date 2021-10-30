@@ -32,10 +32,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         View v = LayoutInflater.from(context).inflate(R.layout.notification_blog_item,parent,false);
         MyViewHolder holder = new MyViewHolder(v);
         return holder;
-
-//        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-//        View customView = inflater.inflate(R.layout.notification_blog_item,parent,false);
-//        return new MyViewHolder(customView);
     }
 
     @Override
