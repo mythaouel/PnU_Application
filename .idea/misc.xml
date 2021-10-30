@@ -15,6 +15,7 @@
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_blog.xml" value="0.2" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_cart.xml" value="0.176" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_category.xml" value="0.21784420289855072" />
+        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_dog_food.xml" value="0.17135416666666667" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_home.xml" value="0.24094202898550723" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_notifcation.xml" value="0.16" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_notification.xml" value="0.1" />
@@ -24,6 +25,7 @@
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/notification_blog_item.xml" value="0.2" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/notification_layout.xml" value="0.264" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/order_item.xml" value="0.264" />
+        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/product_item_layout.xml" value="0.17135416666666667" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/drawable/splash_background.xml" value="0.1" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_loading_screen.xml" value="0.12864583333333332" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_main.xml" value="0.17037037037037037" />
@@ -32,20 +34,6 @@
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_account.xml" value="0.1" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.10833333333333334" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/card_list_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/fragment_all_product.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/fragment_cart.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/fragment_cat_food.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/fragment_category.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/fragment_dog_food.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/fragment_dog_product.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/fragment_notification.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/fragment_notification_blog_screen.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/fragment_pet_fashion.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/fragment_pet_toy.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/notification_blog_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/PnU/PnU_Application/app/src/main/res/layout/product_item_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/PnU_Application2/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
       </map>
     </option>

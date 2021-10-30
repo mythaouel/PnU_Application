@@ -8,18 +8,19 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.adapter.ViewPagerAdapter;
+import com.example.adapter.ViewPager2NotificationAdapter;
 import com.example.pnu_application.R;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class NotificationBlogFragment extends Fragment {
 
     View view;
 
-    ViewPager viewPager;
+    ViewPager2 viewPager;
     TabLayout tabLayout;
 
     @Nullable
@@ -29,11 +30,26 @@ public class NotificationBlogFragment extends Fragment {
 
         viewPager = view.findViewById(R.id.viewPager);
         tabLayout = view.findViewById(R.id.tabLayout);
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new NotificationFragment(),"Thông báo");
-        adapter.addFragment( new BlogFragment(),"Blog" );
+
+        FragmentManager fragmentManager = getChildFragmentManager();
+        ViewPager2NotificationAdapter adapter = new ViewPager2NotificationAdapter(fragmentManager,getLifecycle());
+        adapter.createFragment(0);
+        adapter.createFragment(1);
         viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
+
+        new TabLayoutMediator( tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                switch(position){
+                    case 0:
+                        tab.setText( "Thông báo");
+                        break;
+                    case 1:
+                        tab.setText( "Blog");
+                        break;
+                }
+            }
+        } ).attach();
         return view;
     }
 
