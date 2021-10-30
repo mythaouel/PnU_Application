@@ -1,4 +1,4 @@
-package com.example.fragment.category;
+package com.example.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

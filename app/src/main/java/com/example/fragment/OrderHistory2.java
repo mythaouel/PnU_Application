@@ -1,16 +1,20 @@
-package com.example.fragment.category;
+package com.example.fragment;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.adapter.AccountLineAdapter;
 import com.example.adapter.OrderStatusAdapter;
+import com.example.fragment.OrderDetailFragment;
 import com.example.model.LineItem;
 import com.example.model.OrderStatus;
 import com.example.pnu_application.R;
@@ -31,14 +35,30 @@ public class OrderHistory2 extends Fragment {
         view= inflater.inflate(R.layout.account_tab_order_finish, container, false);
         linkViews();
         initData();
+        addEvents();
         return view;
+    }
+
+    private void addEvents() {
+        lvOrder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i==0||i==1|i==2){
+                    OrderDetailFragment fragment = new OrderDetailFragment();
+                    FragmentManager fragmentManager=getFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.layoutOrderHistory,fragment);
+                    transaction.commit();
+                }
+            }
+        });
     }
 
     private void initData() {
         orderList= new ArrayList<>();
-        orderList.add(new OrderStatus("Order 345","Đã vận chuyển","26,Tháng 10,2019","300.00d "));
-        orderList.add(new OrderStatus("Order 346","Đã hủy","24, Tháng 10,2020","243.000 đ"));
-        orderList.add(new OrderStatus("Order 347","Đã vận chuyển","26 Tháng 8 ,2020","532.000 đ"));
+        orderList.add(new OrderStatus("Order 345","Đã vận chuyển","26Tháng 10 ,2019","300.000 đ"));
+        orderList.add(new OrderStatus("Order 346","Đã hủy","24 Tháng 10 ,2020","243.000 đ"));
+        orderList.add(new OrderStatus("Order 347","Đã vận chuyển","26 Tháng 8 ,2021","532.000 đ"));
         adapter=new OrderStatusAdapter(getContext(),R.layout.account_orderl_list_item,orderList);
         lvOrder.setAdapter(adapter);
     }

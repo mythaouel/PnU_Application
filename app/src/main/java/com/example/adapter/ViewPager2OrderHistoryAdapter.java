@@ -7,8 +7,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 
-import com.example.fragment.category.OrderHistory1;
-import com.example.fragment.category.OrderHistory2;
+import com.example.fragment.OrderHistory1;
+import com.example.fragment.OrderHistory2;
 
 public class ViewPager2OrderHistoryAdapter extends FragmentStatePagerAdapter {
     public ViewPager2OrderHistoryAdapter(@NonNull FragmentManager fm, int behavior) {
