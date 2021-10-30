@@ -20,7 +20,6 @@ public class ViewPager2ProductAdapter extends FragmentStateAdapter {
     public ViewPager2ProductAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
     }
-
     @NonNull
     @Override
     public Fragment createFragment(int position) {

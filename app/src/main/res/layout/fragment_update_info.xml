@@ -1,0 +1,141 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/ink_02"
+    android:layout_height="match_parent"
+    tools:context="com.example.fragment.UpdateInfoFragment">
+   <ImageView
+       android:scaleType="fitXY"
+       android:layout_width="match_parent"
+       android:layout_height="300dp"
+       android:src="@drawable/act_upinf_bg" />
+   <LinearLayout
+
+       android:weightSum="3"
+       android:padding="10dp"
+       android:gravity="center"
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+      <ImageView
+          android:src="@drawable/user_avt_default"
+          android:layout_width="110dp"
+          android:layout_height="110dp"/>
+      <TextView
+          android:layout_marginTop="5dp"
+          android:textStyle="bold"
+          android:textSize="20sp"
+          android:textColor="@color/ink_01"
+          android:text="Họ Tên"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
+      <!--Khung Info-->
+      <LinearLayout
+          android:layout_weight="3"
+          android:layout_width="380dp"
+          android:layout_height="0dp"
+          android:background="@drawable/act_custom_bg_upif"
+          android:layout_gravity="center"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="40dp"
+          android:orientation="vertical"
+          android:paddingLeft="30dp"
+          android:paddingRight="25dp">
+         <TextView
+             android:layout_marginLeft="5dp"
+             android:id="@+id/txtUserName"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Họ Tên"
+             android:layout_marginTop="30dp" />
+         <EditText
+             android:id="@+id/edtUserNameAct"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:hint="Nhập họ tên"/>
+
+         <TextView
+             android:layout_marginLeft="5dp"
+             android:id="@+id/txtBirthday"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Ngày sinh"
+             android:layout_marginTop="10dp" />
+         <EditText
+             android:inputType="datetime"
+             android:id="@+id/edtBirthday"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:hint="Nhập ngày sinh"/>
+
+         <TextView
+             android:layout_marginLeft="5dp"
+             android:id="@+id/txtPhone"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Số điện thoại"
+             android:layout_marginTop="10dp" />
+         <EditText
+             android:inputType="phone"
+             android:id="@+id/edtPhone"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:hint="+84 "/>
+
+         <TextView
+             android:layout_marginLeft="5dp"
+             android:id="@+id/txtEmail"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Email"
+             android:layout_marginTop="10dp" />
+         <EditText
+             android:id="@+id/edtEmail"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:hint="Nhập Email"/>
+
+         <TextView
+             android:layout_marginLeft="5dp"
+             android:id="@+id/txtAddress"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Địa chỉ"
+             android:layout_marginTop="10dp" />
+         <EditText
+             android:id="@+id/edtAddress"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:hint="Nhập địa chỉ "/>
+         <LinearLayout
+             android:padding="10dp"
+             android:layout_gravity="center"
+             android:orientation="horizontal"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+            <Button
+                android:layout_marginLeft="15dp"
+                android:id="@+id/btnUpdate"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:text="Cập nhật"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:background="@drawable/act_custom_btn_yellow_dialog"
+                android:backgroundTint="@color/primary_yellow"/>
+            <Button
+                android:layout_marginLeft="50dp"
+                android:id="@+id/btnDelete"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:text="Xóa"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:background="@drawable/act_custom_btn_yellow_dialog"
+                android:backgroundTint="@color/primary_yellow"/>
+         </LinearLayout>
+
+      </LinearLayout>
+   </LinearLayout>
+
+</FrameLayout>

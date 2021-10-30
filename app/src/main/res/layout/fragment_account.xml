@@ -2,15 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragment_account"
     android:orientation="vertical"
-    android:weightSum="7"
-    android:background="@color/ink_03"
+    android:weightSum="3"
+    android:background="@color/ink_04"
     tools:context="com.example.fragment.CategoryFragment">
-
-
+    <!--Khung Info-->
     <FrameLayout
         android:background="@color/white"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <ImageView
@@ -19,10 +19,9 @@
             android:layout_marginBottom="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
         <LinearLayout
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -48,6 +47,7 @@
                     android:id="@+id/btnUpdateInf"
                     android:textStyle="bold"
                     android:textSize="15sp"
+                    android:layout_marginLeft="15dp"
                     android:textColor="@color/ink_02"
                     android:text="Chỉnh sửa thông tin"
                     android:background="@android:color/transparent"
@@ -58,28 +58,67 @@
     </FrameLayout>
     <!--Khung Chuc Nang-->
     <LinearLayout
-        android:layout_weight="5"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="2"
         android:weightSum="3"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp">
+        <!--Tai khoan-->
         <LinearLayout
-            android:padding="10dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="0dp">
             <TextView
+                android:textSize="20sp"
                 android:text="Tài khoản:"
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <ListView
-                android:layout_marginBottom="10dp"
-                android:id="@+id/lvTaiKhoan"
+                android:layout_marginTop="5dp"
+                android:id="@+id/lvAccount1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
-
+        <!--PnU-->
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <TextView
+                android:textSize="20sp"
+                android:text="PnU:"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ListView
+                android:layout_marginTop="5dp"
+                android:id="@+id/lvAccount2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <!--Cai dat-->
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <TextView
+                android:textSize="20sp"
+                android:text="Cài đặt:"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ListView
+                android:layout_marginTop="5dp"
+                android:id="@+id/lvAccount3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
