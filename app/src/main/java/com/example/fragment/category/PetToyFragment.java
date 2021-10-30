@@ -38,14 +38,14 @@ public class PetToyFragment extends Fragment {
     private ArrayList<Product> initData() {
         products = new ArrayList<>();
 
-        products.add(new Product(R.drawable.dog_food_01, "Hạt thức ăn khô cho chó Royal Canin Poodle Puppy", 394000));
-        products.add(new Product(R.drawable.dog_food_02, "Hạt khô cho chó Poodle trưởng thành Royal Canin Poodle Adult", 350000));
-        products.add(new Product(R.drawable.dog_food_03, "Thức ăn cho chó trưởng thành SMARTHEART", 290000));
-        products.add(new Product(R.drawable.dog_food_04, "Thức ăn cho chó con vị sữa Classic", 150000));
-        products.add(new Product(R.drawable.dog_food_05, "Thức ăn cho chó MOSHM", 294000));
-        products.add(new Product(R.drawable.dog_food_06, "Thức ăn cho chó trưởng thành Pedigree vị bò", 355000));
-        products.add(new Product(R.drawable.dog_food_07, "Thức ăn cho chó con hạt mềm ZENITH Puppy Chicken & Potato", 275000));
-        products.add(new Product(R.drawable.dog_food_08, "Thức ăn cho chó vị cá biển MEC Wild Taste Ocean Deep Fish", 380000));
+        products.add(new Product(R.drawable.pet_toy_01, "Đồ chơi bóng mặt chó", 25000));
+        products.add(new Product(R.drawable.pet_toy_02, "Con gà đồ chơi cho chó mèo", 15000));
+        products.add(new Product(R.drawable.pet_toy_03, "Đồ chơi hình tôm hùm cho chó mèo", 24000));
+        products.add(new Product(R.drawable.pet_toy_04, "Đồ chơi cao su cho Squeaky Dog", 200000));
+        products.add(new Product(R.drawable.pet_toy_05, "Đồ chơi cho chó mèo hình cá chim", 46000));
+        products.add(new Product(R.drawable.pet_toy_06, "Bóng lồng chuột cho chó mèo", 20000));
+        products.add(new Product(R.drawable.pet_toy_07, "Đồ chơi cao su hình xương cá", 21500));
+        products.add(new Product(R.drawable.pet_toy_08, "Đồ chơi xương bông phát ra tiếng", 15000));
 
         return products;
     }

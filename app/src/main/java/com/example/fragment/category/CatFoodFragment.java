@@ -38,14 +38,14 @@ public class CatFoodFragment extends Fragment {
     private ArrayList<Product> initData() {
         products = new ArrayList<>();
 
-        products.add(new Product(R.drawable.dog_food_01, "Hạt thức ăn khô cho chó Royal Canin Poodle Puppy", 394000));
-        products.add(new Product(R.drawable.dog_food_02, "Hạt khô cho chó Poodle trưởng thành Royal Canin Poodle Adult", 350000));
-        products.add(new Product(R.drawable.dog_food_03, "Thức ăn cho chó trưởng thành SMARTHEART", 290000));
-        products.add(new Product(R.drawable.dog_food_04, "Thức ăn cho chó con vị sữa Classic", 150000));
-        products.add(new Product(R.drawable.dog_food_05, "Thức ăn cho chó MOSHM", 294000));
-        products.add(new Product(R.drawable.dog_food_06, "Thức ăn cho chó trưởng thành Pedigree vị bò", 355000));
-        products.add(new Product(R.drawable.dog_food_07, "Thức ăn cho chó con hạt mềm ZENITH Puppy Chicken & Potato", 275000));
-        products.add(new Product(R.drawable.dog_food_08, "Thức ăn cho chó vị cá biển MEC Wild Taste Ocean Deep Fish", 380000));
+        products.add(new Product(R.drawable.cat_food_01, "Hạt khô cho mèo con Royal Canin Kitten", 349000));
+        products.add(new Product(R.drawable.cat_food_02, "Hạt thức ăn khô cho mèo Royal Canin Renal", 258000));
+        products.add(new Product(R.drawable.cat_food_03, "Thức ăn hạt WHISKAS cho mèo", 210000));
+        products.add(new Product(R.drawable.cat_food_04, "Thức ăn cho mèo MININO Vị cá Ngừ ", 290000));
+        products.add(new Product(R.drawable.cat_food_05, "Thức ăn cho mèo ME-O 1,2KG", 124000));
+        products.add(new Product(R.drawable.cat_food_06, "Thức ăn cho mèo Kitekat Vị Cá Thu", 110000));
+        products.add(new Product(R.drawable.cat_food_07, "Hạt Reflex Food Chicken cho mèo", 360000));
+        products.add(new Product(R.drawable.cat_food_08, "Thức Ăn Hạt Cho Mèo Trưởng Thành Catsrang", 422000));
 
         return products;
     }
