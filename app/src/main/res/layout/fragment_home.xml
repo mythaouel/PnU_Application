@@ -64,40 +64,93 @@
                 android:layout_height="12dp"
                 android:layout_gravity="center"/>
 
-
-            <TableLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white">
-                <TableRow android:layout_marginTop="10dp">
-                    <ImageView
-                        android:src="@drawable/ic_cat"
+                android:layout_height="186dp"
+                android:background="@color/white"
+                android:layout_marginBottom="7dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <LinearLayout
                         android:layout_width="123dp"
-                        android:layout_height="137dp"
-                        android:layout_weight="1"/>
-                    <ImageView
-                        android:src="@drawable/ic_dog"
-                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp">
+                        <ImageView
+                            android:layout_width="123dp"
+                            android:layout_height="135dp"
+                            android:src="@drawable/ic_cat"
+                            android:layout_marginTop="10dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Thức ăn cho mèo"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="123dp"
-                        android:layout_height="137dp"/>
-                </TableRow>
-                <TableRow android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp">
-                    <TextView
-                        android:text="Sản phẩm cho mèo"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                    <TextView
-                        android:text="Sản phẩm cho chó"
-                        android:layout_weight="1"
-                        android:gravity="center"/>
-                </TableRow>
-            </TableLayout>
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="30dp">
+                        <ImageView
+                            android:layout_width="123dp"
+                            android:layout_height="135dp"
+                            android:src="@drawable/ic_dog"
+                            android:layout_marginTop="10dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Thức ăn cho chó"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="123dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="30dp">
+                        <ImageView
+                            android:layout_width="123dp"
+                            android:layout_height="135dp"
+                            android:src="@drawable/ic_toys"
+                            android:layout_marginTop="10dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Đồ chơi chó mèo"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="123dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp">
+                        <ImageView
+                            android:layout_width="123dp"
+                            android:layout_height="135dp"
+                            android:src="@drawable/ic_clothes"
+                            android:layout_marginTop="10dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Thời trang chó mèo"
+                            android:gravity="center"
+                            android:layout_marginTop="10dp"
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
 
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="5dp"
                 android:background="@color/white">
                 <TableRow>
                     <TextView
@@ -152,8 +205,7 @@
                             android:textSize="13sp"
                             android:gravity="center"
                             android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:textColor="@color/black"/>
+                            android:layout_marginTop="10dp" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -162,7 +214,6 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
-                            android:textColor="@color/black"
                             />
                     </LinearLayout>
                 </LinearLayout>
@@ -343,7 +394,10 @@
                             android:layout_height="wrap_content"
                             android:text="Chó thường mang thai trong 62 ngày, cộng hoặc trừ 2 ngày. Mang thai được chia thành tam cá nguyệt, và một con chó khỏe mạnh, được nuôi dưỡng tốt sẽ tăng khoảng 15-20%..."
                             android:textSize="12sp"
-                            android:layout_margin="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="5dp"
                             />
                         <TextView
                             android:layout_width="wrap_content"
@@ -352,7 +406,7 @@
                             android:textColor="@color/available"
                             android:layout_gravity="right"
                             android:layout_marginRight="15dp"
-                            android:layout_marginBottom="5dp"/>
+                            android:layout_marginBottom="8dp"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
