@@ -37,7 +37,7 @@ public class OrderHistory2 extends Fragment {
     private void initData() {
         orderList= new ArrayList<>();
         orderList.add(new OrderStatus("Order 345","Đã vận chuyển","26,Tháng 10,2019","300.00d "));
-        orderList.add(new OrderStatus("Order 346","Đã hủy",",Tháng 10,2020","243.000 đ"));
+        orderList.add(new OrderStatus("Order 346","Đã hủy","24, Tháng 10,2020","243.000 đ"));
         orderList.add(new OrderStatus("Order 347","Đã vận chuyển","26 Tháng 8 ,2020","532.000 đ"));
         adapter=new OrderStatusAdapter(getContext(),R.layout.account_orderl_list_item,orderList);
         lvOrder.setAdapter(adapter);

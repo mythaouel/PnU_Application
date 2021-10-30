@@ -72,6 +72,13 @@ public class AccountFragment extends Fragment {
                     transaction.replace(R.id.fragment_account, fragment);
                     transaction.commit();
                 }
+                else if(i==1){
+                    PolicyFragment fragment= new PolicyFragment();
+                    FragmentManager fragmentManager=getFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.fragment_account, fragment);
+                    transaction.commit();
+                }
             }
         });
         lvAccount3.setOnItemClickListener(new AdapterView.OnItemClickListener() {

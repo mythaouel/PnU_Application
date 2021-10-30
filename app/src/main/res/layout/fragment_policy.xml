@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:textStyle="bold"
                 android:textSize="35sp"
@@ -29,11 +29,22 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ABOUT US"/>
+                android:text="CHÍNH SÁCH"/>
             <TextView
-                android:text="Tầm nhìn"
+                android:text="Chính sách thanh toán"
                 android:textSize="25sp"
-                android:textStyle="italic"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Khách hàng có thể lựa chọn các hình thức thanh toán sau để thanh toán cho đơn hàng của mình khi mua sản phẩm trên website PnU"
+                android:textSize="25sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Các hình thức thanh toán"
+                android:textSize="25sp"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -41,84 +52,105 @@
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
                 android:textSize="20sp"
-                android:text="PnU sẽ là người bạn đồng hành thân thiết của thú cưng và những người yêu thú cưng. Chúng tôi mong muốn cung cấp những sản phẩm tốt nhất cho thú cưng của bạn."
+                android:textStyle="bold"
+                android:text="1. Thanh toán trả trước:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:text="Sứ mệnh"
-                android:textSize="25sp"
-                android:textStyle="italic"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/ink_01"
+                android:textSize="20sp"
+                android:text="là hình thức thanh toán trực tuyến mà khách hàng sử dụng để thanh toán cho đơn hàng, bao gồm:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="35dp"
+                android:textColor="@color/ink_01"
+                android:textSize="20sp"
+                android:text="+ Thẻ ATM (Thẻ ghi nợ/thanh toán/trả trước nội địa);Thẻ thanh toán quốc tế, thẻ tín dụng."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="35dp"
+                android:textColor="@color/ink_01"
+                android:textSize="20sp"
+                android:text="+ Ví điện tử (Momo, Zalopay,...)."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
                 android:textSize="20sp"
-                android:text="PnU ra đời để có thể gắn kết mọi người, đem đến những sản phẩm tiện ích, tốt nhất cho thú cưng của bạn, đáp ứng mọi nhu cầu của thú cưng, giá cả bình ổn, hợp lý nhất thị trường."
+                android:textStyle="bold"
+                android:text="2. Thanh toán trả sau (COD):"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:text="Mục tiêu"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/ink_01"
+                android:textSize="20sp"
+                android:text="là hình thức thanh toán bằng tiền mặt mà khách hàng sử dụng để thanh toán cho đơn hàng khi giao hàng."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Chính sách vận chuyển"
                 android:textSize="25sp"
-                android:textStyle="italic"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
                 android:textSize="20sp"
-                android:text="-Cung cấp các sản phẩm từ A-Z cho thú cưng yêu quý của bạn."
+                android:textStyle="bold"
+                android:text="1.Phương thức vận chuyển và thời gian giao hàng:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/ink_01"
+                android:textSize="20sp"
+                android:text="- Nội thành: giao hàng trong ngày nếu đơn được đặt truco71 2h chiều. Những đơn sau sẽ giao vào sáng ngày kế tiếp."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/ink_01"
+                android:textSize="20sp"
+                android:text="- Ngoại thành: gửi chuyển phát nhanh COD đến tận nhà quý khách từ 2-3 ngày."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
                 android:textSize="20sp"
-                android:text="- Chúng tôi hiện kinh doanh các mặt hàng sau:"
+                android:textStyle="bold"
+                android:text="2.Chi phí giao nhận:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:layout_marginLeft="25dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"
                 android:textColor="@color/ink_01"
                 android:textSize="20sp"
-                android:text="+ Thức ăn cho chó, mèo:"
+                android:text="- Nội thành: Miễn phí vận chuyển cho đơn hàng từ 300.000 đồng trở lên. Phí vận chuyển từ 20.000 - 30.000 đồng cho đơn hàng dưới 300.000 đồng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:layout_marginLeft="25dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"
                 android:textColor="@color/ink_01"
                 android:textSize="20sp"
-                android:text="+ Thời trang theo trend cho thú cưng:"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_marginLeft="25dp"
-                android:textColor="@color/ink_01"
-                android:textSize="20sp"
-                android:text="+ Cát mèo và các sản phẩm vệ sinh"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_marginLeft="25dp"
-                android:textColor="@color/ink_01"
-                android:textSize="20sp"
-                android:text="+ Trang sức, đồ trang trí từ đáng yêu đến cool ngầu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_marginLeft="25dp"
-                android:textColor="@color/ink_01"
-                android:textSize="20sp"
-                android:text="+ Đồ chơi, đồ cào móng, giải tỏa stress các loại cho thú cưng"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:textColor="@color/primary_yellow"
-                android:text="Giao hàng toàn quốc. Miễn phí vận chuyển cho đơn hàng từ 500.000đ."
-                android:textSize="25sp"
-                android:textStyle="italic"
+                android:text="- Ngoại thành: Tính phí từ 40.000 - 80.000 đồng tùy theo trọng lượng đơn hàng và địa điểm giao hàng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
