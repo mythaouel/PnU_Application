@@ -11,28 +11,29 @@
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/banner.xml" value="0.18177083333333333" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/blog_contact_item.xml" value="0.1" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/blog_layout.xml" value="0.1" />
-        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/card_list_item.xml" value="0.264" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_blog.xml" value="0.2" />
-        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_cart.xml" value="0.176" />
-        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_category.xml" value="0.21784420289855072" />
-        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_dog_food.xml" value="0.17135416666666667" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_home.xml" value="0.24094202898550723" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_notifcation.xml" value="0.16" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_notification.xml" value="0.1" />
-        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_notification_blog_screen.xml" value="0.264" />
-        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_order.xml" value="0.2" />
-        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_success.xml" value="0.152" />
+        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/fragment_notification_blog_screen.xml" value="0.1" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/notification_blog_item.xml" value="0.2" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/notification_layout.xml" value="0.264" />
-        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/order_item.xml" value="0.264" />
-        <entry key="..\:/College/Sem5/Android/PROJECT/PnU_Application/app/src/main/res/layout/product_item_layout.xml" value="0.17135416666666667" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/drawable/splash_background.xml" value="0.1" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_loading_screen.xml" value="0.12864583333333332" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_main.xml" value="0.17037037037037037" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_otp_screen.xml" value="0.2" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_sign_in_screen.xml" value="0.152" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_sign_up_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/banner.xml" value="0.25416666666666665" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/fragment_notification.xml" value="0.25416666666666665" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/fragment_notification_blog_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/notification_blog_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.13125" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/activity_home_screen.xml" value="0.17592592592592593" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/activity_main.xml" value="0.10833333333333334" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_account.xml" value="0.1" />
-        <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_home.xml" value="0.2279136753195804" />
+        <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.10833333333333334" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/PnU_Application2/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
       </map>

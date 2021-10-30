@@ -3,4 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="danh_muc_san_pham">Danh mục sản phẩm</string>
+    <string name="loi_thieu_info">Thông tin không được bỏ trống</string>
+    <string name="thieu_OTP">Bạn chưa nhập mã xác thực</string>
+    <string name="error_password">Mật khẩu phải chứa ít nhất 5 ký tự</string>
+    <string name="error_OTP">OTP chưa chính xác</string>
 </resources>

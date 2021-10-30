@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OTP_Screen"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:background="@color/primary_yellow">
+        <ImageView
+            android:id="@+id/imvBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/back_icon"
+            android:layout_gravity="center_vertical">
+        </ImageView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:text="Xác thực"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Mã xác thực đã được gửi về"
+        android:textSize="20dp"
+        android:layout_marginTop="25dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txtOTP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mã xác thực"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"/>
+    <EditText
+        android:id="@+id/edtOTP"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Nhập mã xác thực"
+        android:inputType="number"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"/>
+
+    <Button
+        android:id="@+id/btnOTP"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:text="Xác thực"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@drawable/botron_button"
+        android:backgroundTint="@color/primary_yellow"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bạn không nhận được mã?"/>
+        <Button
+            android:id="@+id/btnResend"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="-15dp"
+            android:backgroundTint="#FFFFFF"
+            android:text="Gửi lại"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_yellow" />
+        <Button
+            android:id="@+id/btnSignIn"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-30dp"
+            android:backgroundTint="#FFFFFF"
+            android:text="Đăng nhập ngay"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_yellow" />
+    </LinearLayout>
+</LinearLayout>
