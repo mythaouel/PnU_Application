@@ -9,27 +9,23 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.pnu_application.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class SuccessFragment extends Fragment {
+public class OrderFragment extends Fragment {
 
-    Button btnTiepTucMua;
-
+    Button btnDatHang2;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate( R.layout.fragment_success,container,false);
-        btnTiepTucMua = view.findViewById( R.id.btnTiepTucMua );
-        btnTiepTucMua.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate( R.layout.fragment_order,container,false);
+        btnDatHang2 = view.findViewById( R.id.btnDatHang2 );
+        btnDatHang2.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentContainer,new CategoryFragment());
-                transaction.commit();
+                transaction.replace(R.id.fragmentContainer,new SuccessFragment()).commit();
             }
         } );
         return view;

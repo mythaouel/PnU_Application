@@ -112,10 +112,11 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/btnDatHang1"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="THANH TOÁN"
+                android:text="ĐẶT HÀNG"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_gravity="center"
