@@ -9,8 +9,9 @@
 
 
     <Toolbar
+        android:id="@+id/toolBarCategory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:background="@color/primary_yellow">
 
         <SearchView
