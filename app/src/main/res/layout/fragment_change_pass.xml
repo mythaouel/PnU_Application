@@ -1,0 +1,86 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/primary_yellow"
+    android:layout_height="match_parent"
+    tools:context="com.example.fragment.UpdateInfoFragment">
+   <ImageView
+       android:layout_width="match_parent"
+       android:layout_height="350dp"
+       android:src="@drawable/act_upinf_bg" />
+   <LinearLayout
+       android:gravity="center"
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+      <ImageView
+          android:src="@drawable/logo_slogan"
+          android:layout_width="150dp"
+          android:layout_height="150dp"/>
+      <!--Khung Pass-->
+      <LinearLayout
+          android:layout_width="340dp"
+          android:layout_height="340dp"
+          android:background="@drawable/act_custom_bg_upif"
+          android:layout_gravity="center"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="20dp"
+          android:orientation="vertical"
+          android:paddingLeft="30dp"
+          android:paddingRight="25dp">
+         <TextView
+             android:layout_marginLeft="5dp"
+             android:id="@+id/txtUserName"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Mật khẩu cũ"
+             android:layout_marginTop="30dp" />
+         <EditText
+             android:inputType="textPassword"
+             android:textSize="15sp"
+             android:id="@+id/edtPassNow"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:hint="Enter Password"/>
+
+         <TextView
+             android:layout_marginLeft="5dp"
+             android:id="@+id/txtNewPass"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Mật khẩu mới"
+             android:layout_marginTop="10dp" />
+         <EditText
+             android:inputType="textPassword"
+             android:id="@+id/edtNewPass"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:hint="Newpass"/>
+
+         <TextView
+             android:layout_marginLeft="5dp"
+             android:id="@+id/txtRepass"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Nhập lại mật khẩu"
+             android:layout_marginTop="10dp" />
+         <EditText
+             android:inputType="textPassword"
+             android:id="@+id/edtRepass"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:hint="Repass"/>
+            <Button
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnChange"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:text="Đổi mật khẩu"
+                android:textSize="18dp"
+                android:textColor="@color/white"
+                android:background="@drawable/act_custom_gray_dial" />
+      </LinearLayout>
+   </LinearLayout>
+
+</FrameLayout>

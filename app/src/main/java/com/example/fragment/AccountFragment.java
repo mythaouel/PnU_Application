@@ -53,11 +53,26 @@ public class AccountFragment extends Fragment {
         addEvents();
         return view;
     }
+    private void linkViews() {
+        lvAccount1   = view.findViewById(R.id.lvAccount1);
+        lvAccount2   = view.findViewById(R.id.lvAccount2);
+        lvAccount3   = view.findViewById(R.id.lvAccount3);
 
+        btnUpdateInf = view.findViewById(R.id.btnUpdateInf);
+    }
     private void addEvents() {
+        //Tai khoan
         lvAccount1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //ChangePass Event
+                if(i==0){
+                   ChangePassFragment fragment= new ChangePassFragment();
+                    FragmentManager fragmentManager=getFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.fragment_account, fragment);
+                    transaction.commit();
+                }
                 //View Order History Event
                 if(i==1){
                     OrderHistory fragment= new OrderHistory();
@@ -68,6 +83,8 @@ public class AccountFragment extends Fragment {
                 }
             }
         });
+
+        //PnU
         lvAccount2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -89,6 +106,8 @@ public class AccountFragment extends Fragment {
                 }
             }
         });
+
+        //Cai dat
         lvAccount3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -112,7 +131,6 @@ public class AccountFragment extends Fragment {
             }
         });
     }
-
 
     private void openLogOutDialog(){
         final Dialog dialog= new Dialog(getActivity());
@@ -149,16 +167,6 @@ public class AccountFragment extends Fragment {
             }
         });
         dialog.show();
-    }
-
-
-    private void linkViews() {
-        lvAccount1   = view.findViewById(R.id.lvAccount1);
-        lvAccount2   = view.findViewById(R.id.lvAccount2);
-        lvAccount3   = view.findViewById(R.id.lvAccount3);
-
-        btnUpdateInf = view.findViewById(R.id.btnUpdateInf);
-
     }
 
     private void initData() {

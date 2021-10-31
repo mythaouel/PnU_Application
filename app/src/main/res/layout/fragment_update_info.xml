@@ -4,11 +4,13 @@
     android:background="@color/ink_02"
     android:layout_height="match_parent"
     tools:context="com.example.fragment.UpdateInfoFragment">
+
    <ImageView
        android:scaleType="fitXY"
        android:layout_width="match_parent"
        android:layout_height="300dp"
        android:src="@drawable/act_upinf_bg" />
+   <include layout="@layout/act_custom_toolbar_upif"/>
    <LinearLayout
        android:padding="5dp"
        android:gravity="center"
@@ -16,7 +18,7 @@
        android:layout_width="match_parent"
        android:layout_height="match_parent">
       <ImageView
-          android:layout_marginTop="5dp"
+          android:layout_marginTop="20dp"
           android:src="@drawable/user_avt_default"
           android:layout_width="110dp"
           android:layout_height="110dp"/>
@@ -34,7 +36,7 @@
           android:layout_height="450dp"
           android:background="@drawable/act_custom_bg_upif"
           android:layout_gravity="center"
-          android:layout_marginTop="10dp"
+          android:layout_marginTop="15dp"
           android:layout_marginBottom="20dp"
           android:orientation="vertical"
           android:paddingLeft="30dp"

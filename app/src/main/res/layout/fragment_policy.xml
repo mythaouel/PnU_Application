@@ -4,9 +4,8 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.example.fragment.AboutUsFragment">
+    <include layout="@layout/act_custom_toolbar_cs"/>
     <ScrollView
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
         android:scrollbars="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -25,7 +24,7 @@
                 android:layout_marginBottom="10dp"
                 android:textStyle="bold"
                 android:textSize="35sp"
-                android:textColor="@color/primary_yellow"
+                android:textColor="@color/black"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
