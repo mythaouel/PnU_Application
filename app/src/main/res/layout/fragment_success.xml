@@ -90,5 +90,6 @@
         android:layout_height="wrap_content"
         android:text="TIẾP TỤC MUA HÀNG"
         android:textColor="@color/white"
+        android:backgroundTint="@color/primary_yellow"
         android:layout_gravity="center"/>
 </LinearLayout>
