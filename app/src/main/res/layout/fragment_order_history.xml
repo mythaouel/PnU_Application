@@ -9,6 +9,8 @@
     tools:context="com.example.fragment.OrderHistory2">
     <include layout="@layout/act_custom_toolbar"/>
    <com.google.android.material.tabs.TabLayout
+       app:tabTextColor="@color/ink_01"
+       app:tabSelectedTextColor="@color/primary_yellow"
        android:layout_weight="1"
        android:background="@color/white"
        android:id="@+id/tabLayoutAct"

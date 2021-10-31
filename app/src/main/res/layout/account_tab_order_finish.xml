@@ -2,9 +2,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/layoutOrderHistory"
+    android:background="@color/default_color"
     android:orientation="vertical"
     android:layout_height="match_parent">
 <ListView
+    android:background="@color/white"
     android:id="@+id/lvOrder"
     android:divider="@drawable/custom_deliver"
     android:layout_width="match_parent"

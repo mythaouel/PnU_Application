@@ -18,7 +18,7 @@
        android:layout_width="match_parent"
        android:layout_height="match_parent">
       <ImageView
-          android:layout_marginTop="20dp"
+          android:layout_marginTop="25dp"
           android:src="@drawable/user_avt_default"
           android:layout_width="110dp"
           android:layout_height="110dp"/>
@@ -124,7 +124,7 @@
                 android:background="@drawable/act_custom_btn_yellow_dialog"
                 android:backgroundTint="@color/primary_yellow"/>
             <Button
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="30dp"
                 android:id="@+id/btnDelete"
                 android:layout_width="130dp"
                 android:layout_height="40dp"

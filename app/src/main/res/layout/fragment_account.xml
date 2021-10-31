@@ -5,7 +5,7 @@
     android:id="@+id/fragment_account"
     android:orientation="vertical"
     android:weightSum="7"
-    android:background="@color/default_color"
+    android:background="@color/ink_04"
     tools:context="com.example.fragment.AccountFragment">
     <!--Khung Info-->
     <FrameLayout
@@ -102,6 +102,7 @@
         </LinearLayout>
         <!--Cai dat-->
         <LinearLayout
+            android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:layout_width="match_parent"
