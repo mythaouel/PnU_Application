@@ -82,7 +82,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Số 669 QL1A, khu phố 3, Thủ Đức, Thành phố Hồ Chí Minh"
-                        android:textSize="18sp"/>
+                        android:textSize="16sp"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -161,6 +161,7 @@
                             android:textSize="18sp"/>
                     </LinearLayout>
                     <TextView
+                        android:layout_marginTop="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Nhận hàng vào: 4 thg 11 - 11 thg 11"
@@ -198,6 +199,7 @@
                         android:textStyle="bold"
                         android:textSize="18sp" />
                     <TextView
+                        android:layout_marginTop="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Thanh toán khi nhận hàng"
@@ -298,8 +300,8 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:text="TỔNG CỘNG:"
-                    android:layout_marginEnd="120dp"
-                    android:layout_marginStart="35dp"/>
+                    android:layout_marginEnd="110dp"
+                    android:layout_marginStart="30dp"/>
 
                 <TextView
                     android:id="@+id/txtTongCong"
