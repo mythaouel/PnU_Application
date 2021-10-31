@@ -19,7 +19,6 @@ import com.google.android.material.tabs.TabLayoutMediator;
 public class NotificationBlogFragment extends Fragment {
 
     View view;
-
     ViewPager2 viewPager;
     TabLayout tabLayout;
 

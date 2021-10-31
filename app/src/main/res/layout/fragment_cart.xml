@@ -39,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+<!--            Khung giảm giá-->
     <androidx.cardview.widget.CardView
         app:layout_constraintBottom_toTopOf="@id/khungTongCong"
         app:layout_constraintRight_toRightOf="parent"
@@ -76,10 +77,10 @@
                 android:backgroundTint="@color/teal_700"
                 android:text="Áp mã"
                 android:textColor="@color/white" />
-            />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <!--        Khung tổng cộng và nút đặt hàng -->
     <androidx.cardview.widget.CardView
         android:id="@+id/khungTongCong"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -88,11 +89,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/ink_03">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+<!--            Khung tổng cộng-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -118,6 +119,7 @@
                     android:textColor="@color/price_tag"/>
             </LinearLayout>
 
+<!--            Nút đặt hàng-->
             <Button
                 android:id="@+id/btnDatHang1"
                 android:layout_marginTop="10dp"
