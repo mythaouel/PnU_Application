@@ -25,17 +25,26 @@
 
     </Toolbar>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayoutProduct"
+    <LinearLayout
+        android:id="@+id/layoutProductContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabMode="scrollable"
-        app:tabTextColor="@color/ink_02"
-        app:tabSelectedTextColor="@color/primary_yellow"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="scrollable"
+            app:tabTextColor="@color/ink_02"
+            app:tabSelectedTextColor="@color/primary_yellow"
+            app:tabIndicatorColor="@color/primary_yellow"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -11,4 +11,8 @@
     <string name="dat_hang_thanh_cong">ĐẶT HÀNG THÀNH CÔNG</string>
     <string name="don_hang_duoc_dat_thanh_cong">Đơn hàng của bạn đã được đặt thành công</string>
     <string name="ma_giam_gia">Mã giảm giá:</string>
+    <string name="mo_ta_sp">Mũ tai ếch dễ thương cho mèo - Mũ trùm đầu hóa trang cho thú cưng\n Mô Tả Sản Phẩm: Kích cỡ đường kính:\n Size S: 26-28cm\n Size M: 28-34cm\n Chất liệu: làm từ vải len\n Bạn có thể Giữ Ấm đầu bé khi trời trở lạnh. Thời tiết sài gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào.</string>
+    <string name="ten_sp">Mũ ếch dễ thương cho thú cưng</string>
+    <string name="gia_sp">62000</string>
+    <string name="add_to_cart">Thêm vào giỏ hàng</string>
 </resources>

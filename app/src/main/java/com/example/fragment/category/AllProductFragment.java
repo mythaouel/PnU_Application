@@ -5,14 +5,18 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.adapter.ProductAdapter;
 import com.example.model.Product;
+import com.example.model.ProductItemClick;
 import com.example.pnu_application.R;
 
 import java.util.ArrayList;
@@ -22,6 +26,7 @@ public class AllProductFragment extends Fragment {
     GridView gvAllProduct;
     ArrayList<Product> products;
     ProductAdapter productAdapter;
+    ProductItemClick productItemClick;
 
     @Nullable
     @Override
@@ -31,6 +36,16 @@ public class AllProductFragment extends Fragment {
         gvAllProduct = view.findViewById(R.id.gvAllProduct);
         productAdapter = new ProductAdapter(getContext(), R.layout.product_item_layout, initData());
         gvAllProduct.setAdapter(productAdapter);
+
+        gvAllProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                productItemClick = (ProductItemClick) getParentFragment();
+                if (productItemClick != null){
+                    productItemClick.click(products.get(i));
+                }
+            }
+        });
 
         return view;
     }
@@ -80,4 +95,7 @@ public class AllProductFragment extends Fragment {
 
         return products;
     }
+
+
+
 }

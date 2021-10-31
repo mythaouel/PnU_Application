@@ -4,26 +4,33 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.Toolbar;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.adapter.ViewPager2ProductAdapter;
+import com.example.fragment.category.ProductDetailsFragment;
+import com.example.model.Product;
+import com.example.model.ProductItemClick;
 import com.example.pnu_application.R;
 import com.google.android.material.tabs.TabLayout;
 
 
-public class CategoryFragment extends Fragment {
+public class CategoryFragment extends Fragment implements ProductItemClick{
     private Toolbar toolBarCategory;
+    FragmentManager fragmentManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
 
-        FragmentManager fragmentManager = getChildFragmentManager();
+        fragmentManager = getChildFragmentManager();
         ViewPager2ProductAdapter productAdapter = new ViewPager2ProductAdapter(fragmentManager, getLifecycle());
         final ViewPager2 viewPager2 = view.findViewById(R.id.viewPager2);
         viewPager2.setAdapter(productAdapter);
@@ -64,5 +71,15 @@ public class CategoryFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void click(Product p) {
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
+        fragmentTransaction.replace(R.id.fragCategory, productDetailsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
