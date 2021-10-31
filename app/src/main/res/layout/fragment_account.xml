@@ -5,8 +5,8 @@
     android:id="@+id/fragment_account"
     android:orientation="vertical"
     android:weightSum="3"
-    android:background="@color/ink_04"
-    tools:context="com.example.fragment.CategoryFragment">
+    android:background="@color/default_color"
+    tools:context="com.example.fragment.AccountFragment">
     <!--Khung Info-->
     <FrameLayout
         android:background="@color/white"

@@ -1,6 +1,8 @@
 package com.example.fragment;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -15,7 +17,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -24,7 +29,10 @@ import com.example.adapter.AccountLineAdapter;
 
 import com.example.model.LineItem;
 
+import com.example.pnu_application.Loading_Screen;
+import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
+import com.example.pnu_application.SignIn_Screen;
 
 import java.util.ArrayList;
 
@@ -120,11 +128,12 @@ public class AccountFragment extends Fragment {
         windowAttributes.gravity= Gravity.BOTTOM;
         window.setAttributes(windowAttributes);
         dialog.setCancelable(false);
-
+        //LinkView
         TextView txtDangXuat = dialog.findViewById(R.id.txtDangXuat);
         TextView txtConfirm  = dialog.findViewById(R.id.txtConfirm);
         Button btnLogOut     = dialog.findViewById(R.id.btnLogOut);
         Button btnCancer     = dialog.findViewById(R.id.btnCancer);
+
         btnCancer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,7 +143,9 @@ public class AccountFragment extends Fragment {
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               getActivity().finish();
+                getActivity().finishAffinity();
+                android.os.Process.killProcess( android.os.Process.myPid());
+                System.exit(0);
             }
         });
         dialog.show();
@@ -147,6 +158,7 @@ public class AccountFragment extends Fragment {
         lvAccount3   = view.findViewById(R.id.lvAccount3);
 
         btnUpdateInf = view.findViewById(R.id.btnUpdateInf);
+
     }
 
     private void initData() {
