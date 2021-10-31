@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             app:title="Giỏ hàng của tôi"
+            android:background="@color/primary_yellow"
             app:titleTextColor="@color/white">
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
