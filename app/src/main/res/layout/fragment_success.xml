@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ĐẶT HÀNG THÀNH CÔNG"
+            android:text="@string/dat_hang_thanh_cong"
             android:textSize="27sp"
             android:textStyle="bold"
             android:textColor="@color/primary_yellow"
@@ -42,7 +42,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Đơn hàng của bạn đã được đặt thành công"
+            android:text="@string/don_hang_duoc_dat_thanh_cong"
             android:textSize="17sp"
             android:textColor="@color/ink_02"
             android:gravity="center"
@@ -80,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Vui lòng chuẩn bị số tiền tương ứng vào ngày giao hàng"
+                android:textSize="12sp"
                 android:gravity="center"
                 android:textColor="@color/ink_02"/>
         </LinearLayout>
