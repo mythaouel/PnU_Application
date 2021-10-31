@@ -2,6 +2,8 @@ package com.example.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,21 +19,23 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SuccessFragment extends Fragment {
 
-    Button btnTiepTucMua;
+//    Button btnTiepTucMua;
+//    BottomNavigationView navContainer;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate( R.layout.fragment_success,container,false);
-        btnTiepTucMua = view.findViewById( R.id.btnTiepTucMua );
-        btnTiepTucMua.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentContainer,new CategoryFragment());
-                transaction.commit();
-            }
-        } );
+//        btnTiepTucMua = view.findViewById( R.id.btnTiepTucMua );
+//        navContainer = view.findViewById( R.id.navContainer );
+//        btnTiepTucMua.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                transaction.replace(R.id.fragmentContainer,new CategoryFragment());
+//                transaction.commit();
+//            }
+//        } );
         return view;
     }
 }
