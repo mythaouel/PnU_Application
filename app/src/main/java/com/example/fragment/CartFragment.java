@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,7 +34,9 @@ public class CartFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
         btnDatHang1 = view.findViewById( R.id.btnDatHang1 );
         rcvCart = view.findViewById( R.id.rcvCart );
+        configRecyclerView();
         initData();
+
         btnDatHang1.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +46,13 @@ public class CartFragment extends Fragment {
             }
         } );
         return view;
+    }
+
+    private void configRecyclerView() {
+        LinearLayoutManager manager = new LinearLayoutManager( getContext(),LinearLayoutManager.VERTICAL,false );
+        rcvCart.setLayoutManager( manager );
+        rcvCart.setHasFixedSize( true );
+        rcvCart.setItemAnimator( new DefaultItemAnimator() );
     }
 
     private void initData() {
