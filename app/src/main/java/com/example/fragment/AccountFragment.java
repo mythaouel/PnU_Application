@@ -147,8 +147,6 @@ public class AccountFragment extends Fragment {
         window.setAttributes(windowAttributes);
         dialog.setCancelable(false);
         //LinkView
-        TextView txtDangXuat = dialog.findViewById(R.id.txtDangXuat);
-        TextView txtConfirm  = dialog.findViewById(R.id.txtConfirm);
         Button btnLogOut     = dialog.findViewById(R.id.btnLogOut);
         Button btnCancer     = dialog.findViewById(R.id.btnCancer);
 
@@ -161,9 +159,7 @@ public class AccountFragment extends Fragment {
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().finishAffinity();
-                android.os.Process.killProcess( android.os.Process.myPid());
-                System.exit(0);
+                getActivity().finish();
             }
         });
         dialog.show();

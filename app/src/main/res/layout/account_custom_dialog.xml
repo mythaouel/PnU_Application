@@ -7,14 +7,12 @@
     android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/imvLine"
-        android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:src="@drawable/act_custom_dialog_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/txtDangXuat"
-        android:layout_marginTop="5dp"
         android:padding="10dp"
         android:layout_gravity="center"
         android:textStyle="bold"
@@ -34,7 +32,7 @@
     <Button
         android:id="@+id/btnLogOut"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/act_custom_btn_yellow_dialog"
         android:text="Đăng xuất"
         android:textSize="15sp"
@@ -44,9 +42,9 @@
         />
    <Button
        android:id="@+id/btnCancer"
-       android:layout_marginTop="20dp"
+       android:layout_marginTop="15dp"
        android:text="Hủy"
-       android:layout_marginBottom="15dp"
+       android:layout_marginBottom="10dp"
        android:layout_gravity="center"
        android:textSize="15sp"
        android:textColor="@color/white"
