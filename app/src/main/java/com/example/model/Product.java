@@ -1,14 +1,18 @@
 package com.example.model;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private int productThumbnail;
     private String productName;
     private double productPrice;
+    private String productDescription;
 
-    public Product(int productThumbnail, String productName, double productPrice) {
+    public Product(int productThumbnail, String productName, double productPrice, String productDescription) {
         this.productThumbnail = productThumbnail;
         this.productName = productName;
         this.productPrice = productPrice;
+        this.productDescription = productDescription;
     }
 
     public int getProductThumbnail() {
@@ -33,5 +37,13 @@ public class Product {
 
     public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
+    }
+
+    public String getProductDescription(){
+        return  productDescription;
+    }
+
+    public void setProductDescription(String productDescription){
+        this.productDescription = productDescription;
     }
 }

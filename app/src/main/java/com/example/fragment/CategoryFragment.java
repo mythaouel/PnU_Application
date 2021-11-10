@@ -21,9 +21,10 @@ import com.example.pnu_application.R;
 import com.google.android.material.tabs.TabLayout;
 
 
-public class CategoryFragment extends Fragment implements ProductItemClick{
+public class CategoryFragment extends Fragment{
     private Toolbar toolBarCategory;
-    FragmentManager fragmentManager;
+    private FragmentManager fragmentManager, fragmentManager1;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,15 +72,5 @@ public class CategoryFragment extends Fragment implements ProductItemClick{
         });
 
         return view;
-    }
-
-    @Override
-    public void click(Product p) {
-
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
-        fragmentTransaction.replace(R.id.fragCategory, productDetailsFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
     }
 }

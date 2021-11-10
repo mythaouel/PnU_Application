@@ -3,9 +3,12 @@ package com.example.pnu_application;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.fragment.AccountFragment;
 import com.example.fragment.CartFragment;
@@ -13,16 +16,17 @@ import com.example.fragment.CategoryFragment;
 import com.example.fragment.HomeFragment;
 import com.example.fragment.NotificationBlogFragment;
 import com.example.fragment.NotificationFragment;
+import com.example.fragment.category.ProductDetailsFragment;
+import com.example.model.Product;
+import com.example.model.ProductItemClick;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ProductItemClick {
 
     private TabLayout tabCategory;
-    private BottomNavigationView bottomNavigationView;
-
-
+    private static BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new HomeFragment()).commit();
         bottomNavigationView.setOnItemSelectedListener(navListener);
     }
+
     private NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -56,6 +61,31 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,selectedFragment).commit();
             return true;
         }
-
     };
+
+    public static void hideBottomNav(){
+        bottomNavigationView.setVisibility(View.GONE);
+    }
+
+    public static void showBottomNav(){
+        bottomNavigationView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void click(Product p) {
+
+        //FragmentManager fragmentManager1 = getSupportFragmentManager();
+        //FragmentTransaction fragmentTransaction = fragmentManager1.beginTransaction();
+
+        ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("SelectedProduct", p);
+        productDetailsFragment.setArguments(bundle);
+
+        fragmentTransaction.replace(R.id.layoutContainer, productDetailsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 }

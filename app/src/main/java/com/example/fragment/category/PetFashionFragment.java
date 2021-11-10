@@ -38,14 +38,14 @@ public class PetFashionFragment extends Fragment {
     private ArrayList<Product> initData() {
         products = new ArrayList<>();
 
-        products.add(new Product(R.drawable.pet_fashion_01, "Áo thun có tay màu Hồng cho chó", 62000));
-        products.add(new Product(R.drawable.pet_fashion_02, "Vòng cổ thú cưng hình cổ áo", 188000));
-        products.add(new Product(R.drawable.pet_fashion_03, "Mũ len thời trang dễ thương cho chó mèo", 119000));
-        products.add(new Product(R.drawable.pet_fashion_04, "Thời Trang Chó Mèo nhện Haloween", 125000));
-        products.add(new Product(R.drawable.pet_fashion_05, "Áo thun liền quần cho chó mèo", 100000));
-        products.add(new Product(R.drawable.pet_fashion_06, "Quần áo thú cưng thoải mái mùa hè", 63000));
-        products.add(new Product(R.drawable.pet_fashion_07, "Quần áo cho chó mùa hè cho chó nhỏ", 29000));
-        products.add(new Product(R.drawable.pet_fashion_08, "Mũ ếch dễ thương cho thú cưng", 50000));
+        products.add(new Product(R.drawable.pet_fashion_01, "Áo thun có tay màu Hồng cho chó", 62000, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_02, "Vòng cổ thú cưng hình cổ áo", 188000, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_03, "Mũ len thời trang dễ thương cho chó mèo", 119000, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_04, "Thời Trang Chó Mèo nhện Haloween", 125000, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_05, "Áo thun liền quần cho chó mèo", 100000, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_06, "Quần áo thú cưng thoải mái mùa hè", 63000, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_07, "Quần áo cho chó mùa hè cho chó nhỏ", 29000, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_08, "Mũ ếch dễ thương cho thú cưng", 50000, "Description"));
 
         return products;
     }
