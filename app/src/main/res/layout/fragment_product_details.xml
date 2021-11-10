@@ -6,6 +6,79 @@
     tools:context="com.example.fragment.category.ProductDetailsFragment"
     android:background="@color/white">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_yellow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <ImageView
+                    android:id="@+id/imvBack"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/back_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtProductDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/chi_tiet_san_pham"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imvCart"
+                    app:layout_constraintStart_toEndOf="@+id/imvBack"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imvCart"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/cart"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white"
+                    android:layout_marginEnd="10dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="10dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/more_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <ScrollView
         android:id="@+id/scrollViewDetails"
         android:layout_width="0dp"
@@ -13,12 +86,12 @@
         app:layout_constraintBottom_toTopOf="@+id/btnAddToCart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         android:layout_marginBottom="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/imvThumbDetails"
@@ -40,7 +113,8 @@
                 android:layout_marginRight="20dp"
                 android:text="@string/ten_sp"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imvThumbDetails" />
@@ -54,7 +128,7 @@
                 android:layout_marginRight="20dp"
                 android:text="@string/gia_sp"
                 android:textColor="@color/price_tag"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -80,7 +154,7 @@
                 android:layout_marginRight="20dp"
                 android:text="@string/mo_ta_sp"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tabLayoutDetails" />
@@ -107,8 +181,8 @@
         android:id="@+id/btnAddToCart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners"
         android:text="@string/add_to_cart"

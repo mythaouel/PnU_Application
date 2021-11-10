@@ -21,9 +21,9 @@ import com.example.pnu_application.R;
 
 import java.util.ArrayList;
 
-public class DogFoodFragment extends Fragment {
+public class HotProductFragment extends Fragment {
 
-    GridView gvDogFood;
+    GridView gvHotProduct;
     ImageView imvThumbDetails;
     TextView txtNameDetails, txtPriceDetails, txtDescription;
     ArrayList<Product> products;
@@ -33,18 +33,18 @@ public class DogFoodFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dog_food, container, false);
+        View view = inflater.inflate(R.layout.fragment_hot_product, container, false);
+        gvHotProduct = view.findViewById(R.id.gvHotProduct);
 
         imvThumbDetails = view.findViewById(R.id.imvThumbDetails);
         txtNameDetails = view.findViewById(R.id.txtNameDetails);
         txtPriceDetails = view.findViewById(R.id.txtPriceDetails);
         txtDescription = view.findViewById(R.id.txtDescription);
 
-        gvDogFood = view.findViewById(R.id.gvDogFood);
         productAdapter = new ProductAdapter(getContext(), R.layout.product_item_layout, initData());
-        gvDogFood.setAdapter(productAdapter);
+        gvHotProduct.setAdapter(productAdapter);
 
-        gvDogFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gvHotProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 productItemClick = (ProductItemClick) getActivity();
@@ -60,14 +60,26 @@ public class DogFoodFragment extends Fragment {
     private ArrayList<Product> initData() {
         products = new ArrayList<>();
 
+        //Hot Dog Food
         products.add(new Product(R.drawable.dog_food_01, "Hạt thức ăn khô cho chó Royal Canin Poodle Puppy", 394000, "Description"));
-        products.add(new Product(R.drawable.dog_food_02, "Hạt khô cho chó Poodle trưởng thành Royal Canin Poodle Adult", 350000, "Description"));
-        products.add(new Product(R.drawable.dog_food_03, "Thức ăn cho chó trưởng thành SMARTHEART", 290000, "Description"));
-        products.add(new Product(R.drawable.dog_food_04, "Thức ăn cho chó con vị sữa Classic", 150000, "Description"));
-        products.add(new Product(R.drawable.dog_food_05, "Thức ăn cho chó MOSHM", 294000, "Description"));
-        products.add(new Product(R.drawable.dog_food_06, "Thức ăn cho chó trưởng thành Pedigree vị bò", 355000, "Description"));
-        products.add(new Product(R.drawable.dog_food_07, "Thức ăn cho chó con hạt mềm ZENITH Puppy Chicken & Potato", 275000, "Description"));
         products.add(new Product(R.drawable.dog_food_08, "Thức ăn cho chó vị cá biển MEC Wild Taste Ocean Deep Fish", 380000, "Description"));
+        products.add(new Product(R.drawable.dog_food_04, "Thức ăn cho chó con vị sữa Classic", 150000, "Description"));
+
+
+        //Hot Cat Food
+        products.add(new Product(R.drawable.cat_food_01, "Hạt khô cho mèo con Royal Canin Kitten", 349000, "Description"));
+        products.add(new Product(R.drawable.cat_food_02, "Hạt thức ăn khô cho mèo Royal Canin Renal", 258000, "Description"));
+        products.add(new Product(R.drawable.cat_food_08, "Thức Ăn Hạt Cho Mèo Trưởng Thành Catsrang", 422000, "Description"));
+
+        //Hot Pet Toys
+        products.add(new Product(R.drawable.pet_toy_07, "Đồ chơi cao su hình xương cá", 21500, "Description"));
+        products.add(new Product(R.drawable.pet_toy_04, "Đồ chơi cao su cho Squeaky Dog", 200000, "Description"));
+        products.add(new Product(R.drawable.pet_toy_05, "Đồ chơi cho chó mèo hình cá chim", 46000, "Description"));
+
+        //Hot Pet Fashion
+        products.add(new Product(R.drawable.pet_fashion_03, "Mũ len thời trang dễ thương cho chó mèo", 119000, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_04, "Thời Trang Chó Mèo nhện Haloween", 125000, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_08, "Mũ ếch dễ thương cho thú cưng", 50000, "Kích cỡ đường kính:\n  - Size S: 26-28cm\n  - Size M: 28-34cm\nChất liệu: làm từ vải len\nBạn có thể giữ ấm đầu bé khi trời trở lạnh. Thời tiết Sài Gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào."));
 
         return products;
     }

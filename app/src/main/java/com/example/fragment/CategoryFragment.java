@@ -39,7 +39,7 @@ public class CategoryFragment extends Fragment{
         //Add Tabs into the TabLayout
         TabLayout tabLayoutProduct;
         tabLayoutProduct = view.findViewById(R.id.tabLayoutProduct);
-        tabLayoutProduct.addTab(tabLayoutProduct.newTab().setText("Tất cả"));
+        tabLayoutProduct.addTab(tabLayoutProduct.newTab().setText("Hot"));
         tabLayoutProduct.addTab(tabLayoutProduct.newTab().setText("Thức ăn cho Chó"));
         tabLayoutProduct.addTab(tabLayoutProduct.newTab().setText("Thức ăn cho Mèo"));
         tabLayoutProduct.addTab(tabLayoutProduct.newTab().setText("Đồ chơi chó mèo"));

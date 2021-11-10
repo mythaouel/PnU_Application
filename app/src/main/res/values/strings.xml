@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">PnU</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="danh_muc_san_pham">Danh mục sản phẩm</string>
     <string name="loi_thieu_info">Thông tin không được bỏ trống</string>
     <string name="thieu_OTP">Bạn chưa nhập mã xác thực</string>
@@ -15,4 +13,5 @@
     <string name="ten_sp">Mũ ếch dễ thương cho thú cưng</string>
     <string name="gia_sp">62000</string>
     <string name="add_to_cart">Thêm vào giỏ hàng</string>
+    <string name="chi_tiet_san_pham">Chi tiết sản phẩm</string>
 </resources>

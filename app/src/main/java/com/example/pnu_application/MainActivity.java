@@ -63,10 +63,12 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick 
         }
     };
 
+    //create a method to hide Bottom Navigation Bar
     public static void hideBottomNav(){
         bottomNavigationView.setVisibility(View.GONE);
     }
 
+    //create a method to show Bottom Navigation Bar
     public static void showBottomNav(){
         bottomNavigationView.setVisibility(View.VISIBLE);
     }

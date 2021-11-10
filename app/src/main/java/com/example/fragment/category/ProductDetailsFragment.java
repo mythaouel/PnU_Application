@@ -31,6 +31,7 @@ public class ProductDetailsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_details, container, false);
 
+        //reference the method that hides Bottom Navigation Bar
         MainActivity.hideBottomNav();
 
         imvThumbDetails = view.findViewById(R.id.imvThumbDetails);
@@ -48,7 +49,7 @@ public class ProductDetailsFragment extends Fragment {
         }
         return view;
     }
-
+    //reference the method that shows Bottom Navigation Bar when returning to the previous screen
     @Override
     public void onDetach() {
         super.onDetach();

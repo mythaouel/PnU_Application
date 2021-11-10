@@ -7,13 +7,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.fragment.BlogFragment;
-import com.example.fragment.NotificationBlogFragment;
 import com.example.fragment.NotificationFragment;
-import com.example.fragment.category.AllProductFragment;
-import com.example.fragment.category.CatFoodFragment;
-import com.example.fragment.category.DogFoodFragment;
-import com.example.fragment.category.PetFashionFragment;
-import com.example.fragment.category.PetToyFragment;
 
 public class ViewPager2NotificationAdapter extends FragmentStateAdapter {
     public ViewPager2NotificationAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
