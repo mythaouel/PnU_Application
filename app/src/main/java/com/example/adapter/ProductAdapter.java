@@ -62,8 +62,8 @@ public class ProductAdapter extends BaseAdapter {
         Product p = products.get(i);
         holder.imvThumb.setImageResource(p.getProductThumbnail());
         holder.txtName.setText(p.getProductName());
-        holder.txtPrice.setText(String.valueOf(p.getProductPrice()));
-
+        //holder.txtPrice.setText(String.valueOf(p.getProductPrice()));
+        holder.txtPrice.setText(String. format("%.3f", p.getProductPrice())+ " " + "đ");
         return view;
     }
 

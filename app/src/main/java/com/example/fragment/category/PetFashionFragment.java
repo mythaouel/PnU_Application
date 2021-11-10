@@ -60,14 +60,14 @@ public class PetFashionFragment extends Fragment {
     private ArrayList<Product> initData() {
         products = new ArrayList<>();
 
-        products.add(new Product(R.drawable.pet_fashion_01, "Áo thun có tay màu Hồng cho chó", 62000, "Description"));
-        products.add(new Product(R.drawable.pet_fashion_02, "Vòng cổ thú cưng hình cổ áo", 188000, "Description"));
-        products.add(new Product(R.drawable.pet_fashion_03, "Mũ len thời trang dễ thương cho chó mèo", 119000, "Description"));
-        products.add(new Product(R.drawable.pet_fashion_04, "Thời Trang Chó Mèo nhện Haloween", 125000, "Description"));
-        products.add(new Product(R.drawable.pet_fashion_05, "Áo thun liền quần cho chó mèo", 100000, "Description"));
-        products.add(new Product(R.drawable.pet_fashion_06, "Quần áo thú cưng thoải mái mùa hè", 63000, "Description"));
-        products.add(new Product(R.drawable.pet_fashion_07, "Quần áo cho chó mùa hè cho chó nhỏ", 29000, "Description"));
-        products.add(new Product(R.drawable.pet_fashion_08, "Mũ ếch dễ thương cho thú cưng", 50000, "Mũ ếch dễ thương cho thú cưng\", 50000, \"Kích cỡ đường kính:\\n  - Size S: 26-28cm\\n  - Size M: 28-34cm\\nChất liệu: làm từ vải len\\nBạn có thể giữ ấm đầu bé khi trời trở lạnh. Thời tiết Sài Gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào."));
+        products.add(new Product(R.drawable.pet_fashion_01, "Áo thun có tay màu Hồng cho chó", 62, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_02, "Vòng cổ thú cưng hình cổ áo", 188, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_03, "Mũ len thời trang dễ thương cho chó mèo", 119, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_04, "Thời Trang Chó Mèo nhện Haloween", 125, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_05, "Áo thun liền quần cho chó mèo", 100, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_06, "Quần áo thú cưng thoải mái mùa hè", 63, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_07, "Quần áo cho chó mùa hè cho chó nhỏ", 29, "Description"));
+        products.add(new Product(R.drawable.pet_fashion_08, "Mũ ếch dễ thương cho thú cưng", 50, "Mũ ếch dễ thương cho thú cưng\", 50000, \"Kích cỡ đường kính:\\n  - Size S: 26-28cm\\n  - Size M: 28-34cm\\nChất liệu: làm từ vải len\\nBạn có thể giữ ấm đầu bé khi trời trở lạnh. Thời tiết Sài Gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào."));
 
         return products;
     }
