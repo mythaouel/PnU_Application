@@ -44,7 +44,7 @@ public class ProductDetailsFragment extends Fragment {
             product = (Product) bundle.getSerializable(Constant.SELECTED_ITEM);
             imvThumbDetails.setImageResource(product.getProductThumbnail());
             txtNameDetails.setText(product.getProductName());
-            txtPriceDetails.setText(String.valueOf(product.getProductPrice()));
+            txtPriceDetails.setText(String. format("%.3f", product.getProductPrice())+ " " + "đ");
             txtDescription.setText(product.getProductDescription());
         }
         return view;
