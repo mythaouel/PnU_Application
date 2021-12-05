@@ -37,7 +37,8 @@ public class RecyclerViewOrderAdapter extends RecyclerView.Adapter<RecyclerViewO
         holder.imvOrderThumb.setImageResource(arrOrderProduct.get(position).getProductThumb());
         holder.txtOrderName.setText(arrOrderProduct.get( position ).getProductName());
         holder.txtOrderQuantity.setText( String.valueOf( arrOrderProduct.get( position ).getProductQuantity()  ));
-        holder.txtOrderPrice.setText( String.valueOf( arrOrderProduct.get( position ).getProductPrice()  ));
+        //holder.txtOrderPrice.setText( String.valueOf( arrOrderProduct.get( position ).getProductPrice()  ));
+        holder.txtOrderPrice.setText( String. format("%.3f", arrOrderProduct.get( position ).getProductPrice())+ " " + "đ");
 
     }
 

@@ -60,14 +60,14 @@ public class CatFoodFragment extends Fragment {
     private ArrayList<Product> initData() {
         products = new ArrayList<>();
 
-        products.add(new Product(R.drawable.cat_food_01, "Hạt khô cho mèo con Royal Canin Kitten", 349, "Description"));
-        products.add(new Product(R.drawable.cat_food_02, "Hạt thức ăn khô cho mèo Royal Canin Renal", 258, "Description"));
-        products.add(new Product(R.drawable.cat_food_03, "Thức ăn hạt WHISKAS cho mèo", 210, "Description"));
-        products.add(new Product(R.drawable.cat_food_04, "Thức ăn cho mèo MININO Vị cá Ngừ ", 290, "Description"));
-        products.add(new Product(R.drawable.cat_food_05, "Thức ăn cho mèo ME-O 1,2KG", 124, "Description"));
-        products.add(new Product(R.drawable.cat_food_06, "Thức ăn cho mèo Kitekat Vị Cá Thu", 110, "Description"));
-        products.add(new Product(R.drawable.cat_food_07, "Hạt Reflex Food Chicken cho mèo", 360, "Description"));
-        products.add(new Product(R.drawable.cat_food_08, "Thức Ăn Hạt Cho Mèo Trưởng Thành Catsrang", 422, "Description"));
+        products.add(new Product("sp0001",R.drawable.cat_food_01, "Hạt khô cho mèo con Royal Canin Kitten", 349, "Description"));
+        products.add(new Product("sp0002",R.drawable.cat_food_02, "Hạt thức ăn khô cho mèo Royal Canin Renal", 258, "Description"));
+        products.add(new Product("sp0003",R.drawable.cat_food_03, "Thức ăn hạt WHISKAS cho mèo", 210, "Description"));
+        products.add(new Product("sp0004",R.drawable.cat_food_04, "Thức ăn cho mèo MININO Vị cá Ngừ ", 290, "Description"));
+        products.add(new Product("sp0005",R.drawable.cat_food_05, "Thức ăn cho mèo ME-O 1,2KG", 124, "Description"));
+        products.add(new Product("sp0006",R.drawable.cat_food_06, "Thức ăn cho mèo Kitekat Vị Cá Thu", 110, "Description"));
+        products.add(new Product("sp0007",R.drawable.cat_food_07, "Hạt Reflex Food Chicken cho mèo", 360, "Description"));
+        products.add(new Product("sp0008",R.drawable.cat_food_08, "Thức Ăn Hạt Cho Mèo Trưởng Thành Catsrang", 422, "Description"));
 
         return products;
     }

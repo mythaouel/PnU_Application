@@ -23,6 +23,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+
+import utils.Constant;
+
 public class MainActivity extends AppCompatActivity implements ProductItemClick {
 
     private TabLayout tabCategory;
@@ -35,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick 
         bottomNavigationView = findViewById(R.id.navContainer);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new HomeFragment()).commit();
         bottomNavigationView.setOnItemSelectedListener(navListener);
+
+        if(Constant.arrCartProduct == null)
+            Constant.arrCartProduct = new ArrayList<>();
     }
 
     private NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {

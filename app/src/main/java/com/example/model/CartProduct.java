@@ -1,16 +1,25 @@
 package com.example.model;
 
 public class CartProduct {
+    private String productId;
     private int productThumb;
     private String productName;
     private double productPrice;
     private int productQuantity;
 
-    public CartProduct(int productThumb, String productName, double productPrice, int productQuantity) {
+    public CartProduct(String productId, int productThumb, String productName, double productPrice, int productQuantity) {
+        this.productId = productId;
         this.productThumb = productThumb;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productQuantity = productQuantity;
+    }
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
     public int getProductThumb() {

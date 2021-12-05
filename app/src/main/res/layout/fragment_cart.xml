@@ -44,36 +44,41 @@
         app:layout_constraintBottom_toTopOf="@id/khungTongCong"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/ink_04">
+        android:backgroundTint="#E4E4E4">
 
         <LinearLayout
             android:id="@+id/khungGiamGia"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="@string/ma_giam_gia"
-                android:layout_marginStart="20dp"/>
+                android:layout_weight="2.5"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:text="@string/ma_giam_gia"/>
 
             <EditText
+                android:layout_weight="4.5"
                 android:id="@+id/edtGiamGia"
-                android:layout_width="150dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
                 android:hint="Nhập mã giảm giá"
                 android:textSize="13sp" />
 
             <Button
+                android:layout_weight="3"
                 android:id="@+id/btnApMa"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="40dp"
+                android:layout_marginEnd="7dp"
                 android:backgroundTint="@color/teal_700"
                 android:text="Áp mã"
                 android:textColor="@color/white" />
@@ -88,7 +93,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/ink_03">
+        android:backgroundTint="@color/ink_04">
+<!--        Tổng cộng + nút đặt hàng-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -96,33 +102,39 @@
 <!--            Khung tổng cộng-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:weightSum="10"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="8dp">
 
                 <TextView
+                    android:layout_weight="4"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:text="TỔNG CỘNG:"
-                    android:layout_marginEnd="110dp"
-                    android:layout_marginStart="30dp"/>
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="12dp"/>
 
                 <TextView
-                    android:id="@+id/txtGiaTongCong"
+                    android:layout_weight="6"
+                    android:id="@+id/txtTongCong"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    android:text="882000đ"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="end|center_vertical"
+                    android:text="0"
                     android:textColor="@color/price_tag"/>
             </LinearLayout>
 
 <!--            Nút đặt hàng-->
             <Button
                 android:id="@+id/btnDatHang1"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:text="ĐẶT HÀNG"

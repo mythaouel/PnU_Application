@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adapter.RecyclerViewAdapter;
 import com.example.model.Blog;
+import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
 
 import java.util.ArrayList;
@@ -52,4 +53,5 @@ public class NotificationFragment extends Fragment {
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getContext(),notifications);
         rcvNotification.setAdapter(recyclerViewAdapter);
     }
+
 }
