@@ -17,7 +17,7 @@
             android:id="@+id/imvBack"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             android:src="@drawable/back_icon"
             android:layout_gravity="center_vertical">
         </ImageView>
@@ -34,7 +34,7 @@
         android:gravity="center">
     </TextView>
     <LinearLayout
-        android:id="@+id/formDangNhap"
+        android:id="@+id/formSignUp"
         android:layout_width="350dp"
         android:layout_height="400dp"
         android:background="@drawable/drop_shadow"

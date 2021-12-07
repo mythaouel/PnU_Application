@@ -53,6 +53,11 @@ public class SignUp_Screen extends AppCompatActivity{
                     edtPassword.setError(context.getResources().getString(R.string.error_password));
                     error = true;
                 }
+                if(sdt.length()!=10){
+                    edtPhone.requestFocus();
+                    edtPhone.setError(context.getResources().getString(R.string.error_phone));
+                    error = true;
+                }
 
                 //bỏ trống ô Password
                 if (TextUtils.isEmpty(password)) {
@@ -74,6 +79,7 @@ public class SignUp_Screen extends AppCompatActivity{
                 }
                 if (!error) {
                     Intent intent = new Intent(context, OTP_Screen.class);
+                    intent.putExtra("number", edtPhone.getText().toString());
                     startActivity(intent);
 //                    gửi lại thông tin qua màn hình đăng nhập
 //                    Intent intent = new Intent();
@@ -90,8 +96,10 @@ public class SignUp_Screen extends AppCompatActivity{
         edtUserName = findViewById(R.id.edtUserName);
         edtPassword = findViewById(R.id.edtPassword);
         edtPhone = findViewById(R.id.edtPhone);
+
         btnSignUp = findViewById(R.id.btnSignUp);
         btnSignIn = findViewById(R.id.btnSignIn);
+
         imvBack = findViewById(R.id.imvBack);
     }
 }

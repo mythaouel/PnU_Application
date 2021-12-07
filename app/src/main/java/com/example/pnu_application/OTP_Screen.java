@@ -10,11 +10,13 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class OTP_Screen extends AppCompatActivity {
 
     Button btnOTP,btnSignIn;
     EditText edtOTP;
+    TextView txtPhone;
     Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +25,20 @@ public class OTP_Screen extends AppCompatActivity {
         linkViews();
         context = this;
         addEvents();
+        getData();
+    }
+
+    private void getData() {
+        Intent intent = getIntent();
+        txtPhone.setText(intent.getStringExtra("number"));
     }
 
     private void linkViews() {
         btnOTP = findViewById(R.id.btnOTP);
         btnSignIn = findViewById(R.id.btnSignIn);
+
+        txtPhone = findViewById(R.id.txtPhone);
+
         edtOTP = findViewById(R.id.edtOTP);
     }
     private void addEvents() {

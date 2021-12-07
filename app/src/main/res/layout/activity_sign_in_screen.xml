@@ -21,7 +21,7 @@
             android:background="@drawable/ic_logo_slogan"/>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/formDangNhap"
+        android:id="@+id/formSignIn"
         android:layout_width="350dp"
         android:layout_height="315dp"
         android:background="@drawable/drop_shadow"
