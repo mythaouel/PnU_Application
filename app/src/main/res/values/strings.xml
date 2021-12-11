@@ -15,4 +15,6 @@
     <string name="gia_sp">62000</string>
     <string name="add_to_cart">Thêm vào giỏ hàng</string>
     <string name="chi_tiet_san_pham">Chi tiết sản phẩm</string>
+    <string name="product_is_added">Sản phẩm đã được thêm vào giỏ hàng</string>
+    <string name="view_cart">Xem giỏ hàng</string>
 </resources>

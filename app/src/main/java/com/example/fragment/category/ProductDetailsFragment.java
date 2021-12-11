@@ -26,6 +26,7 @@ import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDbCartHelper;
 import com.example.pnu_application.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.nex3z.notificationbadge.NotificationBadge;
 
 import java.io.ByteArrayOutputStream;
@@ -56,7 +57,7 @@ public class ProductDetailsFragment extends Fragment {
         txtNameDetails = view.findViewById(R.id.txtNameDetails);
         txtPriceDetails = view.findViewById(R.id.txtPriceDetails);
         txtDescription = view.findViewById(R.id.txtDescription);
-        btnAddToCart = view.findViewById( R.id.btnAddToCart );
+        btnAddToCart = view.findViewById(R.id.btnAddToCart);
         countQty = view.findViewById( R.id.countQty );
         changeCountQty();
 
@@ -68,14 +69,19 @@ public class ProductDetailsFragment extends Fragment {
             txtPriceDetails.setText(String. format("%.3f", product.getProductPrice())+ " " + "đ");
             txtDescription.setText(product.getProductDescription());
         }
-        AddEvents();
+        addEvents();
         return view;
     }
 
-    private void AddEvents() {
+    private void addEvents() {
         btnAddToCart.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //show bottom sheet dialog
+                showBottomSheetDialog();
+
+
                 try {
                     if (Constant.arrCartProduct.size() > 0){
                         boolean flag = false;
@@ -106,6 +112,12 @@ public class ProductDetailsFragment extends Fragment {
                 }
             }
         } );
+    }
+
+    private void showBottomSheetDialog() {
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity(), R.style.BottomSheetDialogTheme);
+        bottomSheetDialog.setContentView(R.layout.view_cart_dialog);
+        bottomSheetDialog.show();
     }
 
     private void changeCountQty() {
