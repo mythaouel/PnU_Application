@@ -1,6 +1,7 @@
 package com.example.fragment;
 
 import android.database.Cursor;
+import android.media.metrics.Event;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +18,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adapter.RecyclerViewCartAdapter;
+import com.example.eventbus.TotalCalculator;
 import com.example.model.CartProduct;
 import com.example.model.Product;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDbCartHelper;
 import com.example.pnu_application.R;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -35,8 +41,6 @@ public class CartFragment extends Fragment {
     TextView txtTongCong;
     ImageView imvPlus, imvMinus;
 
-    MyDbCartHelper db;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,8 +52,6 @@ public class CartFragment extends Fragment {
         imvMinus = view.findViewById( R.id.imvMinus );
         imvPlus = view.findViewById( R.id.imvPlus );
 
-        //prepareDB();
-
         configRecyclerView();
         initData();
         calTotal();
@@ -58,22 +60,6 @@ public class CartFragment extends Fragment {
         return view;
     }
 
-    private void addEvents() {
-        //event chuyển sang order
-        btnDatHang1.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentContainer,new OrderFragment());
-                transaction.commit();
-            }
-        } );
-    }
-
-
-    //    private void prepareDB() {
-//        db = new MyDbCartHelper(getActivity());
-//    }
     private void configRecyclerView() {
         LinearLayoutManager manager = new LinearLayoutManager( getContext(),LinearLayoutManager.VERTICAL,false );
         rcvCart.setLayoutManager( manager );
@@ -83,9 +69,6 @@ public class CartFragment extends Fragment {
 
     private void initData() {
         ArrayList<CartProduct> arrCartProduct = new ArrayList<>();
-//        arrCartProduct.add(new CartProduct(R.drawable.cat_food_01, "Hạt khô cho mèo con Royal Canin Kitten", 349000,1));
-//        arrCartProduct.add(new CartProduct(R.drawable.cat_food_02, "Hạt thức ăn khô cho mèo Royal Canin Renal", 258000,1));
-//        arrCartProduct.add(new CartProduct(R.drawable.dog_food_07, "Thức ăn cho chó con hạt mềm ZENITH Puppy Chicken & Potato", 275000,1));
         RecyclerViewCartAdapter adapter = new RecyclerViewCartAdapter(getContext(), Constant.arrCartProduct);
         rcvCart.setAdapter( adapter );
     }
@@ -102,15 +85,32 @@ public class CartFragment extends Fragment {
         }
     }
 
-//    private ArrayList<CartProduct> getDataFromDb() {
-//        arrCartProduct = new ArrayList<>();
-//        Cursor cursor = db.getData( "SELECT*FROM " + MyDbCartHelper.TBL_NAME );
-//        arrCartProduct.clear();
-//        while (cursor.moveToNext()){
-//            arrCartProduct.add( new CartProduct( cursor.getInt( 0 ), cursor.getInt( 1 ), cursor.getString( 2 ), cursor.getDouble( 3 ), cursor.getInt( 4 )));
-//        }
-//        cursor.close();
-//        return arrCartProduct;
-//    }
+    private void addEvents() {
+        //event chuyển sang order
+        btnDatHang1.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragmentContainer,new OrderFragment());
+                transaction.commit();
+            }
+        } );
+    }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register( this );
+    }
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister( this );
+        super.onStop();
+    }
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void TotalCalculator(TotalCalculator event){
+        if (event != null){
+            calTotal();
+        }
+    }
 }

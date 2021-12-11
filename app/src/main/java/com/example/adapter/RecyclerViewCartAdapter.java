@@ -12,10 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eventbus.TotalCalculator;
 import com.example.model.CartProduct;
 import com.example.model.ImageButtonClick;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -30,7 +33,6 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
         this.arrCartProduct = arrCartProduct;
     }
 
-
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,12 +46,13 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
         holder.imvCartThumb.setImageResource(arrCartProduct.get(position).getProductThumb());
         holder.txtCartName.setText(arrCartProduct.get( position ).getProductName());
         holder.txtCartQuantity.setText( String.valueOf(arrCartProduct.get( position ).getProductQuantity()));
-        //holder.txtCartPrice.setText( String.valueOf( arrCartProduct.get( position ).getProductPrice()  ));
         holder.txtCartPrice.setText( String. format("%.3f", arrCartProduct.get( position ).getProductPrice())+ " " + "đ");
 
+        //Add Events for Buttons
         holder.setImageButtonClick( new ImageButtonClick() {
             @Override
             public void onImageClick(View view, int position, int flag) {
+                //flag: 1 || 2 -> Event for decrement and increment button
                 if (flag != 3){
                     if (flag == 1){
                         if(arrCartProduct.get( position ).getProductQuantity() > 1){
@@ -62,18 +65,13 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
                             arrCartProduct.get( position ).setProductQuantity( newQty );
                         }
                     }
+                    //change quantity in textview
                     holder.txtCartQuantity.setText(String.valueOf(arrCartProduct.get( position ).getProductQuantity()));
+                    //update total
+                    EventBus.getDefault().postSticky( new TotalCalculator() );
                 }
 
-//                if (arrCartProduct != null){
-//                    double TongTien = 0;
-//                    for ( int i = 0; i< arrCartProduct.size();i++)
-//                        TongTien+= arrCartProduct.get( i ).getProductPrice() * arrCartProduct.get( i ).getProductQuantity();
-//                    holder.txtTongCong.setText(String. format("%.3f", TongTien)+ " " + "đ");
-//                }
-//                else {
-//                    holder.txtTongCong.setText("0đ");
-//                }
+                //flag = 3 -> Event delete item from Cart
                 else if(flag == 3){
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                     builder.setTitle( "Xóa?" );
@@ -83,6 +81,7 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
                         public void onClick(DialogInterface dialogInterface, int i) {
                             arrCartProduct.remove( position );
                             notifyDataSetChanged();
+                            EventBus.getDefault().postSticky( new TotalCalculator() );
                         }
                     } );
                     builder.setNegativeButton( "Hủy", new DialogInterface.OnClickListener() {

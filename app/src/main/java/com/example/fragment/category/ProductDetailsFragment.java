@@ -40,7 +40,6 @@ public class ProductDetailsFragment extends Fragment {
     ImageView imvThumbDetails;
     TextView txtNameDetails, txtPriceDetails, txtDescription;
 
-    MyDbCartHelper db;
     Button btnAddToCart;
     NotificationBadge countQty;
     FrameLayout btnGioHang;
@@ -118,35 +117,6 @@ public class ProductDetailsFragment extends Fragment {
             countQty.setText( String.valueOf(countSl));
         }
     }
-
-//    private void AddEvents() {
-//        btnAddToCart.setOnClickListener( new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                int productImage = imvThumbDetails.getId();
-//                String productName = txtNameDetails.getText().toString();
-//                double productPrice = Double.parseDouble( txtPriceDetails.getText().toString().substring( 0,txtPriceDetails.length() - 2 ).replace( ",","." ) );
-//                int productQty = 1;
-//
-//
-//
-//                boolean flag = db.insertData( productImage, productName, productPrice, productQty);
-//                if (flag){
-//                    Toast.makeText( getActivity(), "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT ).show();
-//                }else{
-//                    Toast.makeText( getActivity(), "Không thêm được", Toast.LENGTH_SHORT ).show();
-//                }
-//            }
-//
-//            private byte[] convertPhoto() {
-//                    BitmapDrawable drawable = (BitmapDrawable) imvThumbDetails.getDrawable();
-//                    Bitmap bitmap = drawable.getBitmap();
-//                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-//                    bitmap.compress( Bitmap.CompressFormat.PNG, 100, outputStream );
-//                    return outputStream.toByteArray();
-//                }
-//        } );
-//    }
 
     //reference the method that shows Bottom Navigation Bar when returning to the previous screen
     @Override
