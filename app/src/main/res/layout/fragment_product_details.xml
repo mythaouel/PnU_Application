@@ -45,7 +45,7 @@
                     android:text="@string/chi_tiet_san_pham"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imvBack"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -58,12 +58,14 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginEnd="10dp"
                     android:layout_marginTop="10dp">
+
                     <com.nex3z.notificationbadge.NotificationBadge
                         android:id="@+id/countQty"
                         android:layout_marginEnd="5dp"
                         android:layout_gravity="right"
                         android:layout_width="28dp"
                         android:layout_height="28dp"/>
+
                     <ImageView
                         android:id="@+id/imvCart"
                         android:layout_marginTop="10dp"
@@ -71,6 +73,7 @@
                         android:layout_height="32dp"
                         android:src="@drawable/cart"
                         app:tint="@color/white" />
+
                 </FrameLayout>
 
                 <ImageView
