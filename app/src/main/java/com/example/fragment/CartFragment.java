@@ -97,6 +97,8 @@ public class CartFragment extends Fragment {
         } );
     }
 
+
+
     @Override
     public void onStart() {
         super.onStart();

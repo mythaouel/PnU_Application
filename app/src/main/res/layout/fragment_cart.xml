@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.fragment.CategoryFragment"
-    android:background="@color/default_color">
+    android:background="@color/default_color"
+    android:id="@+id/layoutCartContainer">
 
     <com.google.android.material.appbar.AppBarLayout
         app:layout_constraintTop_toTopOf="parent"

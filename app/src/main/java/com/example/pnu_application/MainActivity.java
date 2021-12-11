@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -29,8 +30,7 @@ import utils.Constant;
 
 public class MainActivity extends AppCompatActivity implements ProductItemClick {
 
-    private TabLayout tabCategory;
-    private static BottomNavigationView bottomNavigationView;
+    public static BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick 
             Constant.arrCartProduct = new ArrayList<>();
     }
 
-    private NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {
+    public NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment selectedFragment=null;
+            Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.itHome:
                     selectedFragment = new HomeFragment();
@@ -82,9 +82,6 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick 
 
     @Override
     public void click(Product p) {
-
-        //FragmentManager fragmentManager1 = getSupportFragmentManager();
-        //FragmentTransaction fragmentTransaction = fragmentManager1.beginTransaction();
 
         ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

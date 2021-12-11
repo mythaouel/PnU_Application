@@ -1,5 +1,8 @@
 package com.example.fragment.category;
 
+import static com.example.pnu_application.MainActivity.bottomNavigationView;
+
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -18,16 +21,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.adapter.ProductAdapter;
 import com.example.fragment.CartFragment;
 import com.example.fragment.OrderFragment;
 import com.example.model.CartProduct;
 import com.example.model.Product;
+import com.example.model.ProductItemClick;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDbCartHelper;
 import com.example.pnu_application.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.nex3z.notificationbadge.NotificationBadge;
+
+import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -44,6 +51,8 @@ public class ProductDetailsFragment extends Fragment {
     Button btnAddToCart;
     NotificationBadge countQty;
     FrameLayout btnGioHang;
+
+
 
     @Nullable
     @Override
@@ -81,7 +90,6 @@ public class ProductDetailsFragment extends Fragment {
                 //show bottom sheet dialog
                 showBottomSheetDialog();
 
-
                 try {
                     if (Constant.arrCartProduct.size() > 0){
                         boolean flag = false;
@@ -117,6 +125,48 @@ public class ProductDetailsFragment extends Fragment {
     private void showBottomSheetDialog() {
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity(), R.style.BottomSheetDialogTheme);
         bottomSheetDialog.setContentView(R.layout.view_cart_dialog);
+        ImageView imvThumb = bottomSheetDialog.findViewById(R.id.imvProductThumb);
+        TextView txtName = bottomSheetDialog.findViewById(R.id.txtProductName);
+        TextView txtPrice = bottomSheetDialog.findViewById(R.id.txtProductPrice);
+
+        Product p = null;
+        Bundle bundleDialog = getArguments();
+        if (bundleDialog != null){
+            p = (Product) bundleDialog.getSerializable(Constant.SELECTED_ITEM);
+            imvThumb.setImageResource(p.getProductThumbnail());
+            txtName.setText(p.getProductName());
+            txtPrice.setText(String. format("%.3f", p.getProductPrice())+ " " + "đ");
+        }
+
+        Button btnViewCart;
+        btnViewCart = bottomSheetDialog.findViewById(R.id.btnViewCart);
+        btnViewCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Replace CartFragment when click button
+//                CartFragment cartFragment = new CartFragment();
+//                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+//                fragmentTransaction.replace(R.id.layoutContainer, cartFragment);
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
+                //Show BottomNavigationView
+
+                //Set item Cart in BottomNavigationView as selected
+
+                //Close Dialog
+//                bottomSheetDialog.dismiss();
+            }
+        });
+
+        //Close Dialog
+        ImageView imvClose = bottomSheetDialog.findViewById(R.id.imvClose);
+        imvClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetDialog.dismiss();
+            }
+        });
+
         bottomSheetDialog.show();
     }
 
