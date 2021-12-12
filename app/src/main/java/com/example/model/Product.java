@@ -13,7 +13,7 @@ public class Product implements Serializable {
         this.productId = productId;
         this.productThumbnail = productThumbnail;
         this.productName = productName;
-        this.productPrice = productPrice;
+        this.productPrice = productPrice*1000;
         this.productDescription = productDescription;
     }
 

@@ -62,7 +62,8 @@ public class ProductDetailsFragment extends Fragment {
             product = (Product) bundle.getSerializable(Constant.SELECTED_ITEM);
             imvThumbDetails.setImageResource(product.getProductThumbnail());
             txtNameDetails.setText(product.getProductName());
-            txtPriceDetails.setText(String. format("%.3f", product.getProductPrice())+ " " + "đ");
+            //txtPriceDetails.setText(String. format("%.3f", product.getProductPrice())+ " " + "đ");
+            txtPriceDetails.setText(Constant.decimalFormat.format( product.getProductPrice() ));
             txtDescription.setText(product.getProductDescription());
         }
         addEvents();
@@ -138,7 +139,8 @@ public class ProductDetailsFragment extends Fragment {
             p = (Product) bundleDialog.getSerializable(Constant.SELECTED_ITEM);
             imvThumb.setImageResource(p.getProductThumbnail());
             txtName.setText(p.getProductName());
-            txtPrice.setText(String. format("%.3f", p.getProductPrice())+ " " + "đ");
+            //txtPrice.setText(String. format("%.3f", p.getProductPrice())+ " " + "đ");
+            txtPrice.setText(Constant.decimalFormat.format(p.getProductPrice()));
         }
 
         Button btnViewCart;

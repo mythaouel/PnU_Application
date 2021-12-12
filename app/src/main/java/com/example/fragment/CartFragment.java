@@ -96,7 +96,9 @@ public class CartFragment extends Fragment {
             double TongTien = 0;
             for (int i = 0; i<Constant.arrCartProduct.size();i++)
                 TongTien+= Constant.arrCartProduct.get( i ).getProductPrice() * Constant.arrCartProduct.get( i ).getProductQuantity();
-            txtTongCong.setText(String. format("%.3f", TongTien)+ " " + "đ");
+            //txtTongCong.setText(String. format("%.3f", TongTien)+ " " + "đ");
+            txtTongCong.setText(Constant.decimalFormat.format( TongTien ));
+
         }
         else {
             txtTongCong.setText("0đ");
@@ -114,8 +116,6 @@ public class CartFragment extends Fragment {
             }
         } );
     }
-
-
 
     @Override
     public void onStart() {

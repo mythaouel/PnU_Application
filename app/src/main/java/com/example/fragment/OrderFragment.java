@@ -47,8 +47,10 @@ public class OrderFragment extends Fragment {
         txtPhiShip1 = view.findViewById( R.id.txtPhiShip1 );
         txtPhiShip2 = view.findViewById( R.id.txtPhiShip2 );
 
-        txtPhiShip1.setText( String. format( "%.3f", Constant.PHI_SHIP ) + " " + "đ" );
-        txtPhiShip2.setText( String. format( "%.3f", Constant.PHI_SHIP ) + " " + "đ" );
+        //txtPhiShip1.setText( String. format( "%.3f", Constant.PHI_SHIP ) + " " + "đ" );
+        txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
+        //txtPhiShip2.setText( String. format( "%.3f", Constant.PHI_SHIP ) + " " + "đ" );
+        txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
 
         MainActivity.hideBottomNav();
 
@@ -63,9 +65,12 @@ public class OrderFragment extends Fragment {
             double TongTien = 0;
             for (int i = 0; i < Constant.arrCartProduct.size(); i++)
                 TongTien += Constant.arrCartProduct.get( i ).getProductPrice() * Constant.arrCartProduct.get( i ).getProductQuantity();
-            txtTienTamTinh.setText( String. format( "%.3f", TongTien ) + " " + "đ" );
-            txtTongTien.setText( String. format( "%.3f", TongTien + Constant.PHI_SHIP ) + " " + "đ" );
-            txtGiaTongCong.setText( String. format( "%.3f", TongTien + Constant.PHI_SHIP ) + " " + "đ" );
+            //txtTienTamTinh.setText( String. format( "%.3f", TongTien ) + " " + "đ" );
+            txtTienTamTinh.setText( Constant.decimalFormat.format( TongTien ));
+            //txtTongTien.setText( String. format( "%.3f", TongTien + Constant.PHI_SHIP ) + " " + "đ" );
+            txtTongTien.setText( Constant.decimalFormat.format( TongTien + Constant.PHI_SHIP ));
+            //txtGiaTongCong.setText( String. format( "%.3f", TongTien + Constant.PHI_SHIP ) + " " + "đ" );
+            txtGiaTongCong.setText( Constant.decimalFormat.format( TongTien + Constant.PHI_SHIP ));
     }
 
     private void configRecyclerView() {

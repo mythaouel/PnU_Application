@@ -15,6 +15,8 @@ import com.example.pnu_application.R;
 
 import java.util.ArrayList;
 
+import utils.Constant;
+
 public class RecyclerViewOrderAdapter extends RecyclerView.Adapter<RecyclerViewOrderAdapter.MyViewHolder>{
     Context context;
     ArrayList<CartProduct> arrOrderProduct;
@@ -38,7 +40,8 @@ public class RecyclerViewOrderAdapter extends RecyclerView.Adapter<RecyclerViewO
         holder.txtOrderName.setText(arrOrderProduct.get( position ).getProductName());
         holder.txtOrderQuantity.setText( String.valueOf( arrOrderProduct.get( position ).getProductQuantity()  ));
         //holder.txtOrderPrice.setText( String.valueOf( arrOrderProduct.get( position ).getProductPrice()  ));
-        holder.txtOrderPrice.setText( String. format("%.3f", arrOrderProduct.get( position ).getProductPrice())+ " " + "đ");
+        //holder.txtOrderPrice.setText( String. format("%.3f", arrOrderProduct.get( position ).getProductPrice())+ " " + "đ");
+        holder.txtOrderPrice.setText( Constant.decimalFormat.format( arrOrderProduct.get( position ).getProductPrice() ));
 
     }
 

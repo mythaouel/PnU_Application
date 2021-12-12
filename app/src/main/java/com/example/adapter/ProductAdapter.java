@@ -13,7 +13,10 @@ import com.example.pnu_application.R;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+import utils.Constant;
 
 public class ProductAdapter extends BaseAdapter {
 
@@ -63,7 +66,8 @@ public class ProductAdapter extends BaseAdapter {
         holder.imvThumb.setImageResource(p.getProductThumbnail());
         holder.txtName.setText(p.getProductName());
         //holder.txtPrice.setText(String.valueOf(p.getProductPrice()));
-        holder.txtPrice.setText(String. format("%.3f", p.getProductPrice())+ " " + "đ");
+        //holder.txtPrice.setText(String. format("%.3f", p.getProductPrice())+ " " + "đ");
+        holder.txtPrice.setText( Constant.decimalFormat.format(p.getProductPrice()));
         return view;
     }
 
