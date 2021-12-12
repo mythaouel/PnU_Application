@@ -51,6 +51,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <FrameLayout
+                    android:id="@+id/btnCart"
                     android:layout_width="55dp"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_constraintBottom_toBottomOf="parent"

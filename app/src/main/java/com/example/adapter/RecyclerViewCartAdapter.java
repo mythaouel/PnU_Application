@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.eventbus.TotalCalculator;
+import com.example.fragment.CartFragment;
 import com.example.model.CartProduct;
 import com.example.model.ImageButtonClick;
 import com.example.pnu_application.MainActivity;
@@ -82,6 +83,11 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
                             arrCartProduct.remove( position );
                             notifyDataSetChanged();
                             EventBus.getDefault().postSticky( new TotalCalculator() );
+                            //Kiểm tra số lượng giỏ hàng, nếu không còn sản phẩm sẽ hiện màn hình giỏ hàng trống
+                            if(Constant.arrCartProduct.size() == 0){
+                                CartFragment.cartView.setVisibility( CartFragment.view.GONE );
+                                CartFragment.emptyCartView.setVisibility( CartFragment.view.VISIBLE );
+                            }
                         }
                     } );
                     builder.setNegativeButton( "Hủy", new DialogInterface.OnClickListener() {

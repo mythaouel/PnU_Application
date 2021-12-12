@@ -7,4 +7,5 @@ import java.util.ArrayList;
 public class Constant {
     public static final String SELECTED_ITEM = "SelectedProduct";
     public static ArrayList<CartProduct> arrCartProduct;
+    public static double PHI_SHIP = 35;
 }

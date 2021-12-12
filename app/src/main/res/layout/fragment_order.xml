@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/default_color">
+    android:background="@color/ink_04">
 
     <com.google.android.material.appbar.AppBarLayout
         app:layout_constraintTop_toTopOf="parent"
@@ -167,10 +167,11 @@
                             android:textStyle="bold"
                             android:textSize="17sp" />
                         <TextView
+                            android:id="@+id/txtPhiShip1"
                             android:layout_weight="4.5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="40000đ"
+                            android:text="40,000 đ"
                             android:textStyle="bold"
                             android:textSize="17sp"/>
                     </LinearLayout>
@@ -239,7 +240,7 @@
                             android:id="@+id/txtTienTamTinh"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="882000đ"
+                            android:text="882000 đ"
                             android:textStyle="bold"
                             android:textSize="15sp"
                             android:textColor="@color/price_tag"/>
@@ -259,10 +260,11 @@
                             android:text="Phí giao hàng:"
                             android:textStyle="bold"/>
                         <TextView
+                            android:id="@+id/txtPhiShip2"
                             android:layout_weight="4.5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="40000đ"
+                            android:text="40,000 đ"
                             android:textStyle="bold"
                             android:textSize="15sp"
                             android:textColor="@color/price_tag"/>
@@ -287,7 +289,7 @@
                             android:id="@+id/txtTongTien"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="922000đ"
+                            android:text="922000 đ"
                             android:textStyle="bold"
                             android:textSize="16sp"
                             android:textColor="@color/price_tag"/>
@@ -312,7 +314,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/white">
             <!--Khung tổng cộng-->
             <LinearLayout
                 android:layout_width="match_parent"

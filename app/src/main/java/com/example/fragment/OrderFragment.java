@@ -30,30 +30,42 @@ public class OrderFragment extends Fragment {
 
     Button btnDatHang2;
     RecyclerView rcvOrder;
-    ArrayList<CartProduct> arrOrderProduct;
-    TextView txtGiaTongCong;
+    TextView txtGiaTongCong, txtTienTamTinh, txtTongTien, txtPhiShip1, txtPhiShip2;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate( R.layout.fragment_order,container,false);
+
         btnDatHang2 = view.findViewById( R.id.btnDatHang2 );
+
         rcvOrder = view.findViewById( R.id.rcvOrder );
+
         txtGiaTongCong = view.findViewById( R.id.txtGiaTongCong );
+        txtTongTien = view.findViewById( R.id.txtTongTien );
+        txtTienTamTinh = view.findViewById( R.id.txtTienTamTinh );
+        txtPhiShip1 = view.findViewById( R.id.txtPhiShip1 );
+        txtPhiShip2 = view.findViewById( R.id.txtPhiShip2 );
+
+        txtPhiShip1.setText( String. format( "%.3f", Constant.PHI_SHIP ) + " " + "đ" );
+        txtPhiShip2.setText( String. format( "%.3f", Constant.PHI_SHIP ) + " " + "đ" );
+
         MainActivity.hideBottomNav();
+
         configRecyclerView();
         initData();
-        //calTotal();
-
-        btnDatHang2.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentContainer,new SuccessFragment());
-                transaction.commit();
-            }
-        } );
+        addEvents();
+        calTotal();
         return view;
+    }
+
+    private void calTotal() {
+            double TongTien = 0;
+            for (int i = 0; i < Constant.arrCartProduct.size(); i++)
+                TongTien += Constant.arrCartProduct.get( i ).getProductPrice() * Constant.arrCartProduct.get( i ).getProductQuantity();
+            txtTienTamTinh.setText( String. format( "%.3f", TongTien ) + " " + "đ" );
+            txtTongTien.setText( String. format( "%.3f", TongTien + Constant.PHI_SHIP ) + " " + "đ" );
+            txtGiaTongCong.setText( String. format( "%.3f", TongTien + Constant.PHI_SHIP ) + " " + "đ" );
     }
 
     private void configRecyclerView() {
@@ -66,12 +78,20 @@ public class OrderFragment extends Fragment {
     }
 
     private void initData() {
-        ArrayList<CartProduct> arrOrderProduct = new ArrayList<>();
-//        arrOrderProduct.add(new CartProduct(R.drawable.cat_food_01, "Hạt khô cho mèo con Royal Canin Kitten", 349000,1));
-//        arrOrderProduct.add(new CartProduct(R.drawable.cat_food_02, "Hạt thức ăn khô cho mèo Royal Canin Renal", 258000,1));
-//        arrOrderProduct.add(new CartProduct(R.drawable.dog_food_07, "Thức ăn cho chó con hạt mềm ZENITH Puppy Chicken & Potato", 275000,1));
         RecyclerViewOrderAdapter adapter = new RecyclerViewOrderAdapter( getContext(), Constant.arrCartProduct);
         rcvOrder.setAdapter( adapter );
+    }
+
+    private void addEvents() {
+        btnDatHang2.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragmentContainer,new SuccessFragment());
+                transaction.commit();
+                Constant.arrCartProduct.clear();
+            }
+        } );
     }
 
     @Override
