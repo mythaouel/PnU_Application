@@ -2,6 +2,7 @@ package com.example.fragment.category;
 
 import static com.example.pnu_application.MainActivity.bottomNavigationView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -32,13 +33,12 @@ import utils.Constant;
 public class ProductDetailsFragment extends Fragment {
 
     Product product = null;
-    ImageView imvThumbDetails;
+    ImageView imvThumbDetails, imvBack;
     TextView txtNameDetails, txtPriceDetails, txtDescription;
 
     Button btnAddToCart;
     NotificationBadge countQty;
     FrameLayout btnCart;
-
 
     @Nullable
     @Override
@@ -48,6 +48,7 @@ public class ProductDetailsFragment extends Fragment {
         MainActivity.hideBottomNav();
 
         imvThumbDetails = view.findViewById(R.id.imvThumbDetails);
+        imvBack = view.findViewById(R.id.imvBack);
         txtNameDetails = view.findViewById(R.id.txtNameDetails);
         txtPriceDetails = view.findViewById(R.id.txtPriceDetails);
         txtDescription = view.findViewById(R.id.txtDescription);
@@ -103,8 +104,10 @@ public class ProductDetailsFragment extends Fragment {
                                 product.getProductPrice(), 1);
                         Constant.arrCartProduct.add( cartProduct );
                     }
+
                     //show bottom sheet dialog
                     showBottomSheetDialog();
+
                     changeCountQty();
                 }catch (Exception ex){
                     Toast.makeText(getContext(), "Xảy ra lỗi", Toast.LENGTH_SHORT ).show();
@@ -124,6 +127,13 @@ public class ProductDetailsFragment extends Fragment {
 //                startActivity( intent );
             }
         } );
+
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().onBackPressed();
+            }
+        });
     }
 
     private void showBottomSheetDialog() {
@@ -160,6 +170,11 @@ public class ProductDetailsFragment extends Fragment {
 
                 //Close Dialog
 //                bottomSheetDialog.dismiss();
+                
+                openCartFragment();
+
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -173,6 +188,9 @@ public class ProductDetailsFragment extends Fragment {
         });
 
         bottomSheetDialog.show();
+    }
+
+    private void openCartFragment() {
     }
 
     private void changeCountQty() {
