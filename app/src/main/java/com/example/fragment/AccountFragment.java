@@ -1,8 +1,6 @@
 package com.example.fragment;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -15,12 +13,8 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -29,10 +23,7 @@ import com.example.adapter.AccountLineAdapter;
 
 import com.example.model.LineItem;
 
-import com.example.pnu_application.Loading_Screen;
-import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
-import com.example.pnu_application.SignIn_Screen;
 
 import java.util.ArrayList;
 
@@ -57,6 +48,7 @@ public class AccountFragment extends Fragment {
         lvAccount1   = view.findViewById(R.id.lvAccount1);
         lvAccount2   = view.findViewById(R.id.lvAccount2);
         lvAccount3   = view.findViewById(R.id.lvAccount3);
+
 
         btnUpdateInf = view.findViewById(R.id.btnUpdateInf);
     }
@@ -104,21 +96,19 @@ public class AccountFragment extends Fragment {
                     transaction.replace(R.id.fragment_account, fragment);
                     transaction.commit();
                 }
+
             }
         });
-
-        //Cai dat
         lvAccount3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // LogOut Event
-                if(i==1){
+                if(i==0){
                     openLogOutDialog();
-                }else if(i==0){
-                    Toast.makeText(getActivity(), "Đã bật thông báo", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
         //Update Information Event
         btnUpdateInf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,21 +162,19 @@ public class AccountFragment extends Fragment {
         lineItems3 = new ArrayList<>();
         //Add Array
         lineItems1.add(new LineItem(R.drawable.act_ic_key,"Đổi mật khẩu",R.drawable.img));
-        lineItems1.add(new LineItem(R.drawable.act_ic_ord,"Lịch sử mua hàng",R.drawable.img));
+        lineItems1.add(new LineItem(R.drawable.act_ic_ord,"Lịch sử đơn hàng", R.drawable.img ));
 
         lineItems2.add(new LineItem(R.drawable.act_ic_gt,"Giới thiệu",R.drawable.img));
         lineItems2.add(new LineItem(R.drawable.act_ic_cs,"Chính sách",R.drawable.img));
-
-        lineItems3.add(new LineItem(R.drawable.act_ic_bell,"Thông báo",R.drawable.img));
         lineItems3.add(new LineItem(R.drawable.act_ic_logout,"Đăng xuất",R.drawable.img));
         //Attach Adapter
-        adapter1=new AccountLineAdapter(getContext(),R.layout.account_recycler_item,lineItems1);
+        adapter1=new AccountLineAdapter(getContext(),R.layout.account_list_item,lineItems1);
         lvAccount1.setAdapter(adapter1);
 
-        adapter2=new AccountLineAdapter(getContext(),R.layout.account_recycler_item,lineItems2);
+        adapter2=new AccountLineAdapter(getContext(),R.layout.account_list_item,lineItems2);
         lvAccount2.setAdapter(adapter2);
 
-        adapter3=new AccountLineAdapter(getContext(),R.layout.account_recycler_item,lineItems3);
+        adapter3=new AccountLineAdapter(getContext(),R.layout.account_list_item,lineItems3);
         lvAccount3.setAdapter(adapter3);
 
     }

@@ -1,26 +1,21 @@
 package com.example.fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.adapter.AccountLineAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.adapter.OrderStatusAdapter;
-import com.example.fragment.OrderDetailFragment;
-import com.example.model.LineItem;
 import com.example.model.OrderStatus;
 import com.example.pnu_application.R;
 
 import java.util.ArrayList;
-
 
 public class OrderHistory2 extends Fragment {
 
