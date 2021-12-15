@@ -13,7 +13,6 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -23,6 +22,7 @@ import com.example.adapter.AccountLineAdapter;
 
 import com.example.model.LineItem;
 
+import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
 
 import java.util.ArrayList;
@@ -33,6 +33,7 @@ public class AccountFragment extends Fragment {
     Button btnUpdateInf;
     AccountLineAdapter adapter1,adapter2,adapter3;
     ArrayList<LineItem> lineItems1,lineItems2,lineItems3;
+    MyDatabaseHelper db;
     View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,6 +43,8 @@ public class AccountFragment extends Fragment {
         linkViews();
         initData();
         addEvents();
+        db= new MyDatabaseHelper(getContext());
+        db.createSomeTestRows();
         return view;
     }
     private void linkViews() {

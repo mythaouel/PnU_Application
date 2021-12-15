@@ -21,12 +21,12 @@
             <ImageView
                 android:src="@drawable/act_bg"
                 android:scaleType="fitXY"
-                android:paddingBottom="25sp"
+                android:layout_marginBottom="35dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <LinearLayout
-                android:paddingTop="10dp"
-                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingLeft="15dp"
                 android:weightSum="10"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -36,13 +36,13 @@
                     android:paddingLeft="10dp"
                     android:src="@drawable/user_avt_default"
                     android:layout_width="0dp"
-                    android:layout_weight="5.5"
-                    android:layout_height="110dp"/>
+                    android:layout_weight="6"
+                    android:layout_height="wrap_content"/>
                 <LinearLayout
-                    android:layout_weight="4.5"
+                    android:layout_weight="4"
                     android:orientation="vertical"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="15dp"
                     android:paddingLeft="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
