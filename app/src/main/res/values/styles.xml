@@ -7,5 +7,14 @@
     <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/view_cart_custom_dialog</item>
     </style>
+    <style name="modifiedEditText" parent="parent">
+        <item name="android:textSize">@dimen/newsMoreTextSize</item>
+        <item name="android:backgroundTint">@color/primary_yellow</item>
+    </style>
+
+    <style name="parent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 
 </resources>

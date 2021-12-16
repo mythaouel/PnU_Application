@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.model.LineItem;
+import com.example.model.AccountLineItem;
 import com.example.pnu_application.R;
 
 import java.util.List;
@@ -16,9 +16,9 @@ import java.util.List;
 public class AccountLineAdapter extends BaseAdapter {
     private Context context;
     private int      layout;
-    private List<LineItem> lineLists;
+    private List<AccountLineItem> lineLists;
 
-    public AccountLineAdapter(Context context, int layout, List<LineItem> lineLists) {
+    public AccountLineAdapter(Context context, int layout, List<AccountLineItem> lineLists) {
         this.context = context;
         this.layout = layout;
         this.lineLists = lineLists;
@@ -54,7 +54,7 @@ public class AccountLineAdapter extends BaseAdapter {
             holder=(ViewHolder) view.getTag();
         }
         //gan gia tri
-         LineItem lineItems =lineLists.get(i);
+        AccountLineItem lineItems =lineLists.get(i);
         holder.imvIcon1.setImageResource(lineItems.getIcon1());
         holder.imvIcon2.setImageResource(lineItems.getIcon2());
         holder.txtNameLine.setText(lineItems.getNameLine());

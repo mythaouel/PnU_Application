@@ -20,8 +20,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.adapter.AccountLineAdapter;
 
-import com.example.model.LineItem;
+import com.example.model.AccountLineItem;
 
+
+import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
 
@@ -31,9 +33,12 @@ import java.util.ArrayList;
 public class AccountFragment extends Fragment {
     ListView lvAccount1,lvAccount2,lvAccount3;
     Button btnUpdateInf;
+
     AccountLineAdapter adapter1,adapter2,adapter3;
-    ArrayList<LineItem> lineItems1,lineItems2,lineItems3;
+    ArrayList<AccountLineItem> lineItems1,lineItems2,lineItems3;
+
     public static MyDatabaseHelper db;
+
     View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,7 +48,8 @@ public class AccountFragment extends Fragment {
         linkViews();
         initData();
         addEvents();
-        db= new MyDatabaseHelper(getContext());
+
+        db=new MyDatabaseHelper(getContext());
         db.createSomeTestRows();
         return view;
     }
@@ -52,8 +58,8 @@ public class AccountFragment extends Fragment {
         lvAccount2   = view.findViewById(R.id.lvAccount2);
         lvAccount3   = view.findViewById(R.id.lvAccount3);
 
-
         btnUpdateInf = view.findViewById(R.id.btnUpdateInf);
+
     }
     private void addEvents() {
         //Tai khoan
@@ -117,9 +123,8 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 UpdateInfoFragment fragment= new UpdateInfoFragment();
-                FragmentManager fragmentManager=getFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.fragment_account, fragment);
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.add(R.id.fragment_account, fragment).addToBackStack("tag") ;
                 transaction.commit();
             }
         });
@@ -160,16 +165,16 @@ public class AccountFragment extends Fragment {
 
     private void initData() {
         //Init Array
-        lineItems1 = new ArrayList<>();
-        lineItems2 = new ArrayList<>();
-        lineItems3 = new ArrayList<>();
+        lineItems1 = new ArrayList<AccountLineItem>();
+        lineItems2 = new ArrayList<AccountLineItem>();
+        lineItems3 = new ArrayList<AccountLineItem>();
         //Add Array
-        lineItems1.add(new LineItem(R.drawable.act_ic_key,"Đổi mật khẩu",R.drawable.img));
-        lineItems1.add(new LineItem(R.drawable.act_ic_ord,"Lịch sử đơn hàng", R.drawable.img ));
+        lineItems1.add(new AccountLineItem(R.drawable.act_ic_key,"Đổi mật khẩu",R.drawable.img));
+        lineItems1.add(new AccountLineItem(R.drawable.act_ic_ord,"Lịch sử đơn hàng", R.drawable.img ));
 
-        lineItems2.add(new LineItem(R.drawable.act_ic_gt,"Giới thiệu",R.drawable.img));
-        lineItems2.add(new LineItem(R.drawable.act_ic_cs,"Chính sách",R.drawable.img));
-        lineItems3.add(new LineItem(R.drawable.act_ic_logout,"Đăng xuất",R.drawable.img));
+        lineItems2.add(new AccountLineItem(R.drawable.act_ic_gt,"Giới thiệu",R.drawable.img));
+        lineItems2.add(new AccountLineItem(R.drawable.act_ic_cs,"Chính sách",R.drawable.img));
+        lineItems3.add(new AccountLineItem(R.drawable.act_ic_logout,"Đăng xuất",R.drawable.img));
         //Attach Adapter
         adapter1=new AccountLineAdapter(getContext(),R.layout.account_list_item,lineItems1);
         lvAccount1.setAdapter(adapter1);

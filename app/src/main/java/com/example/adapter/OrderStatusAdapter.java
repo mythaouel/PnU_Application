@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.model.LineItem;
 import com.example.model.OrderStatus;
 import com.example.pnu_application.R;
 

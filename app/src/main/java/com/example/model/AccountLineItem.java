@@ -1,6 +1,6 @@
 package com.example.model;
 
-public class LineItem {
+public class AccountLineItem {
     private int     icon1;
     private String  nameLine;
     private int     icon2;
@@ -29,10 +29,9 @@ public class LineItem {
         this.icon2 = icon2;
     }
 
-    public LineItem(int icon1, String nameLine, int icon2) {
+    public AccountLineItem(int icon1, String nameLine, int icon2) {
         this.icon1 = icon1;
         this.nameLine = nameLine;
         this.icon2 = icon2;
     }
-
 }
