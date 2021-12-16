@@ -131,7 +131,7 @@ public class ProductDetailsFragment extends Fragment {
                 bottomNavigationView.setSelectedItemId( R.id.itCart );
             }
         } );
-
+        //Back to the previous fragment
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
