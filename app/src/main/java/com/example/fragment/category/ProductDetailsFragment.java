@@ -63,7 +63,6 @@ public class ProductDetailsFragment extends Fragment {
             product = (Product) bundle.getSerializable(Constant.SELECTED_ITEM);
             imvThumbDetails.setImageResource(product.getProductThumbnail());
             txtNameDetails.setText(product.getProductName());
-            //txtPriceDetails.setText(String. format("%.3f", product.getProductPrice())+ " " + "đ");
             txtPriceDetails.setText(Constant.decimalFormat.format( product.getProductPrice() ));
             txtDescription.setText(product.getProductDescription());
         }
@@ -71,8 +70,8 @@ public class ProductDetailsFragment extends Fragment {
         return view;
     }
 
-
     private void addEvents() {
+        //Event cho Button Thêm sản phẩm vào giỏ hàng
         btnAddToCart.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,20 +79,28 @@ public class ProductDetailsFragment extends Fragment {
                     //Giỏ hàng không trống
                     if (Constant.arrCartProduct.size() > 0){
                         boolean flag = false;
-
-                        for (int i = 0; i<Constant.arrCartProduct.size(); i++){
+                        //Kiểm tra sản phẩm đã có sẵn trong giỏ hàng chưa => nếu có gắn flag = true và tăng số lượng
+                        for (int i = 0; i < Constant.arrCartProduct.size(); i++){
                             if(Constant.arrCartProduct.get( i ).getProductId() == product.getProductId()){
-                                Constant.arrCartProduct.get( i ).setProductQuantity( Constant.arrCartProduct.get( i ).getProductQuantity() + 1 );
+                                if(Constant.arrCartProduct.get( i ).getProductQuantity() < 10 ) {
+                                    //Kiểm tra số lượng sản phẩm đó trong giỏ hàng hiện tại có hơn 10 không
+                                    Constant.arrCartProduct.get( i ).setProductQuantity( Constant.arrCartProduct.get( i ).getProductQuantity() + 1 );
+                                    //show bottom sheet dialog
+                                    showBottomSheetDialog();
+                                }
+                                else {Toast.makeText(getContext(), "Không thể mua một sản phẩm với số lượng hơn 10", Toast.LENGTH_SHORT ).show();}
                                 flag = true;
                             }
                         }
-
+                        //Sản phẩm chưa có trong giỏ hàng => thêm mới
                         if (flag == false){
                             CartProduct cartProduct = new CartProduct( product.getProductId(),
                                     product.getProductThumbnail(),
                                     product.getProductName(),
                                     product.getProductPrice(), 1);
                             Constant.arrCartProduct.add( cartProduct );
+                            //show bottom sheet dialog
+                            showBottomSheetDialog();
                         }
                     }
                     //Giỏ hàng trống
@@ -103,11 +110,10 @@ public class ProductDetailsFragment extends Fragment {
                                 product.getProductName(),
                                 product.getProductPrice(), 1);
                         Constant.arrCartProduct.add( cartProduct );
+                        //show bottom sheet dialog
+                        showBottomSheetDialog();
                     }
-
-                    //show bottom sheet dialog
-                    showBottomSheetDialog();
-
+                    //update số lượng sản phẩm trong giỏ hàng
                     changeCountQty();
                 }catch (Exception ex){
                     Toast.makeText(getContext(), "Xảy ra lỗi", Toast.LENGTH_SHORT ).show();
@@ -123,8 +129,6 @@ public class ProductDetailsFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
                 bottomNavigationView.setSelectedItemId( R.id.itCart );
-//                Intent intent = new Intent(getContext(), Order_Screen.class );
-//                startActivity( intent );
             }
         } );
 
@@ -149,7 +153,6 @@ public class ProductDetailsFragment extends Fragment {
             p = (Product) bundleDialog.getSerializable(Constant.SELECTED_ITEM);
             imvThumb.setImageResource(p.getProductThumbnail());
             txtName.setText(p.getProductName());
-            //txtPrice.setText(String. format("%.3f", p.getProductPrice())+ " " + "đ");
             txtPrice.setText(Constant.decimalFormat.format(p.getProductPrice()));
         }
 

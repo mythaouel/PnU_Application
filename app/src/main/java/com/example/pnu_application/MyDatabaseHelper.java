@@ -14,6 +14,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String  CUSTOMER_TB_NAME="KhachHang";
     public static final String  ACCOUNT_TB_NAME="TAIKHOAN";
+    public static final String  ORDER_TB_NAME="DONHANG";
+
 
     public static final String ACCOUNT_COL_ID="MATK";
     public static final String ACCOUNT_COL_EMAIL="EMAIL";
@@ -29,6 +31,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String CUSTOMER_COL_NUMBER="SODT";
     public static final String CUSTOMER_COL_PHOTO="AVATAR";
 
+    public static final String ORDER_COL_ID="MADH";
+    public static final String ORDER_COL_NAME="HOTEN";
+    public static final String ORDER_COL_ADDRESS="DIACHI";
+    public static final String ORDER_COL_NUMBER="SODT";
+    public static final String ORDER_COL_QUANTITY="SOLUONG";
+    public static final String ORDER_COL_TOTAL="THANHTIEN";
+
 
     public MyDatabaseHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -40,8 +49,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_EMAIL + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " INTEGER," + ACCOUNT_COL_PASSWORD + " INTEGER," + ACCOUNT_COL_OTP + " INTEGER)";
         String sql2="CREATE TABLE IF NOT EXISTS " +CUSTOMER_TB_NAME +"("+ CUSTOMER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_ADDRESS + " VARCHAR(200), "+ CUSTOMER_COL_NUMBER + " INTEGER," + CUSTOMER_COL_PHOTO + " BLOB)";
+        String sql3=" CREATE TABLE IF NOT EXISTS " +ORDER_TB_NAME +"("+ ORDER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                ORDER_COL_NAME+ " VARCHAR(200), " + ORDER_COL_ADDRESS + " VARCHAR(200), "+ ORDER_COL_NUMBER + " VARCHAR(15), "+ ORDER_COL_QUANTITY + " INTEGER, "+ ORDER_COL_TOTAL + " DOUBLE)";
+
         sqLiteDatabase.execSQL(sql1);
         sqLiteDatabase.execSQL(sql2);
+        sqLiteDatabase.execSQL(sql3);
     }
 
 
@@ -70,6 +83,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         int count2=getCount(ACCOUNT_TB_NAME);
         if (count1==0||count2==0){
             queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'LP01','LAPTOP',12,'Apple',null,null)");
+
+            //Thêm Test thử
+            queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'Lâm Hữu Gia','LAPTOP',12,'KTX Khu B ĐHQG TP. HCM',0978362814,null)");
+
             queryExec("INSERT INTO "+ACCOUNT_TB_NAME+" VALUES(null,'hoangyen@.study.com',0849111149,123,123)");
         }
     }
@@ -88,6 +105,25 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
             statement.executeInsert();
 
+            return true;
+        } catch (Exception Ex){
+            return false;
+        }
+    }
+
+    public boolean insertOrderData(String name, String address, String phone, int quantity, double total){
+        try {
+            SQLiteDatabase db = getWritableDatabase();
+            String sql = " INSERT INTO " + ORDER_TB_NAME + " VALUES(null, ?, ?, ?, ?, ?)";
+            SQLiteStatement statement = db.compileStatement(sql);
+
+            statement.bindString(1, name);
+            statement.bindString(2, address);
+            statement.bindString(3, phone);
+            statement.bindDouble(4, quantity);
+            statement.bindDouble(5,total);
+
+            statement.executeInsert();
             return true;
         } catch (Exception Ex){
             return false;

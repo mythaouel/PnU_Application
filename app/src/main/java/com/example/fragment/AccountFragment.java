@@ -33,7 +33,7 @@ public class AccountFragment extends Fragment {
     Button btnUpdateInf;
     AccountLineAdapter adapter1,adapter2,adapter3;
     ArrayList<LineItem> lineItems1,lineItems2,lineItems3;
-    MyDatabaseHelper db;
+    public static MyDatabaseHelper db;
     View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -17,4 +17,5 @@
     <string name="chi_tiet_san_pham">Chi tiết sản phẩm</string>
     <string name="product_is_added">Sản phẩm đã được thêm vào giỏ hàng</string>
     <string name="view_cart">Xem giỏ hàng</string>
+    <string name="order">Đặt hàng</string>
 </resources>

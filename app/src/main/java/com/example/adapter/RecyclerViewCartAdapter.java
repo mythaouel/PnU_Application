@@ -47,7 +47,6 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
         holder.imvCartThumb.setImageResource(arrCartProduct.get(position).getProductThumb());
         holder.txtCartName.setText(arrCartProduct.get( position ).getProductName());
         holder.txtCartQuantity.setText( String.valueOf(arrCartProduct.get( position ).getProductQuantity()));
-        //holder.txtCartPrice.setText( String. format("%.3f", arrCartProduct.get( position ).getProductPrice())+ " " + "đ");
         holder.txtCartPrice.setText( Constant.decimalFormat.format( arrCartProduct.get( position ).getProductPrice() ));
 
         //Add Events for Buttons
