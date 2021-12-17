@@ -38,9 +38,7 @@ public class RecyclerViewOrderAdapter extends RecyclerView.Adapter<RecyclerViewO
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.imvOrderThumb.setImageResource(arrOrderProduct.get(position).getProductThumb());
         holder.txtOrderName.setText(arrOrderProduct.get( position ).getProductName());
-        holder.txtOrderQuantity.setText( String.valueOf( arrOrderProduct.get( position ).getProductQuantity()  ));
-        //holder.txtOrderPrice.setText( String.valueOf( arrOrderProduct.get( position ).getProductPrice()  ));
-        //holder.txtOrderPrice.setText( String. format("%.3f", arrOrderProduct.get( position ).getProductPrice())+ " " + "đ");
+        holder.txtOrderQuantity.setText( "Số lượng: " + arrOrderProduct.get( position ).getProductQuantity());
         holder.txtOrderPrice.setText( Constant.decimalFormat.format( arrOrderProduct.get( position ).getProductPrice() ));
 
     }
