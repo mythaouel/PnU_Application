@@ -7,28 +7,28 @@
     tools:context=".OTP_Screen"
     android:orientation="vertical">
 
-    <LinearLayout
+    <Toolbar
+        android:id="@+id/toolBarFind"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:orientation="horizontal"
         android:background="@color/primary_yellow">
         <ImageView
             android:id="@+id/imvBack"
+            android:background="@android:color/transparent"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="30dp"
             android:src="@drawable/back_icon"
-            android:layout_gravity="center_vertical">
-        </ImageView>
+            android:layout_gravity="center_vertical"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/white"
             android:textSize="25dp"
             android:text="Xác thực"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"/>
-    </LinearLayout>
+    </Toolbar>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="-30dp"
+            android:layout_marginLeft="-25dp"
             android:backgroundTint="#FFFFFF"
             android:text="Đăng nhập ngay"
             android:textAllCaps="false"

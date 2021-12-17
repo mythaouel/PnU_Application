@@ -10,10 +10,13 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class OTP_Screen extends AppCompatActivity {
 
+    ImageView imvBack;
     Button btnOTP,btnSignIn;
     EditText edtOTP;
     TextView txtPhone;
@@ -22,18 +25,28 @@ public class OTP_Screen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp_screen);
+
         linkViews();
         context = this;
         addEvents();
         getData();
+
     }
 
     private void getData() {
         Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            String phone = bundle.getString("number", "");
+            String userName = bundle.getString("userName", "");
+            String password = bundle.getString("password", "");
+        }
         txtPhone.setText(intent.getStringExtra("number"));
     }
 
     private void linkViews() {
+        imvBack=findViewById(R.id.imvBack);
+
         btnOTP = findViewById(R.id.btnOTP);
         btnSignIn = findViewById(R.id.btnSignIn);
 
@@ -42,6 +55,14 @@ public class OTP_Screen extends AppCompatActivity {
         edtOTP = findViewById(R.id.edtOTP);
     }
     private void addEvents() {
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, SignUp_Screen.class);
+
+                startActivity(intent);
+            }
+        });
         btnOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +82,7 @@ public class OTP_Screen extends AppCompatActivity {
                 }
                 if (!error) {
                     Intent intent = new Intent(context, MainActivity.class);
+                    //lưu bundle vào database
                     startActivity(intent);
                 }
             }

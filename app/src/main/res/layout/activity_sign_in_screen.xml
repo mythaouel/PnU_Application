@@ -81,7 +81,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_marginLeft="-10dp"
+                android:layout_marginLeft="-7dp"
                 android:backgroundTint="#FFFFFF"
                 android:text="Đăng ký ngay"
                 android:textAllCaps="false"

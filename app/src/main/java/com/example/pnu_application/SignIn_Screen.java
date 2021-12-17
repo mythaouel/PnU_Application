@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -94,7 +95,9 @@ public class SignIn_Screen extends AppCompatActivity implements View.OnClickList
     private void linkViews() {
         btnSignIn = findViewById(R.id.btnSignIn);
         btnSignUp1 = findViewById(R.id.btnSignUp1);
+
         edtPassword=findViewById(R.id.edtPassword);
         edtUserName= findViewById(R.id.edtUserName);
+
     }
 }

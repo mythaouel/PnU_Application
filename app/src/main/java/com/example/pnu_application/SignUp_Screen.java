@@ -31,6 +31,14 @@ public class SignUp_Screen extends AppCompatActivity{
     }
 
     private void addEvents() {
+
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, SignIn_Screen.class);
+                startActivity(intent);
+            }
+        });
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +87,11 @@ public class SignUp_Screen extends AppCompatActivity{
                 }
                 if (!error) {
                     Intent intent = new Intent(context, OTP_Screen.class);
-                    intent.putExtra("number", edtPhone.getText().toString());
+                    Bundle bundle = new Bundle();
+                    bundle.putString("number", edtPhone.getText().toString());
+                    bundle.putString("userName", edtUserName.getText().toString());
+                    bundle.putString("password",edtPassword.getText().toString());
+                    intent.putExtras(bundle);
                     startActivity(intent);
 //                    gửi lại thông tin qua màn hình đăng nhập
 //                    Intent intent = new Intent();
