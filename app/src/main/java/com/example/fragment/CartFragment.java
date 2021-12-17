@@ -8,14 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,7 +42,7 @@ public class CartFragment extends Fragment {
     ImageView imvPlus, imvMinus;
     EditText edtGiamGia;
     public static LinearLayout emptyCartView;
-    public static ScrollView cartView;
+    public static ConstraintLayout cartView;
     public static View view;
 
     @Override
@@ -86,6 +86,8 @@ public class CartFragment extends Fragment {
     private void configRecyclerView() {
         LinearLayoutManager manager = new LinearLayoutManager( getContext(),LinearLayoutManager.VERTICAL,false );
         rcvCart.setLayoutManager( manager );
+        DividerItemDecoration decoration = new DividerItemDecoration( getContext(),manager.getOrientation() );
+        rcvCart.addItemDecoration( decoration );
         rcvCart.setHasFixedSize( true );
         rcvCart.setItemAnimator( new DefaultItemAnimator() );
     }
