@@ -50,7 +50,6 @@ public class AccountFragment extends Fragment {
         addEvents();
 
         db=new MyDatabaseHelper(getContext());
-        db.createSomeTestRows();
         return view;
     }
     private void linkViews() {

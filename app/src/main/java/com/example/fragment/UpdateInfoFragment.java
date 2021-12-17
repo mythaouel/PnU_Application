@@ -122,6 +122,8 @@ public class UpdateInfoFragment extends Fragment {
             edtAddress.setText(cursor.getString( 4 ));
             //Covert to byte array->Bitmap
             byte[] photo= cursor.getBlob(6);
+            if(photo==null){
+            }
             Bitmap bitmap= BitmapFactory.decodeByteArray(photo,0, photo.length);
             imvAvatar.setImageBitmap(bitmap);
             AccountFragment.db.close();
@@ -169,6 +171,7 @@ public class UpdateInfoFragment extends Fragment {
             }
 
         });
+//        loadData();
     }
 
     private byte[] covertPhoto() {
