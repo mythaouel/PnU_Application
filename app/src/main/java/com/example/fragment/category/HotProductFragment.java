@@ -80,9 +80,9 @@ public class HotProductFragment extends Fragment {
         products.add(new Product("sp0021",R.drawable.pet_toy_05, "Đồ chơi cho chó mèo hình cá chim", 46, "Description"));
 
         //Hot Pet Fashion
-        products.add(new Product("sp0001",R.drawable.pet_fashion_03, "Mũ len thời trang dễ thương cho chó mèo", 119, "Description"));
-        products.add(new Product("sp0001",R.drawable.pet_fashion_04, "Thời Trang Chó Mèo nhện Haloween", 125, "Description"));
-        products.add(new Product("sp0001",R.drawable.pet_fashion_08, "Mũ ếch dễ thương cho thú cưng", 50, "Kích cỡ đường kính:\n  - Size S: 26-28cm\n  - Size M: 28-34cm\nChất liệu: làm từ vải len\nBạn có thể giữ ấm đầu bé khi trời trở lạnh. Thời tiết Sài Gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào."));
+        products.add(new Product("sp0027",R.drawable.pet_fashion_03, "Mũ len thời trang dễ thương cho chó mèo", 119, "Description"));
+        products.add(new Product("sp0028",R.drawable.pet_fashion_04, "Thời Trang Chó Mèo nhện Haloween", 125, "Description"));
+        products.add(new Product("sp0032",R.drawable.pet_fashion_08, "Mũ ếch dễ thương cho thú cưng", 50, "Kích cỡ đường kính:\n  - Size S: 26-28cm\n  - Size M: 28-34cm\nChất liệu: làm từ vải len\nBạn có thể giữ ấm đầu bé khi trời trở lạnh. Thời tiết Sài Gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào."));
 
         return products;
     }

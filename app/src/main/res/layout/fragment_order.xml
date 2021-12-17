@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/ink_04">
+    android:background="@color/ink_04"
+    android:id="@+id/fragmentOrderContainer">
 
-    <com.google.android.material.appbar.AppBarLayout
+<com.google.android.material.appbar.AppBarLayout
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -45,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="55dp"
-        android:layout_marginBottom="110dp">
+        android:layout_marginBottom="90dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -193,6 +194,7 @@
                             android:textSize="17sp"/>
                     </LinearLayout>
                     <TextView
+                        android:id="@+id/txtNgayGiao"
                         android:layout_marginTop="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -210,7 +212,6 @@
             app:cardCornerRadius="15dp"
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
-            android:layout_marginBottom="7dp"
             app:strokeColor="@color/primary_yellow"
             app:strokeWidth="1dp">
             <LinearLayout
@@ -325,7 +326,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/ink_03">
 
         <LinearLayout
@@ -340,15 +341,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="8dp">
+                android:padding="5dp">
 
                 <TextView
                     android:layout_weight="4"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:text="TỔNG CỘNG:"
+                    android:layout_height="25dp"
+                    android:textSize="17sp"
+                    android:text="@string/total"
                     android:gravity="center_vertical"
                     android:layout_marginStart="12dp"/>
 
@@ -356,8 +356,8 @@
                     android:layout_weight="6"
                     android:id="@+id/txtGiaTongCong"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:textSize="18sp"
+                    android:layout_height="25dp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginEnd="12dp"
                     android:gravity="end|center_vertical"
@@ -368,10 +368,9 @@
             <!--Nút đặt hàng-->
             <Button
                 android:id="@+id/btnDatHang2"
-                android:layout_marginTop="5dp"
-                android:layout_width="140dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="ĐẶT HÀNG"
+                android:text="@string/dat_hang"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_gravity="center"

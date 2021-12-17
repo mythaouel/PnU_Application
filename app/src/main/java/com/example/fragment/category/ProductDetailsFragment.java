@@ -93,7 +93,7 @@ public class ProductDetailsFragment extends Fragment {
                             }
                         }
                         //Sản phẩm chưa có trong giỏ hàng => thêm mới
-                        if (flag == false){
+                        if (!flag){
                             CartProduct cartProduct = new CartProduct( product.getProductId(),
                                     product.getProductThumbnail(),
                                     product.getProductName(),

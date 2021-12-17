@@ -37,7 +37,7 @@ public class OrderFragment extends Fragment {
 
     Button btnDatHang2;
     RecyclerView rcvOrder;
-    TextView txtGiaTongCong, txtTienTamTinh, txtTongTien, txtPhiShip1, txtPhiShip2, txtHoTen, txtSDT, txtDiaChi;
+    TextView txtGiaTongCong, txtTienTamTinh, txtTongTien, txtPhiShip1, txtPhiShip2, txtHoTen, txtSDT, txtDiaChi, txtNgayGiao;
     ImageView imvBack;
 
     @Nullable
@@ -59,6 +59,7 @@ public class OrderFragment extends Fragment {
         txtHoTen = view.findViewById( R.id.txtHoTen );
         txtSDT = view.findViewById( R.id.txtSDT );
         txtDiaChi = view.findViewById( R.id.txtDiaChi );
+        txtNgayGiao = view.findViewById( R.id.txtNgayGiao );
 
         txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
         txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
@@ -106,8 +107,7 @@ public class OrderFragment extends Fragment {
                 phone = txtSDT.getText().toString();
                 address = txtDiaChi.getText().toString();
                 double total = Double.parseDouble( txtTongTien.getText().toString().replace( " đ","" ).replace( ".","" ));
-                Log.d( "ketqua", String.valueOf( total ) );
-                
+
                 int quantity = 0;
                 for (int i = 0; i < Constant.arrCartProduct.size(); i++){
                     quantity += Constant.arrCartProduct.get( i ).getProductQuantity();
@@ -120,7 +120,7 @@ public class OrderFragment extends Fragment {
                 }
 
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentContainer,new SuccessFragment());
+                transaction.replace(R.id.fragmentContainer, new SuccessFragment());
                 transaction.commit();
                 Constant.arrCartProduct.clear();
             }
@@ -136,18 +136,12 @@ public class OrderFragment extends Fragment {
     }
 
     //Tính tổng tiền
-    public void calTotal() {
+    private void calTotal() {
         double TongTien = 0;
         for (int i = 0; i < Constant.arrCartProduct.size(); i++)
             TongTien += Constant.arrCartProduct.get( i ).getProductPrice() * Constant.arrCartProduct.get( i ).getProductQuantity();
         txtTienTamTinh.setText( Constant.decimalFormat.format( TongTien ));
         txtTongTien.setText( Constant.decimalFormat.format( TongTien + Constant.PHI_SHIP ));
         txtGiaTongCong.setText( Constant.decimalFormat.format( TongTien + Constant.PHI_SHIP ));
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        MainActivity.showBottomNav();
     }
 }

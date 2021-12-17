@@ -18,4 +18,6 @@
     <string name="product_is_added">Sản phẩm đã được thêm vào giỏ hàng</string>
     <string name="view_cart">Xem giỏ hàng</string>
     <string name="order">Đặt hàng</string>
+    <string name="total">TỔNG CỘNG:</string>
+    <string name="dat_hang">ĐẶT HÀNG</string>
 </resources>

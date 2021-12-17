@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.fragment.CategoryFragment"
     android:background="@color/ink_04"
-    android:id="@+id/layoutCartContainer">
+    android:id="@+id/fragmentCartContainer">
 
     <com.google.android.material.appbar.AppBarLayout
         app:layout_constraintTop_toTopOf="parent"
@@ -38,6 +38,7 @@
             android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="5dp"
             android:id="@+id/rcvCart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -97,7 +98,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/ink_04">
+        android:backgroundTint="@color/ink_03">
 <!--        Tổng cộng + nút đặt hàng-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -111,15 +112,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="8dp">
+                android:padding="5dp">
 
                 <TextView
                     android:layout_weight="4"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:text="TỔNG CỘNG:"
+                    android:layout_height="25dp"
+                    android:textSize="17sp"
+                    android:text="@string/total"
                     android:gravity="center_vertical"
                     android:layout_marginStart="12dp"/>
 
@@ -127,8 +127,8 @@
                     android:layout_weight="6"
                     android:id="@+id/txtTongCong"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:textSize="18sp"
+                    android:layout_height="25dp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginEnd="12dp"
                     android:gravity="end|center_vertical"
@@ -139,10 +139,9 @@
 <!--            Nút đặt hàng-->
             <Button
                 android:id="@+id/btnDatHang1"
-                android:layout_marginTop="5dp"
-                android:layout_width="140dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="ĐẶT HÀNG"
+                android:text="@string/dat_hang"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_gravity="center"
