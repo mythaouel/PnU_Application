@@ -90,14 +90,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             queryExec("INSERT INTO "+ACCOUNT_TB_NAME+" VALUES(null,'hoangyen@.study.com',0849111149,123,123)");
         }
     }
-    public boolean insertCustomerData(String name, long birthday,String email,String address,int phone, byte[] photo){
+    public boolean insertCustomerData(String name, double birthday,String email,String address,int phone, byte[] photo){
         try {
             SQLiteDatabase db = getWritableDatabase();
             String sql = "INSERT INTO " + CUSTOMER_TB_NAME + " VALUES(null,?,?,?,?,?,?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
             statement.bindString(1, name);
-            statement.bindLong(2,birthday);
+            statement.bindDouble(2,birthday);
             statement.bindString(3, email);
             statement.bindString(4, address);
             statement.bindDouble(5,phone);

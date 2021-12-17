@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/act_bg_updateinf"
+    android:background="@drawable/act_custom_bg_updateinf"
     android:orientation="vertical"
     android:id="@+id/fragment_account_info"
     android:layout_height="match_parent"
@@ -11,11 +11,10 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:id="@+id/actToolbar"
-        android:background="@drawable/act_bg_updateinf"
+        android:background="@drawable/act_custom_bg_updateinf"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:layout_height="?attr/actionBarSize">
         <ImageView
-
             android:background="@android:color/transparent"
             android:id="@+id/imvAccountBack"
             app:srcCompat="@drawable/ic_back"
@@ -23,7 +22,8 @@
             android:layout_height="35dp"/>
         <TextView
             android:layout_gravity="center"
-            android:textSize="26sp"
+            android:textSize="22sp"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:text="Cập nhật thông tin"
             android:layout_width="wrap_content"
@@ -43,7 +43,6 @@
           <!--Avatar-->
             <LinearLayout
                 android:layout_weight="1"
-                android:padding="10dp"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -65,7 +64,7 @@
 
           <!--Form-->
              <LinearLayout
-             android:paddingTop="15dp"
+             android:paddingTop="5dp"
              android:layout_weight="2"
              android:layout_width="match_parent"
              android:layout_height="0dp">
@@ -76,13 +75,16 @@
                    app:cardCornerRadius="16dp"
                    app:cardElevation="10dp">
                   <LinearLayout
+                      android:layout_marginTop="15dp"
+                      android:layout_marginBottom="15dp"
                       android:weightSum="5.8"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:layout_gravity="center"
                       android:focusableInTouchMode="false"
                       android:orientation="vertical"
-                      android:padding="10dp">
+                      android:padding="15dp"
+                    >
                      <!--Name-->
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/txtInputName"

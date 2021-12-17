@@ -17,6 +17,7 @@ import com.example.fragment.CategoryFragment;
 import com.example.fragment.HomeFragment;
 import com.example.fragment.NotificationBlogFragment;
 import com.example.fragment.NotificationFragment;
+import com.example.fragment.UpdateInfoFragment;
 import com.example.fragment.category.ProductDetailsFragment;
 import com.example.model.Product;
 import com.example.model.ProductItemClick;
@@ -91,6 +92,13 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick 
         productDetailsFragment.setArguments(bundle);
 
         fragmentTransaction.add(R.id.layoutContainer, productDetailsFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+    public void clickAct() {
+        UpdateInfoFragment updateInfoFragment = new UpdateInfoFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.layoutContainer, updateInfoFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }

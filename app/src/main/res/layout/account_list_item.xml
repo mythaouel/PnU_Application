@@ -14,15 +14,14 @@
             android:src="@drawable/act_ic_bell"
             android:layout_marginLeft="10dp"
             android:layout_width="0dp"
-            android:layout_height="30dp"/>
+            android:layout_height="26dp"/>
         <TextView
             android:id="@+id/txtNameLine"
             android:layout_weight="8.5"
             android:layout_marginLeft="15dp"
             android:layout_gravity="center"
-            android:textStyle="bold"
             android:textColor="@color/ink_01"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:text="Thông báo"
             android:gravity="center_vertical"
             android:layout_width="0dp"
