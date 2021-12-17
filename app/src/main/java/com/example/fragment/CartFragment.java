@@ -104,7 +104,7 @@ public class CartFragment extends Fragment {
             txtTongCong.setText(Constant.decimalFormat.format( TongTien ));
         }
         else {
-            txtTongCong.setText("0đ");
+            txtTongCong.setText("0 đ");
         }
     }
 
