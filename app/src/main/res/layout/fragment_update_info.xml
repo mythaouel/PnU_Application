@@ -47,11 +47,14 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="0dp">
-                  <ImageView
-                      android:id="@+id/imvAvtInfo"
-                      android:src="@drawable/user_avt_default"
-                      android:layout_width="120dp"
-                      android:layout_height="120dp"/>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/imvAvtInfo"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:src="@drawable/user_avt_default"
+                    app:civ_border_width="1.5dp"
+                    app:civ_border_color="@color/black"/>
                   <TextView
                       android:layout_marginTop="10dp"
                       android:textStyle="bold"

@@ -37,11 +37,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class UpdateInfoFragment extends Fragment {
 
     Button btnUpdate;
     EditText edtName, edtBirthday, edtPhone, edtAddress, edtEmail;
-    ImageView imvAvatar, imvBack;
+    ImageView  imvBack;
+    CircleImageView imvAvatar;
 
     View mView;
 
@@ -52,7 +55,7 @@ public class UpdateInfoFragment extends Fragment {
     ActivityResultLauncher<Intent> activityResultLauncher;
 
     Boolean isCamera;
-    String name,address,email;
+    String name,address,email,birthday;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -116,17 +119,20 @@ public class UpdateInfoFragment extends Fragment {
         Cursor cursor = AccountFragment.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " ORDER BY "+ MyDatabaseHelper.CUSTOMER_COL_ID+" DESC LIMIT 1");
         while (cursor.moveToNext()){
             edtName.setText( cursor.getString( 1 ) );
-            edtBirthday.setText(String.valueOf(cursor.getDouble(2)));
+            edtBirthday.setText(String.valueOf(cursor.getString(2)));
             edtEmail.setText( cursor.getString( 3) );
-            edtPhone.setText(String.valueOf( cursor.getInt( 5 ) ));
-            edtAddress.setText(cursor.getString( 4 ));
+            edtPhone.setText(String.valueOf( cursor.getInt( 4 ) ));
+            edtAddress.setText(cursor.getString( 5 ));
             //Covert to byte array->Bitmap
             byte[] photo= cursor.getBlob(6);
             if(photo==null){
+                imvAvatar.setImageResource(R.drawable.user_avt_default);
+            }else{
+                Bitmap bitmap= BitmapFactory.decodeByteArray(photo,0, photo.length);
+                imvAvatar.setImageBitmap(bitmap);
+                AccountFragment.db.close();
             }
-            Bitmap bitmap= BitmapFactory.decodeByteArray(photo,0, photo.length);
-            imvAvatar.setImageBitmap(bitmap);
-            AccountFragment.db.close();
+
 
         }
     }
@@ -152,12 +158,11 @@ public class UpdateInfoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Insert Customer Data
-                Double birthday;
                 int phone;
                 name = edtName.getText().toString();
                 email=edtEmail.getText().toString();
                 address=edtAddress.getText().toString();
-                birthday= Double.parseDouble(edtBirthday.getText().toString().replace( "/","" ));
+                birthday= edtBirthday.getText().toString();
                 phone=Integer.parseInt ( edtPhone.getText().toString());
                 address=edtAddress.getText().toString();
                 if(!name.equals("") && !birthday.equals("") &&  !edtPhone.getText().toString().equals("") && !address.equals("") && !email.equals("")){
