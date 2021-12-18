@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="23dp"
         android:text="Nội dung chính"
-        android:textSize="17sp"
+        android:textSize="16sp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
     <TextView

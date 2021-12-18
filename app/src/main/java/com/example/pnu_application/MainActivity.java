@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.fragment.AccountFragment;
+import com.example.fragment.BlogDetailFragment;
 import com.example.fragment.CartFragment;
 import com.example.fragment.CategoryFragment;
 import com.example.fragment.HomeFragment;
@@ -19,6 +20,8 @@ import com.example.fragment.NotificationBlogFragment;
 import com.example.fragment.NotificationFragment;
 import com.example.fragment.UpdateInfoFragment;
 import com.example.fragment.category.ProductDetailsFragment;
+import com.example.model.Blog;
+import com.example.model.BlogItemClick;
 import com.example.model.Product;
 import com.example.model.ProductItemClick;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -29,7 +32,7 @@ import java.util.ArrayList;
 
 import utils.Constant;
 
-public class MainActivity extends AppCompatActivity implements ProductItemClick {
+public class MainActivity extends AppCompatActivity implements ProductItemClick, BlogItemClick {
 
     public static BottomNavigationView bottomNavigationView;
 
@@ -101,5 +104,19 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick 
         fragmentTransaction.add(R.id.layoutContainer, updateInfoFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void click(Blog b) {
+        BlogDetailFragment blogDetailFragment = new BlogDetailFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(Constant.SELECTED_BLOG, b);
+        blogDetailFragment.setArguments(bundle);
+
+        transaction.add(R.id.layoutContainer, blogDetailFragment);
+        transaction.addToBackStack( BlogDetailFragment.class.getName() );
+        transaction.commit();
     }
 }

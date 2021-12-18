@@ -90,8 +90,8 @@ public class OrderFragment extends Fragment {
         Cursor cursor = AccountFragment.db.getData( "SELECT * FROM " + MyDatabaseHelper.CUSTOMER_TB_NAME);
         while (cursor.moveToNext()){
             txtHoTen.setText( cursor.getString( 1 ) );
-            txtDiaChi.setText( cursor.getString( 4 ) );
-            txtSDT.setText(String.valueOf( cursor.getInt( 5 ) ));
+            txtDiaChi.setText( cursor.getString( 5 ) );
+            txtSDT.setText(String.valueOf( cursor.getInt( 4 ) ));
             AccountFragment.db.close();
         }
     }

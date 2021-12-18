@@ -4,54 +4,56 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.adapter.RecyclerViewAdapter;
+import com.example.adapter.BlogAdapter;
 import com.example.model.Blog;
-import com.example.pnu_application.MainActivity;
+import com.example.model.BlogItemClick;
 import com.example.pnu_application.R;
 
 import java.util.ArrayList;
 
 public class NotificationFragment extends Fragment {
-    RecyclerView rcvNotification;
+    ListView lvNotification;
     ArrayList<Blog> notifications;
+    BlogAdapter adapter;
+    BlogItemClick blogItemClick;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notification,container,false);
-        rcvNotification = view.findViewById(R.id.rcvNotification);
-        configRecyclerView();
+        lvNotification = view.findViewById(R.id.lvNotification);
         initData();
+        addEvents();
         return view;
     }
 
-    private void configRecyclerView() {
-        LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-        rcvNotification.setLayoutManager(manager);
-        DividerItemDecoration decoration = new DividerItemDecoration(getContext(),manager.getOrientation());
-        rcvNotification.addItemDecoration( decoration );
-        rcvNotification.setHasFixedSize( true );
-        rcvNotification.setItemAnimator( new DefaultItemAnimator() );
-
+    private void addEvents() {
+        lvNotification.setOnItemClickListener( new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                blogItemClick = (BlogItemClick) getActivity();
+                if (blogItemClick != null)
+                    blogItemClick.click( notifications.get( i ) );
+            }
+        } );
     }
 
     private void initData() {
-        ArrayList<Blog> notifications = new ArrayList<>();
-        notifications.add(new Blog("Chương trình giảm giá 11/11","Nhân dịp 11/11, PnU xin giới thiệu đến bạn chương trình..."));
-        notifications.add(new Blog("Thức ăn cho chó đang đồng loạt giảm giá","Một số loại thức ăn cho chó đang được giảm giá sốc..."));
-        notifications.add(new Blog("Thêm nhiều phụ kiện cho thú cưng","Ghé thăm gian hàng phụ kiện để đặt ngay những sản..."));
-        notifications.add(new Blog("Freeship cho đơn hàng từ 500k","Nhanh tay đặt hàng để được nhận ưu đãi freesh..."));
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getContext(),notifications);
-        rcvNotification.setAdapter(recyclerViewAdapter);
+        notifications = new ArrayList<>();
+        notifications.add(new Blog("Chương trình giảm giá 12/12","Nhân dịp 12/12, PnU xin giới thiệu đến bạn các ưu đãi giảm giá..."));
+        notifications.add(new Blog("Thức ăn cho chó đang đồng loạt giảm giá","Một số loại thức ăn cho chó như Royal Canin, ZENITH đang được giảm giá..."));
+        notifications.add(new Blog("Thêm nhiều phụ kiện cho thú cưng","Ghé thăm gian hàng phụ kiện để có ngay những sản phẩm..."));
+        notifications.add(new Blog("Bạn đã sắm đồ cho thú cưng dịp Giáng sinh chưa?","Nhanh tay đặt ngay những sản phẩm hấp dẫn cho mùa Giáng sinh..."));
+        notifications.add(new Blog("Giảm giá sốc duy nhất vào 11/11","Chỉ duy nhất 11/11, giảm giá sốc lên đến 30% tất cả các sản phẩm..."));
+        notifications.add(new Blog("Khai trương cửa hàng ở Thành phố Hồ Chí Minh","PnU vừa khai trương cửa hàng đầu tiên ở thành phố Hồ Chí Minh..."));
+        adapter = new BlogAdapter(getContext(), R.layout.notification_blog_item ,notifications);
+        lvNotification.setAdapter(adapter);
     }
-
 }
