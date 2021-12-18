@@ -41,6 +41,8 @@ public class OrderFragment extends Fragment {
     TextView txtGiaTongCong, txtTienTamTinh, txtTongTien, txtPhiShip1, txtPhiShip2, txtHoTen, txtSDT, txtDiaChi, txtNgayGiao;
     ImageView imvBack;
 
+    int MATK = 1;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -88,7 +90,8 @@ public class OrderFragment extends Fragment {
         RecyclerViewOrderAdapter adapter = new RecyclerViewOrderAdapter( getContext(), Constant.arrCartProduct);
         rcvOrder.setAdapter( adapter );
         //Load thông tin của khách hàng
-        Cursor cursor = Loading_Screen.db.getData( "SELECT * FROM " + MyDatabaseHelper.CUSTOMER_TB_NAME);
+        //Cursor cursor = Loading_Screen.db.getData( "SELECT * FROM " + MyDatabaseHelper.CUSTOMER_TB_NAME);
+        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
         while (cursor.moveToNext()){
             txtHoTen.setText( cursor.getString( 1 ) );
             txtDiaChi.setText( cursor.getString( 5 ) );
@@ -113,7 +116,7 @@ public class OrderFragment extends Fragment {
                 for (int i = 0; i < Constant.arrCartProduct.size(); i++){
                     quantity += Constant.arrCartProduct.get( i ).getProductQuantity();
                 }
-                boolean flag = Loading_Screen.db.insertOrderData( name,address,phone,quantity,total);
+                boolean flag = Loading_Screen.db.insertOrderData( name, address, phone, quantity, total, MATK);
                 if (flag){
                     Toast.makeText( getContext(), "Success", Toast.LENGTH_SHORT ).show();
                 }else{

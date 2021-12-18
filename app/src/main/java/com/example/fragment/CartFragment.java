@@ -1,6 +1,7 @@
 package com.example.fragment;
 
 import android.content.DialogInterface;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,7 @@ public class CartFragment extends Fragment {
     EditText edtGiamGia;
     public static LinearLayout emptyCartView;
     public static ConstraintLayout cartView;
+    int MATK = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -125,17 +127,26 @@ public class CartFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Kiểm tra người dùng đã cập nhật thông tin cá nhân chưa nếu chưa thì hiện thông báo yêu cầu cập nhật
-                if (Loading_Screen.db.getCount( MyDatabaseHelper.CUSTOMER_TB_NAME ) == 0){
+//                if (Loading_Screen.db.getCount( MyDatabaseHelper.CUSTOMER_TB_NAME ) == 0){
+////                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+////                    transaction.add(R.id.layoutCartContainer, new UpdateInfoFragment()).addToBackStack("tag") ;
+////                    transaction.commit();
+//                    Toast.makeText( getContext(), "Bạn cần cập nhật thông tin cá nhân trước khi đặt hàng", Toast.LENGTH_SHORT ).show();
+//                }
+//                else {
 //                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                    transaction.add(R.id.layoutCartContainer, new UpdateInfoFragment()).addToBackStack("tag") ;
+//                    transaction.replace(R.id.fragmentContainer, new OrderFragment());
+//                    transaction.addToBackStack( OrderFragment.TAG );
 //                    transaction.commit();
-                    Toast.makeText( getContext(), "Bạn cần cập nhật thông tin cá nhân trước khi đặt hàng", Toast.LENGTH_SHORT ).show();
-                }
-                else {
+//                }
+                Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+                if (cursor.moveToFirst()){
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                     transaction.replace(R.id.fragmentContainer, new OrderFragment());
                     transaction.addToBackStack( OrderFragment.TAG );
                     transaction.commit();
+                }else{
+                    Toast.makeText( getContext(), "Bạn cần cập nhật thông tin cá nhân trước khi đặt hàng", Toast.LENGTH_SHORT ).show();
                 }
             }
         } );

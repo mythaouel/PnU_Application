@@ -38,6 +38,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String ORDER_COL_NUMBER="SODT";
     public static final String ORDER_COL_QUANTITY="SOLUONG";
     public static final String ORDER_COL_TOTAL="THANHTIEN";
+    public static final String ORDER_COL_ACT_ID="MATK";
+
 
 
     public MyDatabaseHelper(@Nullable Context context) {
@@ -55,7 +57,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                       CUSTOMER_COL_ADDRESS + " VARCHAR(200), " + CUSTOMER_COL_PHOTO + " BLOB, " + CUSTOMER_COL_ACT_ID +" INTEGER REFERENCES " + ACCOUNT_TB_NAME + "(" + ACCOUNT_COL_ID +")" +")";
 
         String sql3= "CREATE TABLE IF NOT EXISTS " +ORDER_TB_NAME +"("+ ORDER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                     ORDER_COL_NAME+ " VARCHAR(200), " + ORDER_COL_ADDRESS + " VARCHAR(200), "+ ORDER_COL_NUMBER + " VARCHAR(15), "+ ORDER_COL_QUANTITY + " INTEGER, "+ ORDER_COL_TOTAL + " REAL)";
+                     ORDER_COL_NAME+ " VARCHAR(200), " + ORDER_COL_ADDRESS + " VARCHAR(200), "+ ORDER_COL_NUMBER + " VARCHAR(15), "+ ORDER_COL_QUANTITY + " INTEGER, "+ ORDER_COL_TOTAL + " REAL, "  + ORDER_COL_ACT_ID +" INTEGER REFERENCES " + ACCOUNT_TB_NAME + "(" + ACCOUNT_COL_ID +")" +")";
 
         sqLiteDatabase.execSQL(sql1);
         sqLiteDatabase.execSQL(sql2);
@@ -117,17 +119,18 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean insertOrderData(String name, String address, String phone, int quantity, double total){
+    public boolean insertOrderData(String name, String address, String phone, int quantity, double total , int MATK){
         try {
             SQLiteDatabase db = getWritableDatabase();
-            String sql = " INSERT INTO " + ORDER_TB_NAME + " VALUES(null, ?, ?, ?, ?, ?)";
+            String sql = " INSERT INTO " + ORDER_TB_NAME + " VALUES(null, ?, ?, ?, ?, ?, ?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
             statement.bindString(1, name);
             statement.bindString(2, address);
             statement.bindString(3, phone);
             statement.bindDouble(4, quantity);
-            statement.bindDouble(5,total);
+            statement.bindDouble(5, total);
+            statement.bindDouble(6, MATK);
 
             statement.executeInsert();
             return true;
