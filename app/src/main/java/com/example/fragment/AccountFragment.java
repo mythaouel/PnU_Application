@@ -99,9 +99,8 @@ public class AccountFragment extends Fragment {
                 //View Policy Events
                 else if(i==1){
                     PolicyFragment fragment= new PolicyFragment();
-                    FragmentManager fragmentManager=getFragmentManager();
-                    FragmentTransaction transaction = fragmentManager.beginTransaction();
-                    transaction.replace(R.id.fragment_account, fragment);
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                    transaction.replace(R.id.layoutContainer, fragment).addToBackStack(null) ;
                     transaction.commit();
                 }
 
@@ -123,7 +122,7 @@ public class AccountFragment extends Fragment {
             public void onClick(View view) {
                 UpdateInfoFragment fragment= new UpdateInfoFragment();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.add(R.id.fragment_account, fragment).addToBackStack("tag") ;
+                transaction.replace(R.id.layoutContainer, fragment).addToBackStack(null) ;
                 transaction.commit();
             }
         });

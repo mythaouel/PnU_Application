@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -43,6 +44,7 @@ public class UpdateInfoFragment extends Fragment {
 
     Button btnUpdate;
     EditText edtName, edtBirthday, edtPhone, edtAddress, edtEmail;
+    TextView txtName;
     ImageView  imvBack;
     CircleImageView imvAvatar;
 
@@ -60,6 +62,7 @@ public class UpdateInfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        MainActivity.hideBottomNav();
         mView=inflater.inflate(R.layout.fragment_update_info, container, false);
         linkViews();
         createSheetDialog();
@@ -67,8 +70,6 @@ public class UpdateInfoFragment extends Fragment {
         loadData();
         addEvents();
 
-
-        MainActivity.hideBottomNav();
         activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
@@ -106,6 +107,8 @@ public class UpdateInfoFragment extends Fragment {
         edtPhone    = mView.findViewById(R.id.edtPhoneAct);
         edtAddress  = mView.findViewById(R.id.edtAddress);
 
+        txtName     = mView.findViewById(R.id.txtInfName);
+
         imvAvatar   = mView.findViewById(R.id.imvAvtInfo);
         imvBack     = mView.findViewById(R.id.imvAccountBack);
 
@@ -121,8 +124,11 @@ public class UpdateInfoFragment extends Fragment {
             edtName.setText( cursor.getString( 1 ) );
             edtBirthday.setText(String.valueOf(cursor.getString(2)));
             edtEmail.setText( cursor.getString( 3) );
-            edtPhone.setText(String.valueOf( cursor.getInt( 4 ) ));
+            edtPhone.setText(String.valueOf( cursor.getInt( 4 ) )+"0");
             edtAddress.setText(cursor.getString( 5 ));
+
+            txtName.setText( cursor.getString( 1 ) );
+
             //Covert to byte array->Bitmap
             byte[] photo= cursor.getBlob(6);
             if(photo==null){
@@ -164,7 +170,8 @@ public class UpdateInfoFragment extends Fragment {
                 address=edtAddress.getText().toString();
                 birthday= edtBirthday.getText().toString();
                 phone=Integer.parseInt ( edtPhone.getText().toString());
-                address=edtAddress.getText().toString();
+
+
                 if(!name.equals("") && !birthday.equals("") &&  !edtPhone.getText().toString().equals("") && !address.equals("") && !email.equals("")){
                    boolean flag= AccountFragment.db.insertCustomerData(name,birthday,email,address,phone, covertPhoto());
                     if(flag==true){

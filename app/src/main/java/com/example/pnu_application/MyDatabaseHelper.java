@@ -24,6 +24,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String ACCOUNT_COL_OTP="OTP";
 
     public static final String CUSTOMER_COL_ID="MAKH";
+    public static final String CUSTOMER_COL_ACT_ID="MATK";
     public static final String CUSTOMER_COL_NAME="HOTEN";
     public static final String CUSTOMER_COL_BIRTHDAY="NGAYSINH";
     public static final String CUSTOMER_COL_EMAIL="EMAIL";
@@ -48,7 +49,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_EMAIL + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " INTEGER," + ACCOUNT_COL_PASSWORD + " INTEGER," + ACCOUNT_COL_OTP + " INTEGER)";
         String sql2="CREATE TABLE IF NOT EXISTS " +CUSTOMER_TB_NAME +"("+ CUSTOMER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " INTEGER,"+ CUSTOMER_COL_ADDRESS + " VARCHAR(200), " + CUSTOMER_COL_PHOTO + " BLOB)";
+                CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " INTEGER,"+
+                CUSTOMER_COL_ADDRESS + " VARCHAR(200), " + CUSTOMER_COL_PHOTO + " BLOB, " + CUSTOMER_COL_ACT_ID +" INTEGER REFERENCES " + ACCOUNT_TB_NAME + "(" + ACCOUNT_COL_ID +")" +")";
         String sql3=" CREATE TABLE IF NOT EXISTS " +ORDER_TB_NAME +"("+ ORDER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 ORDER_COL_NAME+ " VARCHAR(200), " + ORDER_COL_ADDRESS + " VARCHAR(200), "+ ORDER_COL_NUMBER + " VARCHAR(15), "+ ORDER_COL_QUANTITY + " INTEGER, "+ ORDER_COL_TOTAL + " DOUBLE)";
 
@@ -93,7 +95,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public boolean insertCustomerData(String name, String birthday,String email,String address,int phone, byte[] photo){
         try {
             SQLiteDatabase db = getWritableDatabase();
-            String sql = "INSERT INTO " + CUSTOMER_TB_NAME + " VALUES(null,?,?,?,?,?,?)";
+            String sql = "INSERT INTO " + CUSTOMER_TB_NAME + " VALUES(null,?,?,?,?,?,?,null)";
             SQLiteStatement statement = db.compileStatement(sql);
 
             statement.bindString(1, name);
