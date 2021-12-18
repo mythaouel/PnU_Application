@@ -1,5 +1,6 @@
 package com.example.pnu_application;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -137,6 +138,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         } catch (Exception Ex){
             return false;
         }
+    }
+    public boolean updatePassword(String newpass, int MATK){
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put(ACCOUNT_COL_PASSWORD, newpass);
+        db.update(ACCOUNT_TB_NAME,contentValues,ACCOUNT_COL_ID + " = ? ", new String[]{ MATK +""});
+         return true;
     }
 
     public boolean insertAccountData(String username, int phone, String password, int OTP){
