@@ -53,12 +53,22 @@
         <entry key="..\:/Git/PnU_Application/app/src/main/res/drawable/botron_button.xml" value="0.1" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/drawable/drop_shadow.xml" value="0.2703125" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/drawable/splash_background.xml" value="0.1" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/account_custom_dialog.xml" value="0.225" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/account_orderl_list_item.xml" value="0.13703703703703704" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/act_bottom_sheet.xml" value="0.25025641025641027" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/act_custom_toolbar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/act_custom_toolbar_as.xml" value="0.225" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/act_custom_toolbar_cs.xml" value="0.225" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_loading_screen.xml" value="0.12864583333333332" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_main.xml" value="0.17037037037037037" />
-        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_otp_screen.xml" value="0.25025641025641027" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_otp_screen.xml" value="0.2" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_sign_in_screen.xml" value="0.25025641025641027" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/activity_sign_up_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/fragement_order_detail.xml" value="0.25416666666666665" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/fragment_cart.xml" value="0.225" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/order_item.xml" value="0.16574074074074074" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/product_item_layout.xml" value="0.16574074074074074" />
+        <entry key="..\:/Git/PnU_Application/app/src/main/res/layout/view_cart_dialog.xml" value="0.264" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/activity_home_screen.xml" value="0.17592592592592593" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/activity_main.xml" value="0.10833333333333334" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_account.xml" value="0.1" />

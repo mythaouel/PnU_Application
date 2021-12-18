@@ -18,7 +18,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
 
     public static final String ACCOUNT_COL_ID="MATK";
-    public static final String ACCOUNT_COL_EMAIL="EMAIL";
+    public static final String ACCOUNT_COL_USERNAME="USERNAME";
     public static final String ACCOUNT_COL_NUMBER="SODT";
     public static final String ACCOUNT_COL_PASSWORD="MATKHAU";
     public static final String ACCOUNT_COL_OTP="OTP";
@@ -48,7 +48,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_EMAIL + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " INTEGER," + ACCOUNT_COL_PASSWORD + " TEXT," + ACCOUNT_COL_OTP + " INTEGER)";
+        String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_USERNAME + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " INTEGER," + ACCOUNT_COL_PASSWORD + " TEXT," + ACCOUNT_COL_OTP + " INTEGER)";
 
         String sql2="CREATE TABLE IF NOT EXISTS " +CUSTOMER_TB_NAME +"("+ CUSTOMER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                       CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " INTEGER,"+
@@ -117,17 +117,35 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean insertOrderData(String name, String address, String phone, int quantity, double total){
+    public boolean insertOrderData(String username, String address, String phone, int quantity, double total){
         try {
             SQLiteDatabase db = getWritableDatabase();
             String sql = " INSERT INTO " + ORDER_TB_NAME + " VALUES(null, ?, ?, ?, ?, ?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
-            statement.bindString(1, name);
+            statement.bindString(1, username);
             statement.bindString(2, address);
             statement.bindString(3, phone);
             statement.bindDouble(4, quantity);
             statement.bindDouble(5,total);
+
+            statement.executeInsert();
+            return true;
+        } catch (Exception Ex){
+            return false;
+        }
+    }
+
+    public boolean insertAccountData(String email, int phone, String password, int OTP){
+        try {
+            SQLiteDatabase db = getWritableDatabase();
+            String sql = " INSERT INTO " + ACCOUNT_TB_NAME + " VALUES(null, ?, ?, ?, ?)";
+            SQLiteStatement statement = db.compileStatement(sql);
+
+            statement.bindString(1, email);
+            statement.bindDouble(2, phone);
+            statement.bindString(3, password);
+            statement.bindDouble(4, OTP);
 
             statement.executeInsert();
             return true;

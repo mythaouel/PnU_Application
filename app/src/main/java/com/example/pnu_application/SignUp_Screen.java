@@ -1,17 +1,23 @@
 package com.example.pnu_application;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.fragment.AccountFragment;
 
 public class SignUp_Screen extends AppCompatActivity{
 
@@ -25,11 +31,12 @@ public class SignUp_Screen extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_screen);
+
         linkViews();
         addEvents();
         context = this;
-    }
 
+    }
     private void addEvents() {
 
         imvBack.setOnClickListener(new View.OnClickListener() {
@@ -53,15 +60,14 @@ public class SignUp_Screen extends AppCompatActivity{
                 boolean error = false;
                 String userName = edtUserName.getText().toString().trim();
                 String password = edtPassword.getText().toString().trim();
-                String sdt = edtPhone.getText().toString().trim();
-
+                String phone = edtPhone.getText().toString().trim();
 
                 if(password.length()<5){
                     edtPassword.requestFocus();
                     edtPassword.setError(context.getResources().getString(R.string.error_password));
                     error = true;
                 }
-                if(sdt.length()!=10){
+                if(phone.length()!=10){
                     edtPhone.requestFocus();
                     edtPhone.setError(context.getResources().getString(R.string.error_phone));
                     error = true;
@@ -74,7 +80,7 @@ public class SignUp_Screen extends AppCompatActivity{
                     error = true;
                 }
                 //bỏ trống ô Số điện thoại
-                if (TextUtils.isEmpty(sdt)) {
+                if (TextUtils.isEmpty(phone)) {
                     edtPhone.requestFocus();
                     edtPhone.setError(context.getResources().getString(R.string.loi_thieu_info));
                     error = true;
@@ -88,9 +94,9 @@ public class SignUp_Screen extends AppCompatActivity{
                 if (!error) {
                     Intent intent = new Intent(context, OTP_Screen.class);
                     Bundle bundle = new Bundle();
-                    bundle.putString("number", edtPhone.getText().toString());
-                    bundle.putString("userName", edtUserName.getText().toString());
-                    bundle.putString("password",edtPassword.getText().toString());
+                    bundle.putString("phone", phone);
+                    bundle.putString("userName", userName);
+                    bundle.putString("password",password);
                     intent.putExtras(bundle);
                     startActivity(intent);
 //                    gửi lại thông tin qua màn hình đăng nhập
@@ -113,5 +119,6 @@ public class SignUp_Screen extends AppCompatActivity{
         btnSignIn = findViewById(R.id.btnSignIn);
 
         imvBack = findViewById(R.id.imvBack);
+
     }
 }
