@@ -117,13 +117,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean insertOrderData(String username, String address, String phone, int quantity, double total){
+    public boolean insertOrderData(String name, String address, String phone, int quantity, double total){
         try {
             SQLiteDatabase db = getWritableDatabase();
             String sql = " INSERT INTO " + ORDER_TB_NAME + " VALUES(null, ?, ?, ?, ?, ?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
-            statement.bindString(1, username);
+            statement.bindString(1, name);
             statement.bindString(2, address);
             statement.bindString(3, phone);
             statement.bindDouble(4, quantity);
@@ -136,13 +136,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean insertAccountData(String email, int phone, String password, int OTP){
+    public boolean insertAccountData(String username, int phone, String password, int OTP){
         try {
             SQLiteDatabase db = getWritableDatabase();
             String sql = " INSERT INTO " + ACCOUNT_TB_NAME + " VALUES(null, ?, ?, ?, ?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
-            statement.bindString(1, email);
+            statement.bindString(1, username);
             statement.bindDouble(2, phone);
             statement.bindString(3, password);
             statement.bindDouble(4, OTP);
