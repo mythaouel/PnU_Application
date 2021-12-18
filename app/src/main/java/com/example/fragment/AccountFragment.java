@@ -37,7 +37,7 @@ public class AccountFragment extends Fragment {
     AccountLineAdapter adapter1,adapter2,adapter3;
     ArrayList<AccountLineItem> lineItems1,lineItems2,lineItems3;
 
-    public static MyDatabaseHelper db;
+
 
     View view;
     @Override
@@ -49,7 +49,7 @@ public class AccountFragment extends Fragment {
         initData();
         addEvents();
 
-        db=new MyDatabaseHelper(getContext());
+
         return view;
     }
     private void linkViews() {

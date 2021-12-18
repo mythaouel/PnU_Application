@@ -47,12 +47,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_EMAIL + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " INTEGER," + ACCOUNT_COL_PASSWORD + " INTEGER," + ACCOUNT_COL_OTP + " INTEGER)";
+
+        String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_EMAIL + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " INTEGER," + ACCOUNT_COL_PASSWORD + " TEXT," + ACCOUNT_COL_OTP + " INTEGER)";
+
         String sql2="CREATE TABLE IF NOT EXISTS " +CUSTOMER_TB_NAME +"("+ CUSTOMER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " INTEGER,"+
-                CUSTOMER_COL_ADDRESS + " VARCHAR(200), " + CUSTOMER_COL_PHOTO + " BLOB, " + CUSTOMER_COL_ACT_ID +" INTEGER REFERENCES " + ACCOUNT_TB_NAME + "(" + ACCOUNT_COL_ID +")" +")";
-        String sql3=" CREATE TABLE IF NOT EXISTS " +ORDER_TB_NAME +"("+ ORDER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                ORDER_COL_NAME+ " VARCHAR(200), " + ORDER_COL_ADDRESS + " VARCHAR(200), "+ ORDER_COL_NUMBER + " VARCHAR(15), "+ ORDER_COL_QUANTITY + " INTEGER, "+ ORDER_COL_TOTAL + " DOUBLE)";
+                      CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " INTEGER,"+
+                      CUSTOMER_COL_ADDRESS + " VARCHAR(200), " + CUSTOMER_COL_PHOTO + " BLOB, " + CUSTOMER_COL_ACT_ID +" INTEGER REFERENCES " + ACCOUNT_TB_NAME + "(" + ACCOUNT_COL_ID +")" +")";
+
+        String sql3= "CREATE TABLE IF NOT EXISTS " +ORDER_TB_NAME +"("+ ORDER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                     ORDER_COL_NAME+ " VARCHAR(200), " + ORDER_COL_ADDRESS + " VARCHAR(200), "+ ORDER_COL_NUMBER + " VARCHAR(15), "+ ORDER_COL_QUANTITY + " INTEGER, "+ ORDER_COL_TOTAL + " REAL)";
 
         sqLiteDatabase.execSQL(sql1);
         sqLiteDatabase.execSQL(sql2);
@@ -84,18 +87,18 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         int count1=getCount(CUSTOMER_TB_NAME);
         int count2=getCount(ACCOUNT_TB_NAME);
         if (count1==0||count2==0){
-            queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'LP01','LAPTOP',12,'Apple',null,null)");
+//            queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'LP01','LAPTOP',12,'Apple',null,null)");
 
             //Thêm Test thử
-            queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'Lâm Hữu Gia','LAPTOP',12,'KTX Khu B ĐHQG TP. HCM',0978362814,null)");
+//            queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'Lâm Hữu Gia','LAPTOP',12,'KTX Khu B ĐHQG TP. HCM',0978362814,null,null)");
 
-            queryExec("INSERT INTO "+ACCOUNT_TB_NAME+" VALUES(null,'hoangyen@.study.com',0849111149,123,123)");
+            queryExec("INSERT INTO "+ACCOUNT_TB_NAME+" VALUES(null,'hoangyen@.study.com',0849111149,'123',123)");
         }
     }
-    public boolean insertCustomerData(String name, String birthday,String email,String address,int phone, byte[] photo){
+    public boolean insertCustomerData(String name, String birthday,String email,String address,int phone, byte[] photo, int MAKH){
         try {
             SQLiteDatabase db = getWritableDatabase();
-            String sql = "INSERT INTO " + CUSTOMER_TB_NAME + " VALUES(null,?,?,?,?,?,?,null)";
+            String sql = "INSERT INTO " + CUSTOMER_TB_NAME + " VALUES(null,?,?,?,?,?,?,?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
             statement.bindString(1, name);
@@ -105,7 +108,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             statement.bindDouble(4,phone);
             statement.bindString(5, address);
             statement.bindBlob(6, photo);
-
+            statement.bindDouble(7, MAKH);
             statement.executeInsert();
 
             return true;

@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.pnu_application.Loading_Screen;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
@@ -58,6 +59,8 @@ public class UpdateInfoFragment extends Fragment {
 
     Boolean isCamera;
     String name,address,email,birthday;
+
+    int MATK=1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -119,7 +122,12 @@ public class UpdateInfoFragment extends Fragment {
 
 
     private void loadData() {
-        Cursor cursor = AccountFragment.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " ORDER BY "+ MyDatabaseHelper.CUSTOMER_COL_ID+" DESC LIMIT 1");
+//       while ( MATK <= Loading_Screen.db.getCount(MyDatabaseHelper.CUSTOMER_TB_NAME)){
+//           MATK ++;
+//        }
+
+        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+//        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " ORDER BY "+ MyDatabaseHelper.CUSTOMER_COL_ID+" DESC LIMIT 1");
         while (cursor.moveToNext()){
             edtName.setText( cursor.getString( 1 ) );
             edtBirthday.setText(String.valueOf(cursor.getString(2)));
@@ -136,7 +144,7 @@ public class UpdateInfoFragment extends Fragment {
             }else{
                 Bitmap bitmap= BitmapFactory.decodeByteArray(photo,0, photo.length);
                 imvAvatar.setImageBitmap(bitmap);
-                AccountFragment.db.close();
+                Loading_Screen.db.close();
             }
 
 
@@ -173,7 +181,7 @@ public class UpdateInfoFragment extends Fragment {
 
 
                 if(!name.equals("") && !birthday.equals("") &&  !edtPhone.getText().toString().equals("") && !address.equals("") && !email.equals("")){
-                   boolean flag= AccountFragment.db.insertCustomerData(name,birthday,email,address,phone, covertPhoto());
+                   boolean flag= Loading_Screen.db.insertCustomerData(name,birthday,email,address,phone, covertPhoto(),MATK);
                     if(flag==true){
                         Toast.makeText(getContext(), "Update Succes", Toast.LENGTH_SHORT).show();
                     }else{

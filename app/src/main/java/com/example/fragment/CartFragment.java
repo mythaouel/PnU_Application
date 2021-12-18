@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.adapter.RecyclerViewCartAdapter;
 import com.example.eventbus.TotalCalculator;
 import com.example.model.CartProduct;
+import com.example.pnu_application.Loading_Screen;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
@@ -124,7 +125,7 @@ public class CartFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Kiểm tra người dùng đã cập nhật thông tin cá nhân chưa nếu chưa thì hiện thông báo yêu cầu cập nhật
-                if (AccountFragment.db.getCount( MyDatabaseHelper.CUSTOMER_TB_NAME ) == 0){
+                if (Loading_Screen.db.getCount( MyDatabaseHelper.CUSTOMER_TB_NAME ) == 0){
 //                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                    transaction.add(R.id.layoutCartContainer, new UpdateInfoFragment()).addToBackStack("tag") ;
 //                    transaction.commit();

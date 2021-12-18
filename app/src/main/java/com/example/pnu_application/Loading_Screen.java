@@ -11,10 +11,14 @@ import com.example.fragment.HomeFragment;
 public class Loading_Screen extends AppCompatActivity {
 
     //Thời gian chờ là 2.5s
+    public static MyDatabaseHelper db;
     int SPLASH_TIME_OUT = 2500;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        prepareDatabase();
+
+
         setContentView(R.layout.activity_loading_screen);
 
         new Handler().postDelayed(new Runnable() {
@@ -27,5 +31,10 @@ public class Loading_Screen extends AppCompatActivity {
                 finish();
             }
         },SPLASH_TIME_OUT);
+    }
+
+    public void prepareDatabase() {
+        db=new MyDatabaseHelper(Loading_Screen.this);
+        db.createSomeTestRows();
     }
 }

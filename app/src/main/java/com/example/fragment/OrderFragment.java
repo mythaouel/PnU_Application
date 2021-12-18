@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adapter.RecyclerViewOrderAdapter;
 import com.example.model.CartProduct;
+import com.example.pnu_application.Loading_Screen;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
@@ -87,12 +88,12 @@ public class OrderFragment extends Fragment {
         RecyclerViewOrderAdapter adapter = new RecyclerViewOrderAdapter( getContext(), Constant.arrCartProduct);
         rcvOrder.setAdapter( adapter );
         //Load thông tin của khách hàng
-        Cursor cursor = AccountFragment.db.getData( "SELECT * FROM " + MyDatabaseHelper.CUSTOMER_TB_NAME);
+        Cursor cursor = Loading_Screen.db.getData( "SELECT * FROM " + MyDatabaseHelper.CUSTOMER_TB_NAME);
         while (cursor.moveToNext()){
             txtHoTen.setText( cursor.getString( 1 ) );
             txtDiaChi.setText( cursor.getString( 5 ) );
             txtSDT.setText(String.valueOf( cursor.getInt( 4 ) ));
-            AccountFragment.db.close();
+            Loading_Screen.db.close();
         }
     }
 
@@ -112,7 +113,7 @@ public class OrderFragment extends Fragment {
                 for (int i = 0; i < Constant.arrCartProduct.size(); i++){
                     quantity += Constant.arrCartProduct.get( i ).getProductQuantity();
                 }
-                boolean flag = AccountFragment.db.insertOrderData( name,address,phone,quantity,total);
+                boolean flag = Loading_Screen.db.insertOrderData( name,address,phone,quantity,total);
                 if (flag){
                     Toast.makeText( getContext(), "Success", Toast.LENGTH_SHORT ).show();
                 }else{
