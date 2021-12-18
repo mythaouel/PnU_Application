@@ -94,7 +94,7 @@ public class UpdateInfoFragment extends Fragment {
                 }
             }
         });
-        // Inflate the layout for this fragment
+
         return mView;
 
     }
@@ -122,9 +122,6 @@ public class UpdateInfoFragment extends Fragment {
 
 
     private void loadData() {
-//       while ( MATK <= Loading_Screen.db.getCount(MyDatabaseHelper.CUSTOMER_TB_NAME)){
-//           MATK ++;
-//        }
 
         Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
 //        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " ORDER BY "+ MyDatabaseHelper.CUSTOMER_COL_ID+" DESC LIMIT 1");
@@ -187,6 +184,8 @@ public class UpdateInfoFragment extends Fragment {
                     }else{
                         Toast.makeText(getContext(), "Update Fail", Toast.LENGTH_SHORT).show();
                     }
+                }else{
+                    Toast.makeText(getContext(), "Không được để trống dòng", Toast.LENGTH_SHORT).show();
                 }
             }
 

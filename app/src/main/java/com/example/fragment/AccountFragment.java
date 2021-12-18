@@ -68,9 +68,8 @@ public class AccountFragment extends Fragment {
                 //ChangePass Event
                 if(i==0){
                    ChangePassFragment fragment= new ChangePassFragment();
-                    FragmentManager fragmentManager=getFragmentManager();
-                    FragmentTransaction transaction = fragmentManager.beginTransaction();
-                    transaction.replace(R.id.fragment_account, fragment);
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                    transaction.add(R.id.layoutContainer, fragment).addToBackStack(null) ;
                     transaction.commit();
                 }
                 //View Order History Event
@@ -78,7 +77,7 @@ public class AccountFragment extends Fragment {
                     OrderHistory fragment= new OrderHistory();
                     FragmentManager fragmentManager=getFragmentManager();
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
-                    transaction.replace(R.id.fragment_account, fragment);
+                    transaction.add(R.id.fragment_account, fragment);
                     transaction.commit();
                 }
             }
@@ -91,16 +90,15 @@ public class AccountFragment extends Fragment {
                 //View About Us
                 if(i==0){
                     AboutUsFragment fragment= new AboutUsFragment();
-                    FragmentManager fragmentManager=getFragmentManager();
-                    FragmentTransaction transaction = fragmentManager.beginTransaction();
-                    transaction.replace(R.id.fragment_account, fragment);
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                    transaction.add(R.id.layoutContainer, fragment).addToBackStack(null) ;
                     transaction.commit();
                 }
                 //View Policy Events
                 else if(i==1){
                     PolicyFragment fragment= new PolicyFragment();
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    transaction.replace(R.id.layoutContainer, fragment).addToBackStack(null) ;
+                    transaction.add(R.id.layoutContainer, fragment).addToBackStack(null) ;
                     transaction.commit();
                 }
 

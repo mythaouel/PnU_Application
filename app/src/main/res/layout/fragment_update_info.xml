@@ -22,7 +22,7 @@
             android:layout_height="35dp"/>
         <TextView
             android:layout_gravity="center"
-            android:textSize="22sp"
+            android:textSize="24sp"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:text="Cập nhật thông tin"
@@ -80,8 +80,8 @@
                    app:cardCornerRadius="16dp"
                    app:cardElevation="10dp">
                   <LinearLayout
-                      android:layout_marginTop="15dp"
-                      android:layout_marginBottom="15dp"
+                      android:layout_marginTop="20dp"
+                      android:layout_marginBottom="20dp"
                       android:weightSum="5.8"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
@@ -161,13 +161,12 @@
 
                      <Button
                          android:id="@+id/btnUpdate"
-                         android:layout_width="140dp"
+                         android:layout_width="150dp"
                          android:layout_marginTop="10dp"
-
                          android:layout_weight="0.8"
                          android:layout_height="0dp"
                          android:layout_gravity="right"
-                         android:background="@drawable/act_updateinf_btn_inf"
+                         android:background="@drawable/act_custom_btn_changepass"
                          android:text="Cập nhật"
                          android:textColor="@color/white" />
                   </LinearLayout>
