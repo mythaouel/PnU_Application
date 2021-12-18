@@ -70,6 +70,16 @@ public class ProductDetailsFragment extends Fragment {
         return view;
     }
 
+    private void changeCountQty() {
+        if(Constant.arrCartProduct!=null){
+            int countSl = 0;
+            for (int i = 0; i<Constant.arrCartProduct.size(); i++){
+                countSl += Constant.arrCartProduct.get( i ).getProductQuantity();
+            }
+            countQty.setText( String.valueOf(countSl));
+        }
+    }
+
     private void addEvents() {
         //Event cho Button Thêm sản phẩm vào giỏ hàng
         btnAddToCart.setOnClickListener( new View.OnClickListener() {
@@ -173,7 +183,7 @@ public class ProductDetailsFragment extends Fragment {
 
                 //Close Dialog
 //                bottomSheetDialog.dismiss();
-                
+
                 openCartFragment();
 
                 Intent intent = new Intent(getActivity(), MainActivity.class);
@@ -194,16 +204,6 @@ public class ProductDetailsFragment extends Fragment {
     }
 
     private void openCartFragment() {
-    }
-
-    private void changeCountQty() {
-        if(Constant.arrCartProduct!=null){
-            int countSl = 0;
-            for (int i = 0; i<Constant.arrCartProduct.size(); i++){
-                countSl += Constant.arrCartProduct.get( i ).getProductQuantity();
-            }
-            countQty.setText( String.valueOf(countSl));
-        }
     }
 
     //reference the method that shows Bottom Navigation Bar when returning to the previous screen

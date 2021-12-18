@@ -20,6 +20,7 @@
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication - Copy/app/src/main/res/layout/fragment_cart.xml" value="0.264" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication - Copy/app/src/main/res/layout/fragment_order.xml" value="0.2" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication - Copy/app/src/main/res/layout/order_item.xml" value="0.25" />
+        <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.2703125" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/act_custom_toolbar.xml" value="0.25416666666666665" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/act_custom_toolbar_as.xml" value="0.25416666666666665" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/act_custom_toolbar_upif.xml" value="0.25416666666666665" />
@@ -46,6 +47,8 @@
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/fragment_update_info.xml" value="0.25416666666666665" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/notification_blog_item.xml" value="0.4" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/order_item.xml" value="0.264" />
+        <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.176" />
+        <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/menu/menu_cart.xml" value="0.264" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/drawable/botron_button.xml" value="0.1" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/drawable/drop_shadow.xml" value="0.2703125" />
         <entry key="..\:/Git/PnU_Application/app/src/main/res/drawable/splash_background.xml" value="0.1" />

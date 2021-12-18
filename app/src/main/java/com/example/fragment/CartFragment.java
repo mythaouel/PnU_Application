@@ -1,5 +1,6 @@
 package com.example.fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -38,18 +40,17 @@ import utils.Constant;
 public class CartFragment extends Fragment {
     Button btnDatHang1, btnApDung;
     RecyclerView rcvCart;
-    TextView txtTongCong;
-    ImageView imvPlus, imvMinus;
+    TextView txtTongCong, txtTongSL;
+    ImageView imvDeleteAll;
     EditText edtGiamGia;
     public static LinearLayout emptyCartView;
     public static ConstraintLayout cartView;
-    public static View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_cart, container, false);
+        View view = inflater.inflate(R.layout.fragment_cart, container, false);
         btnDatHang1 = view.findViewById( R.id.btnDatHang1 );
         btnApDung = view.findViewById( R.id.btnApDung );
 
@@ -58,9 +59,9 @@ public class CartFragment extends Fragment {
         edtGiamGia = view.findViewById( R.id.edtGiamGia );
 
         txtTongCong = view.findViewById( R.id.txtTongCong );
+        txtTongSL = view.findViewById( R.id.txtTongSL );
 
-        imvMinus = view.findViewById( R.id.imvMinus );
-        imvPlus = view.findViewById( R.id.imvPlus );
+        imvDeleteAll = view.findViewById( R.id.imvDeleteAll );
 
         emptyCartView = view.findViewById( R.id.emptyCartView );
         cartView = view.findViewById( R.id.cartView );
@@ -68,16 +69,17 @@ public class CartFragment extends Fragment {
         MainActivity.showBottomNav();
         //Kiểm tra số lượng sản phẩm trong giỏ hàng để hiện giao diện phù hợp
         if(Constant.arrCartProduct.size() > 0){
-            cartView.setVisibility( view.VISIBLE );
-            emptyCartView.setVisibility( view.GONE );
+            cartView.setVisibility( View.VISIBLE );
+            emptyCartView.setVisibility( View.GONE );
         }else{
-            cartView.setVisibility( view.GONE );
-            emptyCartView.setVisibility( view.VISIBLE );
+            cartView.setVisibility( View.GONE );
+            emptyCartView.setVisibility( View.VISIBLE );
         }
 
         configRecyclerView();
         initData();
         calTotal();
+        countQty();
         addEvents();
 
         return view;
@@ -93,7 +95,6 @@ public class CartFragment extends Fragment {
     }
 
     private void initData() {
-        ArrayList<CartProduct> arrCartProduct = new ArrayList<>();
         RecyclerViewCartAdapter adapter = new RecyclerViewCartAdapter(getContext(), Constant.arrCartProduct);
         rcvCart.setAdapter( adapter );
     }
@@ -105,8 +106,15 @@ public class CartFragment extends Fragment {
                 TongTien+= Constant.arrCartProduct.get( i ).getProductPrice() * Constant.arrCartProduct.get( i ).getProductQuantity();
             txtTongCong.setText(Constant.decimalFormat.format( TongTien ));
         }
-        else {
-            txtTongCong.setText("0 đ");
+    }
+
+    private void countQty() {
+        if(Constant.arrCartProduct!=null){
+            int countSl = 0;
+            for (int i = 0; i<Constant.arrCartProduct.size(); i++){
+                countSl += Constant.arrCartProduct.get( i ).getProductQuantity();
+            }
+            txtTongSL.setText(countSl + " sản phẩm");
         }
     }
 
@@ -130,6 +138,31 @@ public class CartFragment extends Fragment {
                 }
             }
         } );
+
+
+        imvDeleteAll.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setTitle( "Xóa tất cả?" );
+                builder.setMessage( "Xóa tất cả sản phẩm trong giỏ hàng?" );
+                builder.setPositiveButton( "Xóa", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Constant.arrCartProduct.clear();
+                        CartFragment.cartView.setVisibility( View.GONE );
+                        CartFragment.emptyCartView.setVisibility( View.VISIBLE );
+                    }
+                } );
+                builder.setNegativeButton( "Hủy", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                } );
+                builder.show();
+            }
+        } );
     }
 
     @Override
@@ -146,6 +179,7 @@ public class CartFragment extends Fragment {
     public void TotalCalculator(TotalCalculator event){
         if (event != null){
             calTotal();
+            countQty();
         }
     }
 }

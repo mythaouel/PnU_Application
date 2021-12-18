@@ -85,8 +85,8 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
                             EventBus.getDefault().postSticky( new TotalCalculator() );
                             //Kiểm tra số lượng giỏ hàng, nếu không còn sản phẩm sẽ hiện màn hình giỏ hàng trống
                             if(Constant.arrCartProduct.size() == 0){
-                                CartFragment.cartView.setVisibility( CartFragment.view.GONE );
-                                CartFragment.emptyCartView.setVisibility( CartFragment.view.VISIBLE );
+                                CartFragment.cartView.setVisibility( View.GONE );
+                                CartFragment.emptyCartView.setVisibility( View.VISIBLE );
                             }
                         }
                     } );
