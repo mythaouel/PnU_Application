@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.adapter.OrderStatusAdapter;
 import com.example.model.OrderStatus;
+import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
 
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class OrderHistory2 extends Fragment {
         view= inflater.inflate(R.layout.account_tab_order_finish, container, false);
         linkViews();
         initData();
+        MainActivity.hideBottomNav();
         addEvents();
         return view;
     }
@@ -40,8 +42,7 @@ public class OrderHistory2 extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i==0||i==1|i==2){
                     OrderDetailFragment fragment = new OrderDetailFragment();
-                    FragmentManager fragmentManager=getFragmentManager();
-                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                     transaction.replace(R.id.layoutOrderHistory,fragment);
                     transaction.commit();
                 }

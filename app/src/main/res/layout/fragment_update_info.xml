@@ -97,6 +97,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp">
                            <EditText
+                               app:errorEnabled="true"
                                android:layout_width="match_parent"
                                android:layout_height="match_parent"
                                android:inputType="text"
@@ -112,6 +113,7 @@
                          android:layout_width="match_parent"
                          android:layout_height="0dp">
                         <EditText
+                            app:errorEnabled="true"
                             android:inputType="date"
                             android:id="@+id/edtBirthday"
                             style="@style/modifiedEditText"
@@ -125,6 +127,7 @@
                          android:layout_width="match_parent"
                          android:layout_height="0dp">
                         <EditText
+                            app:errorEnabled="true"
                             android:id="@+id/edtEmail"
                             style="@style/modifiedEditText"
                             android:ems="10"
@@ -139,6 +142,7 @@
                          android:layout_width="match_parent"
                          android:layout_height="0dp">
                         <EditText
+                            app:errorEnabled="true"
                             android:id="@+id/edtPhoneAct"
                             style="@style/modifiedEditText"
                             android:hint="Số điện thoại"
@@ -152,6 +156,7 @@
                          android:layout_weight="1"
                          android:layout_height="0dp">
                         <EditText
+                            app:errorEnabled="true"
                             android:inputType="textMultiLine"
                             android:id="@+id/edtAddress"
                             android:minLines="2"

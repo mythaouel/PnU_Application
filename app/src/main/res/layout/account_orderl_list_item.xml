@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:padding="15dp"
+    android:padding="5dp"
+    android:weightSum="10"
     android:orientation="horizontal"
-    android:layout_height="110dp">
+    android:layout_height="wrap_content">
     <ImageView
+        android:paddingLeft="15dp"
         android:id="@+id/imvIconOrder"
+        android:layout_weight="1.8"
         android:layout_gravity="center"
         android:src="@drawable/act_ic_order_list"
-        android:layout_width="65dp"
-        android:layout_height="65dp"/>
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
     <LinearLayout
-        android:layout_marginLeft="15dp"
-        android:layout_weight="1"
+        android:paddingLeft="20dp"
+        android:layout_weight="5.7"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/txtOrderId"
             android:textStyle="bold"
             android:text="#Order345"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textColor="@color/ink_01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/txtOrderStatus"
-            android:layout_margin="5dp"
+            android:layout_marginTop="2dp"
             android:text="Đã vận chuyển"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:textColor="@color/teal_200"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/txtOrderDateTime"
             android:text="26, Tháng 10, 2019"
-            android:textSize="15sp"
-            android:layout_marginLeft="5dp"
+            android:textSize="14sp"
+            android:layout_marginTop="2dp"
             android:textColor="@color/ink_02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -45,12 +48,11 @@
     <TextView
         android:id="@+id/txtOrderTotal"
         android:text="300.000 đ"
-        android:padding="10dp"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
+        android:layout_weight="2.5"
         android:layout_gravity="center"
         android:textColor="@color/primary_yellow"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"/>
-
 </LinearLayout>
