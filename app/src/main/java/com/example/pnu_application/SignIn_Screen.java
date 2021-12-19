@@ -75,7 +75,6 @@ public class SignIn_Screen extends AppCompatActivity{
                 if(!error){
                     User currentUser = Loading_Screen.db.Authenticate(new User(null,userName,null, password,null,"0"));
 
-
                     if(currentUser != null){
 //                        users = new ArrayList<>();
 //                        Cursor cursor = Loading_Screen.db.getData("SELECT * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_USERNAME + " = " + userName );

@@ -102,7 +102,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             //queryExec("INSERT INTO "+ACCOUNT_TB_NAME+" VALUES(null,'hoangyen@.study.com',0849111149,'123',123)");
         }
     }
-    public boolean insertCustomerData(String name, String birthday,String email,String address,int phone, byte[] photo, int MAKH){
+    public boolean insertCustomerData(String name, String birthday,String email, String phone, String address, byte[] photo, int MAKH){
         try {
             SQLiteDatabase db = getWritableDatabase();
             String sql = "INSERT INTO " + CUSTOMER_TB_NAME + " VALUES(null,?,?,?,?,?,?,?)";
@@ -112,7 +112,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             statement.bindString(2,birthday);
             statement.bindString(3, email);
 
-            statement.bindDouble(4,phone);
+            statement.bindString(4,phone);
             statement.bindString(5, address);
             statement.bindBlob(6, photo);
             statement.bindDouble(7, MAKH);
@@ -122,6 +122,20 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         } catch (Exception Ex){
             return false;
         }
+    }
+
+    public boolean updateCustomerData(String name,String birthday, String email, String phone, String address,byte[] photo, int MATK){
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put(CUSTOMER_COL_NAME, name);
+        contentValues.put(CUSTOMER_COL_BIRTHDAY,birthday);
+        contentValues.put(CUSTOMER_COL_EMAIL,email);
+        contentValues.put(CUSTOMER_COL_NUMBER,phone);
+        contentValues.put(CUSTOMER_COL_ADDRESS,address);
+        contentValues.put(CUSTOMER_COL_PHOTO, photo);
+
+        db.update(CUSTOMER_TB_NAME,contentValues,CUSTOMER_COL_ID + " = ? ", new String[]{ MATK +""});
+        return true;
     }
 
     public boolean insertOrderData(String name, String address, String phone, int quantity, double total , int MATK){

@@ -61,7 +61,9 @@ public class UpdateInfoFragment extends Fragment {
     Boolean isCamera;
     String name,address,email,birthday,phone;
 
-    int MATK=1;
+    MainActivity mainActivity;
+    int MATK;
+    int MATK1=1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,6 +71,8 @@ public class UpdateInfoFragment extends Fragment {
         MainActivity.hideBottomNav();
         mView=inflater.inflate(R.layout.fragment_update_info, container, false);
         linkViews();
+        mainActivity = (MainActivity) getActivity();
+        MATK = mainActivity.getMATK();
         createSheetDialog();
         getImage();
         loadData();
@@ -219,7 +223,6 @@ public class UpdateInfoFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-
                 //Insert Customer Data
 
                 if(checkValidation()){
@@ -227,7 +230,7 @@ public class UpdateInfoFragment extends Fragment {
                     Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
                      // trường hợp account đã thông tin trước đó có ->sẽ cập nhật lại
                       if(cursor!=null && cursor.moveToFirst()) {
-                          boolean flag=Loading_Screen.db.updateCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
+                          boolean flag = Loading_Screen.db.updateCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
                           if (flag == true) {
                               Toast.makeText(getContext(), "Update2 Succes", Toast.LENGTH_SHORT).show();
                           } else {
