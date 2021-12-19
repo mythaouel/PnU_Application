@@ -149,18 +149,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <LinearLayout
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:gravity="left"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:textStyle="bold"
+
                     android:layout_marginLeft="26dp"
                     android:textColor="@color/ink_01"
                     android:textSize="16sp"
-                    android:text="Hotline:"
-                    android:layout_width="70dp"
+                    android:text="-Hotline:"
+                    android:layout_width="65dp"
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/txtAUsPhone"
@@ -179,12 +179,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:textStyle="bold"
                     android:layout_marginLeft="26dp"
                     android:textColor="@color/ink_01"
                     android:textSize="16sp"
-                    android:text="Email:"
-                    android:layout_width="70dp"
+                    android:text="-Email:"
+                    android:layout_width="65dp"
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/txtEmail"
@@ -205,10 +204,9 @@
                 <TextView
                     android:layout_marginLeft="26dp"
                     android:textColor="@color/ink_01"
-                    android:textStyle="bold"
                     android:textSize="16sp"
-                    android:text="Địa chỉ:"
-                    android:layout_width="70dp"
+                    android:text="-Địa chỉ:"
+                    android:layout_width="65dp"
                     android:layout_height="wrap_content"/>
                 <TextView
                     android:layout_marginLeft="5dp"

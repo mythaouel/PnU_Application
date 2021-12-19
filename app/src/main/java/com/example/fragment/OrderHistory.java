@@ -18,7 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 public class OrderHistory extends Fragment {
     private TabLayout tabLayoutAct;
     private ViewPager viewPagerAct;
-    private Toolbar     actToolBar;
+
 
     View mView;
 

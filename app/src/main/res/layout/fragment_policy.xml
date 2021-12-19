@@ -4,7 +4,6 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.example.fragment.AboutUsFragment">
-    <include layout="@layout/act_custom_toolbar_cs"/>
     <ScrollView
         android:scrollbars="vertical"
         android:layout_width="fill_parent"
