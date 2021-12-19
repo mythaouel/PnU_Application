@@ -20,4 +20,26 @@
     <string name="order">Đặt hàng</string>
     <string name="total">TỔNG CỘNG:</string>
     <string name="dat_hang">ĐẶT HÀNG</string>
+    <string name="note">Ghi chú cho người bán…</string>
+    <string name="total_quantity_in_cart">7 sản phẩm</string>
+    <string name="apply_voucher">Áp dụng</string>
+    <string name="input_voucher">Nhập mã giảm giá</string>
+    <string name="cart_is_empty">Không có sản phẩm nào trong giỏ hàng</string>
+    <string name="total_price">0</string>
+    <string name="customer_name">Nguyễn Văn A</string>
+    <string name="customer_tel">0123456789</string>
+    <string name="customer_address">Số 669 QL1A, khu phố 3, Thủ Đức, Thành phố Hồ Chí Minh</string>
+    <string name="note_label">Tin nhắn:</string>
+    <string name="shipping">Giao hàng tiêu chuẩn</string>
+    <string name="shipping_cost">40,000 đ</string>
+    <string name="shipping_label">Phí giao hàng:</string>
+    <string name="shipping_date">Nhận hàng vào: 04/11/2021 – 11/11/2021</string>
+    <string name="payment_method">Chọn phương thức thanh toán</string>
+    <string name="COD">Thanh toán khi nhận hàng</string>
+    <string name="total_2">Tổng tiền:</string>
+    <string name="total_price_2">922000 đ</string>
+    <string name="total_1">Tiền hàng (tạm tính):</string>
+    <string name="total_price_1">882.000 đ</string>
+    <string name="blog_title">Tiêu đề bài viết</string>
+    <string name="blog_detail">Nội dung bài viết</string>
 </resources>

@@ -29,7 +29,10 @@ import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import utils.Constant;
 
@@ -64,17 +67,27 @@ public class OrderFragment extends Fragment {
         txtDiaChi = view.findViewById( R.id.txtDiaChi );
         txtNgayGiao = view.findViewById( R.id.txtNgayGiao );
 
-        txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
-        txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
-
         MainActivity.hideBottomNav();
-
+        getShipDateAndCost();
         configRecyclerView();
         initData();
         calTotal();
         addEvents();
         return view;
     }
+
+    private void getShipDateAndCost() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add( Calendar.DATE, 3 );
+        String fromDate = DateFormat.getDateInstance(DateFormat.SHORT).format( calendar.getTime() );
+        calendar.add( Calendar.DATE,7 );
+        String toDate = DateFormat.getDateInstance(DateFormat.SHORT).format( calendar.getTime() );
+        txtNgayGiao.setText("Nhận hàng vào: " + fromDate + " - " + toDate );
+
+        txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
+        txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
+    }
+
 
     private void configRecyclerView() {
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
@@ -98,6 +111,16 @@ public class OrderFragment extends Fragment {
             txtSDT.setText(String.valueOf( cursor.getInt( 4 ) ));
             Loading_Screen.db.close();
         }
+    }
+
+    //Tính tổng tiền
+    private void calTotal() {
+        double TongTien = 0;
+        for (int i = 0; i < Constant.arrCartProduct.size(); i++)
+            TongTien += Constant.arrCartProduct.get( i ).getProductPrice() * Constant.arrCartProduct.get( i ).getProductQuantity();
+        txtTienTamTinh.setText( Constant.decimalFormat.format( TongTien ));
+        txtTongTien.setText( Constant.decimalFormat.format( TongTien + Constant.PHI_SHIP ));
+        txtGiaTongCong.setText( Constant.decimalFormat.format( TongTien + Constant.PHI_SHIP ));
     }
 
     private void addEvents() {
@@ -124,7 +147,7 @@ public class OrderFragment extends Fragment {
                 }
 
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentContainer, new SuccessFragment());
+                transaction.add(R.id.fragmentContainer, new SuccessFragment());
                 transaction.commit();
                 Constant.arrCartProduct.clear();
             }
@@ -139,13 +162,9 @@ public class OrderFragment extends Fragment {
         } );
     }
 
-    //Tính tổng tiền
-    private void calTotal() {
-        double TongTien = 0;
-        for (int i = 0; i < Constant.arrCartProduct.size(); i++)
-            TongTien += Constant.arrCartProduct.get( i ).getProductPrice() * Constant.arrCartProduct.get( i ).getProductQuantity();
-        txtTienTamTinh.setText( Constant.decimalFormat.format( TongTien ));
-        txtTongTien.setText( Constant.decimalFormat.format( TongTien + Constant.PHI_SHIP ));
-        txtGiaTongCong.setText( Constant.decimalFormat.format( TongTien + Constant.PHI_SHIP ));
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.showBottomNav();
     }
 }

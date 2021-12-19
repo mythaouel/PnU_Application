@@ -70,8 +70,8 @@
                 android:layout_height="wrap_content">
                 <ImageView
                     android:layout_margin="8dp"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
                     android:src="@drawable/locate"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -87,7 +87,7 @@
                             android:id="@+id/txtHoTen"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nguyễn Văn A"
+                            android:text="@string/customer_name"
                             android:textStyle="bold"
                             android:textSize="17sp" />
                         <TextView
@@ -95,14 +95,14 @@
                             android:id="@+id/txtSDT"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0123456789"
+                            android:text="@string/customer_tel"
                             android:textSize="16sp"/>
                     </LinearLayout>
                     <TextView
                         android:id="@+id/txtDiaChi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Số 669 QL1A, khu phố 3, Thủ Đức, Thành phố Hồ Chí Minh"
+                        android:text="@string/customer_address"
                         android:textSize="15sp"/>
                 </LinearLayout>
             </LinearLayout>
@@ -139,11 +139,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:gravity="center_vertical"
-                        android:text="Tin nhắn:"/>
+                        android:text="@string/note_label"/>
                     <EditText
                         android:layout_weight="6"
-                        android:hint="Ghi chú cho người bán..."
-                        android:textSize="13dp"
+                        android:hint="@string/note"
+                        android:textSize="13sp"
                         android:layout_width="200dp"
                         android:layout_height="35dp"/>
                 </LinearLayout>
@@ -165,8 +165,8 @@
                 android:layout_height="wrap_content">
                 <ImageView
                     android:layout_margin="8dp"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
                     android:src="@drawable/shipping_fast"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -181,7 +181,7 @@
                             android:layout_weight="3.5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Giao hàng tiêu chuẩn"
+                            android:text="@string/shipping"
                             android:textStyle="bold"
                             android:textSize="17sp" />
                         <TextView
@@ -189,7 +189,7 @@
                             android:layout_weight="4.5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="40,000 đ"
+                            android:text="@string/shipping_cost"
                             android:textSize="15sp"/>
                     </LinearLayout>
                     <TextView
@@ -197,8 +197,8 @@
                         android:layout_marginTop="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Nhận hàng vào: 4 thg 11 - 11 thg 11"
-                        android:textSize="15sp"/>
+                        android:text="@string/shipping_date"
+                        android:textSize="14sp"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -218,8 +218,8 @@
                 android:layout_height="wrap_content">
                 <ImageView
                     android:layout_margin="8dp"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
                     android:src="@drawable/money_check"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -229,14 +229,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Chọn phương thức thanh toán"
+                        android:text="@string/payment_method"
                         android:textStyle="bold"
                         android:textSize="17sp" />
                     <TextView
                         android:layout_marginTop="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Thanh toán khi nhận hàng"
+                        android:text="@string/COD"
                         android:textSize="15sp"/>
 
 <!--                    Tiền tạm tính-->
@@ -250,14 +250,15 @@
                             android:layout_weight="3.5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Tiền hàng (tạm tính):"
-                            android:textStyle="bold"/>
+                            android:text="@string/total_1"
+                            android:textStyle="bold"
+                            android:textSize="14sp"/>
                         <TextView
                             android:layout_weight="4.5"
                             android:id="@+id/txtTienTamTinh"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="882000 đ"
+                            android:text="@string/total_price_1"
                             android:textStyle="bold"
                             android:textSize="14sp"
                             android:textColor="@color/price_tag"/>
@@ -274,14 +275,15 @@
                             android:layout_weight="3.5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Phí giao hàng:"
-                            android:textStyle="bold"/>
+                            android:text="@string/shipping_label"
+                            android:textStyle="bold"
+                            android:textSize="14sp"/>
                         <TextView
                             android:id="@+id/txtPhiShip2"
                             android:layout_weight="4.5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="40,000 đ"
+                            android:text="@string/shipping_cost"
                             android:textStyle="bold"
                             android:textSize="14sp"
                             android:textColor="@color/price_tag"/>
@@ -298,15 +300,15 @@
                             android:layout_weight="3.5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Tổng tiền:"
+                            android:text="@string/total_2"
                             android:textStyle="bold"
-                            android:textSize="16sp"/>
+                            android:textSize="15sp"/>
                         <TextView
                             android:layout_weight="4.5"
                             android:id="@+id/txtTongTien"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="922000 đ"
+                            android:text="@string/total_price_2"
                             android:textStyle="bold"
                             android:textSize="14sp"
                             android:textColor="@color/price_tag"/>
@@ -360,7 +362,7 @@
                     android:textStyle="bold"
                     android:layout_marginEnd="12dp"
                     android:gravity="end|center_vertical"
-                    android:text="0"
+                    android:text="@string/total_price"
                     android:textColor="@color/price_tag"/>
             </LinearLayout>
 

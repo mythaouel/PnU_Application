@@ -37,7 +37,6 @@
                     android:weightSum="10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:layout_margin="5dp">
                     <TextView
                         android:layout_weight="7"
@@ -46,13 +45,14 @@
                         android:layout_height="30dp"
                         android:gravity="center_vertical"
                         android:text="394000đ"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         android:textColor="@color/price_tag" />
                     <TextView
                         android:layout_weight="3"
                         android:id="@+id/txtOrderQuantity"
                         android:text="Số lượng: 1"
+                        android:textSize="15sp"
                         android:gravity="center_vertical"
                         android:textColor="@color/ink_02"
                         android:layout_width="wrap_content"

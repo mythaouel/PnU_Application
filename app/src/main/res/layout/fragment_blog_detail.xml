@@ -43,7 +43,7 @@
             android:id="@+id/txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tiêu đề bài viết"
+            android:text="@string/blog_title"
             android:textSize="22sp"
             android:gravity="center"
             android:textStyle="bold"/>
@@ -52,7 +52,7 @@
             android:id="@+id/txtDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nội dung bài viết"
+            android:text="@string/blog_detail"
             android:textSize="16sp"/>
     </LinearLayout>
 

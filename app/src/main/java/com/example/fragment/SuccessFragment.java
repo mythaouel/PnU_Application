@@ -38,4 +38,10 @@ public class SuccessFragment extends Fragment {
         } );
         return view;
     }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.showBottomNav();
+    }
 }
