@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fragment.AccountFragment;
 
@@ -58,20 +59,20 @@ public class SignUp_Screen extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 boolean error = false;
-                String userName = edtUserName.getText().toString().trim();
-                String password = edtPassword.getText().toString().trim();
-                String phone = edtPhone.getText().toString().trim();
+                String userName = edtUserName.getText().toString();
+                String password = edtPassword.getText().toString();
+                String phone = edtPhone.getText().toString();
 
                 if(password.length()<5){
                     edtPassword.requestFocus();
                     edtPassword.setError(context.getResources().getString(R.string.error_password));
                     error = true;
                 }
-                if(phone.length()!=10){
-                    edtPhone.requestFocus();
-                    edtPhone.setError(context.getResources().getString(R.string.error_phone));
-                    error = true;
-                }
+//                if(phone.length()!=10 || phone.length()!=11 ){
+//                    edtPhone.requestFocus();
+//                    edtPhone.setError(context.getResources().getString(R.string.error_phone));
+//                    error = true;
+//                }
 
                 //bỏ trống ô Password
                 if (TextUtils.isEmpty(password)) {
@@ -92,19 +93,20 @@ public class SignUp_Screen extends AppCompatActivity{
                     error = true;
                 }
                 if (!error) {
-                    Intent intent = new Intent(context, OTP_Screen.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("phone", phone);
-                    bundle.putString("userName", userName);
-                    bundle.putString("password",password);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
-//                    gửi lại thông tin qua màn hình đăng nhập
-//                    Intent intent = new Intent();
-//                    //gửi dữ liệu
-//                    intent.putExtra(SignIn_Screen.KEY_USER_TO_MAIN, userName);
-//                    setResult(RESULT_OK, intent);
-//                    finish();
+                    if(!Loading_Screen.db.isUserNameExists(userName)){
+                        //check username exist
+                        Intent intent = new Intent(context, OTP_Screen.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("phone", phone);
+                        bundle.putString("userName", userName);
+                        bundle.putString("password",password);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    }else
+                    {
+                        edtUserName.requestFocus();
+                        edtUserName.setError(context.getResources().getString(R.string.error_userName));
+                    }
                 }
             }
         });

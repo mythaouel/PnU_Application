@@ -6,6 +6,7 @@
     <string name="error_password">Mật khẩu phải chứa ít nhất 5 ký tự</string>
     <string name="error_phone">Số điện thoại không đúng</string>
     <string name="error_OTP">OTP chưa chính xác</string>
+    <string name="error_userName">Username đã tồn tại!</string>
     <string name="import_find">Nhập từ khóa tìm kiếm</string>
     <string name="dat_hang_thanh_cong">ĐẶT HÀNG THÀNH CÔNG</string>
     <string name="don_hang_duoc_dat_thanh_cong">Đơn hàng của bạn đã được đặt thành công</string>

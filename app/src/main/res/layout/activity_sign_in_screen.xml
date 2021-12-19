@@ -111,4 +111,9 @@
             android:background="@drawable/ic_gmail"
             android:layout_marginLeft="50dp"/>
     </LinearLayout>
+    <TextView
+        android:id="@+id/txtTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"/>
 </LinearLayout>

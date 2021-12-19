@@ -106,7 +106,7 @@ public class OTP_Screen extends AppCompatActivity {
                     boolean flag = Loading_Screen.db.insertAccountData(username,phone,password,OTP);
                     if (flag){
                         Toast.makeText(context, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
-                        Intent intent_saved = new Intent(context, MainActivity.class);
+                        Intent intent_saved = new Intent(context, SignIn_Screen.class);
                         startActivity(intent_saved);
                     }else{
                         Toast.makeText(context, "Lỗi!", Toast.LENGTH_SHORT).show();

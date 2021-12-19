@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteStatement;
 
 import androidx.annotation.Nullable;
 
+import com.example.model.User;
+
 public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final int DB_VERSION=1;
     public static final String DB_NAME="PnU.sqlite";
@@ -93,7 +95,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 //            queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'LP01','LAPTOP',12,'Apple',null,null)");
 
             //Thêm Test thử
-//            queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'Lâm Hữu Gia','LAPTOP',12,'KTX Khu B ĐHQG TP. HCM',0978362814,null,null)");
+            queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'Lâm Hữu Gia','LAPTOP',12,'KTX Khu B ĐHQG TP. HCM',0978362814,null,1)");
 
             queryExec("INSERT INTO "+ACCOUNT_TB_NAME+" VALUES(null,'hoangyen@.study.com',0849111149,'123',123)");
         }
@@ -164,4 +166,37 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    public boolean isUserNameExists (String username){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(ACCOUNT_TB_NAME,
+                new String[]{ACCOUNT_COL_ID, ACCOUNT_COL_USERNAME, ACCOUNT_COL_NUMBER, ACCOUNT_COL_PASSWORD, ACCOUNT_COL_OTP},
+                ACCOUNT_COL_USERNAME + "=?",
+                new String[]{username},
+                null,null,null);
+        if (cursor != null && cursor.moveToFirst()) {
+            return true;
+        }
+        return false;
+    }
+
+    public User Authenticate(User user) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(ACCOUNT_TB_NAME,// Selecting Table
+                new String[]{ACCOUNT_COL_ID, ACCOUNT_COL_USERNAME, ACCOUNT_COL_NUMBER, ACCOUNT_COL_PASSWORD, ACCOUNT_COL_OTP},//Selecting columns want to query
+                ACCOUNT_COL_USERNAME + "=?",
+                new String[]{user.getUserName()},//Where clause
+                null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            User user1 = new User(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            //kiểm tra mật khẩu
+            if (user.getUserPassword().equalsIgnoreCase(user1.getUserPassword())) {
+                return user1;
+            }
+        }
+        return null;
+    }
+
 }
