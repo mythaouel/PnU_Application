@@ -99,8 +99,6 @@ public class UpdateInfoFragment extends Fragment {
 
     }
 
-
-
     private void linkViews() {
         btnUpdate   = mView.findViewById(R.id.btnUpdate);
 
@@ -116,35 +114,36 @@ public class UpdateInfoFragment extends Fragment {
         imvBack     = mView.findViewById(R.id.imvAccountBack);
 
     }
+
     private void checkUpdate() {
 
     }
-
 
     private void loadData() {
 
         Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
 //        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " ORDER BY "+ MyDatabaseHelper.CUSTOMER_COL_ID+" DESC LIMIT 1");
-        while (cursor.moveToNext()){
-            edtName.setText( cursor.getString( 1 ) );
-            edtBirthday.setText(String.valueOf(cursor.getString(2)));
-            edtEmail.setText( cursor.getString( 3) );
-            edtPhone.setText(String.valueOf( cursor.getInt( 4 ) )+"0");
-            edtAddress.setText(cursor.getString( 5 ));
 
-            txtName.setText( cursor.getString( 1 ) );
+       if(cursor.moveToFirst()) {
+         {
+               edtName.setText( cursor.getString( 1 ) );
+               edtBirthday.setText(String.valueOf(cursor.getString(2)));
+               edtEmail.setText( cursor.getString( 3) );
+               edtPhone.setText(String.valueOf( cursor.getInt( 4 ) )+"0");
+               edtAddress.setText(cursor.getString( 5 ));
 
-            //Covert to byte array->Bitmap
-            byte[] photo= cursor.getBlob(6);
-            if(photo==null){
-                imvAvatar.setImageResource(R.drawable.user_avt_default);
-            }else{
-                Bitmap bitmap= BitmapFactory.decodeByteArray(photo,0, photo.length);
-                imvAvatar.setImageBitmap(bitmap);
-                Loading_Screen.db.close();
-            }
+               txtName.setText( cursor.getString( 1 ) );
 
-
+               //Covert to byte array->Bitmap
+               byte[] photo= cursor.getBlob(6);
+               if(photo==null){
+                   imvAvatar.setImageResource(R.drawable.user_avt_default);
+               }else{
+                   Bitmap bitmap= BitmapFactory.decodeByteArray(photo,0, photo.length);
+                   imvAvatar.setImageBitmap(bitmap);
+                   Loading_Screen.db.close();
+               }
+           }
         }
     }
 
@@ -200,6 +199,7 @@ public class UpdateInfoFragment extends Fragment {
         bitmap.compress(Bitmap.CompressFormat.PNG,100,outputStream);
         return outputStream.toByteArray();
     }
+
     private void createSheetDialog(){
         if (sheetDialog==null){
             View view = LayoutInflater.from(getContext()).inflate(R.layout.account_updateinf_bottom_sheet,null);

@@ -33,8 +33,12 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/imvAvatar"
                     android:paddingLeft="5dp"
+                    app:civ_border_width="1.5dp"
+                    app:civ_border_color="@color/black"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/user_avt_default"
                     android:layout_width="0dp"
@@ -51,6 +55,7 @@
                     android:layout_width="0dp"
                     android:layout_height="120dp">
                     <TextView
+                        android:id="@+id/txtAccountName"
                         android:text="Họ Tên"
                         android:layout_weight="6.5"
                         android:gravity="bottom"

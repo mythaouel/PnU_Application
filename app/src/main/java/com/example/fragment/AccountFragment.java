@@ -1,6 +1,9 @@
 package com.example.fragment;
 
 import android.app.Dialog;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,7 +15,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -23,45 +28,57 @@ import com.example.adapter.AccountLineAdapter;
 import com.example.model.AccountLineItem;
 
 
+import com.example.pnu_application.Loading_Screen;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class AccountFragment extends Fragment {
-    ListView lvAccount1,lvAccount2,lvAccount3;
-    Button btnUpdateInf;
 
+    Button btnUpdateInf;
+    TextView txtName;
+    CircleImageView imvAvatar;
+
+    ListView lvAccount1,lvAccount2,lvAccount3;
     AccountLineAdapter adapter1,adapter2,adapter3;
     ArrayList<AccountLineItem> lineItems1,lineItems2,lineItems3;
 
-
-
     View view;
+
+    int MATK=1;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         view=inflater.inflate(R.layout.fragment_account, container, false);
         linkViews();
         initData();
         addEvents();
-
-
         return view;
     }
+
     private void linkViews() {
+
+        imvAvatar    = view.findViewById(R.id.imvAvatar) ;
+        txtName      = view.findViewById(R.id.txtAccountName);
+        btnUpdateInf = view.findViewById(R.id.btnUpdateInf);
+
         lvAccount1   = view.findViewById(R.id.lvAccount1);
         lvAccount2   = view.findViewById(R.id.lvAccount2);
         lvAccount3   = view.findViewById(R.id.lvAccount3);
 
-        btnUpdateInf = view.findViewById(R.id.btnUpdateInf);
+
 
     }
+
     private void addEvents() {
-        //Tai khoan
+
         lvAccount1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -83,7 +100,7 @@ public class AccountFragment extends Fragment {
             }
         });
 
-        //PnU
+
         lvAccount2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -104,6 +121,7 @@ public class AccountFragment extends Fragment {
 
             }
         });
+
         lvAccount3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -124,6 +142,26 @@ public class AccountFragment extends Fragment {
                 transaction.commit();
             }
         });
+
+        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+//        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " ORDER BY "+ MyDatabaseHelper.CUSTOMER_COL_ID+" DESC LIMIT 1");
+
+        if(cursor.moveToFirst()) {
+            {
+
+                txtName.setText( cursor.getString( 1 ) );
+
+                //Covert to byte array->Bitmap
+                byte[] photo= cursor.getBlob(6);
+                if(photo==null){
+                    imvAvatar.setImageResource(R.drawable.user_avt_default);
+                }else{
+                    Bitmap bitmap= BitmapFactory.decodeByteArray(photo,0, photo.length);
+                    imvAvatar.setImageBitmap(bitmap);
+                    Loading_Screen.db.close();
+                }
+            }
+        }
     }
 
     private void openLogOutDialog(){

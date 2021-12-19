@@ -35,6 +35,6 @@ public class Loading_Screen extends AppCompatActivity {
 
     public void prepareDatabase() {
         db=new MyDatabaseHelper(Loading_Screen.this);
-        //db.createSomeTestRows();
+//        db.createSomeTestRows();
     }
 }

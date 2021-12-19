@@ -4,26 +4,41 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.example.fragment.AboutUsFragment">
-    <include layout="@layout/act_custom_toolbar_as"/>
+    <Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:id="@+id/actToolbar"
+        android:background="@color/primary_yellow"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="?attr/actionBarSize">
+        <ImageView
+            android:background="@android:color/transparent"
+            android:id="@+id/imvAUsBack"
+            app:srcCompat="@drawable/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"/>
+        <TextView
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:text="Giới thiệu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </Toolbar>
     <ScrollView
         android:scrollbars="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <LinearLayout
+            android:padding="15dp"
             android:background="@color/white"
-            android:layout_marginRight="10dp"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:textStyle="bold"
-                android:textSize="30sp"
+                android:textSize="26sp"
                 android:textColor="@color/ink_01"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
@@ -31,7 +46,7 @@
                 android:text="ABOUT US"/>
             <TextView
                 android:text="Tầm nhìn"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="italic"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
@@ -40,14 +55,14 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:text="PnU sẽ là người bạn đồng hành thân thiết của thú cưng và những người yêu thú cưng. Chúng tôi mong muốn cung cấp những sản phẩm tốt nhất cho thú cưng của bạn."
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:layout_marginTop="5dp"
                 android:text="Sứ mệnh"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="italic"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
@@ -56,14 +71,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:text="PnU ra đời để có thể gắn kết mọi người, đem đến những sản phẩm tiện ích, tốt nhất cho thú cưng của bạn, đáp ứng mọi nhu cầu của thú cưng, giá cả bình ổn, hợp lý nhất thị trường."
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:layout_marginTop="5dp"
                 android:text="Mục tiêu"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textColor="@color/black"
                 android:textStyle="italic"
                 android:layout_width="match_parent"
@@ -72,58 +87,146 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
-                android:text="-Cung cấp các sản phẩm từ A-Z cho thú cưng yêu quý của bạn."
+                android:textSize="16sp"
+                android:text="- Cung cấp các sản phẩm từ A-Z cho thú cưng yêu quý của bạn."
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:text="- Chúng tôi hiện kinh doanh các mặt hàng sau:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="26dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:text="+ Thức ăn cho chó, mèo:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="26dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:text="+ Thời trang theo trend cho thú cưng:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="26dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:text="+ Cát mèo và các sản phẩm vệ sinh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="26dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:text="+ Trang sức, đồ trang trí từ đáng yêu đến cool ngầu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="26dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:text="+ Đồ chơi, đồ cào móng, giải tỏa stress các loại cho thú cưng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:textColor="@color/primary_yellow"
-                android:text="Giao hàng toàn quốc. Miễn phí vận chuyển cho đơn hàng từ 500.000đ."
-                android:textSize="25sp"
-                android:textStyle="italic"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:text="-----------------------"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Thông tin liên hệ"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:gravity="left"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginLeft="26dp"
+                    android:textColor="@color/ink_01"
+                    android:textSize="16sp"
+                    android:text="Hotline:"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/txtAUsPhone"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="italic"
+                    android:textColor="@color/available"
+                    android:textSize="16sp"
+                    android:text="0123456777"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:gravity="left"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginLeft="26dp"
+                    android:textColor="@color/ink_01"
+                    android:textSize="16sp"
+                    android:text="Email:"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="italic"
+                    android:textColor="@color/ink_01"
+                    android:textSize="16sp"
+                    android:text="cskh@pnu.com"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:gravity="left"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="26dp"
+                    android:textColor="@color/ink_01"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Địa chỉ:"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="italic"
+                    android:textColor="@color/ink_01"
+                    android:textSize="16sp"
+                    android:text="11 Đoàn Kết, phường Linh Trung, quận Thủ Đức, TPHCM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:textStyle="italic"
+                android:textColor="@color/primary_yellow"
+                android:textSize="20sp"
+                android:text="Giao hàng toàn quốc. Miễn phí vận chuyển cho đơn hàng từ 500.000đ."
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
 
