@@ -1,0 +1,115 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_account"
+    android:orientation="vertical"
+    android:weightSum="7"
+    android:background="@color/ink_04"
+    tools:context="com.example.fragment.AccountFragment">
+    <!--Khung Info-->
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <FrameLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/act_bg"
+                android:scaleType="fitXY"
+                android:paddingBottom="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:paddingTop="5dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
+                android:weightSum="10"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/imvAvatar"
+                        android:paddingLeft="5dp"
+                        app:civ_border_width="1.5dp"
+                        app:civ_border_color="@color/black"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/user_avt_default"
+                        android:layout_width="0dp"
+                        android:layout_weight="2.8"
+                        android:layout_height="120dp"/>
+                    <TextView
+                        android:id="@+id/txtLogin"
+                        android:text="Đăng Nhập/ Đăng Ký"
+                        android:layout_weight="7.2"
+                        android:paddingLeft="15dp"
+                        android:gravity="bottom"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/ink_01"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!--Khung Chuc Nang-->
+    <LinearLayout
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <ListView
+            android:layout_marginTop="20dp"
+            android:id="@+id/lvActNoLogin1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ListView
+            android:layout_marginTop="20dp"
+            android:id="@+id/lvActNoLogin2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            android:weightSum="10"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/imvIcon1"
+                android:layout_gravity="center"
+                android:src="@drawable/act_ic_bell"
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_height="26dp"/>
+            <TextView
+                android:id="@+id/txtNameLine"
+                android:layout_weight="7"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:textColor="@color/ink_01"
+                android:textSize="18sp"
+                android:text="Thông báo"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="35dp"/>
+            <Switch
+                android:layout_weight="2"
+                android:id="@+id/swtNoLogin"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="15dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

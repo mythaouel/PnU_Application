@@ -56,8 +56,10 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         view=inflater.inflate(R.layout.fragment_account, container, false);
         linkViews();
+        loadData();
         initData();
         addEvents();
         return view;
@@ -143,14 +145,13 @@ public class AccountFragment extends Fragment {
             }
         });
 
-        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
-//        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " ORDER BY "+ MyDatabaseHelper.CUSTOMER_COL_ID+" DESC LIMIT 1");
 
+    }
+    private void loadData(){
+        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
         if(cursor.moveToFirst()) {
             {
-
                 txtName.setText( cursor.getString( 1 ) );
-
                 //Covert to byte array->Bitmap
                 byte[] photo= cursor.getBlob(6);
                 if(photo==null){
@@ -163,7 +164,6 @@ public class AccountFragment extends Fragment {
             }
         }
     }
-
     private void openLogOutDialog(){
         final Dialog dialog= new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

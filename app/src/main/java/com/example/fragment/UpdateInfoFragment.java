@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +59,7 @@ public class UpdateInfoFragment extends Fragment {
     ActivityResultLauncher<Intent> activityResultLauncher;
 
     Boolean isCamera;
-    String name,address,email,birthday;
+    String name,address,email,birthday,phone;
 
     int MATK=1;
 
@@ -69,10 +70,82 @@ public class UpdateInfoFragment extends Fragment {
         mView=inflater.inflate(R.layout.fragment_update_info, container, false);
         linkViews();
         createSheetDialog();
-        checkUpdate();
+        getImage();
         loadData();
         addEvents();
 
+        return mView;
+
+    }
+
+
+    private void linkViews() {
+        btnUpdate   = mView.findViewById(R.id.btnUpdate);
+
+        edtName     = mView.findViewById(R.id.edtName);
+        edtBirthday = mView.findViewById(R.id.edtBirthday);
+        edtEmail    = mView.findViewById(R.id.edtEmail);
+        edtPhone    = mView.findViewById(R.id.edtPhoneAct);
+        edtAddress  = mView.findViewById(R.id.edtAddress);
+
+        txtName     = mView.findViewById(R.id.txtInfName);
+
+        imvAvatar   = mView.findViewById(R.id.imvAvtInfo);
+        imvBack     = mView.findViewById(R.id.imvAccountBack);
+
+    }
+
+    private void getValues() {
+
+        name = edtName.getText().toString().trim();
+        email=edtEmail.getText().toString().trim();
+        address=edtAddress.getText().toString().trim();
+        birthday= edtBirthday.getText().toString().trim();
+        phone= edtPhone.getText().toString().trim();
+    }
+
+
+    private boolean checkValidation() {
+        getValues();
+        // bỏ trống ô Họ Tên
+        if(TextUtils.isEmpty(name)){
+            edtName.requestFocus();
+            edtName.setError(getContext().getResources().getString(R.string.loi_thieu_info));
+            return false;
+        }
+
+        //bỏ trống ô Ngày Sinh
+        if(TextUtils.isEmpty(birthday)){
+            edtBirthday.requestFocus();
+            edtBirthday.setError(getContext().getResources().getString(R.string.loi_thieu_info));
+            return false;
+        }
+
+        //bỏ trống ô Email
+        if(TextUtils.isEmpty(email)){
+            edtEmail.requestFocus();
+            edtEmail.setError(getContext().getResources().getString(R.string.loi_thieu_info));
+            return false;
+        }
+
+        //bỏ trống ô nhận Số Điện Thoại
+        if(TextUtils.isEmpty(phone)){
+            edtPhone.requestFocus();
+            edtPhone.setError(getContext().getResources().getString(R.string.loi_thieu_info));
+            return false;
+        }
+
+        //bỏ trống ô Địa Chỉ
+        if(TextUtils.isEmpty(address)){
+            edtAddress.requestFocus();
+            edtAddress.setError(getContext().getResources().getString(R.string.loi_thieu_info));
+            return false;
+        }
+        // Mật khẩu mới đặt không đúng yêu cầu (từ 5 ký tự trở )
+
+        return true;
+    }
+    private void getImage() {
         activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
@@ -94,57 +167,35 @@ public class UpdateInfoFragment extends Fragment {
                 }
             }
         });
-
-        return mView;
-
-    }
-
-    private void linkViews() {
-        btnUpdate   = mView.findViewById(R.id.btnUpdate);
-
-        edtName     = mView.findViewById(R.id.edtName);
-        edtBirthday = mView.findViewById(R.id.edtBirthday);
-        edtEmail    = mView.findViewById(R.id.edtEmail);
-        edtPhone    = mView.findViewById(R.id.edtPhoneAct);
-        edtAddress  = mView.findViewById(R.id.edtAddress);
-
-        txtName     = mView.findViewById(R.id.txtInfName);
-
-        imvAvatar   = mView.findViewById(R.id.imvAvtInfo);
-        imvBack     = mView.findViewById(R.id.imvAccountBack);
-
-    }
-
-    private void checkUpdate() {
-
     }
 
     private void loadData() {
 
         Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
-//        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " ORDER BY "+ MyDatabaseHelper.CUSTOMER_COL_ID+" DESC LIMIT 1");
+        if (cursor!=null && cursor.moveToFirst()){
+            {
+                {
+                    edtName.setText( cursor.getString( 1 ) );
+                    edtBirthday.setText(String.valueOf(cursor.getString(2)));
+                    edtEmail.setText( cursor.getString( 3) );
+                    edtPhone.setText(cursor.getString( 4 ) );
+                    edtAddress.setText(cursor.getString( 5 ));
 
-       if(cursor.moveToFirst()) {
-         {
-               edtName.setText( cursor.getString( 1 ) );
-               edtBirthday.setText(String.valueOf(cursor.getString(2)));
-               edtEmail.setText( cursor.getString( 3) );
-               edtPhone.setText(String.valueOf( cursor.getInt( 4 ) )+"0");
-               edtAddress.setText(cursor.getString( 5 ));
+                    txtName.setText( cursor.getString( 1) );
 
-               txtName.setText( cursor.getString( 1 ) );
-
-               //Covert to byte array->Bitmap
-               byte[] photo= cursor.getBlob(6);
-               if(photo==null){
-                   imvAvatar.setImageResource(R.drawable.user_avt_default);
-               }else{
-                   Bitmap bitmap= BitmapFactory.decodeByteArray(photo,0, photo.length);
-                   imvAvatar.setImageBitmap(bitmap);
-                   Loading_Screen.db.close();
-               }
-           }
+                    //Covert to byte array->Bitmap
+                    byte[] photo= cursor.getBlob(6);
+                    if(photo==null){
+                        imvAvatar.setImageResource(R.drawable.user_avt_default);
+                    }else{
+                        Bitmap bitmap= BitmapFactory.decodeByteArray(photo,0, photo.length);
+                        imvAvatar.setImageBitmap(bitmap);
+                        Loading_Screen.db.close();
+                    }
+                }
+            }
         }
+
     }
 
     private void addEvents() {
@@ -167,26 +218,32 @@ public class UpdateInfoFragment extends Fragment {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 //Insert Customer Data
-                int phone;
-                name = edtName.getText().toString();
-                email=edtEmail.getText().toString();
-                address=edtAddress.getText().toString();
-                birthday= edtBirthday.getText().toString();
-                phone=Integer.parseInt ( edtPhone.getText().toString());
 
+                if(checkValidation()){
+                    getValues();
+                    Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+                     // trường hợp account đã thông tin trước đó có ->sẽ cập nhật lại
+                      if(cursor!=null && cursor.moveToFirst()) {
+                          boolean flag=Loading_Screen.db.updateCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
+                          if (flag == true) {
+                              Toast.makeText(getContext(), "Update2 Succes", Toast.LENGTH_SHORT).show();
+                          } else {
+                              Toast.makeText(getContext(), "Update2 Fail", Toast.LENGTH_SHORT).show();
+                          }
+                          // trường hợp account chưa bấm cập nhật thông tin lần nào ->insert vào 
+                      }else{
+                          boolean flag = Loading_Screen.db.insertCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
+                          if (flag == true) {
+                              Toast.makeText(getContext(), "Update Succes", Toast.LENGTH_SHORT).show();
+                          } else {
+                              Toast.makeText(getContext(), "Update Fail", Toast.LENGTH_SHORT).show();
+                          }
+                      }
+                }}
 
-                if(!name.equals("") && !birthday.equals("") &&  !edtPhone.getText().toString().equals("") && !address.equals("") && !email.equals("")){
-                   boolean flag= Loading_Screen.db.insertCustomerData(name,birthday,email,address,phone, covertPhoto(),MATK);
-                    if(flag==true){
-                        Toast.makeText(getContext(), "Update Succes", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(getContext(), "Update Fail", Toast.LENGTH_SHORT).show();
-                    }
-                }else{
-                    Toast.makeText(getContext(), "Không được để trống dòng", Toast.LENGTH_SHORT).show();
-                }
-            }
 
         });
 //        loadData();

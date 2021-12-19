@@ -3,11 +3,9 @@ package com.example.pnu_application;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -17,8 +15,8 @@ import com.example.fragment.CartFragment;
 import com.example.fragment.CategoryFragment;
 import com.example.fragment.HomeFragment;
 import com.example.fragment.NotificationBlogFragment;
-import com.example.fragment.NotificationFragment;
 import com.example.fragment.UpdateInfoFragment;
+import com.example.fragment.NoLoginAccountFragment;
 import com.example.fragment.category.ProductDetailsFragment;
 import com.example.model.Blog;
 import com.example.model.BlogItemClick;
@@ -26,7 +24,6 @@ import com.example.model.Product;
 import com.example.model.ProductItemClick;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -66,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
                     selectedFragment = new NotificationBlogFragment();
                     break;
                 case R.id.itAccount:
+
                     selectedFragment = new AccountFragment();
                     break;
             }

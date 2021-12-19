@@ -105,7 +105,7 @@ public class ChangePassFragment extends Fragment {
         //bỏ trống ô Mật Khẩu Mới
         if(TextUtils.isEmpty(newPass)){
             edtNewPass.requestFocus();
-            edtNewPass.setError(getContext().getResources().getString(R.string.loi_thieu_info));
+            edtNewPass.setError(getContext().getResources().getString(R.string.check_empty_newpass));
             return false;
         }
         // Mật khẩu mới đặt không đúng yêu cầu (từ 5 ký tự trở )
@@ -119,7 +119,7 @@ public class ChangePassFragment extends Fragment {
         // bỏ trống ô Xác hận ật hẩu
         if(TextUtils.isEmpty(rePass)){
             edtRepass.requestFocus();
-            edtRepass.setError(getContext().getResources().getString(R.string.loi_thieu_info));
+            edtRepass.setError(getContext().getResources().getString(R.string.check_empty_repass));
             return  false;
         }
 

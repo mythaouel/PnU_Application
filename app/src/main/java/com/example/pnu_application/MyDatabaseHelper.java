@@ -25,6 +25,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String ACCOUNT_COL_NUMBER="SODT";
     public static final String ACCOUNT_COL_PASSWORD="MATKHAU";
     public static final String ACCOUNT_COL_OTP="OTP";
+//    public static final String ACCOUNT_COL_STATUS="STATUS";
 
     public static final String CUSTOMER_COL_ID="MAKH";
     public static final String CUSTOMER_COL_ACT_ID="MATK";
@@ -53,10 +54,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_USERNAME + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " INTEGER," + ACCOUNT_COL_PASSWORD + " TEXT," + ACCOUNT_COL_OTP + " INTEGER)";
+        String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_USERNAME + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " INTEGER," + ACCOUNT_COL_PASSWORD + " TEXT, " + ACCOUNT_COL_OTP + " INTEGER)" ;
 
         String sql2="CREATE TABLE IF NOT EXISTS " +CUSTOMER_TB_NAME +"("+ CUSTOMER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                      CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " INTEGER,"+
+                      CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " VARCHAR(20),"+
                       CUSTOMER_COL_ADDRESS + " VARCHAR(200), " + CUSTOMER_COL_PHOTO + " BLOB, " + CUSTOMER_COL_ACT_ID +" INTEGER REFERENCES " + ACCOUNT_TB_NAME + "(" + ACCOUNT_COL_ID +")" +")";
 
         String sql3= "CREATE TABLE IF NOT EXISTS " +ORDER_TB_NAME +"("+ ORDER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
@@ -100,7 +101,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             queryExec("INSERT INTO "+ACCOUNT_TB_NAME+" VALUES(null,'hoangyen@.study.com',0849111149,'123',123)");
         }
     }
-    public boolean insertCustomerData(String name, String birthday,String email,String address,int phone, byte[] photo, int MAKH){
+    public boolean insertCustomerData(String name, String birthday,String email,String phone,String address, byte[] photo, int MAKH){
         try {
             SQLiteDatabase db = getWritableDatabase();
             String sql = "INSERT INTO " + CUSTOMER_TB_NAME + " VALUES(null,?,?,?,?,?,?,?)";
@@ -110,7 +111,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             statement.bindString(2,birthday);
             statement.bindString(3, email);
 
-            statement.bindDouble(4,phone);
+            statement.bindString(4,phone);
             statement.bindString(5, address);
             statement.bindBlob(6, photo);
             statement.bindDouble(7, MAKH);
@@ -141,13 +142,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
-    public boolean updatePassword(String newpass, int MATK){
-        SQLiteDatabase db= this.getWritableDatabase();
-        ContentValues contentValues= new ContentValues();
-        contentValues.put(ACCOUNT_COL_PASSWORD, newpass);
-        db.update(ACCOUNT_TB_NAME,contentValues,ACCOUNT_COL_ID + " = ? ", new String[]{ MATK +""});
-         return true;
-    }
+
 
     public boolean insertAccountData(String username, int phone, String password, int OTP){
         try {
@@ -179,6 +174,36 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
         return false;
     }
+    public boolean updatePassword(String newpass, int MATK){
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put(ACCOUNT_COL_PASSWORD, newpass);
+        db.update(ACCOUNT_TB_NAME,contentValues,ACCOUNT_COL_ID + " = ? ", new String[]{ MATK +""});
+        return true;
+    }
+
+    public boolean updateCustomerData(String name,String birthday, String email, String phone, String address,byte[] photo, int MATK){
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put(CUSTOMER_COL_NAME, name);
+        contentValues.put(CUSTOMER_COL_BIRTHDAY,birthday);
+        contentValues.put(CUSTOMER_COL_EMAIL,email);
+        contentValues.put(CUSTOMER_COL_NUMBER,phone);
+        contentValues.put(CUSTOMER_COL_ADDRESS,address);
+        contentValues.put(CUSTOMER_COL_PHOTO, photo);
+
+        db.update(CUSTOMER_TB_NAME,contentValues,CUSTOMER_COL_ID + " = ? ", new String[]{ MATK +""});
+        return true;
+    }
+
+
+//    public boolean updateLoginStatus(int status, int MATK){
+//        SQLiteDatabase db= this.getWritableDatabase();
+//        ContentValues contentValues= new ContentValues();
+//        contentValues.put(ACCOUNT_COL_STATUS, status);
+//        db.update(ACCOUNT_TB_NAME,contentValues,ACCOUNT_COL_ID + " = ? ", new String[]{ MATK +""});
+//        return true;
+//    }
 
     public User Authenticate(User user) {
 
