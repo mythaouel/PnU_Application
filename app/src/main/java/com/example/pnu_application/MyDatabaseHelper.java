@@ -25,6 +25,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String ACCOUNT_COL_NUMBER="SODT";
     public static final String ACCOUNT_COL_PASSWORD="MATKHAU";
     public static final String ACCOUNT_COL_OTP="OTP";
+    public static final String ACCOUNT_COL_STATUS="STATUS";
 
     public static final String CUSTOMER_COL_ID="MAKH";
     public static final String CUSTOMER_COL_ACT_ID="MATK";
@@ -53,7 +54,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_USERNAME + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " INTEGER," + ACCOUNT_COL_PASSWORD + " TEXT," + ACCOUNT_COL_OTP + " INTEGER)";
+        String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_USERNAME + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " INTEGER," + ACCOUNT_COL_PASSWORD + " TEXT," + ACCOUNT_COL_OTP + " INTEGER," + ACCOUNT_COL_STATUS + " INTEGER)";
 
         String sql2="CREATE TABLE IF NOT EXISTS " +CUSTOMER_TB_NAME +"("+ CUSTOMER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                       CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " INTEGER,"+
@@ -88,6 +89,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return count;
     };
+
     public void createSomeTestRows(){
         int count1=getCount(CUSTOMER_TB_NAME);
         int count2=getCount(ACCOUNT_TB_NAME);
@@ -96,8 +98,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
             //Thêm Test thử
             queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'Lâm Hữu Gia','LAPTOP',12,'KTX Khu B ĐHQG TP. HCM',0978362814,null,1)");
-
-            queryExec("INSERT INTO "+ACCOUNT_TB_NAME+" VALUES(null,'hoangyen@.study.com',0849111149,'123',123)");
+            queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'Trần Thị Mỹ Thảo','LAPTOP22','thaotran123@gmail.com',0978362814,'KTX Khu B ĐHQG TP. HCM',null,2)");
+            //queryExec("INSERT INTO "+ACCOUNT_TB_NAME+" VALUES(null,'hoangyen@.study.com',0849111149,'123',123)");
         }
     }
     public boolean insertCustomerData(String name, String birthday,String email,String address,int phone, byte[] photo, int MAKH){
@@ -149,16 +151,25 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
          return true;
     }
 
-    public boolean insertAccountData(String username, int phone, String password, int OTP){
+    public boolean updateAccountStatus(int status, String MATK){
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put(ACCOUNT_COL_STATUS, status);
+        db.update(ACCOUNT_TB_NAME,contentValues,ACCOUNT_COL_ID + " = ? ", new String[]{ MATK +""});
+        return true;
+    }
+
+    public boolean insertAccountData(String username, int phone, String password, int OTP, int status){
         try {
             SQLiteDatabase db = getWritableDatabase();
-            String sql = " INSERT INTO " + ACCOUNT_TB_NAME + " VALUES(null, ?, ?, ?, ?)";
+            String sql = " INSERT INTO " + ACCOUNT_TB_NAME + " VALUES(null, ?, ?, ?, ?,?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
             statement.bindString(1, username);
             statement.bindDouble(2, phone);
             statement.bindString(3, password);
             statement.bindDouble(4, OTP);
+            statement.bindDouble(5, status);
 
             statement.executeInsert();
             return true;
@@ -170,7 +181,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public boolean isUserNameExists (String username){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(ACCOUNT_TB_NAME,
-                new String[]{ACCOUNT_COL_ID, ACCOUNT_COL_USERNAME, ACCOUNT_COL_NUMBER, ACCOUNT_COL_PASSWORD, ACCOUNT_COL_OTP},
+                new String[]{ACCOUNT_COL_ID, ACCOUNT_COL_USERNAME, ACCOUNT_COL_NUMBER, ACCOUNT_COL_PASSWORD, ACCOUNT_COL_OTP, ACCOUNT_COL_STATUS},
                 ACCOUNT_COL_USERNAME + "=?",
                 new String[]{username},
                 null,null,null);
@@ -184,13 +195,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(ACCOUNT_TB_NAME,// Selecting Table
-                new String[]{ACCOUNT_COL_ID, ACCOUNT_COL_USERNAME, ACCOUNT_COL_NUMBER, ACCOUNT_COL_PASSWORD, ACCOUNT_COL_OTP},//Selecting columns want to query
+                new String[]{ACCOUNT_COL_ID, ACCOUNT_COL_USERNAME, ACCOUNT_COL_NUMBER, ACCOUNT_COL_PASSWORD, ACCOUNT_COL_OTP, ACCOUNT_COL_STATUS},//Selecting columns want to query
                 ACCOUNT_COL_USERNAME + "=?",
                 new String[]{user.getUserName()},//Where clause
                 null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
-            User user1 = new User(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            User user1 = new User(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4),cursor.getString(5));
             //kiểm tra mật khẩu
             if (user.getUserPassword().equalsIgnoreCase(user1.getUserPassword())) {
                 return user1;

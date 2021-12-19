@@ -33,7 +33,7 @@
 
     <style name="Onboarding" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimary">@color/primary_yellow</item>
         <item name="colorPrimaryVariant">@color/primary_yellow</item>
         <item name="colorOnPrimary">@color/default_color</item>
         <!-- Secondary brand color. -->

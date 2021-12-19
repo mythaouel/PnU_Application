@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -41,7 +42,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class AccountFragment extends Fragment {
 
     Button btnUpdateInf;
-    TextView txtName;
+    TextView txtName, txtTest;
     CircleImageView imvAvatar;
 
     ListView lvAccount1,lvAccount2,lvAccount3;
@@ -50,7 +51,9 @@ public class AccountFragment extends Fragment {
 
     View view;
 
-    int MATK=1;
+    private MainActivity mainActivity;
+
+    int MATK;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,6 +61,10 @@ public class AccountFragment extends Fragment {
 
         view=inflater.inflate(R.layout.fragment_account, container, false);
         linkViews();
+
+        mainActivity = (MainActivity) getActivity();
+        MATK = mainActivity.getMATK();
+
         initData();
         addEvents();
         return view;
@@ -67,13 +74,12 @@ public class AccountFragment extends Fragment {
 
         imvAvatar    = view.findViewById(R.id.imvAvatar) ;
         txtName      = view.findViewById(R.id.txtAccountName);
+        txtTest      = view.findViewById(R.id.txtTest);
         btnUpdateInf = view.findViewById(R.id.btnUpdateInf);
 
         lvAccount1   = view.findViewById(R.id.lvAccount1);
         lvAccount2   = view.findViewById(R.id.lvAccount2);
         lvAccount3   = view.findViewById(R.id.lvAccount3);
-
-
 
     }
 
@@ -218,7 +224,6 @@ public class AccountFragment extends Fragment {
 
         adapter3=new AccountLineAdapter(getContext(),R.layout.account_list_item,lineItems3);
         lvAccount3.setAdapter(adapter3);
-
     }
 
 }

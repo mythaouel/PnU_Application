@@ -78,7 +78,7 @@ public class ChangePassFragment extends Fragment {
                 String newPass = edtNewPass.getText().toString().trim();
 
                 if (checkValidation() ){
-                    boolean flag= Loading_Screen.db.updatePassword(newPass,1);
+                    boolean flag= Loading_Screen.db.updatePassword(newPass,MATK);
                     if(flag==true){
                         Toast.makeText(getContext(), "Update Succes", Toast.LENGTH_SHORT).show();
                     }else{

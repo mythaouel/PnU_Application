@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
+import com.example.pnu_application.SignIn_Screen;
 
 public class OnboardingFragment3 extends Fragment {
 
@@ -31,8 +32,8 @@ public class OnboardingFragment3 extends Fragment {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"Chào mừng bạn đến với PnU <3", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                //Toast.makeText(getActivity(),"Chào mừng bạn đến với PnU <3", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), SignIn_Screen.class);
                 getActivity().startActivity(intent);
             }
         });

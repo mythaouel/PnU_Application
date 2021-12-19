@@ -6,14 +6,7 @@ public class User {
     private String phone;
     private String userPassword;
     private String OTP;
-
-    public User(String userId, String userName, String phone, String userPassword, String OTP) {
-        this.userId = userId;
-        this.userName = userName;
-        this.phone = phone;
-        this.userPassword = userPassword;
-        this.OTP = OTP;
-    }
+    private String status;
 
     public String getUserId() {
         return userId;
@@ -53,6 +46,23 @@ public class User {
 
     public void setOTP(String OTP) {
         this.OTP = OTP;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public User(String userId, String userName, String phone, String userPassword, String OTP, String status) {
+        this.userId = userId;
+        this.userName = userName;
+        this.phone = phone;
+        this.userPassword = userPassword;
+        this.OTP = OTP;
+        this.status = status;
     }
 }
 

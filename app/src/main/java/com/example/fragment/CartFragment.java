@@ -45,9 +45,14 @@ public class CartFragment extends Fragment {
     TextView txtTongCong, txtTongSL;
     ImageView imvDeleteAll;
     EditText edtGiamGia;
+
+    MainActivity mainActivity;
+    int MATK;
+
     public static LinearLayout emptyCartView;
     public static ConstraintLayout cartView;
-    int MATK = 1;
+
+    int MATK1 = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,6 +84,8 @@ public class CartFragment extends Fragment {
             emptyCartView.setVisibility( View.VISIBLE );
         }
 
+        mainActivity = (MainActivity) getActivity();
+        MATK = mainActivity.getMATK();
         configRecyclerView();
         initData();
         calTotal();

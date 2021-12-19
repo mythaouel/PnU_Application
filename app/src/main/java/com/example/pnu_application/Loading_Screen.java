@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.adapter.OnboardingAdapter;
 import com.example.fragment.HomeFragment;
 
 public class Loading_Screen extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class Loading_Screen extends AppCompatActivity {
             @Override
             public void run() {
                 //MainActivity.class - màn hình sau khi load xong
-                Intent intent = new Intent(Loading_Screen.this, SignIn_Screen.class);
+                Intent intent = new Intent(Loading_Screen.this, OnboardingActivity.class);
                 startActivity(intent);
 
                 finish();

@@ -29,10 +29,6 @@ public class SignIn_Screen extends AppCompatActivity{
 
     TextView txtTest;
 
-    ArrayList<User> users;
-
-    public static final String KEY_USER_TO_MAIN = "KEY_USER_TO_MAIN";
-    public static final String KEY_PASSWORD_TO_MAIN = "KEY_PASSWORD_TO_MAIN";
 
     public static final String KEY_USER_FROM_REGISTER = "KEY_USER_FROM_REGISTER";
 
@@ -77,7 +73,7 @@ public class SignIn_Screen extends AppCompatActivity{
                     error = true;
                 }
                 if(!error){
-                    User currentUser = Loading_Screen.db.Authenticate(new User(null,userName,null, password,null));
+                    User currentUser = Loading_Screen.db.Authenticate(new User(null,userName,null, password,null,"0"));
 
                     if(currentUser != null){
 //                        users = new ArrayList<>();
@@ -87,10 +83,12 @@ public class SignIn_Screen extends AppCompatActivity{
 //                            users.add(new User(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4)));
 //                        }
 //                        cursor.close();
-//
-                        Toast.makeText(context, "Chào mừng bạn "+currentUser.getUserId()+" " + currentUser.getUserName() +" đến với PnU <3 ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Chào mừng bạn "+ currentUser.getUserId() +" đến với PnU <3 ", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(context, MainActivity.class);
-                        intent.putExtra(KEY_USER_TO_MAIN, currentUser.getUserId());
+                        Bundle bundle = new Bundle();
+                        bundle.putInt(MainActivity.KEY_USER_TO_MAIN, Integer.parseInt(currentUser.getUserId()));
+                        bundle.putString(MainActivity.USER_NAME_TO_MAIN, currentUser.getUserName());
+                        intent.putExtras(bundle);
                         startActivity(intent);
                     }else
                     {

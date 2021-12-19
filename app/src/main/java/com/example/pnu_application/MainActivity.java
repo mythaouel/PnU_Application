@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.fragment.AccountFragment;
 import com.example.fragment.BlogDetailFragment;
@@ -36,6 +38,12 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
 
     public static BottomNavigationView bottomNavigationView;
 
+    public static final String KEY_USER_TO_ACCOUNT = "KEY_USER_TO_ACCOUNT";
+    public static final String KEY_USER_TO_CART = "KEY_USER_TO_CART";
+    public static final String KEY_USER_TO_MAIN = "KEY_USER_TO_MAIN";
+    public static final String USER_NAME_TO_MAIN = "USER_NAME_TO_MAIN";
+
+    public Integer MATK;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
 
         if(Constant.arrCartProduct == null)
             Constant.arrCartProduct = new ArrayList<>();
+
+
     }
 
     public NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {
@@ -61,18 +71,36 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
                     break;
                 case R.id.itCart:
                     selectedFragment = new CartFragment();
+                    Intent intent1 = getIntent();
+                    Bundle bundle1 = intent1.getExtras();
+                    if (bundle1 != null) {
+                        Integer getData = bundle1.getInt(KEY_USER_TO_MAIN, 0);
+                        //Toast.makeText(this, "Show value: " + MATK + userName, Toast.LENGTH_SHORT).show();
+                        MATK = getData;
+                    }
                     break;
                 case R.id.itNotification:
                     selectedFragment = new NotificationBlogFragment();
                     break;
                 case R.id.itAccount:
                     selectedFragment = new AccountFragment();
+                    Intent intent = getIntent();
+                    Bundle bundle = intent.getExtras();
+                    if (bundle != null) {
+                        Integer getData = bundle.getInt(KEY_USER_TO_MAIN, 0);
+                        //Toast.makeText(this, "Show value: " + MATK + userName, Toast.LENGTH_SHORT).show();
+                        MATK = getData;
+                    }
                     break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,selectedFragment).commit();
             return true;
         }
     };
+
+    public Integer getMATK() {
+        return MATK;
+    }
 
     //create a method to hide Bottom Navigation Bar
     public static void hideBottomNav(){
