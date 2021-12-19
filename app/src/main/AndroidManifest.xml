@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pnu_application">
-<uses-permission android:name="android.permission.CAMERA"/>
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
@@ -15,11 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PnU_Application">
         <activity
+            android:name=".OnboardingActivity"
+            android:exported="true"
+            android:theme="@style/Onboarding"/>
+        <activity
             android:name=".OTP_Screen"
             android:exported="true" />
         <activity
             android:name=".SignUp_Screen"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Loading_Screen"
             android:exported="true"
@@ -35,7 +41,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
