@@ -80,9 +80,14 @@
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/activity_main.xml" value="0.10833333333333334" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_account.xml" value="0.1" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_blog.xml" value="0.17592592592592593" />
+        <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_blog_details.xml" value="0.11296296296296296" />
+        <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_find.xml" value="0.16666666666666666" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_home.xml" value="0.2279136753195804" />
+        <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_menu.xml" value="0.11296296296296296" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/fragment_notification.xml" value="0.17592592592592593" />
+        <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/item_blog.xml" value="0.11296296296296296" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/item_spnoibat.xml" value="0.4627338256488451" />
+        <entry key="..\:/Github/PnU_Application/app/src/main/res/layout/product_item_layout.xml" value="0.184375" />
         <entry key="..\:/Github/PnU_Application/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.10833333333333334" />
         <entry key="..\:/PROJECT/Android/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/PROJECT/Android/app/src/main/res/layout/fragment_all_product.xml" value="0.25416666666666665" />
@@ -153,35 +158,21 @@
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/drawable/act_custom_bg_upif.xml" value="0.2703125" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/drawable/act_custom_btn_changepass.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/drawable/act_custom_btn_yellow_dialog.xml" value="0.2703125" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/drawable/act_custom_gray_dial.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/drawable/act_custom_usercircleavt.xml" value="0.2703125" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/drawable/act_ic_edit_info.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/drawable/act_ic_gallery.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/drawable/act_updateinf_btn_inf.xml" value="0.2703125" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/drawable/background_indicator.xml" value="0.26666666666666666" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/drawable/view_cart_custom_dialog.xml" value="0.26666666666666666" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/account_custom_dialog.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/account_list_item.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/account_orderl_list_item.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/account_tab_order1_handling.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/account_tab_order_finish.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/act_custom_toolbar.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/banner.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/fragement_order_detail.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/fragment_change_pass.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/fragment_dog_food.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/fragment_find.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/fragment_menu.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/fragment_notification_blog_screen.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/fragment_order_history.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/fragment_order_history1.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/fragment_tab_order1_handling.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/fragment_tab_order2_finished.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/fragment_update_info.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/item_blog.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/notification_blog_item.xml" value="0.25052083333333336" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/PnU_Application/app/src/main/res/layout/product_item_layout.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/PnU_Application2/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
       </map>
     </option>

@@ -20,5 +20,6 @@
     <color name="ink_02">#B2B2B2</color>
     <color name="ink_03">#E5E5E5</color>
     <color name="ink_04">#F2F2F2</color>
+    <color name="hot">#F2BE05</color>
 
 </resources>
