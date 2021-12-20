@@ -209,8 +209,7 @@ public class UpdateInfoFragment extends Fragment {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                requireActivity().onBackPressed();
-                MainActivity.showBottomNav();
+                getActivity().onBackPressed();
             }
         });
         imvAvatar.setOnClickListener(new View.OnClickListener() {

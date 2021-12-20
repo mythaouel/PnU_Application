@@ -31,15 +31,8 @@
           android:gravity="center"
           android:textSize="22sp"
           android:textStyle="bold"
-          android:text="Hiện tại bạn"
+          android:text="Hiện tại bạn chưa có đơn hàng đã hoàn thành nào"
           android:layout_gravity="center"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"/>
-      <TextView
-          android:textSize="22sp"
-          android:textStyle="bold"
-          android:text="chưa có đơn hàng đã hoàn thành nào"
-          android:gravity="center"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"/>
     </LinearLayout>

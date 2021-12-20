@@ -1,6 +1,7 @@
 package com.example.fragment;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,6 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -56,6 +58,12 @@ public class AccountFragment extends Fragment {
     int MATK;
 
     @Override
+    public void onResume() {
+        super.onResume();
+        loadData();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -66,9 +74,11 @@ public class AccountFragment extends Fragment {
         MATK = mainActivity.getMATK();
 
         initData();
+        loadData();
         addEvents();
         return view;
     }
+
 
     private void linkViews() {
 
@@ -143,19 +153,18 @@ public class AccountFragment extends Fragment {
             public void onClick(View view) {
                 UpdateInfoFragment fragment= new UpdateInfoFragment();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.layoutContainer, fragment).addToBackStack(null) ;
+                transaction.replace(R.id.fragment_account, fragment).addToBackStack(null) ;
                 transaction.commit();
             }
         });
 
+    }
+    private void loadData() {
         Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
-//        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " ORDER BY "+ MyDatabaseHelper.CUSTOMER_COL_ID+" DESC LIMIT 1");
-
         if(cursor.moveToFirst()) {
             {
 
                 txtName.setText( cursor.getString( 1 ) );
-
                 //Covert to byte array->Bitmap
                 byte[] photo= cursor.getBlob(6);
                 if(photo==null){
@@ -167,6 +176,7 @@ public class AccountFragment extends Fragment {
                 }
             }
         }
+
     }
 
     private void openLogOutDialog(){
