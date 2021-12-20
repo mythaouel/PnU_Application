@@ -21,6 +21,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.adapter.BannerAdapter;
 import com.example.adapter.HomeBlogAdapter;
+import com.example.adapter.HotProductAdapter;
+import com.example.adapter.ProductAdapter;
 import com.example.adapter.SpNoiBatAdapter;
 import com.example.fragment.category.CatFoodFragment;
 import com.example.fragment.category.DogFoodFragment;
@@ -30,6 +32,8 @@ import com.example.fragment.home.MenuFragment;
 import com.example.model.Banner;
 import com.example.model.HomeBlog;
 import com.example.model.HomeBlogItemClick;
+import com.example.model.Product;
+import com.example.model.ProductItemClick;
 import com.example.model.SpNoiBat;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
@@ -49,9 +53,16 @@ public class HomeFragment extends Fragment {
     ArrayList<Banner> banners;
     LinearLayout icon_cat, icon_dog, icon_toys, icon_clothes;
 
-    RecyclerView rcvSpNoiBat;
-    SpNoiBatAdapter nbAdapter;
-    ArrayList<SpNoiBat> noiBat;
+
+    //Sản phẩm nổi bật
+    GridView gvNoiBat;
+    ImageView imvSpNoiBat;
+    TextView txtSpNoiBat;
+    ArrayList<Product> products;
+    HotProductAdapter productAdapter;
+    ProductItemClick productItemClick;
+    ImageView imvThumbDetails;
+    TextView txtNameDetails, txtPriceDetails, txtDescription;
 
     //Blog
     GridView gvBlog;
@@ -83,8 +94,16 @@ public class HomeFragment extends Fragment {
         icon_clothes=view.findViewById(R.id.icon_clothes);
 
         //linkview và xử lý sp nổi bật
-        rcvSpNoiBat=view.findViewById(R.id.rcvNoiBat);
-        configRecyclerView();
+
+        gvNoiBat=view.findViewById(R.id.gvNoiBat);
+        imvSpNoiBat=view.findViewById(R.id.imvSpNoiBat);
+        txtSpNoiBat=view.findViewById(R.id.txtSpNoiBat);
+
+        imvThumbDetails = view.findViewById(R.id.imvThumbDetails);
+        txtNameDetails = view.findViewById(R.id.txtNameDetails);
+        txtPriceDetails = view.findViewById(R.id.txtPriceDetails);
+        txtDescription = view.findViewById(R.id.txtDescription);
+
 
         //linkview homeblog
         gvBlog=view.findViewById(R.id.gvBlog);
@@ -104,6 +123,17 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+
+        gvNoiBat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                productItemClick = (ProductItemClick) getActivity();
+                if (productItemClick != null){
+                    productItemClick.click(products.get(position));
+                }
+            }
+        });
+
         return view;
 
     }
@@ -171,12 +201,6 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void configRecyclerView() {
-        LinearLayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
-        rcvSpNoiBat.setLayoutManager(manager);
-        rcvSpNoiBat.setHasFixedSize(true);
-        rcvSpNoiBat.setItemAnimator( new DefaultItemAnimator());
-    }
 
     private void initData() {
         //Banner
@@ -190,15 +214,19 @@ public class HomeFragment extends Fragment {
         nViewPager2.setAdapter(bannerAdapter);
         nCircleIndicator3.setViewPager(nViewPager2);
 
-        //Sản phẩm nổi bật
-        noiBat=new ArrayList<>();
-        noiBat.add(new SpNoiBat(R.drawable.pet_toy_01,"Đồ chơi mặt chó"));
-        noiBat.add(new SpNoiBat(R.drawable.pet_fashion_01,"Áo có tay hồng"));
-        noiBat.add(new SpNoiBat(R.drawable.pet_fashion_03,"Mũ len thời trang"));
-        noiBat.add(new SpNoiBat(R.drawable.pet_fashion_07,"Quần áo mùa hè"));
 
-        nbAdapter=new SpNoiBatAdapter(getContext().getApplicationContext(),noiBat);
-        rcvSpNoiBat.setAdapter(nbAdapter);
+        //SP nổi bật
+        products=new ArrayList<>();
+        products.add(new Product("sp0017",R.drawable.pet_toy_01, "Đồ chơi mặt chó", 25, "Description"));
+        products.add(new Product("sp0025",R.drawable.pet_fashion_01, "Áo có tay hồng", 62, "Description"));
+        products.add(new Product("sp0027",R.drawable.pet_fashion_03, "Mũ len thời trang", 119, "Description"));
+        products.add(new Product("sp0031",R.drawable.pet_fashion_07, "Quần áo mùa hè", 29, "Description"));
+        products.add(new Product("sp0032",R.drawable.pet_fashion_08, "Mũ ếch xanh", 50, "Mũ ếch dễ thương cho thú cưng\", 50000, \"Kích cỡ đường kính:\\n  - Size S: 26-28cm\\n  - Size M: 28-34cm\\nChất liệu: làm từ vải len\\nBạn có thể giữ ấm đầu bé khi trời trở lạnh. Thời tiết Sài Gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào."));
+        products.add(new Product("sp0024",R.drawable.pet_toy_08, "Xương bông", 15, "Description"));
+
+        productAdapter = new HotProductAdapter(getContext(), R.layout.item_spnoibat, products);
+        gvNoiBat.setAdapter(productAdapter);
+
 
         //Blog nổi bật
         blogs=new ArrayList<>();

@@ -209,19 +209,26 @@
                     android:layout_height="match_parent"
                     android:text="Xem tất cả"
                     android:textSize="16sp"
-                    android:textColor="@color/primary_yellow"
+                    android:textColor="@color/hot"
                     android:gravity="center"
                     android:layout_marginRight="30dp"/>
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvNoiBat"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_height="280dp"
                 android:background="@color/white"
-                />
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+                <GridView
+                   android:id="@+id/gvNoiBat"
+                    android:layout_width="match_parent"
+                    android:layout_height="3000dp"
+                    android:numColumns="3"/>
+            </LinearLayout>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
