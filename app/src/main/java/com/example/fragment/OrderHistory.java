@@ -9,38 +9,70 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.example.adapter.ViewPager2NotificationAdapter;
 import com.example.adapter.ViewPager2OrderHistoryAdapter;
+import com.example.adapter.ViewPager2ProductAdapter;
 import com.example.pnu_application.R;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class OrderHistory extends Fragment {
-    private TabLayout tabLayoutAct;
-    private ViewPager viewPagerAct;
 
+
+    ViewPager2 viewPager;
+    private TabLayout tabLayout;
 
     View mView;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView=inflater.inflate(R.layout.fragment_order_history, container, false);
+        mView = inflater.inflate(R.layout.fragment_order_history, container, false);
 
         linkViews();
-        addEvents();
+        bindViewPage2();
+
         return mView;
     }
-
-    private void addEvents() {
-        ViewPager2OrderHistoryAdapter adapter= new ViewPager2OrderHistoryAdapter(getChildFragmentManager(),FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        viewPagerAct.setAdapter(adapter);
-        tabLayoutAct.setupWithViewPager(viewPagerAct);
-    }
     private void linkViews() {
-        tabLayoutAct=mView.findViewById(R.id.tabLayoutAct);
-        viewPagerAct=mView.findViewById(R.id.viewPagerAct);
-
+        viewPager = mView.findViewById(R.id.viewPagerAct);
+        tabLayout = mView.findViewById(R.id.tabLayoutAct);
     }
 
+    private void bindViewPage2() {
+
+        FragmentManager fragmentManager = getChildFragmentManager();
+        ViewPager2OrderHistoryAdapter adapter = new ViewPager2OrderHistoryAdapter(fragmentManager, getLifecycle());
+        adapter.createFragment(0);
+        adapter.createFragment(1);
+        viewPager.setAdapter(adapter);
+
+        new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                switch (position) {
+                    case 0:
+                        tab.setText("Đang xử lý");
+                        break;
+                    case 1:
+                        tab.setText("Hoàn thành");
+                        break;
+                }
+            }
+        }).attach();
+
+        //Change Tab when swiping
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
+            }
+        });
+
+    }
 
 }

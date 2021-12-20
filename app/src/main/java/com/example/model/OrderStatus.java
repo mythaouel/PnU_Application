@@ -1,6 +1,8 @@
 package com.example.model;
 
-public class OrderStatus {
+import java.io.Serializable;
+
+public class OrderStatus implements Serializable {
     private String orderId,orderStatus,orderDateTime,orderTotal;
 
     public OrderStatus( String orderId, String orderStatus, String orderDateTime, String orderTotal) {

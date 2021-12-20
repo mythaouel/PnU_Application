@@ -33,11 +33,19 @@ public class ChangePassFragment extends Fragment {
     Button   btnChange;
     ImageView imvBack;
 
-    int MATK=1;
+    MainActivity mainActivity;
+
+    int MATK;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mView=inflater.inflate(R.layout.fragment_change_pass, container, false);
+
+        //Lấy mã Khách hàng đang đăng nhập hiện
+        mainActivity = (MainActivity) getActivity();
+        MATK = mainActivity.getMATK();
+
         linkViews();
         MainActivity.hideBottomNav();
         addEvent();
@@ -88,7 +96,7 @@ public class ChangePassFragment extends Fragment {
             }
         });
     }
-
+    //Hàm check đầu vào
     private boolean checkValidation() {
 
         String passNow = edtPassNow.getText().toString().trim();

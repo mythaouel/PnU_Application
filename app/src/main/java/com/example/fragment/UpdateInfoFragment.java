@@ -63,7 +63,6 @@ public class UpdateInfoFragment extends Fragment {
 
     MainActivity mainActivity;
     int MATK;
-    int MATK1=1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -71,8 +70,11 @@ public class UpdateInfoFragment extends Fragment {
         MainActivity.hideBottomNav();
         mView=inflater.inflate(R.layout.fragment_update_info, container, false);
         linkViews();
+
+        //Lấy mã Khách hàng đang đăng nhập hiện
         mainActivity = (MainActivity) getActivity();
         MATK = mainActivity.getMATK();
+
         createSheetDialog();
         getImage();
         loadData();
@@ -99,8 +101,8 @@ public class UpdateInfoFragment extends Fragment {
 
     }
 
+    //Hàm lấy giá trị của editText
     private void getValues() {
-
         name = edtName.getText().toString().trim();
         email=edtEmail.getText().toString().trim();
         address=edtAddress.getText().toString().trim();
@@ -108,7 +110,7 @@ public class UpdateInfoFragment extends Fragment {
         phone= edtPhone.getText().toString().trim();
     }
 
-
+    //Hàm check đầu vào editText
     private boolean checkValidation() {
         getValues();
         // bỏ trống ô Họ Tên
@@ -149,6 +151,7 @@ public class UpdateInfoFragment extends Fragment {
 
         return true;
     }
+
     private void getImage() {
         activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
@@ -232,17 +235,17 @@ public class UpdateInfoFragment extends Fragment {
                       if(cursor!=null && cursor.moveToFirst()) {
                           boolean flag = Loading_Screen.db.updateCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
                           if (flag == true) {
-                              Toast.makeText(getContext(), "Update2 Succes", Toast.LENGTH_SHORT).show();
+                              Toast.makeText(getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                           } else {
-                              Toast.makeText(getContext(), "Update2 Fail", Toast.LENGTH_SHORT).show();
+                              Toast.makeText(getContext(), "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
                           }
                           // trường hợp account chưa bấm cập nhật thông tin lần nào ->insert vào 
                       }else{
                           boolean flag = Loading_Screen.db.insertCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
                           if (flag == true) {
-                              Toast.makeText(getContext(), "Update Succes", Toast.LENGTH_SHORT).show();
+                              Toast.makeText(getContext(), "Thêm mới thành công", Toast.LENGTH_SHORT).show();
                           } else {
-                              Toast.makeText(getContext(), "Update Fail", Toast.LENGTH_SHORT).show();
+                              Toast.makeText(getContext(), "Thêm mới thất bại", Toast.LENGTH_SHORT).show();
                           }
                       }
                 }}

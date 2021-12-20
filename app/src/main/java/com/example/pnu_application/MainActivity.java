@@ -17,11 +17,15 @@ import com.example.fragment.CartFragment;
 import com.example.fragment.CategoryFragment;
 import com.example.fragment.HomeFragment;
 import com.example.fragment.NotificationBlogFragment;
+import com.example.fragment.OrderDetailFragment;
+import com.example.fragment.OrderHistory;
 import com.example.fragment.UpdateInfoFragment;
 import com.example.fragment.NoLoginAccountFragment;
 import com.example.fragment.category.ProductDetailsFragment;
 import com.example.model.Blog;
 import com.example.model.BlogItemClick;
+import com.example.model.OrderHistoryItemClick;
+import com.example.model.OrderStatus;
 import com.example.model.Product;
 import com.example.model.ProductItemClick;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -31,7 +35,7 @@ import java.util.ArrayList;
 
 import utils.Constant;
 
-public class MainActivity extends AppCompatActivity implements ProductItemClick, BlogItemClick {
+public class MainActivity extends AppCompatActivity implements ProductItemClick, BlogItemClick, OrderHistoryItemClick {
 
     public static BottomNavigationView bottomNavigationView;
 
@@ -97,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
     };
 
     public Integer getMATK() {
+
         return MATK;
     }
 
@@ -124,13 +129,25 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
-    public void clickAct() {
-        UpdateInfoFragment updateInfoFragment = new UpdateInfoFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.layoutContainer, updateInfoFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
+
+
+
+//    @Override
+//    public void click(OrderStatus orderStatus) {
+//            OrderDetailFragment orderDetailFragment = new OrderDetailFragment();
+//    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//
+//
+//    Bundle bundle = new Bundle();
+//        bundle.putSerializable(Constant.SELECTED_ORDER,orderStatus);
+//        orderDetailFragment.setArguments(bundle);
+//
+//        fragmentTransaction.add(R.id.layoutContainer, orderDetailFragment);
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
+//    }
+
+
 
     @Override
     public void click(Blog b) {
@@ -145,4 +162,33 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
         transaction.addToBackStack( BlogDetailFragment.class.getName() );
         transaction.commit();
     }
+
+    @Override
+    public void click(OrderStatus orderStatus) {
+
+        OrderDetailFragment orderDetailFragment = new OrderDetailFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(Constant.SELECTED_ORDER,orderStatus);
+        orderDetailFragment.setArguments(bundle);
+
+        fragmentTransaction.add(R.id.layoutContainer, orderDetailFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+    }
+
+//    OrderDetailFragment orderDetailFragment = new OrderDetailFragment();
+//    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//
+//
+//    Bundle bundle = new Bundle();
+//        bundle.putSerializable(Constant.SELECTED_ORDER,orderStatus);
+//        orderDetailFragment.setArguments(bundle);
+//
+//        fragmentTransaction.add(R.id.layoutContainer, orderDetailFragment);
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
 }
