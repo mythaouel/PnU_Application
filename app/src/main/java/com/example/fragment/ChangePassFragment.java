@@ -75,7 +75,6 @@ public class ChangePassFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 requireActivity().onBackPressed();
-                MainActivity.showBottomNav();
             }
         });
 
@@ -150,5 +149,9 @@ public class ChangePassFragment extends Fragment {
         }
         return  true;
     }
-
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.showBottomNav();
+    }
 }

@@ -98,9 +98,8 @@ public class AccountFragment extends Fragment {
                 //View Order History Event
                 if(i==1){
                     OrderHistory fragment= new OrderHistory();
-                    FragmentManager fragmentManager=getFragmentManager();
-                    FragmentTransaction transaction = fragmentManager.beginTransaction();
-                    transaction.add(R.id.fragment_account, fragment);
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                    transaction.add(R.id.fragment_account, fragment).addToBackStack(null) ;
                     transaction.commit();
                 }
             }

@@ -45,7 +45,6 @@ public class AboutUsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 requireActivity().onBackPressed();
-                MainActivity.showBottomNav();
             }
         });
         txtPhone.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +55,10 @@ public class AboutUsFragment extends Fragment {
             }
         });
     }
-
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.showBottomNav();
+    }
 
 }

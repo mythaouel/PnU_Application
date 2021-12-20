@@ -162,10 +162,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         ContentValues contentValues= new ContentValues();
         contentValues.put(ACCOUNT_COL_PASSWORD, newpass);
         db.update(ACCOUNT_TB_NAME,contentValues,ACCOUNT_COL_ID + " = ? ", new String[]{ MATK +""});
-         return true;
+        return true;
     }
 
-    public boolean updateAccountStatus(int status, String MATK){
+    public boolean updateAccountStatus(int status, int MATK){
         SQLiteDatabase db= this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();
         contentValues.put(ACCOUNT_COL_STATUS, status);

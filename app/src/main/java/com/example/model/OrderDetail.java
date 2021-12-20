@@ -2,10 +2,10 @@ package com.example.model;
 
 import java.io.Serializable;
 
-public class OrderStatus implements Serializable {
+public class OrderDetail implements Serializable {
     private String orderId,orderStatus,orderDateTime,orderTotal;
 
-    public OrderStatus( String orderId, String orderStatus, String orderDateTime, String orderTotal) {
+    public OrderDetail( String orderId, String orderStatus, String orderDateTime, String orderTotal) {
         this.orderId = orderId;
         this.orderStatus = orderStatus;
         this.orderDateTime = orderDateTime;

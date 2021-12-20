@@ -18,16 +18,16 @@ import com.example.fragment.CategoryFragment;
 import com.example.fragment.HomeFragment;
 import com.example.fragment.NotificationBlogFragment;
 import com.example.fragment.OrderDetailFragment;
-import com.example.fragment.UpdateInfoFragment;
-import com.example.fragment.NoLoginAccountFragment;
+
 import com.example.fragment.category.ProductDetailsFragment;
 import com.example.fragment.home.HomeBlogFragment;
 import com.example.model.Blog;
 import com.example.model.BlogItemClick;
 import com.example.model.HomeBlog;
 import com.example.model.HomeBlogItemClick;
+import com.example.model.OrderDetail;
 import com.example.model.OrderHistoryItemClick;
-import com.example.model.OrderStatus;
+
 import com.example.model.Product;
 import com.example.model.ProductItemClick;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -129,13 +129,6 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
-    public void clickAct() {
-        UpdateInfoFragment updateInfoFragment = new UpdateInfoFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.layoutContainer, updateInfoFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
 
     @Override
     public void click(Blog b) {
@@ -166,14 +159,14 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
     }
 
     @Override
-    public void click(OrderStatus orderStatus) {
+    public void click(OrderDetail orderDetail) {
 
         OrderDetailFragment orderDetailFragment = new OrderDetailFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
 
         Bundle bundle = new Bundle();
-        bundle.putSerializable(Constant.SELECTED_ORDER,orderStatus);
+        bundle.putSerializable(Constant.SELECTED_ORDER,orderDetail);
         orderDetailFragment.setArguments(bundle);
 
         fragmentTransaction.add(R.id.layoutContainer, orderDetailFragment);

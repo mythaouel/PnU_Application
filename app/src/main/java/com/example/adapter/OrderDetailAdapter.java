@@ -8,17 +8,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.model.OrderStatus;
+import com.example.model.OrderDetail;
 import com.example.pnu_application.R;
 
 import java.util.List;
 
-public class OrderStatusAdapter extends BaseAdapter {
+public class OrderDetailAdapter extends BaseAdapter {
     private Context context;
     private int      layout;
-    private List<OrderStatus> orderLists;
+    private List<OrderDetail> orderLists;
 
-    public OrderStatusAdapter(Context context, int layout, List<OrderStatus> orderLists) {
+    public OrderDetailAdapter(Context context, int layout, List<OrderDetail> orderLists) {
         this.context = context;
         this.layout = layout;
         this.orderLists = orderLists;
@@ -41,9 +41,9 @@ public class OrderStatusAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        OrderStatusAdapter.ViewHolder holder;
+        OrderDetailAdapter.ViewHolder holder;
         if(view==null) {
-            holder = new OrderStatusAdapter.ViewHolder();
+            holder = new OrderDetailAdapter.ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout, null);
 
@@ -55,10 +55,10 @@ public class OrderStatusAdapter extends BaseAdapter {
 
             view.setTag(holder);
         }else{
-            holder=(OrderStatusAdapter.ViewHolder) view.getTag();
+            holder=(OrderDetailAdapter.ViewHolder) view.getTag();
         }
         //gan gia tri
-        OrderStatus orderStatus =orderLists.get(i);
+        OrderDetail orderStatus =orderLists.get(i);
         holder.imvIconOrder.setImageResource(R.drawable.act_ic_order_list);
         holder.txtOrderId.setText(orderStatus.getOrderId());
         holder.txtOrderStatus.setText(orderStatus.getOrderStatus());

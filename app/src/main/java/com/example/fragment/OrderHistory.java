@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +18,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.adapter.ViewPager2NotificationAdapter;
 import com.example.adapter.ViewPager2OrderHistoryAdapter;
 import com.example.adapter.ViewPager2ProductAdapter;
+import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -27,7 +29,10 @@ public class OrderHistory extends Fragment {
     ViewPager2 viewPager;
     private TabLayout tabLayout;
 
+    ImageView imvBack;
+
     View mView;
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,13 +40,26 @@ public class OrderHistory extends Fragment {
 
         linkViews();
         bindViewPage2();
-
+        addEvents();
         return mView;
     }
+
     private void linkViews() {
         viewPager = mView.findViewById(R.id.viewPagerAct);
         tabLayout = mView.findViewById(R.id.tabLayoutAct);
+
+        imvBack   = mView.findViewById(R.id.imvOrderHistoryBack);
     }
+
+    private void addEvents() {
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
+    }
+
 
     private void bindViewPage2() {
 
@@ -75,4 +93,9 @@ public class OrderHistory extends Fragment {
 
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.showBottomNav();
+    }
 }

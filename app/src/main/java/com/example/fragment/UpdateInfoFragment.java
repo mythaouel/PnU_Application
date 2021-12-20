@@ -296,4 +296,9 @@ public class UpdateInfoFragment extends Fragment {
             sheetDialog.setContentView(view);
         }
     }
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.showBottomNav();
+    }
 }
