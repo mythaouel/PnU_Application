@@ -1,5 +1,7 @@
 package com.example.fragment;
 
+import static com.example.pnu_application.MainActivity.bottomNavigationView;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -44,7 +46,10 @@ public class OrderFragment extends Fragment {
     TextView txtGiaTongCong, txtTienTamTinh, txtTongTien, txtPhiShip1, txtPhiShip2, txtHoTen, txtSDT, txtDiaChi, txtNgayGiao;
     ImageView imvBack;
 
-    int MATK = 1;
+    MainActivity mainActivity;
+    int MATK;
+
+    int MATK1 = 1;
 
     @Nullable
     @Override
@@ -68,6 +73,9 @@ public class OrderFragment extends Fragment {
         txtNgayGiao = view.findViewById( R.id.txtNgayGiao );
 
         MainActivity.hideBottomNav();
+
+        mainActivity = (MainActivity) getActivity();
+        MATK = mainActivity.getMATK();
         getShipDateAndCost();
         configRecyclerView();
         initData();
@@ -141,9 +149,9 @@ public class OrderFragment extends Fragment {
                 }
                 boolean flag = Loading_Screen.db.insertOrderData( name, address, phone, quantity, total, MATK);
                 if (flag){
-                    Toast.makeText( getContext(), "Success", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( getContext(), "PnU xin chân thành cảm ơn.", Toast.LENGTH_SHORT ).show();
                 }else{
-                    Toast.makeText( getContext(), "Fail", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( getContext(), "Đã xảy ra lỗi gì đó.", Toast.LENGTH_SHORT ).show();
                 }
 
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();

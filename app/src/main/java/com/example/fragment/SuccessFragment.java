@@ -1,5 +1,7 @@
 package com.example.fragment;
 
+import static com.example.pnu_application.MainActivity.bottomNavigationView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +21,8 @@ import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import utils.Constant;
+
 public class SuccessFragment extends Fragment {
 
     Button btnTiepTuc;
@@ -32,8 +36,11 @@ public class SuccessFragment extends Fragment {
         btnTiepTuc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =  new Intent( getContext(),MainActivity.class );
-                startActivity( intent );
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.add(R.id.fragmentContainer, new HomeFragment());
+                transaction.commit();
+                Constant.arrCartProduct.clear();
+                bottomNavigationView.setSelectedItemId( R.id.itHome );
             }
         } );
         return view;

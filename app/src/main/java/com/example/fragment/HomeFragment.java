@@ -18,6 +18,7 @@ import com.example.adapter.BannerAdapter;
 import com.example.adapter.SpNoiBatAdapter;
 import com.example.model.Banner;
 import com.example.model.SpNoiBat;
+import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
 
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class HomeFragment extends Fragment {
 
         rcvSpNoiBat=view.findViewById(R.id.rcvNoiBat);
         configRecyclerView();
-
+        MainActivity.showBottomNav();
 
         btnFind=view.findViewById(R.id.btnFindItem);
         btnFind.setOnClickListener(new View.OnClickListener() {
