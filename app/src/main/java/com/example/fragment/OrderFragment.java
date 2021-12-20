@@ -49,6 +49,8 @@ public class OrderFragment extends Fragment {
     MainActivity mainActivity;
     int MATK;
 
+    double total = 0;
+
     int MATK1 = 1;
 
     @Nullable
@@ -127,8 +129,9 @@ public class OrderFragment extends Fragment {
         for (int i = 0; i < Constant.arrCartProduct.size(); i++)
             TongTien += Constant.arrCartProduct.get( i ).getProductPrice() * Constant.arrCartProduct.get( i ).getProductQuantity();
         txtTienTamTinh.setText( Constant.decimalFormat.format( TongTien ));
-        txtTongTien.setText( Constant.decimalFormat.format( TongTien + Constant.PHI_SHIP ));
-        txtGiaTongCong.setText( Constant.decimalFormat.format( TongTien + Constant.PHI_SHIP ));
+        total = TongTien + Constant.PHI_SHIP;
+        txtTongTien.setText( Constant.decimalFormat.format(total));
+        txtGiaTongCong.setText( Constant.decimalFormat.format(total));
     }
 
     private void addEvents() {
@@ -142,7 +145,8 @@ public class OrderFragment extends Fragment {
                 status = "Đang lấy hàng";
                 Calendar calendar = Calendar.getInstance();
                 String date = DateFormat.getDateInstance(DateFormat.SHORT).format( calendar.getTime() );
-                double total = Double.parseDouble( txtTongTien.getText().toString().replace( " đ","" ).replace( ".","" ));
+                //total = Double.parseDouble( txtTongTien.getText().toString().replace( " đ","" ).replace( ".","" ));
+                //Log.d(TAG,"format" + total);
                 int quantity = 0;
                 for (int i = 0; i < Constant.arrCartProduct.size(); i++){
                     quantity += Constant.arrCartProduct.get( i ).getProductQuantity();
