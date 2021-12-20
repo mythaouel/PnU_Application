@@ -37,7 +37,7 @@
     <LinearLayout
         android:id="@+id/formSignUp"
         android:layout_width="350dp"
-        android:layout_height="400dp"
+        android:layout_height="435dp"
         android:background="@drawable/drop_shadow"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
@@ -79,12 +79,19 @@
             android:layout_height="50dp"
             android:inputType="textPassword"
             android:hint="Nhập mật khẩu"/>
+
+        <CheckBox
+            android:id="@+id/chkPassword1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Hiện mật khẩu"
+            android:layout_marginTop="8dp"/>
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="Tạo tài khoản"
             android:textSize="20sp"
             android:textColor="@color/white"
@@ -95,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="4dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

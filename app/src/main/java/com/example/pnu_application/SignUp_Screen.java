@@ -14,11 +14,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,7 +38,7 @@ public class SignUp_Screen extends AppCompatActivity{
     Context context;
     EditText edtUserName, edtPassword, edtPhone;
     Button btnSignUp, btnSignIn;
-
+    CheckBox chkPassword1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class SignUp_Screen extends AppCompatActivity{
         edtUserName = findViewById(R.id.edtUserName);
         edtPassword = findViewById(R.id.edtPassword);
         edtPhone = findViewById(R.id.edtPhone);
+        chkPassword1 = findViewById(R.id.chkPassword1);
 
         btnSignUp = findViewById(R.id.btnSignUp);
         btnSignIn = findViewById(R.id.btnSignIn);
@@ -61,6 +65,16 @@ public class SignUp_Screen extends AppCompatActivity{
     }
     private void addEvents() {
 
+        chkPassword1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean checked = chkPassword1.isChecked();
+                if(checked){
+                    edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                }
+                edtPassword.setSelection(edtPassword.length());
+            }
+        });
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

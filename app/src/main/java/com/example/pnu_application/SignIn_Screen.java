@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -28,7 +31,7 @@ public class SignIn_Screen extends AppCompatActivity{
     EditText edtUserName, edtPassword;
 
     TextView txtTest;
-
+    CheckBox chkPassword;
 
     public static final String KEY_USER_FROM_REGISTER = "KEY_USER_FROM_REGISTER";
 
@@ -43,8 +46,17 @@ public class SignIn_Screen extends AppCompatActivity{
         context=this;
     }
 
-
     private void addEvents() {
+        chkPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean checked = chkPassword.isChecked();
+                if(checked){
+                    edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                }
+                edtPassword.setSelection(edtPassword.length());
+            }
+        });
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,13 +88,13 @@ public class SignIn_Screen extends AppCompatActivity{
                     User currentUser = Loading_Screen.db.Authenticate(new User(null,userName,null, password,null,"0"));
 
                     if(currentUser != null){
-//                        users = new ArrayList<>();
-//                        Cursor cursor = Loading_Screen.db.getData("SELECT * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_USERNAME + " = " + userName );
-//                        users.clear();
-//                        while(cursor.moveToNext()){
-//                            users.add(new User(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4)));
+                        int MATK = Integer.parseInt(currentUser.getUserId());
+                        boolean flag= Loading_Screen.db.updateAccountStatus(1,MATK);
+//                        if(flag==true){
+//                            Toast.makeText(context, "Cập nhật status thành công", Toast.LENGTH_SHORT).show();
+//                        }else{
+//                            Toast.makeText(context, "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
 //                        }
-//                        cursor.close();
                         Toast.makeText(context, "Chào mừng bạn "+ currentUser.getUserId() +" đến với PnU <3 ", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(context, MainActivity.class);
                         Bundle bundle = new Bundle();
@@ -95,16 +107,6 @@ public class SignIn_Screen extends AppCompatActivity{
                         edtUserName.requestFocus();
                         Toast.makeText(context, "Đăng nhập thất bại! Vui lòng thử lại hoặc đăng ký tài khoản mới!", Toast.LENGTH_SHORT).show();
                     }
-//            Cursor cursor = Loading_Screen.db.queryExec("SELECT * FROM " + MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_USERNAME + " = '" + userName + "' AND " + MyDatabaseHelper.ACCOUNT_COL_PASSWORD + " = " + password);
-//            txtTest.setText( cursor.getString( 3 ) );
-////            Cursor cursor = Loading_Screen.db.getData( "SELECT username,password FROM " + MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_USERNAME + " = " + userName + " AND " + MyDatabaseHelper.ACCOUNT_COL_PASSWORD + " = " + password);
-////            txtTest.setText(cursor.getInt(2));
-////            //thông báo
-
-//            //gửi dữ liệu
-//            intent.putExtra(KEY_USER_TO_MAIN, userName);
-//            intent.putExtra(KEY_PASSWORD_TO_MAIN, password);
-
                 }
             }
         });
@@ -124,5 +126,7 @@ public class SignIn_Screen extends AppCompatActivity{
         edtUserName= findViewById(R.id.edtUserName);
 
         txtTest = findViewById(R.id.txtTest);
+
+        chkPassword = findViewById(R.id.chkPassword);
     }
 }

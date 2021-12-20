@@ -268,6 +268,7 @@ public class AccountFragment extends Fragment {
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                boolean flag= Loading_Screen.db.updateAccountStatus(0,MATK);
                 getActivity().finish();
             }
         });
