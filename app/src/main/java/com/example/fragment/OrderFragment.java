@@ -137,17 +137,17 @@ public class OrderFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Save vào database
-                String name, phone, address;
+                String name, status;
                 name = txtHoTen.getText().toString();
-                phone = txtSDT.getText().toString();
-                address = txtDiaChi.getText().toString();
+                status = "Đang lấy hàng";
+                Calendar calendar = Calendar.getInstance();
+                String date = DateFormat.getDateInstance(DateFormat.SHORT).format( calendar.getTime() );
                 double total = Double.parseDouble( txtTongTien.getText().toString().replace( " đ","" ).replace( ".","" ));
-
                 int quantity = 0;
                 for (int i = 0; i < Constant.arrCartProduct.size(); i++){
                     quantity += Constant.arrCartProduct.get( i ).getProductQuantity();
                 }
-                boolean flag = Loading_Screen.db.insertOrderData( name, address, phone, quantity, total, MATK);
+                boolean flag = Loading_Screen.db.insertOrderData( name, date, status, quantity, total, MATK);
                 if (flag){
                     Toast.makeText( getContext(), "PnU xin chân thành cảm ơn.", Toast.LENGTH_SHORT ).show();
                 }else{
