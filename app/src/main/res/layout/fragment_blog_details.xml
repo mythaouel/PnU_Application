@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/actToolbar"
+        android:background="@color/primary_yellow"
+        android:layout_height="?attr/actionBarSize">
+
+
+
+        <ImageButton
+            android:id="@+id/btnBlogBack"
+            android:background="@color/primary_yellow"
+            android:src="@drawable/ic_back"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:layout_gravity="center"
+            android:textSize="22sp"
+            android:text="Bài viết"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imvBlogBanner"
+                android:layout_width="300dp"
+                android:layout_height="160dp"
+                android:src="@drawable/blog_details_1"
+                app:riv_corner_radius="15dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/txtBlogDetailsName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chế độ cho chó mang thai"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="21sp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/txtBlogContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Chó thường mang thai trong 62 ngày, cộng hoặc trừ 2 ngày. Mang thai được chia thành tam cá nguyệt, và một con chó khỏe mạnh, được nuôi dưỡng tốt sẽ tăng khoảng 15-20% so với trọng lượng của cô khi sinh sản. Cho ăn quá nhiều có thể dẫn đến béo phì vào cuối thai kỳ, làm tăng nguy cơ chuyển dạ khó khăn hoặc kéo dài và gây thêm căng thẳng cho chó con. Ngược lại, ăn không đủ dinh dưỡng khi mang thai có thể dẫn đến mất phôi, sự phát triển của thai nhi bất thường, sảy thai tự nhiên hoặc thai chết lưu, số lượng con trong lứa nhỏ và chó con nhẹ cân không phát triển mạnh. Trong hai tam cá nguyệt đầu tiên của thai kỳ, các yêu cầu dinh dưỡng của cô ấy về cơ bản giống như đối với một con chó trưởng thành. Điều quan trọng là cô ấy không giảm cân hoặc ốm bệnh trong thời gian này, vì vậy hãy theo dõi cân nặng và tình trạng cơ thể của cô ấy, tăng thực phẩm khi cần thiết...."
+                android:textSize="17sp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

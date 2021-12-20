@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/imvBlogThumb"
+        android:layout_width="150dp"
+        android:layout_height="154dp"
+        app:riv_corner_radius="10dp"
+        android:src="@drawable/blog_1"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/txtBlogName"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Chế độ cho chó đang mang thai"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:textSize="14sp"
+        android:gravity="center"/>
+
+</LinearLayout>

@@ -18,12 +18,14 @@ import com.example.fragment.CategoryFragment;
 import com.example.fragment.HomeFragment;
 import com.example.fragment.NotificationBlogFragment;
 import com.example.fragment.OrderDetailFragment;
-import com.example.fragment.OrderHistory;
 import com.example.fragment.UpdateInfoFragment;
 import com.example.fragment.NoLoginAccountFragment;
 import com.example.fragment.category.ProductDetailsFragment;
+import com.example.fragment.home.HomeBlogFragment;
 import com.example.model.Blog;
 import com.example.model.BlogItemClick;
+import com.example.model.HomeBlog;
+import com.example.model.HomeBlogItemClick;
 import com.example.model.OrderHistoryItemClick;
 import com.example.model.OrderStatus;
 import com.example.model.Product;
@@ -35,7 +37,7 @@ import java.util.ArrayList;
 
 import utils.Constant;
 
-public class MainActivity extends AppCompatActivity implements ProductItemClick, BlogItemClick, OrderHistoryItemClick {
+public class MainActivity extends AppCompatActivity implements ProductItemClick, BlogItemClick, HomeBlogItemClick,  OrderHistoryItemClick{
 
     public static BottomNavigationView bottomNavigationView;
 
@@ -101,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
     };
 
     public Integer getMATK() {
-
         return MATK;
     }
 
@@ -129,25 +130,13 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
-
-
-
-//    @Override
-//    public void click(OrderStatus orderStatus) {
-//            OrderDetailFragment orderDetailFragment = new OrderDetailFragment();
-//    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//
-//
-//    Bundle bundle = new Bundle();
-//        bundle.putSerializable(Constant.SELECTED_ORDER,orderStatus);
-//        orderDetailFragment.setArguments(bundle);
-//
-//        fragmentTransaction.add(R.id.layoutContainer, orderDetailFragment);
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
-//    }
-
-
+    public void clickAct() {
+        UpdateInfoFragment updateInfoFragment = new UpdateInfoFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.layoutContainer, updateInfoFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 
     @Override
     public void click(Blog b) {
@@ -160,6 +149,20 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
 
         transaction.add(R.id.layoutContainer, blogDetailFragment);
         transaction.addToBackStack( BlogDetailFragment.class.getName() );
+        transaction.commit();
+    }
+
+    @Override
+    public void click(HomeBlog blog) {
+        HomeBlogFragment homeBlogFragment=new HomeBlogFragment();
+        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
+
+        Bundle bundle=new Bundle();
+        bundle.putSerializable(Constant.SELECTED_HOME_BLOG,blog);
+        homeBlogFragment.setArguments(bundle);
+
+        transaction.replace(R.id.fragmentContainer,homeBlogFragment);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 
