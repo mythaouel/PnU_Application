@@ -36,12 +36,10 @@
       <TextView
           android:textSize="22sp"
           android:textStyle="bold"
-          android:text="chưa có đơn hàng đang xử lý nào"
+          android:text="chưa có đơn hàng đã hoàn thành nào"
           android:gravity="center"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"/>
     </LinearLayout>
   </LinearLayout>
-
-
 </LinearLayout>

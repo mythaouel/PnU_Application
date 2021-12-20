@@ -183,15 +183,4 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
 
     }
 
-//    OrderDetailFragment orderDetailFragment = new OrderDetailFragment();
-//    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//
-//
-//    Bundle bundle = new Bundle();
-//        bundle.putSerializable(Constant.SELECTED_ORDER,orderStatus);
-//        orderDetailFragment.setArguments(bundle);
-//
-//        fragmentTransaction.add(R.id.layoutContainer, orderDetailFragment);
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
 }
