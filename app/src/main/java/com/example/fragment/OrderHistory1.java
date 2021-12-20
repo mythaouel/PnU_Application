@@ -66,11 +66,10 @@ public class OrderHistory1 extends Fragment {
     private ArrayList<OrderDetail> getDataFromDb(){
             orderList= new ArrayList<>();
             Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ORDER_TB_NAME + " WHERE " + MyDatabaseHelper.ORDER_COL_ACT_ID + " = " + MATK );
-
+            orderList.clear();
             while (cursor!=null && cursor.moveToNext())
              {
-                 orderList.clear();
-                orderList.add(new OrderDetail("#Order" +cursor.getString(0), cursor.getString(3), cursor.getString(2),cursor.getString(5)+ " đ"));
+                orderList.add(new OrderDetail("#Order" +cursor.getString(0), cursor.getString(3), cursor.getString(2),String.valueOf(cursor.getDouble(5)+ " đ")));
             }
             cursor.close();
             return orderList;

@@ -299,5 +299,6 @@ public class UpdateInfoFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         MainActivity.showBottomNav();
+        AccountFragment.loadData();
     }
 }

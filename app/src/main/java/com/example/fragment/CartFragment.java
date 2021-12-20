@@ -147,7 +147,7 @@ public class CartFragment extends Fragment {
 //                    transaction.commit();
 //                }
                 Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
-                if (cursor.moveToFirst()){
+                if (cursor!=null && cursor.moveToFirst()){
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                     transaction.replace(R.id.fragmentContainer, new OrderFragment());
                     transaction.addToBackStack( OrderFragment.TAG );

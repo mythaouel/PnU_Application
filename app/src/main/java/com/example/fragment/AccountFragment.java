@@ -44,8 +44,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class AccountFragment extends Fragment {
 
     Button btnUpdateInf;
-    TextView txtName, txtTest;
-    CircleImageView imvAvatar;
+    public static TextView txtNameAct, txtTestAct;
+    public static CircleImageView imvAvatarAct;
 
     ListView lvAccount1,lvAccount2,lvAccount3;
     AccountLineAdapter adapter1,adapter2,adapter3;
@@ -55,13 +55,9 @@ public class AccountFragment extends Fragment {
 
     private MainActivity mainActivity;
 
-    int MATK;
+    public static int MATK;
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        loadData();
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,9 +78,9 @@ public class AccountFragment extends Fragment {
 
     private void linkViews() {
 
-        imvAvatar    = view.findViewById(R.id.imvAvatar) ;
-        txtName      = view.findViewById(R.id.txtAccountName);
-        txtTest      = view.findViewById(R.id.txtTest);
+        imvAvatarAct    = view.findViewById(R.id.imvAvatar) ;
+        txtNameAct      = view.findViewById(R.id.txtAccountName);
+        txtTestAct      = view.findViewById(R.id.txtTest);
         btnUpdateInf = view.findViewById(R.id.btnUpdateInf);
 
         lvAccount1   = view.findViewById(R.id.lvAccount1);
@@ -109,7 +105,7 @@ public class AccountFragment extends Fragment {
                 if(i==1){
                     OrderHistory fragment= new OrderHistory();
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    transaction.add(R.id.fragment_account, fragment).addToBackStack(null) ;
+                    transaction.replace(R.id.layoutContainer, fragment).addToBackStack(null) ;
                     transaction.commit();
                 }
             }
@@ -153,25 +149,25 @@ public class AccountFragment extends Fragment {
             public void onClick(View view) {
                 UpdateInfoFragment fragment= new UpdateInfoFragment();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_account, fragment).addToBackStack(null) ;
+                transaction.add(R.id.fragment_account, fragment).addToBackStack(null) ;
                 transaction.commit();
             }
         });
 
     }
-    private void loadData() {
+    public static void loadData() {
         Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
-        if(cursor.moveToFirst()) {
+        if( cursor!=null && cursor.moveToFirst()) {
             {
 
-                txtName.setText( cursor.getString( 1 ) );
+                txtNameAct.setText( cursor.getString( 1 ) );
                 //Covert to byte array->Bitmap
                 byte[] photo= cursor.getBlob(6);
                 if(photo==null){
-                    imvAvatar.setImageResource(R.drawable.user_avt_default);
+                    imvAvatarAct.setImageResource(R.drawable.user_avt_default);
                 }else{
                     Bitmap bitmap= BitmapFactory.decodeByteArray(photo,0, photo.length);
-                    imvAvatar.setImageBitmap(bitmap);
+                    imvAvatarAct.setImageBitmap(bitmap);
                     Loading_Screen.db.close();
                 }
             }
