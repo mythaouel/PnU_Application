@@ -3,11 +3,17 @@ package com.example.pnu_application;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -20,6 +26,8 @@ import android.widget.Toast;
 
 import com.example.fragment.AccountFragment;
 
+import java.util.Random;
+
 public class SignUp_Screen extends AppCompatActivity{
 
     //Button btnSignUp, btnSignIn1;
@@ -27,6 +35,7 @@ public class SignUp_Screen extends AppCompatActivity{
     Context context;
     EditText edtUserName, edtPassword, edtPhone;
     Button btnSignUp, btnSignIn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +45,18 @@ public class SignUp_Screen extends AppCompatActivity{
         linkViews();
         addEvents();
         context = this;
+
+    }
+
+    private void linkViews() {
+        edtUserName = findViewById(R.id.edtUserName);
+        edtPassword = findViewById(R.id.edtPassword);
+        edtPhone = findViewById(R.id.edtPhone);
+
+        btnSignUp = findViewById(R.id.btnSignUp);
+        btnSignIn = findViewById(R.id.btnSignIn);
+
+        imvBack = findViewById(R.id.imvBack);
 
     }
     private void addEvents() {
@@ -92,35 +113,38 @@ public class SignUp_Screen extends AppCompatActivity{
                     edtUserName.setError(context.getResources().getString(R.string.loi_thieu_info));
                     error = true;
                 }
+                if(Loading_Screen.db.isUserNameExists(userName)){
+                    edtUserName.requestFocus();
+                    edtUserName.setError(context.getResources().getString(R.string.error_userName));
+                    error = true;
+                }
                 if (!error) {
-                    if(!Loading_Screen.db.isUserNameExists(userName)){
-                        //check username exist
-                        Intent intent = new Intent(context, OTP_Screen.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putString("phone", phone);
-                        bundle.putString("userName", userName);
-                        bundle.putString("password",password);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-                    }else
-                    {
-                        edtUserName.requestFocus();
-                        edtUserName.setError(context.getResources().getString(R.string.error_userName));
-                    }
+                    Random random = new Random();
+                    int max = 999999;
+                    int min = 100000;
+                    int OTP = random.nextInt(max - min +1) +min;
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SignUp_Screen.this);
+                    builder.setTitle("OTP");
+                    builder.setIcon(android.R.drawable.ic_menu_info_details);
+                    builder.setMessage("OTP của bạn là: "+ OTP);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(context, OTP_Screen.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("phone", phone);
+                            bundle.putString("userName", userName);
+                            bundle.putString("password",password);
+                            bundle.putString("OTP", String.valueOf(OTP));
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             }
         });
     }
 
-    private void linkViews() {
-        edtUserName = findViewById(R.id.edtUserName);
-        edtPassword = findViewById(R.id.edtPassword);
-        edtPhone = findViewById(R.id.edtPhone);
-
-        btnSignUp = findViewById(R.id.btnSignUp);
-        btnSignIn = findViewById(R.id.btnSignIn);
-
-        imvBack = findViewById(R.id.imvBack);
-
-    }
 }

@@ -58,7 +58,12 @@
         android:inputType="number"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="20dp" />
-
+    <TextView
+        android:id="@+id/txtOTPFromSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:layout_marginStart="17dp"/>
     <Button
         android:id="@+id/btnOTP"
         android:layout_width="match_parent"
@@ -104,6 +109,7 @@
             android:textColor="@color/primary_yellow" />
 
     </LinearLayout>
+
     <TextView
         android:id="@+id/txtUserName"
         android:layout_width="match_parent"
@@ -114,4 +120,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="0dp"/>
+
 </LinearLayout>

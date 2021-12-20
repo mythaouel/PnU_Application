@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
                     selectedFragment = new NotificationBlogFragment();
                     break;
                 case R.id.itAccount:
-
                     selectedFragment = new AccountFragment();
                     Intent intent = getIntent();
                     Bundle bundle = intent.getExtras();

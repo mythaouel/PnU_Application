@@ -92,6 +92,7 @@ public class SignIn_Screen extends AppCompatActivity{
                         startActivity(intent);
                     }else
                     {
+                        edtUserName.requestFocus();
                         Toast.makeText(context, "Đăng nhập thất bại! Vui lòng thử lại hoặc đăng ký tài khoản mới!", Toast.LENGTH_SHORT).show();
                     }
 //            Cursor cursor = Loading_Screen.db.queryExec("SELECT * FROM " + MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_USERNAME + " = '" + userName + "' AND " + MyDatabaseHelper.ACCOUNT_COL_PASSWORD + " = " + password);

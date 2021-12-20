@@ -28,7 +28,7 @@ public class OTP_Screen extends AppCompatActivity {
     ImageView imvBack;
     Button btnOTP,btnSignIn;
     EditText edtOTP;
-    TextView txtPhone, txtUserName, txtPassword;
+    TextView txtPhone, txtUserName, txtPassword, txtOTP;
     Context context;
 
     @Override
@@ -49,10 +49,12 @@ public class OTP_Screen extends AppCompatActivity {
             String phone1 = bundle.getString("phone", "");
             String userName1=bundle.getString("userName","");
             String password1 = bundle.getString("password","");
+            String OTP1 = bundle.getString("OTP","");
         }
         txtPhone.setText(intent.getStringExtra("phone"));
         txtPassword.setText(intent.getStringExtra("password"));
         txtUserName.setText(intent.getStringExtra("userName"));
+        txtOTP.setText(intent.getStringExtra("OTP"));
     }
 
     private void linkViews() {
@@ -64,6 +66,7 @@ public class OTP_Screen extends AppCompatActivity {
         txtPhone = findViewById(R.id.txtPhone);
         txtUserName = findViewById(R.id.txtUserName);
         txtPassword = findViewById(R.id.txtPassword);
+        txtOTP = findViewById(R.id.txtOTPFromSignUp);
 
         edtOTP = findViewById(R.id.edtOTP);
 
@@ -81,17 +84,24 @@ public class OTP_Screen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean error = false;
-                String OTP1 = edtOTP.getText().toString().trim();
+                String OTP1 = edtOTP.getText().toString();
+                Integer OTP_permiss = Integer.parseInt(edtOTP.getText().toString());
+                Integer OTP_signUp = Integer.parseInt(txtOTP.getText().toString());
                 getData();
-                if(OTP1.length()<6){
+                if(OTP1.length()!= 6){
                     edtOTP.requestFocus();
-                    edtOTP.setError(context.getResources().getString(R.string.error_OTP));
+                    edtOTP.setError(context.getResources().getString(R.string.error_OTP1));
                     error = true;
                 }
                 //bỏ trống ô OTP
                 if (TextUtils.isEmpty(OTP1)) {
                     edtOTP.requestFocus();
                     edtOTP.setError(context.getResources().getString(R.string.thieu_OTP));
+                    error = true;
+                }
+                if(!OTP_permiss.equals(OTP_signUp)){
+                    edtOTP.requestFocus();
+                    edtOTP.setError(context.getResources().getString(R.string.error_OTP));
                     error = true;
                 }
                 if (!error) {
