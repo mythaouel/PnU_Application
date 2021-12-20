@@ -54,10 +54,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_USERNAME + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " INTEGER," + ACCOUNT_COL_PASSWORD + " TEXT," + ACCOUNT_COL_OTP + " INTEGER," + ACCOUNT_COL_STATUS + " INTEGER)";
+        String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_USERNAME + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " TEXT," + ACCOUNT_COL_PASSWORD + " TEXT," + ACCOUNT_COL_OTP + " INTEGER," + ACCOUNT_COL_STATUS + " INTEGER)";
 
         String sql2="CREATE TABLE IF NOT EXISTS " +CUSTOMER_TB_NAME +"("+ CUSTOMER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                      CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " INTEGER,"+
+                      CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " TEXT,"+
                       CUSTOMER_COL_ADDRESS + " VARCHAR(200), " + CUSTOMER_COL_PHOTO + " BLOB, " + CUSTOMER_COL_ACT_ID +" INTEGER REFERENCES " + ACCOUNT_TB_NAME + "(" + ACCOUNT_COL_ID +")" +")";
 
         String sql3= "CREATE TABLE IF NOT EXISTS " +ORDER_TB_NAME +"("+ ORDER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
@@ -173,14 +173,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean insertAccountData(String username, int phone, String password, int OTP, int status){
+    public boolean insertAccountData(String username, String phone, String password, int OTP, int status){
         try {
             SQLiteDatabase db = getWritableDatabase();
             String sql = " INSERT INTO " + ACCOUNT_TB_NAME + " VALUES(null, ?, ?, ?, ?,?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
             statement.bindString(1, username);
-            statement.bindDouble(2, phone);
+            statement.bindString(2, phone);
             statement.bindString(3, password);
             statement.bindDouble(4, OTP);
             statement.bindDouble(5, status);

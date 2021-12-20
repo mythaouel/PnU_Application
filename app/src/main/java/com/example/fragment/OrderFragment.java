@@ -118,7 +118,7 @@ public class OrderFragment extends Fragment {
         while (cursor.moveToNext()){
             txtHoTen.setText( cursor.getString( 1 ) );
             txtDiaChi.setText( cursor.getString( 5 ) );
-            txtSDT.setText(String.valueOf( cursor.getInt( 4 ) ));
+            txtSDT.setText( cursor.getString( 4 ) );
             Loading_Screen.db.close();
         }
     }

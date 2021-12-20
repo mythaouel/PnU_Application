@@ -96,11 +96,11 @@ public class OTP_Screen extends AppCompatActivity {
                 }
                 if (!error) {
                     //Save db
-                    String username,password;
-                    int phone, OTP;
+                    String username,password,phone;
+                    int OTP;
                     username = txtUserName.getText().toString();
                     password = txtPassword.getText().toString();
-                    phone = Integer.parseInt(txtPhone.getText().toString());
+                    phone = txtPhone.getText().toString();
                     OTP = Integer.parseInt(edtOTP.getText().toString());
 
                     boolean flag = Loading_Screen.db.insertAccountData(username,phone,password,OTP,0);
