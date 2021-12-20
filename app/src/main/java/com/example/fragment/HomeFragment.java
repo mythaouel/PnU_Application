@@ -2,6 +2,8 @@ package com.example.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -37,8 +39,11 @@ import com.example.model.ProductItemClick;
 import com.example.model.SpNoiBat;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator3;
@@ -47,6 +52,9 @@ import me.relex.circleindicator.CircleIndicator3;
 public class HomeFragment extends Fragment {
 
     ImageButton btnFind;
+    TextView txtAllProduct,txtGreeting;
+
+    BottomNavigationView bottomNavigationView;
     private ViewPager2 nViewPager2;
     private CircleIndicator3 nCircleIndicator3;
     BannerAdapter bannerAdapter;
@@ -78,9 +86,16 @@ public class HomeFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_home, container, false);
 
         MainActivity.showBottomNav();
+        txtGreeting=view.findViewById(R.id.txtGreeting);
+        greetingMaker();
 
         //linkview button tìm kiếm
         btnFind=view.findViewById(R.id.btnFindItem);
+
+        //Xem tất cả sản phẩm
+        txtAllProduct=view.findViewById(R.id.txtAllProduct);
+        bottomNavigationView=view.findViewById(R.id.navContainer);
+
 
 
         //linkview banner và indicator
@@ -138,12 +153,47 @@ public class HomeFragment extends Fragment {
 
     }
 
+    private void greetingMaker() {
+        Date dt = new Date();
+        int hours = dt.getHours();
+
+        if(hours>=1 && hours<=10){
+            txtGreeting.setText("Chào buổi sáng !");
+        }else if(hours>=10 && hours<=15){
+            txtGreeting.setText("Chào buổi trưa !");
+        }else if(hours>=15 && hours<=18){
+            txtGreeting.setText("Chào buổi chiều !");
+        }else if(hours>=18 && hours<=24){
+            txtGreeting.setText("Chào buổi tối !");
+        }
+
+    }
+
+    private int getSelectedItem(BottomNavigationView bottomNavigationView) {
+        Menu menu = bottomNavigationView.getMenu();
+        for (int i = 0; i < bottomNavigationView.getMenu().size(); i++) {
+            MenuItem menuItem = menu.getItem(i);
+            if (menuItem.isChecked()) {
+                return menuItem.getItemId();
+            }
+        }
+        return 0;
+    }
+
     private void addEvent() {
         btnFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentContainer,new FindFragment()).addToBackStack(null);
+                transaction.commit();
+            }
+        });
+        txtAllProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction=getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragmentContainer,new CategoryFragment()).addToBackStack(null);
                 transaction.commit();
             }
         });

@@ -16,6 +16,7 @@
         android:paddingLeft="20dp"
         android:paddingTop="10dp">
         <TextView
+            android:id="@+id/txtGreeting"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="11"
@@ -164,7 +165,7 @@
                 android:background="@color/white">
                 <TableRow>
                     <TextView
-                        android:text="Hôm nay có gì HOT"
+                        android:text="Gợi ý cho hôm nay"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"
@@ -205,6 +206,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"/>
                 <TextView
+                    android:id="@+id/txtAllProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="Xem tất cả"
@@ -222,7 +224,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp">
                 <GridView
-                   android:id="@+id/gvNoiBat"
+                    android:id="@+id/gvNoiBat"
                     android:layout_width="match_parent"
                     android:layout_height="3000dp"
                     android:numColumns="3"/>
