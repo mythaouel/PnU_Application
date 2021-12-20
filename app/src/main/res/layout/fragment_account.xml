@@ -130,7 +130,7 @@
                 android:layout_height="26dp"/>
             <TextView
                 android:id="@+id/txtNameLine"
-                android:layout_weight="7"
+                android:layout_weight="6.5"
                 android:layout_marginLeft="15dp"
                 android:layout_gravity="center"
                 android:textColor="@color/ink_01"
@@ -140,11 +140,12 @@
                 android:layout_width="0dp"
                 android:layout_height="35dp"/>
             <Switch
-                android:layout_weight="2"
-                android:id="@+id/swtNoti"
+                android:checked="false"
+                android:layout_weight="2.5"
+                android:id="@+id/switchNotification"
                 android:layout_gravity="center"
                 android:layout_width="0dp"
-                android:layout_height="15dp"/>
+                android:layout_height="20dp"/>
         </LinearLayout>
         <ListView
             android:layout_marginTop="20dp"

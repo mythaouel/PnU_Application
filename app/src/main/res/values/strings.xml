@@ -49,4 +49,8 @@
     <string name="check_empty_nowpass">Chưa nhập mật khẩu hiện tại</string>
     <string name="check_repass_newpass">Mật khẩu xác nhận và mật khẩu mới không giống nhau</string>
     <string name="check_db_nowpass">Mật khẩu hiện tại không đúng</string>
+    <string name="channel_name">Channel 1</string>
+    <string name="channel_description">This is channel 1</string>
+    <string name="channel_name_2">Channel 2</string>
+    <string name="channel_description_2">This is channel 2</string>
 </resources>

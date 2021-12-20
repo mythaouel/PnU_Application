@@ -4,25 +4,45 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.example.fragment.AboutUsFragment">
+    <Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:id="@+id/actToolbar"
+        android:background="@color/primary_yellow"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="?attr/actionBarSize">
+        <ImageView
+            android:background="@android:color/transparent"
+            android:id="@+id/imvPolicyBack"
+            app:srcCompat="@drawable/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"/>
+        <TextView
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:text="Chính sách"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </Toolbar>
     <ScrollView
         android:scrollbars="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
         <LinearLayout
+            android:paddingBottom="50dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:background="@color/white"
-            android:layout_marginRight="10dp"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="20dp"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:textStyle="bold"
-                android:textSize="30sp"
+                android:textSize="26sp"
                 android:textColor="@color/ink_01"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
@@ -30,20 +50,21 @@
                 android:text="CHÍNH SÁCH"/>
             <TextView
                 android:text="Chính sách thanh toán"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
+                android:paddingLeft="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:text="Khách hàng có thể lựa chọn các hình thức thanh toán sau để thanh toán cho đơn hàng của mình khi mua sản phẩm trên website PnU"
-                android:textSize="25sp"
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:text="Các hình thức thanh toán"
-                android:textSize="25sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -51,7 +72,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:text="1. Thanh toán trả trước:"
                 android:layout_width="match_parent"
@@ -60,7 +81,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_marginRight="15dp"
                 android:text="là hình thức thanh toán trực tuyến mà khách hàng sử dụng để thanh toán cho đơn hàng, bao gồm:"
                 android:layout_width="match_parent"
@@ -69,7 +90,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="35dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_marginRight="15dp"
                 android:text="+ Thẻ ATM (Thẻ ghi nợ/thanh toán/trả trước nội địa);Thẻ thanh toán quốc tế, thẻ tín dụng."
                 android:layout_width="match_parent"
@@ -78,7 +99,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="35dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:text="+ Ví điện tử (Momo, Zalopay,...)."
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -86,7 +107,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:text="2. Thanh toán trả sau (COD):"
                 android:layout_width="match_parent"
@@ -95,14 +116,15 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_marginRight="15dp"
                 android:text="là hình thức thanh toán bằng tiền mặt mà khách hàng sử dụng để thanh toán cho đơn hàng khi giao hàng."
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:text="Chính sách vận chuyển"
-                android:textSize="25sp"
+                android:textSize="20sp"
+                android:paddingLeft="5dp"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -110,7 +132,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:text="1.Phương thức vận chuyển và thời gian giao hàng:"
                 android:layout_width="match_parent"
@@ -119,16 +141,16 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_marginRight="15dp"
-                android:text="- Nội thành: giao hàng trong ngày nếu đơn được đặt truco71 2h chiều. Những đơn sau sẽ giao vào sáng ngày kế tiếp."
+                android:text="- Nội thành: giao hàng trong ngày nếu đơn được đặt trước 2h chiều. Những đơn sau sẽ giao vào sáng ngày kế tiếp."
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_marginRight="15dp"
                 android:text="- Ngoại thành: gửi chuyển phát nhanh COD đến tận nhà quý khách từ 2-3 ngày."
                 android:layout_width="match_parent"
@@ -137,7 +159,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:text="2.Chi phí giao nhận:"
                 android:layout_width="match_parent"
@@ -146,16 +168,17 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_marginRight="15dp"
                 android:text="- Nội thành: Miễn phí vận chuyển cho đơn hàng từ 300.000 đồng trở lên. Phí vận chuyển từ 20.000 - 30.000 đồng cho đơn hàng dưới 300.000 đồng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:paddingBottom="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="30dp"
                 android:textColor="@color/ink_01"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:layout_marginRight="15dp"
                 android:text="- Ngoại thành: Tính phí từ 40.000 - 80.000 đồng tùy theo trọng lượng đơn hàng và địa điểm giao hàng"
                 android:layout_width="match_parent"
