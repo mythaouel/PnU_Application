@@ -7,7 +7,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -24,27 +23,25 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.adapter.BannerAdapter;
 import com.example.adapter.HomeBlogAdapter;
 import com.example.adapter.HotProductAdapter;
-import com.example.adapter.ProductAdapter;
-import com.example.adapter.SpNoiBatAdapter;
+import com.example.adapter.TipsAdapter;
 import com.example.fragment.category.CatFoodFragment;
 import com.example.fragment.category.DogFoodFragment;
 import com.example.fragment.category.PetFashionFragment;
 import com.example.fragment.category.PetToyFragment;
 import com.example.fragment.home.MenuFragment;
+import com.example.fragment.home.PromoFragment;
 import com.example.model.Banner;
 import com.example.model.HomeBlog;
 import com.example.model.HomeBlogItemClick;
 import com.example.model.Product;
 import com.example.model.ProductItemClick;
-import com.example.model.SpNoiBat;
+import com.example.model.Tips;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator3;
 
@@ -53,6 +50,7 @@ public class HomeFragment extends Fragment {
 
     ImageButton btnFind;
     TextView txtAllProduct,txtGreeting;
+    ImageView imvNoel;
 
     BottomNavigationView bottomNavigationView;
     private ViewPager2 nViewPager2;
@@ -61,6 +59,10 @@ public class HomeFragment extends Fragment {
     ArrayList<Banner> banners;
     LinearLayout icon_cat, icon_dog, icon_toys, icon_clothes;
 
+    //Tips
+    RecyclerView rcvTips;
+    TipsAdapter tipsAdapter;
+    ArrayList<Tips> tips;
 
     //Sản phẩm nổi bật
     GridView gvNoiBat;
@@ -108,8 +110,11 @@ public class HomeFragment extends Fragment {
         icon_toys=view.findViewById(R.id.icon_toys);
         icon_clothes=view.findViewById(R.id.icon_clothes);
 
-        //linkview và xử lý sp nổi bật
+        //linkview và xử lý recyclerview tips
+        rcvTips=view.findViewById(R.id.rcvTips);
+        configRecyclerView();
 
+        //linkview và xử lý sp nổi bật
         gvNoiBat=view.findViewById(R.id.gvNoiBat);
         imvSpNoiBat=view.findViewById(R.id.imvSpNoiBat);
         txtSpNoiBat=view.findViewById(R.id.txtSpNoiBat);
@@ -125,6 +130,8 @@ public class HomeFragment extends Fragment {
         imvBlogBanner=view.findViewById(R.id.imvBlogBanner);
         txtBlogContent=view.findViewById(R.id.txtBlogContent);
         txtBlogDetailsName=view.findViewById(R.id.txtBlogDetailsName);
+
+        imvNoel=view.findViewById(R.id.imvNoel);
 
         addEvent();
         initData();
@@ -153,13 +160,22 @@ public class HomeFragment extends Fragment {
 
     }
 
+    private void configRecyclerView() {
+        LinearLayoutManager manager=new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        rcvTips.setLayoutManager(manager);
+        rcvTips.setHasFixedSize(true);
+        rcvTips.setItemAnimator( new DefaultItemAnimator());
+    }
+
     private void greetingMaker() {
         Date dt = new Date();
         int hours = dt.getHours();
 
-        if(hours>=1 && hours<=10){
-            txtGreeting.setText("Chào buổi sáng !");
-        }else if(hours>=10 && hours<=15){
+        if(hours>=0 && hours<=3){
+            txtGreeting.setText("Chào buổi tối !");
+        }else if(hours>=3 && hours<=10){
+            txtGreeting.setText("Chào buổi sáng!");
+        } else if(hours>=10 && hours<=15){
             txtGreeting.setText("Chào buổi trưa !");
         }else if(hours>=15 && hours<=18){
             txtGreeting.setText("Chào buổi chiều !");
@@ -249,6 +265,15 @@ public class HomeFragment extends Fragment {
                 menu_transaction.commit();
             }
         });
+        imvNoel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragmentContainer,new PromoFragment()).addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
     }
 
 
@@ -263,6 +288,18 @@ public class HomeFragment extends Fragment {
         bannerAdapter=new BannerAdapter(getContext(),banners);
         nViewPager2.setAdapter(bannerAdapter);
         nCircleIndicator3.setViewPager(nViewPager2);
+
+        //Tips
+        tips=new ArrayList<>();
+        tips.add(new Tips(R.drawable.tips_1,"Mỗi ngày nhớ hãy dắt boss đi dạo bạn nhé, boss sẽ rất vui đấy"));
+        tips.add(new Tips(R.drawable.tips_2,"Gió đông đã về, boss nhà bạn đã có áo mới chưa?"));
+        tips.add(new Tips(R.drawable.tips_3,"Thú cưng cũng cần được đánh răng thường xuyên như chúng ta đấy!"));
+        tips.add(new Tips(R.drawable.tips_4,"Hãy cho boss nhà mình đi kiểm tra sức khỏe hằng năm nhé!"));
+
+        tipsAdapter=new TipsAdapter(getContext().getApplicationContext(),tips);
+        rcvTips.setAdapter(tipsAdapter);
+
+
 
 
         //SP nổi bật

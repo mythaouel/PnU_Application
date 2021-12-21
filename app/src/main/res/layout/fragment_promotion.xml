@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/actToolbar"
+        android:background="@color/primary_yellow"
+        android:layout_height="?attr/actionBarSize">
+        <ImageButton
+            android:id="@+id/btnPromoBack"
+            android:background="@color/primary_yellow"
+            android:src="@drawable/ic_back"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:layout_gravity="center"
+            android:textSize="22sp"
+            android:text="Sự kiện sắp tới"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="340dp"
+                android:layout_height="150dp"
+                android:src="@drawable/event1"
+                android:layout_gravity="center"
+                app:riv_corner_radius="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GIÁNG SINH BÊN PET"
+                android:textStyle="bold"
+                android:textSize="21sp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/red"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SALE UP TO 30%"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="19sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PnU sắp có các combo khuyến mãi vô cùng hấp dẫn cho Pet của bạn mùa giáng sinh 2021 đây!!!"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Các sen ơi, giáng sinh đã đến gần lắm rồi, cùng nhau sắm sửa cho Boss nhà mình thôi nào. Mùa giáng sinh năm nay, PnU đã tung ra bộ sưu tập mới với các ưu đãi cực hấp dẫn cho cả nhà mình đó nha."
+                android:layout_margin="10dp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ĐẶC BIỆT"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tặng ngay thẻ tên cho thú cưng khi mua combo bất kì
+**Khuyến mãi số lượng có hạn"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"/>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:weightSum="2">
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/promo1"
+                    android:layout_weight="1"/>
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/promo2"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>

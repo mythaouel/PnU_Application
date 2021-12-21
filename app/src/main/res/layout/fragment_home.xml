@@ -159,35 +159,31 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <TableLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/white">
-                <TableRow>
-                    <TextView
-                        android:text="Gợi ý cho hôm nay"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
-                </TableRow>
-                <TableRow android:layout_marginTop="10dp">
-                    <ImageView
-                        android:layout_width="168dp"
-                        android:layout_height="143dp"
-                        android:src="@drawable/home_bst"
-                        android:layout_weight="1"
-                        />
-                    <ImageView
-                        android:layout_width="168dp"
-                        android:layout_height="143dp"
-                        android:src="@drawable/home_giam30"
-                        android:layout_weight="1"/>
-                </TableRow>
-            </TableLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Mẹo nhỏ hằng ngày"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvTips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:background="@color/white"/>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -228,6 +224,37 @@
                     android:layout_width="match_parent"
                     android:layout_height="3000dp"
                     android:numColumns="3"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Sự kiện sắp diễn ra"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="165dp"
+                android:background="@color/white"
+                android:gravity="center">
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/imvNoel"
+                    android:layout_width="330dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/event1"
+                    app:riv_corner_radius="10dp"/>
             </LinearLayout>
 
 

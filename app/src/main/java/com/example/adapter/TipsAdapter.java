@@ -10,54 +10,56 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.model.SpNoiBat;
+import com.example.model.Tips;
 import com.example.pnu_application.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class SpNoiBatAdapter extends RecyclerView.Adapter<SpNoiBatAdapter.ViewHolder>{
+public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.ViewHolder> {
     Context context;
-    List<SpNoiBat> spNoiBat;
+    ArrayList<Tips> tips;
 
-    public SpNoiBatAdapter(Context context, List<SpNoiBat> spNoiBat){
-        this.context=context;
-        this.spNoiBat=spNoiBat;
+    public TipsAdapter(Context context, ArrayList<Tips> tips) {
+        this.context = context;
+        this.tips = tips;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_spnoibat,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_tips,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        SpNoiBat noiBat=spNoiBat.get(position);
-        if(noiBat==null){
+        Tips tip=tips.get(position);
+        if(tip==null){
             return;
         }
-        holder.imvHinh.setImageResource(noiBat.getImvHinh());
-        holder.txtTen.setText(noiBat.getTxtTen());
+        holder.imvTips.setImageResource(tip.getImvTips());
+        holder.txtTips.setText(tip.getTxtTips());
 
     }
 
     @Override
     public int getItemCount() {
-        if(spNoiBat!=null){
-            return spNoiBat.size();
+        if(tips!=null){
+            return tips.size();
         }
         return 0;
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private ImageView imvHinh;
-        private TextView txtTen;
+        private ImageView imvTips;
+        private TextView txtTips;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imvHinh=itemView.findViewById((R.id.imvSpNoiBat));
-            txtTen=itemView.findViewById(R.id.txtSpNoiBat);
+            imvTips=itemView.findViewById((R.id.imvTips));
+            txtTips=itemView.findViewById(R.id.txtTips);
         }
     }
 }
