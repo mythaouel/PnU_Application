@@ -23,7 +23,7 @@ import com.example.pnu_application.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class OrderHistory extends Fragment {
+public class OrderHistoryFragment extends Fragment {
 
 
     ViewPager2 viewPager;

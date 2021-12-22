@@ -230,6 +230,7 @@ public class UpdateInfoFragment extends Fragment {
                 if(checkValidation()){
                     getValues();
                     Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+
                      // trường hợp account đã thông tin trước đó có ->sẽ cập nhật lại
                       if(cursor!=null && cursor.moveToFirst()) {
                           boolean flag = Loading_Screen.db.updateCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
@@ -247,6 +248,7 @@ public class UpdateInfoFragment extends Fragment {
                               Toast.makeText(getContext(), "Thêm mới thất bại", Toast.LENGTH_SHORT).show();
                           }
                       }
+                    cursor.close();
                 }}
 
 
@@ -299,6 +301,7 @@ public class UpdateInfoFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         MainActivity.showBottomNav();
+        //Load thông tin vừa mới cập nhật cho AccountFragment khi bấm Back
         AccountFragment.loadData();
     }
 }

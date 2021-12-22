@@ -14,22 +14,22 @@
       android:layout_width="match_parent"
       android:layout_height="0dp">
     <ImageView
-        android:layout_weight="3.4"
+        android:layout_weight="3.1"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginBottom="15dp"
         android:src="@drawable/act_orderhistory" />
     <LinearLayout
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:orientation="vertical"
         android:layout_weight="1.6"
         android:layout_width="match_parent"
         android:layout_height="0dp">
       <TextView
           android:gravity="center"
-          android:textSize="22sp"
+          android:textSize="24sp"
           android:textStyle="bold"
           android:text="Hiện tại bạn chưa có đơn hàng đã hoàn thành nào"
           android:layout_gravity="center"

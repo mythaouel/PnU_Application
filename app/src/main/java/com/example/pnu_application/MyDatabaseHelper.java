@@ -54,12 +54,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
+        //Table Account
         String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_USERNAME + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " TEXT," + ACCOUNT_COL_PASSWORD + " TEXT," + ACCOUNT_COL_OTP + " INTEGER," + ACCOUNT_COL_STATUS + " INTEGER)";
-
+        //Table Customer
         String sql2="CREATE TABLE IF NOT EXISTS " +CUSTOMER_TB_NAME +"("+ CUSTOMER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                       CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " TEXT,"+
                       CUSTOMER_COL_ADDRESS + " VARCHAR(200), " + CUSTOMER_COL_PHOTO + " BLOB, " + CUSTOMER_COL_ACT_ID +" INTEGER REFERENCES " + ACCOUNT_TB_NAME + "(" + ACCOUNT_COL_ID +")" +")";
-
+        //Table Order
         String sql3= "CREATE TABLE IF NOT EXISTS " +ORDER_TB_NAME +"("+ ORDER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                      ORDER_COL_NAME+ " VARCHAR(200), " + ORDER_COL_DATE + " DATE, "+ ORDER_COL_STATUS + " VARCHAR(100), "+ ORDER_COL_QUANTITY + " INTEGER, "+ ORDER_COL_TOTAL + " REAL, "  + ORDER_COL_ACT_ID +" INTEGER REFERENCES " + ACCOUNT_TB_NAME + "(" + ACCOUNT_COL_ID +")" +")";
 
@@ -74,14 +75,17 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ CUSTOMER_TB_NAME);
         onCreate(sqLiteDatabase);
     }
+
     public Cursor getData(String sql){
         SQLiteDatabase db= getReadableDatabase();
         return db.rawQuery(sql,null);
     }
+
     public void queryExec(String sql){
         SQLiteDatabase db= getWritableDatabase();
         db.execSQL(sql);
     }
+
     public int getCount(String tb_name){
         SQLiteDatabase db= getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM "+ tb_name,null);
@@ -94,14 +98,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         int count1=getCount(CUSTOMER_TB_NAME);
         int count2=getCount(ACCOUNT_TB_NAME);
         if (count1==0||count2==0){
-//            queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'LP01','LAPTOP',12,'Apple',null,null)");
-
             //Thêm Test thử
             queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'Lâm Hữu Gia','LAPTOP',12,'KTX Khu B ĐHQG TP. HCM',0978362814,null,1)");
             queryExec("INSERT INTO "+CUSTOMER_TB_NAME+" VALUES(null,'Trần Thị Mỹ Thảo','LAPTOP22','thaotran123@gmail.com',0978362814,'KTX Khu B ĐHQG TP. HCM',null,2)");
-            //queryExec("INSERT INTO "+ACCOUNT_TB_NAME+" VALUES(null,'hoangyen@.study.com',0849111149,'123',123)");
         }
     }
+
     public boolean insertCustomerData(String name, String birthday,String email, String phone, String address, byte[] photo, int MAKH){
         try {
             SQLiteDatabase db = getWritableDatabase();
@@ -111,7 +113,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             statement.bindString(1, name);
             statement.bindString(2,birthday);
             statement.bindString(3, email);
-
             statement.bindString(4,phone);
             statement.bindString(5, address);
             statement.bindBlob(6, photo);
@@ -157,6 +158,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
+
     public boolean updatePassword(String newpass, int MATK){
         SQLiteDatabase db= this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();

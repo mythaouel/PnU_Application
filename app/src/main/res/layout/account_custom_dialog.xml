@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:padding="12dp"
+    android:gravity="center"
     android:background="@drawable/act_custom_layout_dialog"
     android:layout_height="wrap_content">
     <ImageView

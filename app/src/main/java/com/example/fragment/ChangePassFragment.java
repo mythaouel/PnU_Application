@@ -103,6 +103,7 @@ public class ChangePassFragment extends Fragment {
             }
         });
     }
+
     //Hàm check đầu vào
     private boolean checkValidation() {
 
@@ -154,9 +155,12 @@ public class ChangePassFragment extends Fragment {
                 edtPassNow.setError(getContext().getResources().getString(R.string.check_db_nowpass));
                 return false;
             };
+
         }
+        cursor.close();
         return  true;
     }
+
     private void openSuccessDialog(){
         final Dialog dialog= new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

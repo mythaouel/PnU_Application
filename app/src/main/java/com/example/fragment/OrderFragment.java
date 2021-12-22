@@ -144,7 +144,7 @@ public class OrderFragment extends Fragment {
                 name = txtHoTen.getText().toString();
                 status = "Đang lấy hàng";
                 Calendar calendar = Calendar.getInstance();
-                String date = DateFormat.getDateInstance(DateFormat.SHORT).format( calendar.getTime() );
+                String date = DateFormat.getDateInstance(DateFormat.LONG).format( calendar.getTime() );
                 //total = Double.parseDouble( txtTongTien.getText().toString().replace( " đ","" ).replace( ".","" ));
                 //Log.d(TAG,"format" + total);
                 int quantity = 0;

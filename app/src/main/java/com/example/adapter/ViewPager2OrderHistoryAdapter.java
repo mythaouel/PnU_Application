@@ -9,8 +9,8 @@ import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 
-import com.example.fragment.OrderHistory1;
-import com.example.fragment.OrderHistory2;
+import com.example.fragment.OrderHistoryFinishedFragment;
+import com.example.fragment.OrderHistoryHandlingFragment;
 
 
 public class ViewPager2OrderHistoryAdapter extends FragmentStateAdapter {
@@ -24,10 +24,10 @@ public class ViewPager2OrderHistoryAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position){
             case 1:
-                return new OrderHistory2();
+                return new OrderHistoryFinishedFragment();
 
             default:
-                return new OrderHistory1();
+                return new OrderHistoryHandlingFragment();
         }
     }
 

@@ -70,8 +70,8 @@ public class AccountFragment extends Fragment {
     private static final String Content_Notification_Small_1=
             "Noel này hãy cùng PnU tận hưởng các phúc giây hạnh phúc bên pet cùng hàng loạt khuyến mãi....";
 
-    private static final String Content_Notification_Expand_1=   "Hàng loạt khuyến mãi hấp dẫn PnU dành riêng cho bạn dịp Giáng Sinh:\n" +
-
+    private static final String Content_Notification_Expand_1=
+            "Hàng loạt khuyến mãi hấp dẫn PnU dành riêng cho bạn dịp Giáng Sinh:\n" +
             "-Giảm 10% giá trị đơn hàng khi nhập mã: NOELPNUSALE.\n" +
             "-Tặng vòng cổ khắc tên theo yêu cầu khi mua combo phụ kiện Giáng Sinh.\n"+
               "-Chương trình có hiệu lực từ ngày 22/12/2021 đến hết 25/12/2021.";
@@ -129,7 +129,7 @@ public class AccountFragment extends Fragment {
                 }
                 //View Order History Event
                 if(i==1){
-                    OrderHistory fragment= new OrderHistory();
+                    OrderHistoryFragment fragment= new OrderHistoryFragment();
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                     transaction.replace(R.id.layoutContainer, fragment).addToBackStack(null) ;
                     transaction.commit();
@@ -214,7 +214,7 @@ public class AccountFragment extends Fragment {
                 }
             }
         }
-
+        cursor.close();
     }
 
     private void initData() {
@@ -268,10 +268,13 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean flag= Loading_Screen.db.updateAccountStatus(0,MATK);
-                getActivity().finishAndRemoveTask();
-                Intent intent = new Intent(getContext(), SignIn_Screen.class);
-                startActivity(intent);
-            }
+                if(flag =true){
+                    getActivity().finishAndRemoveTask();
+                    Intent intent = new Intent(getContext(), SignIn_Screen.class);
+                    startActivity(intent);
+                }
+                }
+
         });
         dialog.show();
     }

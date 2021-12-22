@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.pnu_application.R;
 
-public class OrderHistory2 extends Fragment {
+public class OrderHistoryFinishedFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

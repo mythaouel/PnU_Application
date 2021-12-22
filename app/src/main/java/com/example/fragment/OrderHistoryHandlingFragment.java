@@ -21,9 +21,10 @@ import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 
-public class OrderHistory1 extends Fragment {
+public class OrderHistoryHandlingFragment extends Fragment {
 
     View view;
     ListView lvOrder;
@@ -65,15 +66,20 @@ public class OrderHistory1 extends Fragment {
 
     private ArrayList<OrderDetail> getDataFromDb(){
             orderList= new ArrayList<>();
+            String orderId,orderTotal;
             Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ORDER_TB_NAME + " WHERE " + MyDatabaseHelper.ORDER_COL_ACT_ID + " = " + MATK );
             orderList.clear();
             while (cursor!=null && cursor.moveToNext())
              {
-                orderList.add(new OrderDetail("#Order" +cursor.getString(0), cursor.getString(3), cursor.getString(2),String.valueOf(cursor.getDouble(5)+ " đ")));
+                orderId= "Đơn hàng " +cursor.getString(0);
+                orderTotal=String.format("%,.0f",cursor.getDouble(5) )+ " đ";
+
+                orderList.add(new OrderDetail(orderId, cursor.getString(3), cursor.getString(2),orderTotal));
             }
             cursor.close();
             return orderList;
     }
+
     private void initData() {
         orderList= new ArrayList<>();
         adapter= new OrderDetailAdapter(getContext(),R.layout.account_orderl_list_item,getDataFromDb());
