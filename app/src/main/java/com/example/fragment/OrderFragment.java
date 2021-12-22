@@ -51,8 +51,6 @@ public class OrderFragment extends Fragment {
 
     double total = 0;
 
-    int MATK1 = 1;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -74,10 +72,13 @@ public class OrderFragment extends Fragment {
         txtDiaChi = view.findViewById( R.id.txtDiaChi );
         txtNgayGiao = view.findViewById( R.id.txtNgayGiao );
 
+//        cardInfor = view.findViewById( R.id.cardInfor );
+
         MainActivity.hideBottomNav();
 
-        mainActivity = (MainActivity) getActivity();
-        MATK = mainActivity.getMATK();
+//        mainActivity = (MainActivity) getActivity();
+//        MATK = mainActivity.getMATK();
+
         getShipDateAndCost();
         configRecyclerView();
         initData();
@@ -113,12 +114,14 @@ public class OrderFragment extends Fragment {
         RecyclerViewOrderAdapter adapter = new RecyclerViewOrderAdapter( getContext(), Constant.arrCartProduct);
         rcvOrder.setAdapter( adapter );
         //Load thông tin của khách hàng
-        //Cursor cursor = Loading_Screen.db.getData( "SELECT * FROM " + MyDatabaseHelper.CUSTOMER_TB_NAME);
-        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
-        while (cursor.moveToNext()){
-            txtHoTen.setText( cursor.getString( 1 ) );
-            txtDiaChi.setText( cursor.getString( 5 ) );
-            txtSDT.setText( cursor.getString( 4 ) );
+        Cursor cursor1 = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_STATUS + " = 1");
+        if (cursor1!=null && cursor1.moveToFirst())
+            MATK= cursor1.getInt(0);
+        Cursor cursor2 = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+        while (cursor2.moveToNext()){
+            txtHoTen.setText( cursor2.getString( 1 ) );
+            txtDiaChi.setText( cursor2.getString( 5 ) );
+            txtSDT.setText( cursor2.getString( 4 ) );
             Loading_Screen.db.close();
         }
     }
@@ -145,8 +148,6 @@ public class OrderFragment extends Fragment {
                 status = "Đang lấy hàng";
                 Calendar calendar = Calendar.getInstance();
                 String date = DateFormat.getDateInstance(DateFormat.SHORT).format( calendar.getTime() );
-                //total = Double.parseDouble( txtTongTien.getText().toString().replace( " đ","" ).replace( ".","" ));
-                //Log.d(TAG,"format" + total);
                 int quantity = 0;
                 for (int i = 0; i < Constant.arrCartProduct.size(); i++){
                     quantity += Constant.arrCartProduct.get( i ).getProductQuantity();
