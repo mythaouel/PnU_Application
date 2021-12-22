@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="5dp">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imvThumbnail"
@@ -16,7 +15,7 @@
         android:id="@+id/txtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hạt thức ăn khô cho chó Royal Canin Poodle Puppy"
+        android:text="@string/text_demo"
         android:textSize="15sp"
         android:textColor="@color/black"/>
 
@@ -24,7 +23,7 @@
         android:id="@+id/txtPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="394000"
+        android:text="@string/price_demo"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/price_tag"/>
