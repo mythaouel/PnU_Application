@@ -28,6 +28,7 @@ import com.example.pnu_application.Loading_Screen;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
+import com.example.pnu_application.SignIn_Screen;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class ChangePassFragment extends Fragment {
@@ -179,6 +180,8 @@ public class ChangePassFragment extends Fragment {
             public void onClick(View view) {
                 boolean flag= Loading_Screen.db.updateAccountStatus(0,MATK);
                 getActivity().finish();
+                Intent intent = new Intent(getContext(), SignIn_Screen.class);
+                startActivity(intent);
                 dialog.dismiss();
             }
         });

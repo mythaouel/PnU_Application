@@ -1,29 +1,39 @@
 package com.example.fragment;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.RemoteViews;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.adapter.AccountLineAdapter;
 import com.example.model.AccountLineItem;
+import com.example.pnu_application.NotificationPopUp;
 import com.example.pnu_application.R;
 import com.example.pnu_application.SignIn_Screen;
-import com.example.pnu_application.SignUp_Screen;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class NoLoginAccountFragment extends Fragment {
 
     TextView txtLogin;
+    Switch swtNoLogin;
 
 
     ListView lvAccount1,lvAccount2;
@@ -34,6 +44,16 @@ public class NoLoginAccountFragment extends Fragment {
 
     int MATK=1;
 
+    private static final int Notification_ID=2;
+
+    private static final String Title_Notification_2="Bạn có blog mới chưa đọc nè!";
+
+
+    private static final String Content_Notification_Small_2=
+            "BLog : Chơi cùng thú cưng \n" +"Hãy chú ý quan sát để nhận biết được tính cách và sở thích cá nhân của từng thú cưng";
+
+    private static final String Content_Notification_Expand_2=
+            "Hãy chú ý quan sát để nhận biết được tính cách và sở thích cá nhân của từng thú cưng. Đừng cho rằng tất cả vẹt đều giống nhau hoặc tất cả chó lông vàng..............";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,6 +72,7 @@ public class NoLoginAccountFragment extends Fragment {
         lvAccount2   = view.findViewById(R.id.lvActNoLogin2);
 
         txtLogin     = view.findViewById(R.id.txtLogin);
+        swtNoLogin   = view.findViewById(R.id.swtNoLogin);
 
     }
 
@@ -81,12 +102,24 @@ public class NoLoginAccountFragment extends Fragment {
 
 
 
-        //Update Information Event
+       //Login event
         txtLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), SignIn_Screen.class);
                 startActivity(intent);
+            }
+        });
+
+        swtNoLogin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)  {
+                    Toast.makeText(getContext(), "Đã bật thông báo", Toast.LENGTH_SHORT).show();
+                    sendCustomNotification2();
+                } else {
+                    Toast.makeText(getContext(), "Đã tắt thông báo", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -115,5 +148,35 @@ public class NoLoginAccountFragment extends Fragment {
 
 
     }
+    private void sendCustomNotification2(){
 
+        //collapsed-small
+        RemoteViews notificationLayout = new RemoteViews(getContext().getPackageName(), R.layout.account_custom_notification_small_2);
+        notificationLayout.setTextViewText(R.id.txtTitleCustom2,Title_Notification_2);
+        notificationLayout.setTextViewText(R.id.txtInfoCustom2,Content_Notification_Small_2);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        String strDateFromated = dateFormat.format(new Date());
+        notificationLayout.setTextViewText(R.id.txtIimeCustom2,strDateFromated);
+
+        //expanded
+        RemoteViews notificationLayoutExpand = new RemoteViews(getContext().getPackageName(), R.layout.account_custom_notification_expand_2);
+        notificationLayoutExpand.setTextViewText(R.id.txtTitleCustomExpand2, Content_Notification_Small_2);
+        notificationLayoutExpand.setTextViewText(R.id.txtInfoCustomExpand2,Content_Notification_Expand_2);
+        notificationLayoutExpand.setImageViewResource(R.id.imvCustomExpand2,R.drawable.blog_2);
+
+
+        Notification notification = new NotificationCompat.Builder(getContext(), NotificationPopUp.CHANNEL_ID_2)
+                .setSmallIcon(R.drawable.act_ic_noti_small)
+                .setCustomContentView(notificationLayout)
+                .setCustomBigContentView(notificationLayoutExpand)
+                .build();
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getContext());
+        notificationManagerCompat.notify(getNotificationID(),notification);
+    }
+
+    private int getNotificationID(){
+        return (int) new Date().getTime();
+    }
 }

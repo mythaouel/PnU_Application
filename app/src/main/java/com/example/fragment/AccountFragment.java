@@ -65,16 +65,17 @@ public class AccountFragment extends Fragment {
 
     private static final int Notification_ID=1;
 
-    private static final String Title_Notification_1="Siêu Sale 11/11 cùng PnU săn quà cực đỉnh";
+    private static final String Title_Notification_1="Giáng sinh bên Pet, quà tặng trao tay";
 
     private static final String Content_Notification_Small_1=
-                        "Voucher giảm giá 50% miễn phí vận chuyển đơn 0đ cùng hàng loạt khuyến mãi....";
+            "Noel này hãy cùng PnU tận hưởng các phúc giây hạnh phúc bên pet cùng hàng loạt khuyến mãi....";
 
-    private static final String Content_Notification_Expand_1=
-                       "-Giảm 50% giá trị đơn hàng (tối đa 500K/đơn hàng) khi Khách hàng nhập mã: PNUSALE11\n" +
-                        "-Mã giảm giá có hiệu lực từ ngày 10/11/2021 đến ngày 12/11/2021\n" +
-                         "-Áp dụng đối với toàn bộ các sản phẩm trên App PnU\n"+
-                             "-Miễn phí vận chuyển mọi đơn hàng dù chỉ 1 sản phẩm";
+    private static final String Content_Notification_Expand_1=   "Hàng loạt khuyến mãi hấp dẫn PnU dành riêng cho bạn dịp Giáng Sinh:\n" +
+
+            "-Giảm 10% giá trị đơn hàng khi nhập mã: NOELPNUSALE.\n" +
+            "-Tặng vòng cổ khắc tên theo yêu cầu khi mua combo phụ kiện Giáng Sinh.\n"+
+              "-Chương trình có hiệu lực từ ngày 22/12/2021 đến hết 25/12/2021.";
+
 
     View view;
 
@@ -268,7 +269,6 @@ public class AccountFragment extends Fragment {
             public void onClick(View view) {
                 boolean flag= Loading_Screen.db.updateAccountStatus(0,MATK);
                 getActivity().finishAndRemoveTask();
-                System.exit(1);
                 Intent intent = new Intent(getContext(), SignIn_Screen.class);
                 startActivity(intent);
             }
@@ -279,19 +279,19 @@ public class AccountFragment extends Fragment {
     private void sendCustomNotification(){
 
         //collapsed-small
-        RemoteViews notificationLayout = new RemoteViews(getContext().getPackageName(), R.layout.act_custom_notification_small);
-        notificationLayout.setTextViewText(R.id.txtTitleCustom,Title_Notification_1);
-        notificationLayout.setTextViewText(R.id.txtInfoCustom,Content_Notification_Small_1);
+        RemoteViews notificationLayout = new RemoteViews(getContext().getPackageName(), R.layout.account_custom_notification_small_1);
+        notificationLayout.setTextViewText(R.id.txtTitleCustom1,Title_Notification_1);
+        notificationLayout.setTextViewText(R.id.txtInfoCustom1,Content_Notification_Small_1);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         String strDateFromated = dateFormat.format(new Date());
-        notificationLayout.setTextViewText(R.id.txtIimeCustom,strDateFromated);
+        notificationLayout.setTextViewText(R.id.txtIimeCustom1,strDateFromated);
 
         //expanded
-        RemoteViews notificationLayoutExpand = new RemoteViews(getContext().getPackageName(), R.layout.act_custom_notification_expand);
-        notificationLayoutExpand.setTextViewText(R.id.txtTitleCustomExpand,Title_Notification_1);
-        notificationLayoutExpand.setTextViewText(R.id.txtInfoCustomExpand,Content_Notification_Expand_1);
-        notificationLayoutExpand.setImageViewResource(R.id.imvCustomExpand,R.drawable.act_banner_sale);
+        RemoteViews notificationLayoutExpand = new RemoteViews(getContext().getPackageName(), R.layout.account_custom_notification_expand_1);
+        notificationLayoutExpand.setTextViewText(R.id.txtTitleCustomExpand1,Title_Notification_1);
+        notificationLayoutExpand.setTextViewText(R.id.txtInfoCustomExpand1,Content_Notification_Expand_1);
+        notificationLayoutExpand.setImageViewResource(R.id.imvCustomExpand1,R.drawable.event1);
 
 
         Notification notification = new NotificationCompat.Builder(getContext(), NotificationPopUp.CHANNEL_ID_1)

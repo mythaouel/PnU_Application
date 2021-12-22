@@ -76,18 +76,12 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
                     break;
                 case R.id.itCart:
                     selectedFragment = new CartFragment();
-//                    Intent intent1 = getIntent();
-//                    Bundle bundle1 = intent1.getExtras();
-//                    if (bundle1 != null) {
-//                        Integer getData = bundle1.getInt(KEY_USER_TO_MAIN, 0);
-//                        //Toast.makeText(this, "Show value: " + MATK + userName, Toast.LENGTH_SHORT).show();
-//                        MATK = getData;
-//                    }
                     break;
                 case R.id.itNotification:
                     selectedFragment = new NotificationBlogFragment();
                     break;
                 case R.id.itAccount:
+                    //Chọn màn hình Account Đăng nhập
                     Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_STATUS + " = 1");
                     if (cursor!=null && cursor.moveToFirst()){
                         MATK= cursor.getInt(0);

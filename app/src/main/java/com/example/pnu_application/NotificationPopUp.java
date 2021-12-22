@@ -22,20 +22,21 @@ public class NotificationPopUp extends Application {
             CharSequence name = getString(R.string.channel_name);
             String description = getString(R.string.channel_description);
             int importance1 = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID_1, name, importance1);
-            channel.setDescription(description);
+            NotificationChannel channel_1 = new NotificationChannel(CHANNEL_ID_1, name, importance1);
+            channel_1.setDescription(description);
 
             //Config Channel 2
             CharSequence name_2 = getString(R.string.channel_name_2);
             String description_2 = getString(R.string.channel_description_2);
-            int importance_2 = NotificationManager.IMPORTANCE_MIN;
+            int importance_2 = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel_2 = new NotificationChannel(CHANNEL_ID_2, name_2, importance_2);
             channel_2.setDescription(description_2);
 
             // Register the channel with the system;
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             if(notificationManager!=null){
-                notificationManager.createNotificationChannel(channel);
+                notificationManager.createNotificationChannel(channel_1);
+                notificationManager.createNotificationChannel(channel_2);
             }
         }
     }

@@ -7,24 +7,25 @@
     android:paddingRight="10dp"
     android:paddingTop="10dp"
     android:gravity="center_vertical"
-    android:background="#FFEB3B"
+    android:background="@color/ink_03"
     android:layout_height="240dp">
     <LinearLayout
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <ImageView
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
             android:src="@drawable/ic_logo_slogan"
-            android:layout_weight="0.8"
+            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
         <TextView
+            android:textColor="@color/black"
             android:paddingRight="5dp"
-            android:layout_weight="9.2"
-            android:id="@+id/txtTitleCustomExpand"
+            android:layout_weight="9"
+            android:id="@+id/txtTitleCustomExpand2"
             style="@style/TextAppearance.Compat.Notification.Title"
             android:text="@string/app_name"
             android:layout_width="0dp"
@@ -32,11 +33,12 @@
     </LinearLayout>
 
     <TextView
+        android:paddingTop="3dp"
         android:paddingLeft="10dp"
         android:paddingRight="5dp"
         android:layout_gravity="center"
-        android:layout_weight="1.5"
-        android:id="@+id/txtInfoCustomExpand"
+        android:layout_weight="1"
+        android:id="@+id/txtInfoCustomExpand2"
         style="@style/TextAppearance.Compat.Notification.Info"
         android:text="lorem lorem lorem lorem lorem lorem lorem"
         android:layout_width="match_parent"
@@ -45,10 +47,10 @@
     <ImageView
         android:layout_marginBottom="10dp"
         android:layout_gravity="center"
-        android:scaleType="fitXY"
-        android:layout_weight="7.5"
-        android:id="@+id/imvCustomExpand"
-        android:src="@drawable/act_banner_sale"
+        android:layout_weight="7.8"
+        android:scaleType="centerCrop"
+        android:id="@+id/imvCustomExpand2"
+        android:src="@drawable/blog_2"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
 </LinearLayout>

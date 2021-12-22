@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:paddingTop="20dp"
+    android:paddingTop="15dp"
     android:layout_gravity="center"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
@@ -10,9 +10,9 @@
     android:background="@drawable/act_custom_layout_changepass_dialog"
     android:layout_height="wrap_content">
     <LinearLayout
-        android:paddingRight="40dp"
+        android:paddingRight="15dp"
         android:gravity="right"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -31,6 +31,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"/>
     <TextView
+        android:paddingBottom="10dp"
         android:textStyle="bold"
         android:textSize="32sp"
         android:gravity="center"
