@@ -4,7 +4,7 @@
     <string name="loi_thieu_info">Thông tin không được bỏ trống</string>
     <string name="thieu_OTP">Bạn chưa nhập mã xác thực</string>
     <string name="error_password">Mật khẩu phải chứa ít nhất 5 ký tự</string>
-    <string name="error_phone">Số điện thoại không đúng</string>
+    <string name="error_phone">Số điện thoại không đúng định dạng</string>
     <string name="error_OTP">OTP chưa chính xác</string>
     <string name="error_OTP1">OTP phải là số có 6 chữ số</string>
     <string name="error_userName">Username đã tồn tại!</string>
