@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
 
 
     }
-
     public NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -75,6 +74,13 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
                     selectedFragment = new CategoryFragment();
                     break;
                 case R.id.itCart:
+                    Intent intent1 = getIntent();
+                    Bundle bundle1 = intent1.getExtras();
+                    if (bundle1 != null) {
+                        Integer getData = bundle1.getInt(KEY_USER_TO_MAIN, 0);
+                        //Toast.makeText(this, "Show value: " + MATK + userName, Toast.LENGTH_SHORT).show();
+                        MATK = getData;
+                    }
                     selectedFragment = new CartFragment();
                     break;
                 case R.id.itNotification:
