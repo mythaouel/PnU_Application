@@ -33,6 +33,7 @@ import com.example.pnu_application.R;
 import com.google.android.material.card.MaterialCardView;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -146,7 +147,8 @@ public class OrderFragment extends Fragment {
                 name = txtHoTen.getText().toString();
                 status = "Đang lấy hàng";
                 Calendar calendar = Calendar.getInstance();
-                String date = DateFormat.getDateInstance(DateFormat.SHORT).format( calendar.getTime() );
+
+                String date = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
                 int quantity = 0;
                 for (int i = 0; i < Constant.arrCartProduct.size(); i++){
                     quantity += Constant.arrCartProduct.get( i ).getProductQuantity();

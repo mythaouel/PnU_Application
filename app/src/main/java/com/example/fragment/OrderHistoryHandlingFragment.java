@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
@@ -36,6 +37,8 @@ public class OrderHistoryHandlingFragment extends Fragment {
     int MATK;
     MainActivity mainActivity;
 
+    public static LinearLayout layoutOrderEmpty,layoutHaveOrder;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,15 +46,24 @@ public class OrderHistoryHandlingFragment extends Fragment {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_tab_order1_handling, container, false);
         linkViews();
+
         //Lấy mã Khách hàng đang đăng nhập hiện
         mainActivity = (MainActivity) getActivity();
         MATK = mainActivity.getMATK();
+
         initData();
+        getLayout();
         MainActivity.hideBottomNav();
         addEvents();
         return view;
     }
 
+    private void linkViews() {
+        lvOrder=view.findViewById(R.id.lvOrder);
+
+        layoutOrderEmpty= view.findViewById(R.id.layoutOrderEmpty);
+        layoutHaveOrder = view.findViewById(R.id.layoutHaveOrder);
+    }
     private void addEvents() {
        lvOrder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
@@ -64,6 +76,18 @@ public class OrderHistoryHandlingFragment extends Fragment {
        });
     }
 
+    //Kiểm tra đơn hàng account đã đặt để hiện giao diện phù hợp
+    //Được gọi sau initData ->có dữ liệu orderList để ktra
+    private void getLayout(){
+        if (orderList.size() >0){
+            layoutHaveOrder.setVisibility( View.VISIBLE );
+            layoutOrderEmpty.setVisibility( View.GONE );
+        }else{
+            layoutHaveOrder.setVisibility( View.GONE );
+            layoutOrderEmpty.setVisibility( View.VISIBLE );
+        }
+    }
+
     private ArrayList<OrderDetail> getDataFromDb(){
             orderList= new ArrayList<>();
             String orderId,orderTotal;
@@ -73,7 +97,6 @@ public class OrderHistoryHandlingFragment extends Fragment {
              {
                 orderId= "Đơn hàng " +cursor.getString(0);
                 orderTotal=String.format("%,.0f",cursor.getDouble(5) )+ " đ";
-
                 orderList.add(new OrderDetail(orderId, cursor.getString(3), cursor.getString(2),orderTotal));
             }
             cursor.close();
@@ -86,7 +109,5 @@ public class OrderHistoryHandlingFragment extends Fragment {
         lvOrder.setAdapter(adapter);
     }
 
-    private void linkViews() {
-        lvOrder=view.findViewById(R.id.lvOrder);
-    }
+
 }
