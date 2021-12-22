@@ -33,27 +33,31 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp"
-        android:orientation="vertical">
-        <TextView
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:padding="5dp"
-            android:id="@+id/txtTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/blog_title"
-            android:textSize="22sp"
-            android:gravity="center"
-            android:textStyle="bold"/>
-        <TextView
-            android:layout_marginTop="5dp"
-            android:id="@+id/txtDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/blog_detail"
-            android:textSize="16sp"/>
-    </LinearLayout>
+            android:orientation="vertical">
+            <TextView
+                android:padding="5dp"
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/blog_title"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/txtDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/blog_detail"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
