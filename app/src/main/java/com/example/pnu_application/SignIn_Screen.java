@@ -90,12 +90,18 @@ public class SignIn_Screen extends AppCompatActivity{
                     if(currentUser != null){
                         int MATK = Integer.parseInt(currentUser.getUserId());
                         boolean flag= Loading_Screen.db.updateAccountStatus(1,MATK);
+                        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " +MATK);
+                        if (cursor!=null && cursor.moveToFirst()){
+                            String hoTen = cursor.getString(1);
+                            Toast.makeText(context, "Chào mừng "+ hoTen +" đến với PnU <3 ", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(context, "Chào mừng bạn đến với PnU. Cập nhật thông tin ngay để bắt đầu mua sắm cùng PnU nhé <3", Toast.LENGTH_SHORT).show();
+                        }
 //                        if(flag==true){
 //                            Toast.makeText(context, "Cập nhật status thành công", Toast.LENGTH_SHORT).show();
 //                        }else{
 //                            Toast.makeText(context, "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
 //                        }
-                        Toast.makeText(context, "Chào mừng bạn "+ currentUser.getUserId() +" đến với PnU <3 ", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(context, MainActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt(MainActivity.KEY_USER_TO_MAIN, Integer.parseInt(currentUser.getUserId()));

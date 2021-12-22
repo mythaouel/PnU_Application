@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">PnU</string>
-    <string name="danh_muc_san_pham">Danh mục sản phẩm</string>
+    <string name="danh_muc_san_pham">Danh mục sản phẩm...</string>
     <string name="loi_thieu_info">Thông tin không được bỏ trống</string>
     <string name="thieu_OTP">Bạn chưa nhập mã xác thực</string>
     <string name="error_password">Mật khẩu phải chứa ít nhất 5 ký tự</string>
-    <string name="error_phone">Số điện thoại không đúng</string>
+    <string name="error_phone">Số điện thoại không đúng định dạng</string>
     <string name="error_OTP">OTP chưa chính xác</string>
     <string name="error_OTP1">OTP phải là số có 6 chữ số</string>
     <string name="error_userName">Username đã tồn tại!</string>
@@ -53,4 +53,6 @@
     <string name="channel_description">This is channel 1</string>
     <string name="channel_name_2">Channel 2</string>
     <string name="channel_description_2">This is channel 2</string>
+    <string name="text_demo">Hạt thức ăn khô cho chó Royal Canin Poodle Puppy</string>
+    <string name="price_demo">394000</string>
 </resources>

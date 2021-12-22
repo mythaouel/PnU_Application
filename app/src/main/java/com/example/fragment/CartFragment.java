@@ -54,8 +54,6 @@ public class CartFragment extends Fragment {
     public static LinearLayout emptyCartView;
     public static ConstraintLayout cartView;
 
-    int MATK1 = 1;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -136,17 +134,6 @@ public class CartFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Kiểm tra người dùng đã cập nhật thông tin cá nhân chưa nếu chưa thì hiện thông báo yêu cầu cập nhật
-//                if (Loading_Screen.db.getCount( MyDatabaseHelper.CUSTOMER_TB_NAME ) == 0){
-////                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-////                    transaction.add(R.id.layoutCartContainer, new UpdateInfoFragment()).addToBackStack("tag") ;
-////                    transaction.commit();
-//                    Toast.makeText( getContext(), "Bạn cần cập nhật thông tin cá nhân trước khi đặt hàng", Toast.LENGTH_SHORT ).show();
-//                }
-//                else {
-//                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                    transaction.replace(R.id.fragmentContainer, new OrderFragment());
-//                    transaction.addToBackStack( OrderFragment.TAG );
-//                    transaction.commit();
                 Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_STATUS + " = 1");
                 if (cursor!=null && cursor.moveToFirst()){
                     MATK= cursor.getInt(0);
@@ -158,14 +145,16 @@ public class CartFragment extends Fragment {
                         transaction.commit();
                     }else{
                         Toast.makeText( getContext(), "Bạn cần cập nhật thông tin cá nhân trước khi đặt hàng", Toast.LENGTH_SHORT ).show();
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                        transaction.add(R.id.fragmentContainer, new UpdateInfoFragment());
+                        transaction.addToBackStack( null );
+                        transaction.commit();
                     }
                 }else{
-                    Toast.makeText( getContext(), "Bạn cần dang nhap", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( getContext(), "Bạn cần đăng nhập", Toast.LENGTH_SHORT ).show();
                     Intent intent = new Intent(getContext(), SignIn_Screen.class);
                     startActivity(intent);
                 }
-//                }
-
             }
         } );
 

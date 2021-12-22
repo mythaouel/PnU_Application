@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -134,11 +135,7 @@ public class ProductDetailsFragment extends Fragment {
         btnCart.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.add(R.id.fragmentContainer,new CartFragment());
-                transaction.addToBackStack(null);
-                transaction.commit();
-                bottomNavigationView.setSelectedItemId( R.id.itCart );
+                openCart();
             }
         } );
         //Back to the previous fragment
@@ -148,6 +145,20 @@ public class ProductDetailsFragment extends Fragment {
                 getActivity().onBackPressed();
             }
         });
+    }
+
+    private void openCart() {
+        //remove current fragment when add new fragment
+        getParentFragmentManager().beginTransaction().remove(ProductDetailsFragment.this).commit();
+
+        CartFragment cartFragment = new CartFragment();
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.add(R.id.fragmentContainer, cartFragment);
+        transaction.addToBackStack(null);
+
+        transaction.commit();
+
+        bottomNavigationView.setSelectedItemId( R.id.itCart );
     }
 
     private void showBottomSheetDialog() {
@@ -171,23 +182,9 @@ public class ProductDetailsFragment extends Fragment {
         btnViewCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Replace CartFragment when click button
-//                CartFragment cartFragment = new CartFragment();
-//                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.layoutContainer, cartFragment);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
-                //Show BottomNavigationView
+                openCart();
+                bottomSheetDialog.dismiss();
 
-                //Set item Cart in BottomNavigationView as selected
-
-                //Close Dialog
-//                bottomSheetDialog.dismiss();
-
-                openCartFragment();
-
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
             }
         });
 
@@ -203,13 +200,11 @@ public class ProductDetailsFragment extends Fragment {
         bottomSheetDialog.show();
     }
 
-    private void openCartFragment() {
-    }
-
     //reference the method that shows Bottom Navigation Bar when returning to the previous screen
     @Override
     public void onDetach() {
         super.onDetach();
         MainActivity.showBottomNav();
     }
+
 }
