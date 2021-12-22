@@ -1,41 +1,24 @@
 package com.example.fragment;
 
-import android.app.Dialog;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.adapter.AccountLineAdapter;
-import com.example.fragment.AboutUsFragment;
-import com.example.fragment.ChangePassFragment;
-import com.example.fragment.OrderHistory;
-import com.example.fragment.PolicyFragment;
-import com.example.fragment.UpdateInfoFragment;
 import com.example.model.AccountLineItem;
-import com.example.pnu_application.Loading_Screen;
-import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
+import com.example.pnu_application.SignIn_Screen;
+import com.example.pnu_application.SignUp_Screen;
 
 import java.util.ArrayList;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class NoLoginAccountFragment extends Fragment {
@@ -102,10 +85,8 @@ public class NoLoginAccountFragment extends Fragment {
         txtLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                UpdateInfoFragment fragment= new UpdateInfoFragment();
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                transaction.replace(R.id.layoutContainer, fragment).addToBackStack(null) ;
-//                transaction.commit();
+                Intent intent = new Intent(getContext(), SignIn_Screen.class);
+                startActivity(intent);
             }
         });
 

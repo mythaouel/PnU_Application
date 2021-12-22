@@ -2,53 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:padding="12dp"
-    android:background="@drawable/act_custom_layout_dialog"
+    android:paddingTop="20dp"
+    android:layout_gravity="center"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:paddingBottom="50dp"
+    android:background="@drawable/act_custom_layout_changepass_dialog"
     android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/imvLine"
-        android:layout_gravity="center"
-        android:src="@drawable/act_custom_dialog_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:paddingRight="40dp"
+        android:gravity="right"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imvDiaClose"
+            android:background="@drawable/act_custom_btn_dialog_gray"
+            android:src="@drawable/act_ic_close"
+            android:layout_width="35dp"
+            android:layout_height="35dp"/>
+    </LinearLayout>
+  <TextView
+      android:textStyle="bold"
+      android:textSize="32sp"
+      android:gravity="center"
+      android:textColor="@color/primary_yellow"
+      android:text="Đổi mật khẩu "
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
     <TextView
-        android:id="@+id/txtDangXuat"
-        android:padding="10dp"
-        android:layout_gravity="center"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="32sp"
+        android:gravity="center"
         android:textColor="@color/primary_yellow"
-        android:text="Đăng xuất"
-        android:layout_width="wrap_content"
+        android:text="thành công "
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/txtConfirm"
-        android:layout_gravity="center"
-        android:textSize="15sp"
-        android:textColor="@color/ink_02"
-        android:text="Bạn chắn chắn muốn đăng xuất?"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/btnLogOut"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/act_custom_btn_yellow_dialog"
-        android:text="Đăng xuất"
-        android:textSize="15sp"
-        android:textColor="@color/white"
-        android:layout_height="wrap_content"
-        android:layout_width="220dp"
-        />
-   <Button
-       android:id="@+id/btnCancer"
-       android:layout_marginTop="15dp"
-       android:text="Hủy"
-       android:layout_marginBottom="10dp"
-       android:layout_gravity="center"
-       android:textSize="15sp"
-       android:textColor="@color/white"
-       android:background="@drawable/act_custom_gray_dial"
-       android:layout_width="220dp"
-       android:layout_height="wrap_content"/>
 </LinearLayout>

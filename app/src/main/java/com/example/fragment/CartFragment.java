@@ -1,6 +1,7 @@
 package com.example.fragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ import com.example.pnu_application.Loading_Screen;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
+import com.example.pnu_application.SignIn_Screen;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -84,8 +86,8 @@ public class CartFragment extends Fragment {
             emptyCartView.setVisibility( View.VISIBLE );
         }
 
-        mainActivity = (MainActivity) getActivity();
-        MATK = mainActivity.getMATK();
+//        mainActivity = (MainActivity) getActivity();
+//        MATK = mainActivity.getMATK();
         configRecyclerView();
         initData();
         calTotal();
@@ -145,16 +147,25 @@ public class CartFragment extends Fragment {
 //                    transaction.replace(R.id.fragmentContainer, new OrderFragment());
 //                    transaction.addToBackStack( OrderFragment.TAG );
 //                    transaction.commit();
-//                }
-                Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+                Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_STATUS + " = 1");
                 if (cursor!=null && cursor.moveToFirst()){
-                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragmentContainer, new OrderFragment());
-                    transaction.addToBackStack( OrderFragment.TAG );
-                    transaction.commit();
+                    MATK= cursor.getInt(0);
+                    Cursor cursor2 = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+                    if (cursor2!=null && cursor2.moveToFirst()){
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                        transaction.replace(R.id.fragmentContainer, new OrderFragment());
+                        transaction.addToBackStack( OrderFragment.TAG );
+                        transaction.commit();
+                    }else{
+                        Toast.makeText( getContext(), "Bạn cần cập nhật thông tin cá nhân trước khi đặt hàng", Toast.LENGTH_SHORT ).show();
+                    }
                 }else{
-                    Toast.makeText( getContext(), "Bạn cần cập nhật thông tin cá nhân trước khi đặt hàng", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( getContext(), "Bạn cần dang nhap", Toast.LENGTH_SHORT ).show();
+                    Intent intent = new Intent(getContext(), SignIn_Screen.class);
+                    startActivity(intent);
                 }
+//                }
+
             }
         } );
 

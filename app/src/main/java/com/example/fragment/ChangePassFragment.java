@@ -1,7 +1,10 @@
 package com.example.fragment;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,9 +13,12 @@ import androidx.fragment.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -67,6 +73,7 @@ public class ChangePassFragment extends Fragment {
         btnChange=mView.findViewById(R.id.btnChange);
 
         imvBack= mView.findViewById(R.id.imvChangePassBack);
+
     }
 
     private void addEvent() {
@@ -87,7 +94,7 @@ public class ChangePassFragment extends Fragment {
                 if (checkValidation() ){
                     boolean flag= Loading_Screen.db.updatePassword(newPass,MATK);
                     if(flag==true){
-                        Toast.makeText(getContext(), "Update Succes", Toast.LENGTH_SHORT).show();
+                        openSuccessDialog();
                     }else{
                         Toast.makeText(getContext(), "Update Fail", Toast.LENGTH_SHORT).show();
                     }
@@ -149,6 +156,35 @@ public class ChangePassFragment extends Fragment {
         }
         return  true;
     }
+    private void openSuccessDialog(){
+        final Dialog dialog= new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.account_custom_changepass_dialog);
+        Window window= dialog.getWindow();
+        if(window==null){
+            return;
+        }
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        WindowManager.LayoutParams windowAttributes= window.getAttributes();
+        windowAttributes.gravity= Gravity.CENTER;
+        window.setAttributes(windowAttributes);
+        dialog.setCancelable(true);
+        //LinkView
+
+        ImageView imvClose  = dialog.findViewById(R.id.imvDiaClose);
+
+        imvClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean flag= Loading_Screen.db.updateAccountStatus(0,MATK);
+                getActivity().finish();
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
     @Override
     public void onDetach() {
         super.onDetach();

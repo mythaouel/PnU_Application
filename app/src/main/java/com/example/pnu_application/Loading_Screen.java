@@ -26,7 +26,7 @@ public class Loading_Screen extends AppCompatActivity {
             @Override
             public void run() {
                 //MainActivity.class - màn hình sau khi load xong
-                Intent intent = new Intent(Loading_Screen.this, OnboardingActivity.class);
+                Intent intent = new Intent(Loading_Screen.this, MainActivity.class);
                 startActivity(intent);
 
                 finish();

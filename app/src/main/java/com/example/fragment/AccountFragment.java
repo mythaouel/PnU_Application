@@ -2,7 +2,7 @@ package com.example.fragment;
 
 import android.app.Dialog;
 import android.app.Notification;
-import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,18 +18,15 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RemoteViews;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.adapter.AccountLineAdapter;
@@ -42,6 +39,7 @@ import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.NotificationPopUp;
 import com.example.pnu_application.R;
+import com.example.pnu_application.SignIn_Screen;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -269,7 +267,10 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean flag= Loading_Screen.db.updateAccountStatus(0,MATK);
-                getActivity().finish();
+                getActivity().finishAndRemoveTask();
+                System.exit(1);
+                Intent intent = new Intent(getContext(), SignIn_Screen.class);
+                startActivity(intent);
             }
         });
         dialog.show();
