@@ -3,11 +3,14 @@ package com.example.pnu_application;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.adapter.OnboardingAdapter;
+import com.example.fragment.AccountFragment;
 import com.example.fragment.HomeFragment;
+import com.example.fragment.NoLoginAccountFragment;
 
 public class Loading_Screen extends AppCompatActivity {
 
@@ -19,15 +22,19 @@ public class Loading_Screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         prepareDatabase();
 
-
         setContentView(R.layout.activity_loading_screen);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //MainActivity.class - màn hình sau khi load xong
-                Intent intent = new Intent(Loading_Screen.this, MainActivity.class);
-                startActivity(intent);
+                Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_STATUS + " = 1");
+                if (cursor!=null && cursor.moveToFirst()){
+                    Intent intent = new Intent(Loading_Screen.this, MainActivity.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(Loading_Screen.this, OnboardingActivity.class);
+                    startActivity(intent);
+                }
 
                 finish();
             }

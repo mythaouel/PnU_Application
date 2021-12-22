@@ -269,7 +269,7 @@ public class AccountFragment extends Fragment {
             public void onClick(View view) {
                 boolean flag= Loading_Screen.db.updateAccountStatus(0,MATK);
                 getActivity().finishAndRemoveTask();
-                Intent intent = new Intent(getContext(), SignIn_Screen.class);
+                Intent intent = new Intent(getContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
