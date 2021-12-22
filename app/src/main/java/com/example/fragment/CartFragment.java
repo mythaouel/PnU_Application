@@ -155,8 +155,6 @@ public class CartFragment extends Fragment {
                     Intent intent = new Intent(getContext(), SignIn_Screen.class);
                     startActivity(intent);
                 }
-//                }
-
             }
         } );
 

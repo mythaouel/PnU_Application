@@ -30,6 +30,7 @@ import com.example.pnu_application.Loading_Screen;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
+import com.google.android.material.card.MaterialCardView;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ public class OrderFragment extends Fragment {
     RecyclerView rcvOrder;
     TextView txtGiaTongCong, txtTienTamTinh, txtTongTien, txtPhiShip1, txtPhiShip2, txtHoTen, txtSDT, txtDiaChi, txtNgayGiao;
     ImageView imvBack;
+    MaterialCardView cardInfor;
 
     MainActivity mainActivity;
     int MATK;
@@ -72,12 +74,12 @@ public class OrderFragment extends Fragment {
         txtDiaChi = view.findViewById( R.id.txtDiaChi );
         txtNgayGiao = view.findViewById( R.id.txtNgayGiao );
 
-//        cardInfor = view.findViewById( R.id.cardInfor );
+        cardInfor = view.findViewById( R.id.cardInfor );
 
         MainActivity.hideBottomNav();
 
-//        mainActivity = (MainActivity) getActivity();
-//        MATK = mainActivity.getMATK();
+        mainActivity = (MainActivity) getActivity();
+        MATK = mainActivity.getMATK();
 
         getShipDateAndCost();
         configRecyclerView();
@@ -114,14 +116,11 @@ public class OrderFragment extends Fragment {
         RecyclerViewOrderAdapter adapter = new RecyclerViewOrderAdapter( getContext(), Constant.arrCartProduct);
         rcvOrder.setAdapter( adapter );
         //Load thông tin của khách hàng
-        Cursor cursor1 = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_STATUS + " = 1");
-        if (cursor1!=null && cursor1.moveToFirst())
-            MATK= cursor1.getInt(0);
-        Cursor cursor2 = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
-        while (cursor2.moveToNext()){
-            txtHoTen.setText( cursor2.getString( 1 ) );
-            txtDiaChi.setText( cursor2.getString( 5 ) );
-            txtSDT.setText( cursor2.getString( 4 ) );
+        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+        while (cursor.moveToNext()){
+            txtHoTen.setText( cursor.getString( 1 ) );
+            txtDiaChi.setText( cursor.getString( 5 ) );
+            txtSDT.setText( cursor.getString( 4 ) );
             Loading_Screen.db.close();
         }
     }
@@ -171,6 +170,15 @@ public class OrderFragment extends Fragment {
             public void onClick(View view) {
                 if (getFragmentManager() != null)
                     getFragmentManager().popBackStack();
+            }
+        } );
+
+        cardInfor.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.add(R.id.fragmentContainer, new UpdateInfoFragment());
+                transaction.commit();
             }
         } );
     }
