@@ -42,10 +42,10 @@ public class SuccessFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.add(R.id.fragmentContainer, new HomeFragment());
+                transaction.add(R.id.fragmentContainer, new CategoryFragment());
                 transaction.commit();
                 Constant.arrCartProduct.clear();
-                bottomNavigationView.setSelectedItemId( R.id.itHome );
+                bottomNavigationView.setSelectedItemId( R.id.itCategory );
             }
         } );
         return view;
