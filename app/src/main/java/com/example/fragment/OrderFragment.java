@@ -53,7 +53,7 @@ public class OrderFragment extends Fragment {
     MainActivity mainActivity;
     int MATK;
 
-    double total = 0;
+    public static double total = 0;
 
     @Nullable
     @Override

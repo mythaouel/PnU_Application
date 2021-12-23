@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,12 +27,16 @@ import utils.Constant;
 public class SuccessFragment extends Fragment {
 
     Button btnTiepTuc;
+    TextView txtTongCong;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate( R.layout.fragment_success,container,false);
         btnTiepTuc = view.findViewById( R.id.btnTiepTuc );
+        txtTongCong = view.findViewById( R.id.txtTongCong );
+
+        txtTongCong.setText( Constant.decimalFormat.format(OrderFragment.total) );
         //Bấm nút Tiếp tục sẽ quay lại trang chủ
         btnTiepTuc.setOnClickListener(new View.OnClickListener() {
             @Override
