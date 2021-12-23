@@ -2,6 +2,8 @@ package com.example.fragment;
 
 import static com.example.pnu_application.MainActivity.bottomNavigationView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -57,6 +60,7 @@ public class HomeFragment extends Fragment {
     ImageButton btnFind;
     TextView txtAllProduct,txtGreeting;
     ImageView imvNoel;
+    Button btnHomeCall;
 
     //Banner
     private ViewPager2 nViewPager2;
@@ -97,6 +101,8 @@ public class HomeFragment extends Fragment {
         MainActivity.showBottomNav();
         txtGreeting=view.findViewById(R.id.txtGreeting);
         greetingMaker();
+
+        btnHomeCall=view.findViewById(R.id.btnHomeCall);
 
         //linkview button tìm kiếm
         btnFind=view.findViewById(R.id.btnFindItem);
@@ -248,6 +254,16 @@ public class HomeFragment extends Fragment {
                 transaction.commit();
 
                 bottomNavigationView.setSelectedItemId( R.id.itCategory );
+            }
+        });
+        btnHomeCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Intent.ACTION_DIAL);
+                Uri uri=Uri.parse("tel:"+"0123456777");
+                intent.setData(uri);
+                startActivity(intent);
+
             }
         });
         icon_cat.setOnClickListener(new View.OnClickListener() {
