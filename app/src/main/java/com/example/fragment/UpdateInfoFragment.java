@@ -1,21 +1,25 @@
 package com.example.fragment;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+
 
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -42,10 +46,9 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import javax.xml.validation.Validator;
+
+
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -56,22 +59,22 @@ public class UpdateInfoFragment extends Fragment {
     TextView txtName;
     ImageView  imvBack;
     CircleImageView imvAvatar;
+    LinearLayout sheetOpenCamera,sheetOpenGallery;
+    MainActivity mainActivity;
 
     View mView;
 
     BottomSheetDialog sheetDialog;
 
-    LinearLayout sheetOpenCamera,sheetOpenGallery;
-
     ActivityResultLauncher<Intent> activityResultLauncher;
 
     Boolean isCamera;
-    String name,address,email,birthday,phone;
-    Pattern pattern;
-    Matcher matcher;
 
-    MainActivity mainActivity;
+    String name,address,email,birthday,phone;
+
     int MATK;
+    private static final int REQUEST_CAMERA_PERMISSION_CODE = 123;
+    private static final int REQUEST_READ_STORAGE_PERMISSION_CODE = 456;
 
 
 
@@ -110,6 +113,59 @@ public class UpdateInfoFragment extends Fragment {
         imvAvatar   = mView.findViewById(R.id.imvAvtInfo);
         imvBack     = mView.findViewById(R.id.imvAccountBack);
 
+    }
+
+    private void addEvents() {
+
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().onBackPressed();
+            }
+        });
+
+        imvAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Open Bottom Sheet Dialog
+                sheetDialog.show();
+
+            }
+        });
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Insert Customer Data
+
+                if(checkValidation()){
+                    getValues();
+                    Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+
+                    // trường hợp account đã thông tin trước đó có ->sẽ cập nhật lại
+                    if(cursor!=null && cursor.moveToFirst()) {
+                        boolean flag = Loading_Screen.db.updateCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
+                        if (flag) {
+                            Toast.makeText(getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getContext(), "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                        // trường hợp account chưa bấm cập nhật thông tin lần nào ->insert vào
+                    }else{
+                        boolean flag = Loading_Screen.db.insertCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
+                        if (flag) {
+                            Toast.makeText(getContext(), "Thêm mới thành công", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getContext(), "Thêm mới thất bại", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    cursor.close();
+                }}
+
+
+        });
+//        loadData();
     }
 
     //Hàm lấy giá trị của editText
@@ -211,7 +267,6 @@ public class UpdateInfoFragment extends Fragment {
     // Ham kiểm tra định dạng email
     public boolean ValidatorEmail(String email) {
 
-        // cấu trúc 1 email thông thường
         String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
         boolean checkEmail = email.matches(EMAIL_PATTERN);
@@ -219,7 +274,7 @@ public class UpdateInfoFragment extends Fragment {
 
     }
 
-    // Ham kiem tra dinh dang so dien thoai
+    // Ham kiểm tra số điện thoại hợp lệ
     public boolean ValidatorPhone(String str) {
 
         //cấu trúc 1  so dien thoai
@@ -229,30 +284,6 @@ public class UpdateInfoFragment extends Fragment {
         boolean check = str.matches(PHONE_PATTERN);
 
         return  check;
-    }
-
-    private void getImage() {
-        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-            @Override
-            public void onActivityResult(ActivityResult result) {
-                if (result.getResultCode() == Activity.RESULT_OK && result.getData()!=null);
-                if (isCamera) {
-                    Bitmap bitmap = (Bitmap) result.getData().getExtras().get("data");
-                    imvAvatar.setImageBitmap(bitmap);
-                }else {
-                    Uri uri = result.getData().getData();
-                    if (uri!=null){
-                        try {
-                            InputStream inputStream= getActivity().getContentResolver().openInputStream(uri);
-                            Bitmap bitmap= BitmapFactory.decodeStream(inputStream);
-                            imvAvatar.setImageBitmap(bitmap);
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-        });
     }
 
     private void loadData() {
@@ -284,63 +315,67 @@ public class UpdateInfoFragment extends Fragment {
 
     }
 
-    private void addEvents() {
-        imvBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().onBackPressed();
-            }
-        });
-        imvAvatar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Open Bottom Sheet Dialog
-                sheetDialog.show();
-
-            }
-        });
-
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //Insert Customer Data
-
-                if(checkValidation()){
-                    getValues();
-                    Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
-
-                     // trường hợp account đã thông tin trước đó có ->sẽ cập nhật lại
-                      if(cursor!=null && cursor.moveToFirst()) {
-                          boolean flag = Loading_Screen.db.updateCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
-                          if (flag == true) {
-                              Toast.makeText(getContext(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-                          } else {
-                              Toast.makeText(getContext(), "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
-                          }
-                          // trường hợp account chưa bấm cập nhật thông tin lần nào ->insert vào 
-                      }else{
-                          boolean flag = Loading_Screen.db.insertCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
-                          if (flag == true) {
-                              Toast.makeText(getContext(), "Thêm mới thành công", Toast.LENGTH_SHORT).show();
-                          } else {
-                              Toast.makeText(getContext(), "Thêm mới thất bại", Toast.LENGTH_SHORT).show();
-                          }
-                      }
-                    cursor.close();
-                }}
-
-
-        });
-//        loadData();
-    }
-
+   //Hàm chuyển từ ảnh drawable -> bitmap -> mảng byte (lưu vào database)
     private byte[] covertPhoto() {
         BitmapDrawable drawable = (BitmapDrawable) imvAvatar.getDrawable();
         Bitmap bitmap= drawable.getBitmap();
         ByteArrayOutputStream outputStream= new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100,outputStream);
         return outputStream.toByteArray();
+    }
+
+    private void getImage() {
+        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData()!=null){
+                    if (isCamera) {
+                        Bitmap bitmap = (Bitmap) result.getData().getExtras().get("data");
+                        imvAvatar.setImageBitmap(bitmap);
+                    }else {
+                        Uri uri = result.getData().getData();
+                        if (uri!=null){
+                            try {
+                                InputStream inputStream= getActivity().getContentResolver().openInputStream(uri);
+                                Bitmap bitmap= BitmapFactory.decodeStream(inputStream);
+                                imvAvatar.setImageBitmap(bitmap);
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        //Camera
+        if (requestCode == REQUEST_CAMERA_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                isCamera = true;
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                activityResultLauncher.launch(intent);
+                sheetDialog.dismiss();
+            } else{
+                Toast.makeText(getContext(), "Cấp quyền Camera không thành công", Toast.LENGTH_SHORT).show();
+                sheetDialog.dismiss(); }
+        }
+
+        //Thu vien
+        if (requestCode == REQUEST_READ_STORAGE_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                isCamera = false;
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                activityResultLauncher.launch(intent);
+                sheetDialog.dismiss();
+            } else{
+                Toast.makeText(getContext(), "Cấp quyền truy cập thư viện không thành công", Toast.LENGTH_SHORT).show();
+                sheetDialog.dismiss();}
+        }
     }
 
     private void createSheetDialog(){
@@ -351,11 +386,21 @@ public class UpdateInfoFragment extends Fragment {
             sheetOpenCamera.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Open Camera
-                    isCamera=true;
-                    Intent intent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    activityResultLauncher.launch(intent);
-                    sheetDialog.dismiss();
+                    boolean flag = checkCameraPermission();
+                    if (flag){
+                        //Open Camera
+                        isCamera=true;
+                        Intent intent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        activityResultLauncher.launch(intent);
+                        sheetDialog.dismiss();
+
+                    } else{
+
+                    String [] permissions= {Manifest.permission.CAMERA};
+
+                    requestPermissions(permissions,REQUEST_CAMERA_PERMISSION_CODE);
+
+                }
                 }
             });
 
@@ -363,18 +408,48 @@ public class UpdateInfoFragment extends Fragment {
             sheetOpenGallery.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Open Gellery
-                    isCamera=false;
-                    Intent intent = new Intent(Intent.ACTION_PICK);
-                    intent.setType("image/*");
-                    activityResultLauncher.launch(intent);
-                    sheetDialog.dismiss();
+                    boolean flag = checkReadStoragePermission();
+                    if (flag) {
+                        //Open Gellery
+                        isCamera = false;
+                        Intent intent = new Intent(Intent.ACTION_PICK);
+                        intent.setType("image/*");
+                        activityResultLauncher.launch(intent);
+                        sheetDialog.dismiss();
+                    } else {
+
+                        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
+
+                        requestPermissions(permissions, REQUEST_READ_STORAGE_PERMISSION_CODE);
+                    }
                 }
             });
 
             sheetDialog= new BottomSheetDialog(getContext());
             sheetDialog.setContentView(view);
         }
+    }
+
+    private boolean checkCameraPermission(){
+        //kiem tra version > android 6
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
+            return true;
+        }
+        if (ContextCompat.checkSelfPermission(getContext(),Manifest.permission.CAMERA)== PackageManager.PERMISSION_GRANTED){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean checkReadStoragePermission(){
+        //kiem tra version > android 6
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
+            return true;
+        }
+        if (ContextCompat.checkSelfPermission(getContext(),Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -384,4 +459,5 @@ public class UpdateInfoFragment extends Fragment {
         //Load thông tin vừa mới cập nhật cho AccountFragment khi bấm Back
         AccountFragment.loadData();
     }
+
 }

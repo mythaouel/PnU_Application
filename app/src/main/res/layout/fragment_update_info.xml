@@ -51,10 +51,10 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/imvAvtInfo"
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:src="@drawable/user_avt_default"
-                    app:civ_border_width="1.5dp"
+                    app:civ_border_width="2dp"
                     app:civ_border_color="@color/black"/>
                   <TextView
                       android:id="@+id/txtInfName"
@@ -100,7 +100,6 @@
                                app:errorEnabled="true"
                                android:layout_width="match_parent"
                                android:layout_height="match_parent"
-                               android:inputType="text"
                                android:id="@+id/edtName"
                                style="@style/modifiedEditText"
                                android:hint="Họ tên" />
@@ -114,7 +113,6 @@
                          android:layout_height="0dp">
                         <EditText
                             app:errorEnabled="true"
-                            android:inputType="date"
                             android:id="@+id/edtBirthday"
                             style="@style/modifiedEditText"
                             android:hint="Ngày sinh" />
@@ -130,7 +128,6 @@
                             app:errorEnabled="true"
                             android:id="@+id/edtEmail"
                             style="@style/modifiedEditText"
-                            android:ems="10"
                             android:hint="Email"
                             android:inputType="textEmailAddress" />
                      </com.google.android.material.textfield.TextInputLayout>

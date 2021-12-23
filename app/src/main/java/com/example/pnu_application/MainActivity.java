@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
         }
     };
 
+
     public Integer getMATK() {
         return MATK;
     }
