@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp">
+    <LinearLayout
+        android:weightSum="8"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="7"
+            android:id="@+id/txtProductIsAdded"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Chọn phương thức giao hàng"
+            android:textColor="@color/tick"
+            android:textSize="17sp"/>
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/imvClose"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:src="@drawable/close_icon"/>
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/rdGiaoHang"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RadioButton
+            android:id="@+id/rdGHTieuChuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableRight="?android:attr/listChoiceIndicatorSingle"
+            android:background="?android:selectableItemBackground"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:layout_marginBottom="5dp"
+            android:text="Giao hàng tiêu chuẩn"
+            android:textSize="16sp"
+            android:textStyle="bold">
+        </RadioButton>
+
+
+
+        <RadioButton
+            android:id="@+id/rdGHNhanh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableRight="?android:attr/listChoiceIndicatorSingle"
+            android:background="?android:selectableItemBackground"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:text="Giao hàng nhanh"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+    </RadioGroup>
+</LinearLayout>

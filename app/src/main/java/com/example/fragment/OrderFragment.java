@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,10 +28,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adapter.RecyclerViewOrderAdapter;
 import com.example.model.CartProduct;
+import com.example.model.Product;
 import com.example.pnu_application.Loading_Screen;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.card.MaterialCardView;
 
 import java.text.DateFormat;
@@ -46,14 +50,15 @@ public class OrderFragment extends Fragment {
 
     Button btnDatHang2;
     RecyclerView rcvOrder;
-    TextView txtGiaTongCong, txtTienTamTinh, txtTongTien, txtPhiShip1, txtPhiShip2, txtHoTen, txtSDT, txtDiaChi, txtNgayGiao;
+    TextView txtGiaTongCong, txtTienTamTinh, txtTongTien, txtPhiShip1, txtPhiShip2, txtHoTen, txtSDT, txtDiaChi, txtNgayGiao, txtPTGiaoHang;
     ImageView imvBack;
-    MaterialCardView cardInfor;
+    MaterialCardView cardInfor, cardShipping;
 
     MainActivity mainActivity;
     int MATK;
 
     public static double total = 0;
+    public static int shipping_method = 0;
 
     @Nullable
     @Override
@@ -75,9 +80,10 @@ public class OrderFragment extends Fragment {
         txtSDT = view.findViewById( R.id.txtSDT );
         txtDiaChi = view.findViewById( R.id.txtDiaChi );
         txtNgayGiao = view.findViewById( R.id.txtNgayGiao );
+        txtPTGiaoHang = view.findViewById( R.id.txtPTGiaoHang );
 
         cardInfor = view.findViewById( R.id.cardInfor );
-
+        cardShipping = view.findViewById( R.id.cardShipping );
         MainActivity.hideBottomNav();
 
         mainActivity = (MainActivity) getActivity();
@@ -92,15 +98,30 @@ public class OrderFragment extends Fragment {
     }
 
     private void getShipDateAndCost() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.add( Calendar.DATE, 3 );
-        String fromDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
-        calendar.add( Calendar.DATE,7 );
-        String toDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
-        txtNgayGiao.setText("Nhận hàng vào: " + fromDate + " - " + toDate );
 
-        txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
-        txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
+        if (shipping_method == 0 || shipping_method == 1){
+            Calendar calendar = Calendar.getInstance();
+            calendar.add( Calendar.DATE, 3 );
+            String fromDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
+            calendar.add( Calendar.DATE,7 );
+            String toDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
+            txtNgayGiao.setText("Nhận hàng vào: " + fromDate + " - " + toDate );
+            txtPTGiaoHang.setText( "Giao hàng tiêu chuẩn" );
+            txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
+            txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
+        }
+        else if (shipping_method == 2){
+            Calendar calendar = Calendar.getInstance();
+            calendar.add( Calendar.DATE, 2 );
+            String fromDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
+            calendar.add( Calendar.DATE,4 );
+            String toDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
+            txtNgayGiao.setText("Nhận hàng vào: " + fromDate + " - " + toDate );
+            txtPTGiaoHang.setText( "Giao hàng nhanh" );
+            txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP_NHANH ) );
+            txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP_NHANH ) );
+        }
+
     }
 
 
@@ -133,7 +154,10 @@ public class OrderFragment extends Fragment {
         for (int i = 0; i < Constant.arrCartProduct.size(); i++)
             TongTien += Constant.arrCartProduct.get( i ).getProductPrice() * Constant.arrCartProduct.get( i ).getProductQuantity();
         txtTienTamTinh.setText( Constant.decimalFormat.format( TongTien ));
-        total = TongTien + Constant.PHI_SHIP;
+        if (shipping_method == 0 || shipping_method == 1)
+            total = TongTien + Constant.PHI_SHIP;
+        else if (shipping_method == 2)
+            total = TongTien + Constant.PHI_SHIP_NHANH;
         txtTongTien.setText( Constant.decimalFormat.format(total));
         txtGiaTongCong.setText( Constant.decimalFormat.format(total));
     }
@@ -168,6 +192,7 @@ public class OrderFragment extends Fragment {
                 transaction.add(R.id.fragmentContainer, new SuccessFragment());
                 transaction.commit();
                 Constant.arrCartProduct.clear();
+                OrderFragment.shipping_method = 0;
             }
         } );
         //Event cho nút Back
@@ -183,10 +208,49 @@ public class OrderFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.add(R.id.fragmentContainer, new UpdateInfoFragment());
+                transaction.replace(R.id.fragmentContainer, new UpdateInfoFragment());
                 transaction.commit();
             }
         } );
+
+        cardShipping.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBottomSheetDialog();
+            }
+        } );
+    }
+
+    private void showBottomSheetDialog() {
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity(), R.style.BottomSheetDialogTheme);
+        bottomSheetDialog.setContentView(R.layout.choose_shipping_method_dialog);
+        RadioGroup rdGiaoHang = bottomSheetDialog.findViewById( R.id.rdGiaoHang );
+        RadioButton rdGHTieuChuan = bottomSheetDialog.findViewById( R.id.rdGHTieuChuan );
+        RadioButton rdGHNhanh = bottomSheetDialog.findViewById( R.id.rdGHNhanh );
+        rdGiaoHang.setOnCheckedChangeListener( new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i){
+                    case R.id.rdGHTieuChuan:
+                        OrderFragment.shipping_method = 1;
+                        break;
+                    case R.id.rdGHNhanh:
+                        OrderFragment.shipping_method = 2;
+                        break;
+                }
+            }
+        } );
+        //Close Dialog
+        ImageView imvClose = bottomSheetDialog.findViewById(R.id.imvClose);
+        imvClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetDialog.dismiss();
+                getShipDateAndCost();
+                calTotal();
+            }
+        });
+        bottomSheetDialog.show();
     }
 
     @Override

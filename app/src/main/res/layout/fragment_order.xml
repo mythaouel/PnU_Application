@@ -158,6 +158,7 @@
 
 <!--        Khung thông tin giao hàng-->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardShipping"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp">
@@ -179,6 +180,7 @@
                         android:layout_height="wrap_content"
                         android:weightSum="8">
                         <TextView
+                            android:id="@+id/txtPTGiaoHang"
                             android:layout_weight="6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -193,13 +195,23 @@
                             android:text="@string/shipping_cost"
                             android:textSize="15sp"/>
                     </LinearLayout>
-                    <TextView
-                        android:id="@+id/txtNgayGiao"
-                        android:layout_marginTop="3dp"
+                    <LinearLayout
+                        android:weightSum="8"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/shipping_date"
-                        android:textSize="14sp"/>
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_weight="7.5"
+                            android:id="@+id/txtNgayGiao"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/shipping_date"
+                            android:textSize="14sp"/>
+                        <ImageView
+                            android:layout_weight="0.5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
