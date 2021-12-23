@@ -57,18 +57,21 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:weightSum="8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
             <ImageView
+                android:layout_weight="1"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/money_bill_wave"/>
             <TextView
-                android:layout_marginLeft="10dp"
+                android:layout_weight="7"
+                android:layout_marginStart="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thanh toán khi nhận hàng"
+                android:text="@string/COD"
                 android:textStyle="bold"/>
         </LinearLayout>
 
@@ -78,17 +81,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Vui lòng chuẩn bị số tiền tương ứng vào ngày giao hàng"
+                android:text="@string/nhac_nho"
                 android:textSize="12sp"
                 android:gravity="center"
                 android:textColor="@color/ink_02"/>
         </LinearLayout>
     </LinearLayout>
     <Button
+        android:background="@drawable/round_corners_order_btn"
         android:id="@+id/btnTiepTuc"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="TIẾP TỤC MUA HÀNG"
+        android:text="@string/tiep_tuc_mua"
         android:textColor="@color/white"
         android:backgroundTint="@color/primary_yellow"
         android:layout_gravity="center"/>

@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/cartView"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -141,7 +141,8 @@
                         android:textSize="17sp"
                         android:text="@string/total"
                         android:gravity="center_vertical"
-                        android:layout_marginStart="12dp"/>
+                        android:layout_marginStart="12dp"
+                        android:textColor="@color/black"/>
 
                     <TextView
                         android:layout_weight="6"
@@ -162,6 +163,8 @@
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:text="@string/dat_hang"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/round_corners_order_btn"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:layout_gravity="center"
@@ -170,28 +173,47 @@
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+<!--    Trường hợp giỏ hàng trống-->
     <LinearLayout
+        android:weightSum="10"
         android:id="@+id/emptyCartView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="55dp"
-        android:padding="20dp"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:visibility="gone">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:src="@drawable/empty_cart_background"/>
+        android:visibility="visible">
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="130dp"
+                android:src="@drawable/empty_cart_background"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="@string/cart_is_empty"/>
+        </LinearLayout>
         <TextView
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:text="@string/cart_is_empty"/>
+            android:text="@string/suggest"/>
+        <GridView
+            android:padding="7dp"
+            android:background="@color/white"
+            android:id="@+id/gvSuggestProduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"/>
     </LinearLayout>
+
 
 </LinearLayout>

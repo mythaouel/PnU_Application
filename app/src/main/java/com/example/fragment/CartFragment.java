@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,9 +25,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.adapter.ProductAdapter;
 import com.example.adapter.RecyclerViewCartAdapter;
 import com.example.eventbus.TotalCalculator;
 import com.example.model.CartProduct;
+import com.example.model.Product;
+import com.example.model.ProductItemClick;
 import com.example.pnu_application.Loading_Screen;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
@@ -47,8 +52,11 @@ public class CartFragment extends Fragment {
     TextView txtTongCong, txtTongSL;
     ImageView imvDeleteAll;
     EditText edtGiamGia;
+    GridView gvSuggestProduct;
 
-    MainActivity mainActivity;
+    ArrayList<Product> products;
+    ProductItemClick productItemClick;
+
     int MATK;
 
     public static LinearLayout emptyCartView;
@@ -71,6 +79,8 @@ public class CartFragment extends Fragment {
 
         imvDeleteAll = view.findViewById( R.id.imvDeleteAll );
 
+        gvSuggestProduct = view.findViewById( R.id.gvSuggestProduct );
+
         emptyCartView = view.findViewById( R.id.emptyCartView );
         cartView = view.findViewById( R.id.cartView );
 
@@ -84,13 +94,21 @@ public class CartFragment extends Fragment {
             emptyCartView.setVisibility( View.VISIBLE );
         }
 
-//        mainActivity = (MainActivity) getActivity();
-//        MATK = mainActivity.getMATK();
         configRecyclerView();
         initData();
         calTotal();
         countQty();
         addEvents();
+
+        gvSuggestProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                productItemClick = (ProductItemClick) getActivity();
+                if (productItemClick != null){
+                    productItemClick.click(products.get(i));
+                }
+            }
+        });
 
         return view;
     }
@@ -105,8 +123,29 @@ public class CartFragment extends Fragment {
     }
 
     private void initData() {
+        //Data sản phẩm trong giỏ hàng
         RecyclerViewCartAdapter adapter = new RecyclerViewCartAdapter(getContext(), Constant.arrCartProduct);
         rcvCart.setAdapter( adapter );
+        //Data list sản phẩm gợi ý khi giỏ hàng trống
+        ProductAdapter productAdapter = new ProductAdapter(getContext(), R.layout.product_item_layout, getData());
+        gvSuggestProduct.setAdapter(productAdapter);
+    }
+
+    private ArrayList<Product> getData() {
+        products = new ArrayList<>();
+
+        //Dog Food
+        products.add(new Product("sp0016",R.drawable.dog_food_08, "Thức ăn cho chó vị cá biển MEC Wild Taste Ocean Deep Fish", 380, "Description"));
+        products.add(new Product("sp0014",R.drawable.dog_food_06, "Thức ăn cho chó trưởng thành Pedigree vị bò", 355, "Description"));
+        //Cat Food
+        products.add(new Product("sp0008",R.drawable.cat_food_08, "Thức Ăn Hạt Cho Mèo Trưởng Thành Catsrang", 422, "Description"));
+        products.add(new Product("sp0007",R.drawable.cat_food_07, "Hạt Reflex Food Chicken cho mèo", 360, "Description"));
+        //Pet Toys
+        products.add(new Product("sp0017",R.drawable.pet_toy_01, "Đồ chơi bóng mặt chó", 25, "Description"));
+        //Pet Fashion
+        products.add(new Product("sp0026",R.drawable.pet_fashion_02, "Vòng cổ thú cưng hình cổ áo", 188, "Description"));
+
+        return products;
     }
 
     private void calTotal() {

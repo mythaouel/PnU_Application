@@ -27,7 +27,7 @@
                     android:id="@+id/txtOrderName"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:text="@string/ten_sp"
+                    android:text="@string/text_demo"
                     android:textSize="15sp"
                     android:layout_margin="5dp"/>
                 <LinearLayout

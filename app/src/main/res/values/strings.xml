@@ -56,5 +56,8 @@
     <string name="text_demo">Hạt thức ăn khô cho chó Royal Canin Poodle Puppy</string>
     <string name="price_demo">394000</string>
     <string name="so_luong_sp">Số lượng: 1</string>
+    <string name="nhac_nho">Vui lòng chuẩn bị số tiền tương ứng vào ngày giao hàng</string>
     <string name="dong_y_dieu_khoan">Tiến hành đặt hàng đồng nghĩa với việc bạn đồng ý tuân theo <font color='#1338BE'>Điều khoản của Pnu</font></string>
+    <string name="tiep_tuc_mua">TIẾP TỤC MUA HÀNG</string>
+    <string name="suggest">-------------------- Có thể bạn sẽ thích --------------------</string>
 </resources>
