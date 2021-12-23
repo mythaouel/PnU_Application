@@ -121,7 +121,6 @@ public class OrderFragment extends Fragment {
             txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP_NHANH ) );
             txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP_NHANH ) );
         }
-
     }
 
 

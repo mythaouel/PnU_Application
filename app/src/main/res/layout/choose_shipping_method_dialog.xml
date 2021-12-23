@@ -10,23 +10,20 @@
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
             android:layout_weight="7"
             android:id="@+id/txtProductIsAdded"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Chọn phương thức giao hàng"
+            android:text="@string/choose_shipping_method"
             android:textColor="@color/tick"
             android:textSize="17sp"/>
-
         <ImageView
             android:layout_weight="1"
             android:id="@+id/imvClose"
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:src="@drawable/close_icon"/>
-
     </LinearLayout>
 
     <RadioGroup
@@ -45,13 +42,9 @@
             android:paddingBottom="7dp"
             android:paddingTop="7dp"
             android:layout_marginBottom="5dp"
-            android:text="Giao hàng tiêu chuẩn"
+            android:text="@string/shipping"
             android:textSize="16sp"
-            android:textStyle="bold">
-        </RadioButton>
-
-
-
+            android:textStyle="bold"/>
         <RadioButton
             android:id="@+id/rdGHNhanh"
             android:layout_width="match_parent"
@@ -63,9 +56,8 @@
             android:textAlignment="textStart"
             android:paddingBottom="7dp"
             android:paddingTop="7dp"
-            android:text="Giao hàng nhanh"
+            android:text="@string/shipping_2"
             android:textSize="16sp"
             android:textStyle="bold"/>
-
     </RadioGroup>
 </LinearLayout>

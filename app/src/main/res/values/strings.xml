@@ -63,4 +63,6 @@
     <string name="dong_y_dieu_khoan">Tiến hành đặt hàng đồng nghĩa với việc bạn đồng ý tuân theo <font color='#1338BE'>Điều khoản của Pnu</font></string>
     <string name="tiep_tuc_mua">TIẾP TỤC MUA HÀNG</string>
     <string name="suggest">-------------------- Có thể bạn sẽ thích --------------------</string>
+    <string name="shipping_2">Giao hàng nhanh</string>
+    <string name="choose_shipping_method">Chọn phương thức giao hàng</string>
 </resources>
