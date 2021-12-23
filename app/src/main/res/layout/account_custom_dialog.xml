@@ -42,7 +42,7 @@
         android:layout_width="220dp"
         />
    <Button
-       android:id="@+id/btnCancer"
+       android:id="@+id/btnCancel"
        android:layout_marginTop="15dp"
        android:text="Hủy"
        android:layout_marginBottom="10dp"

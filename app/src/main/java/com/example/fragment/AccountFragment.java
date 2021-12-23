@@ -257,9 +257,9 @@ public class AccountFragment extends Fragment {
         dialog.setCancelable(false);
         //LinkView
         Button btnLogOut     = dialog.findViewById(R.id.btnLogOut);
-        Button btnCancer     = dialog.findViewById(R.id.btnCancer);
+        Button btnCancel     = dialog.findViewById(R.id.btnCancel);
 
-        btnCancer.setOnClickListener(new View.OnClickListener() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
@@ -274,6 +274,10 @@ public class AccountFragment extends Fragment {
                     Intent intent = new Intent(getContext(), MainActivity.class);
                     startActivity(intent);
                     Constant.arrCartProduct.clear();
+                }
+                else {
+                    Toast.makeText(getContext(), "Hệ thống gặp lỗi!", Toast.LENGTH_LONG).show();
+                    System.exit(0);
                 }
                 }
 

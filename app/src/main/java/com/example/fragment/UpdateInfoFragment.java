@@ -39,6 +39,13 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.xml.validation.Validator;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -60,9 +67,13 @@ public class UpdateInfoFragment extends Fragment {
 
     Boolean isCamera;
     String name,address,email,birthday,phone;
+    Pattern pattern;
+    Matcher matcher;
 
     MainActivity mainActivity;
     int MATK;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -113,6 +124,7 @@ public class UpdateInfoFragment extends Fragment {
     //Hàm check đầu vào editText
     private boolean checkValidation() {
         getValues();
+
         // bỏ trống ô Họ Tên
         if(TextUtils.isEmpty(name)){
             edtName.requestFocus();
@@ -127,10 +139,26 @@ public class UpdateInfoFragment extends Fragment {
             return false;
         }
 
+        //Ngày sinh nhập vào không hợp lệ hoac không đúng format
+        boolean validatorBirthday = ValidatorBirthday(birthday);
+        if (!validatorBirthday) {
+            edtBirthday.requestFocus();
+            edtBirthday.setError(getContext().getResources().getString(R.string.check_valid_birthday));
+            return false;
+        }
+
         //bỏ trống ô Email
         if(TextUtils.isEmpty(email)){
             edtEmail.requestFocus();
             edtEmail.setError(getContext().getResources().getString(R.string.loi_thieu_info));
+            return false;
+        }
+
+        //Sai định dạng Email
+        boolean validatorEmail = ValidatorEmail(email);
+        if (!validatorEmail) {
+            edtEmail.requestFocus();
+            edtEmail.setError(getContext().getResources().getString(R.string.check_valid_email));
             return false;
         }
 
@@ -141,15 +169,66 @@ public class UpdateInfoFragment extends Fragment {
             return false;
         }
 
+        //So dien thoai khong hop le
+        boolean validatorPhone = ValidatorPhone(phone);
+        if (!validatorPhone) {
+            edtPhone.requestFocus();
+            edtPhone.setError(getContext().getResources().getString(R.string.check_valid_phone));
+            return false;
+        }
+
+
         //bỏ trống ô Địa Chỉ
         if(TextUtils.isEmpty(address)){
             edtAddress.requestFocus();
             edtAddress.setError(getContext().getResources().getString(R.string.loi_thieu_info));
             return false;
         }
-        // Mật khẩu mới đặt không đúng yêu cầu (từ 5 ký tự trở )
+
 
         return true;
+    }
+
+    // Ham kiểm tra định dạng ngay sinh
+    public boolean ValidatorBirthday(String birthday) {
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+
+        dateFormat.setLenient(false);
+        // set false để kiểm tra tính hợp lệ của date
+
+        try {
+            // parse chuỗi birthday thành kiểu Date
+            dateFormat.parse(birthday); //
+            return true;
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // Ham kiểm tra định dạng email
+    public boolean ValidatorEmail(String email) {
+
+        // cấu trúc 1 email thông thường
+        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        boolean checkEmail = email.matches(EMAIL_PATTERN);
+        return checkEmail;
+
+    }
+
+    // Ham kiem tra dinh dang so dien thoai
+    public boolean ValidatorPhone(String str) {
+
+        //cấu trúc 1  so dien thoai
+        String PHONE_PATTERN = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
+
+        // Kiem tra dinh dang
+        boolean check = str.matches(PHONE_PATTERN);
+
+        return  check;
     }
 
     private void getImage() {
@@ -297,6 +376,7 @@ public class UpdateInfoFragment extends Fragment {
             sheetDialog.setContentView(view);
         }
     }
+
     @Override
     public void onDetach() {
         super.onDetach();

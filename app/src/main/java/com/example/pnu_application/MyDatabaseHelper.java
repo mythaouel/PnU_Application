@@ -50,16 +50,17 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         //Table Account
         String sql1="CREATE TABLE IF NOT EXISTS " +ACCOUNT_TB_NAME +"("+ ACCOUNT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ACCOUNT_COL_USERNAME + " VARCHAR(100), " + ACCOUNT_COL_NUMBER + " TEXT," + ACCOUNT_COL_PASSWORD + " TEXT," + ACCOUNT_COL_OTP + " INTEGER," + ACCOUNT_COL_STATUS + " INTEGER)";
+
         //Table Customer
         String sql2="CREATE TABLE IF NOT EXISTS " +CUSTOMER_TB_NAME +"("+ CUSTOMER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                       CUSTOMER_COL_NAME+ " TEXT, " + CUSTOMER_COL_BIRTHDAY + " DATE, "+ CUSTOMER_COL_EMAIL + " VARCHAR(100),"+ CUSTOMER_COL_NUMBER + " TEXT,"+
                       CUSTOMER_COL_ADDRESS + " VARCHAR(200), " + CUSTOMER_COL_PHOTO + " BLOB, " + CUSTOMER_COL_ACT_ID +" INTEGER REFERENCES " + ACCOUNT_TB_NAME + "(" + ACCOUNT_COL_ID +")" +")";
+
         //Table Order
         String sql3= "CREATE TABLE IF NOT EXISTS " +ORDER_TB_NAME +"("+ ORDER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                      ORDER_COL_NAME+ " VARCHAR(200), " + ORDER_COL_DATE + " DATE, "+ ORDER_COL_STATUS + " VARCHAR(100), "+ ORDER_COL_QUANTITY + " INTEGER, "+ ORDER_COL_TOTAL + " REAL, "  + ORDER_COL_ACT_ID +" INTEGER REFERENCES " + ACCOUNT_TB_NAME + "(" + ACCOUNT_COL_ID +")" +")";
@@ -68,7 +69,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sql2);
         sqLiteDatabase.execSQL(sql3);
     }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
@@ -104,6 +104,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    //Customer
     public boolean insertCustomerData(String name, String birthday,String email, String phone, String address, byte[] photo, int MAKH){
         try {
             SQLiteDatabase db = getWritableDatabase();
@@ -139,6 +140,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    //Order
     public boolean insertOrderData(String name, String date, String status, int quantity, double total , int MATK){
         try {
             SQLiteDatabase db = getWritableDatabase();
@@ -151,6 +153,26 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             statement.bindDouble(4, quantity);
             statement.bindDouble(5, total);
             statement.bindDouble(6, MATK);
+
+            statement.executeInsert();
+            return true;
+        } catch (Exception Ex){
+            return false;
+        }
+    }
+
+    //Account
+    public boolean insertAccountData(String username, String phone, String password, int OTP, int status){
+        try {
+            SQLiteDatabase db = getWritableDatabase();
+            String sql = " INSERT INTO " + ACCOUNT_TB_NAME + " VALUES(null, ?, ?, ?, ?,?)";
+            SQLiteStatement statement = db.compileStatement(sql);
+
+            statement.bindString(1, username);
+            statement.bindString(2, phone);
+            statement.bindString(3, password);
+            statement.bindDouble(4, OTP);
+            statement.bindDouble(5, status);
 
             statement.executeInsert();
             return true;
@@ -173,25 +195,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(ACCOUNT_COL_STATUS, status);
         db.update(ACCOUNT_TB_NAME,contentValues,ACCOUNT_COL_ID + " = ? ", new String[]{ MATK +""});
         return true;
-    }
-
-    public boolean insertAccountData(String username, String phone, String password, int OTP, int status){
-        try {
-            SQLiteDatabase db = getWritableDatabase();
-            String sql = " INSERT INTO " + ACCOUNT_TB_NAME + " VALUES(null, ?, ?, ?, ?,?)";
-            SQLiteStatement statement = db.compileStatement(sql);
-
-            statement.bindString(1, username);
-            statement.bindString(2, phone);
-            statement.bindString(3, password);
-            statement.bindDouble(4, OTP);
-            statement.bindDouble(5, status);
-
-            statement.executeInsert();
-            return true;
-        } catch (Exception Ex){
-            return false;
-        }
     }
 
     public boolean isUserNameExists (String username){

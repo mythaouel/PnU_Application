@@ -23,7 +23,10 @@ import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class OrderHistoryHandlingFragment extends Fragment {
 
@@ -77,7 +80,7 @@ public class OrderHistoryHandlingFragment extends Fragment {
     }
 
     //Kiểm tra đơn hàng account đã đặt để hiện giao diện phù hợp
-    //Được gọi sau initData ->có dữ liệu orderList để ktra
+    //Được gọi sau initData ->có dữ liệu orderList để kiem tra
     private void getLayout(){
         if (orderList.size() >0){
             layoutHaveOrder.setVisibility( View.VISIBLE );
@@ -93,10 +96,12 @@ public class OrderHistoryHandlingFragment extends Fragment {
             String orderId,orderTotal;
             Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ORDER_TB_NAME + " WHERE " + MyDatabaseHelper.ORDER_COL_ACT_ID + " = " + MATK );
             orderList.clear();
+
             while (cursor!=null && cursor.moveToNext())
              {
-                orderId= "Đơn hàng " +cursor.getString(0);
+                orderId= "Đơn hàng #" +cursor.getString(0);
                 orderTotal=String.format("%,.0f",cursor.getDouble(5) )+ " đ";
+
                 orderList.add(new OrderDetail(orderId, cursor.getString(3), cursor.getString(2),orderTotal));
             }
             cursor.close();

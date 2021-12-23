@@ -37,6 +37,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import utils.Constant;
 
@@ -146,9 +147,12 @@ public class OrderFragment extends Fragment {
                 String name, status;
                 name = txtHoTen.getText().toString();
                 status = "Đang lấy hàng";
-                Calendar calendar = Calendar.getInstance();
 
-                String date = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
+                //Format date
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat dateFormat= new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                String date=dateFormat.format(calendar.getTime());
+
                 int quantity = 0;
                 for (int i = 0; i < Constant.arrCartProduct.size(); i++){
                     quantity += Constant.arrCartProduct.get( i ).getProductQuantity();

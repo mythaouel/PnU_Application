@@ -31,6 +31,8 @@ import com.example.pnu_application.R;
 import com.example.pnu_application.SignIn_Screen;
 import com.google.android.material.textfield.TextInputLayout;
 
+import utils.Constant;
+
 public class ChangePassFragment extends Fragment {
 
     View mView;
@@ -182,10 +184,6 @@ public class ChangePassFragment extends Fragment {
         imvClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean flag= Loading_Screen.db.updateAccountStatus(0,MATK);
-                getActivity().finish();
-                Intent intent = new Intent(getContext(), SignIn_Screen.class);
-                startActivity(intent);
                 dialog.dismiss();
             }
         });
