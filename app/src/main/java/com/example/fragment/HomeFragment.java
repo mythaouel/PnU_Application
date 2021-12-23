@@ -1,6 +1,8 @@
 package com.example.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,6 +44,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator3;
 
@@ -52,12 +57,14 @@ public class HomeFragment extends Fragment {
     TextView txtAllProduct,txtGreeting;
     ImageView imvNoel;
 
+    //Banner
     BottomNavigationView bottomNavigationView;
     private ViewPager2 nViewPager2;
     private CircleIndicator3 nCircleIndicator3;
     BannerAdapter bannerAdapter;
     ArrayList<Banner> banners;
     LinearLayout icon_cat, icon_dog, icon_toys, icon_clothes;
+    private Timer timer;
 
     //Tips
     RecyclerView rcvTips;
@@ -136,6 +143,8 @@ public class HomeFragment extends Fragment {
         addEvent();
         initData();
 
+        autoSlideImages();
+
         gvBlog.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
@@ -158,6 +167,43 @@ public class HomeFragment extends Fragment {
 
         return view;
 
+    }
+
+    private void autoSlideImages() {
+        if (banners==null || banners.isEmpty() || nViewPager2==null){
+            return;
+        }
+        //Init timer
+        if(timer==null){
+            timer=new Timer();
+        }
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        int currentItem=nViewPager2.getCurrentItem();
+                        int totalItem=banners.size()-1;
+                        if(currentItem<totalItem){
+                            currentItem++;
+                            nViewPager2.setCurrentItem(currentItem);
+                        }else{
+                            nViewPager2.setCurrentItem(0);
+                        }
+                    }
+                });
+            }
+        }, 500,2000);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (timer!=null){
+            timer.cancel();
+            timer=null;
+        }
     }
 
     private void configRecyclerView() {
