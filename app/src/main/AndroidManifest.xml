@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".NotificationPopUp"
@@ -20,7 +20,7 @@
         <activity
             android:name=".OnboardingActivity"
             android:exported="true"
-            android:theme="@style/Onboarding"/>
+            android:theme="@style/Onboarding" />
         <activity
             android:name=".OTP_Screen"
             android:exported="true" />
@@ -42,9 +42,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

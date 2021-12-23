@@ -271,7 +271,7 @@ public class AccountFragment extends Fragment {
                 boolean flag= Loading_Screen.db.updateAccountStatus(0,MATK);
                 if(flag =true){
                     getActivity().finishAndRemoveTask();
-                    Intent intent = new Intent(getContext(), SignIn_Screen.class);
+                    Intent intent = new Intent(getContext(), MainActivity.class);
                     startActivity(intent);
                     Constant.arrCartProduct.clear();
                 }

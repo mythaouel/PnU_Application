@@ -30,7 +30,7 @@ public class SignIn_Screen extends AppCompatActivity{
     Context context;
     EditText edtUserName, edtPassword;
 
-    TextView txtTest;
+    TextView txtTest,txtQuenMatKhau;
     CheckBox chkPassword;
 
     public static final String KEY_USER_FROM_REGISTER = "KEY_USER_FROM_REGISTER";
@@ -69,7 +69,6 @@ public class SignIn_Screen extends AppCompatActivity{
                     edtPassword.setError(context.getResources().getString(R.string.error_password));
                     error = true;
                 }
-
 
                 //bỏ trống ô Password
                 if(TextUtils.isEmpty(password)){
@@ -123,6 +122,14 @@ public class SignIn_Screen extends AppCompatActivity{
                 startActivity(intent);
             }
         });
+
+        txtQuenMatKhau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
     private void linkViews() {
         btnSignIn = findViewById(R.id.btnSignIn);
@@ -132,6 +139,7 @@ public class SignIn_Screen extends AppCompatActivity{
         edtUserName= findViewById(R.id.edtUserName);
 
         txtTest = findViewById(R.id.txtTest);
+        txtQuenMatKhau = findViewById(R.id.txtQuenMatKhau);
 
         chkPassword = findViewById(R.id.chkPassword);
     }
