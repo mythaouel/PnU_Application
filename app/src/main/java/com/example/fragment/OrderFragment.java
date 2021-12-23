@@ -93,9 +93,9 @@ public class OrderFragment extends Fragment {
     private void getShipDateAndCost() {
         Calendar calendar = Calendar.getInstance();
         calendar.add( Calendar.DATE, 3 );
-        String fromDate = DateFormat.getDateInstance(DateFormat.SHORT).format( calendar.getTime() );
+        String fromDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
         calendar.add( Calendar.DATE,7 );
-        String toDate = DateFormat.getDateInstance(DateFormat.SHORT).format( calendar.getTime() );
+        String toDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
         txtNgayGiao.setText("Nhận hàng vào: " + fromDate + " - " + toDate );
 
         txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );

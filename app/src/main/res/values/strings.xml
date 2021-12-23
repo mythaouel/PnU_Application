@@ -33,14 +33,14 @@
     <string name="customer_address">Số 669 QL1A, khu phố 3, Thủ Đức, Thành phố Hồ Chí Minh</string>
     <string name="note_label">Tin nhắn:</string>
     <string name="shipping">Giao hàng tiêu chuẩn</string>
-    <string name="shipping_cost">40,000 đ</string>
-    <string name="shipping_label">Phí giao hàng:</string>
-    <string name="shipping_date">Nhận hàng vào: 04/11/2021 – 11/11/2021</string>
-    <string name="payment_method">Chọn phương thức thanh toán</string>
+    <string name="shipping_cost">40.000 đ</string>
+    <string name="shipping_label">Phí vận chuyển:</string>
+    <string name="shipping_date">Nhận hàng vào: 04 Th11, 2021 – 11 Th11, 2021</string>
+    <string name="payment_method">Phương thức thanh toán</string>
     <string name="COD">Thanh toán khi nhận hàng</string>
     <string name="total_2">Tổng tiền:</string>
-    <string name="total_price_2">922000 đ</string>
-    <string name="total_1">Tiền hàng (tạm tính):</string>
+    <string name="total_price_2">922.000 đ</string>
+    <string name="total_1">Tạm tính:</string>
     <string name="total_price_1">882.000 đ</string>
     <string name="blog_title">Tiêu đề bài viết</string>
     <string name="blog_detail">Nội dung bài viết</string>
@@ -55,4 +55,6 @@
     <string name="channel_description_2">This is channel 2</string>
     <string name="text_demo">Hạt thức ăn khô cho chó Royal Canin Poodle Puppy</string>
     <string name="price_demo">394000</string>
+    <string name="so_luong_sp">Số lượng: 1</string>
+    <string name="dong_y_dieu_khoan">Tiến hành đặt hàng đồng nghĩa với việc bạn đồng ý tuân theo <font color='#1338BE'>Điều khoản của Pnu</font></string>
 </resources>
