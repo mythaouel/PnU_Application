@@ -8,6 +8,7 @@
     android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/imvLine"
+        android:paddingLeft="10dp"
         android:gravity="center"
         android:src="@drawable/act_custom_dialog_line"
         android:layout_width="match_parent"

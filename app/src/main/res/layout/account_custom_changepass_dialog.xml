@@ -4,8 +4,8 @@
     android:orientation="vertical"
     android:paddingTop="15dp"
     android:layout_gravity="center"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
     android:paddingBottom="50dp"
     android:background="@drawable/act_custom_layout_changepass_dialog"
     android:layout_height="wrap_content">
@@ -17,7 +17,6 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/imvDiaClose"
-            android:background="@drawable/act_custom_btn_dialog_gray"
             android:src="@drawable/act_ic_close"
             android:layout_width="35dp"
             android:layout_height="35dp"/>

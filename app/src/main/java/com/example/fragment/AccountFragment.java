@@ -74,9 +74,7 @@ public class AccountFragment extends Fragment {
     private static final String Content_Notification_Expand_1=
             "Hàng loạt khuyến mãi hấp dẫn PnU dành riêng cho bạn dịp Giáng Sinh:\n" +
             "-Giảm 10% giá trị đơn hàng khi nhập mã: NOELPNUSALE.\n" +
-            "-Tặng vòng cổ khắc tên theo yêu cầu khi mua combo phụ kiện Giáng Sinh.\n"+
-              "-Chương trình có hiệu lực từ ngày 22/12/2021 đến hết 25/12/2021.";
-
+            "-Tặng vòng cổ khắc tên theo yêu cầu khi mua combo phụ kiện Giáng Sinh.";
 
     View view;
 

@@ -176,7 +176,7 @@ public class ChangePassFragment extends Fragment {
         WindowManager.LayoutParams windowAttributes= window.getAttributes();
         windowAttributes.gravity= Gravity.CENTER;
         window.setAttributes(windowAttributes);
-        dialog.setCancelable(true);
+        dialog.setCancelable(false);
         //LinkView
 
         ImageView imvClose  = dialog.findViewById(R.id.imvDiaClose);

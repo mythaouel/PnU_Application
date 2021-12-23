@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="15dp"
+
                 android:layout_weight="3.8"
                 android:paddingBottom="10dp"
                 android:src="@drawable/act_ic_order_handling" />
@@ -36,9 +36,9 @@
                 android:layout_height="0dp">
                 <TextView
                     android:gravity="center"
-                    android:textSize="27sp"
+                    android:textSize="25sp"
                     android:textStyle="bold"
-                    android:text="Hiện tại bạn chưa có đơn hàng đang xử lý nào !"
+                    android:text="Hiện tại bạn chưa có đơn   hàng đang xử lý nào !"
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
