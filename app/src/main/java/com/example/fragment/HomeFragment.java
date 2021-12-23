@@ -1,5 +1,7 @@
 package com.example.fragment;
 
+import static com.example.pnu_application.MainActivity.bottomNavigationView;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -40,7 +42,6 @@ import com.example.model.ProductItemClick;
 import com.example.model.Tips;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -58,7 +59,6 @@ public class HomeFragment extends Fragment {
     ImageView imvNoel;
 
     //Banner
-    BottomNavigationView bottomNavigationView;
     private ViewPager2 nViewPager2;
     private CircleIndicator3 nCircleIndicator3;
     BannerAdapter bannerAdapter;
@@ -103,7 +103,6 @@ public class HomeFragment extends Fragment {
 
         //Xem tất cả sản phẩm
         txtAllProduct=view.findViewById(R.id.txtAllProduct);
-        bottomNavigationView=view.findViewById(R.id.navContainer);
 
 
 
@@ -231,16 +230,6 @@ public class HomeFragment extends Fragment {
 
     }
 
-    private int getSelectedItem(BottomNavigationView bottomNavigationView) {
-        Menu menu = bottomNavigationView.getMenu();
-        for (int i = 0; i < bottomNavigationView.getMenu().size(); i++) {
-            MenuItem menuItem = menu.getItem(i);
-            if (menuItem.isChecked()) {
-                return menuItem.getItemId();
-            }
-        }
-        return 0;
-    }
 
     private void addEvent() {
         btnFind.setOnClickListener(new View.OnClickListener() {
@@ -257,6 +246,8 @@ public class HomeFragment extends Fragment {
                 FragmentTransaction transaction=getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragmentContainer,new CategoryFragment()).addToBackStack(null);
                 transaction.commit();
+
+                bottomNavigationView.setSelectedItemId( R.id.itCategory );
             }
         });
         icon_cat.setOnClickListener(new View.OnClickListener() {
