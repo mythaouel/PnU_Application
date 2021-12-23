@@ -46,6 +46,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import utils.Constant;
 
 
 public class AccountFragment extends Fragment {
@@ -272,6 +273,7 @@ public class AccountFragment extends Fragment {
                     getActivity().finishAndRemoveTask();
                     Intent intent = new Intent(getContext(), SignIn_Screen.class);
                     startActivity(intent);
+                    Constant.arrCartProduct.clear();
                 }
                 }
 
