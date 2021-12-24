@@ -85,9 +85,7 @@ public class OTP_Screen extends AppCompatActivity {
             public void onClick(View view) {
                 boolean error = false;
                 String OTP1 = edtOTP.getText().toString();
-                Integer OTP_permiss = Integer.parseInt(edtOTP.getText().toString());
-                Integer OTP_signUp = Integer.parseInt(txtOTP.getText().toString());
-                getData();
+
                 if(OTP1.length()!= 6){
                     edtOTP.requestFocus();
                     edtOTP.setError(context.getResources().getString(R.string.error_OTP1));
@@ -99,27 +97,32 @@ public class OTP_Screen extends AppCompatActivity {
                     edtOTP.setError(context.getResources().getString(R.string.thieu_OTP));
                     error = true;
                 }
-                if(!OTP_permiss.equals(OTP_signUp)){
-                    edtOTP.requestFocus();
-                    edtOTP.setError(context.getResources().getString(R.string.error_OTP));
-                    error = true;
-                }
                 if (!error) {
-                    //Save db
-                    String username,password,phone;
-                    int OTP;
-                    username = txtUserName.getText().toString();
-                    password = txtPassword.getText().toString();
-                    phone = txtPhone.getText().toString();
-                    OTP = Integer.parseInt(edtOTP.getText().toString());
+                    boolean error1 = false;
+                    Integer OTP_permiss = Integer.parseInt(edtOTP.getText().toString());
+                    Integer OTP_signUp = Integer.parseInt(txtOTP.getText().toString());
+                    if(!OTP_permiss.equals(OTP_signUp)){
+                        edtOTP.requestFocus();
+                        edtOTP.setError(context.getResources().getString(R.string.error_OTP));
+                        error1 = true;
+                    }
+                    if (!error1) {
+                        //Save db
+                        String username, password, phone;
+                        int OTP;
+                        username = txtUserName.getText().toString();
+                        password = txtPassword.getText().toString();
+                        phone = txtPhone.getText().toString();
+                        OTP = Integer.parseInt(edtOTP.getText().toString());
 
-                    boolean flag = Loading_Screen.db.insertAccountData(username,phone,password,OTP,0);
-                    if (flag){
-                        Toast.makeText(context, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
-                        Intent intent_saved = new Intent(context, SignIn_Screen.class);
-                        startActivity(intent_saved);
-                    }else{
-                        Toast.makeText(context, "Lỗi!", Toast.LENGTH_SHORT).show();
+                        boolean flag = Loading_Screen.db.insertAccountData(username, phone, password, OTP, 0);
+                        if (flag) {
+                            Toast.makeText(context, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
+                            Intent intent_saved = new Intent(context, SignIn_Screen.class);
+                            startActivity(intent_saved);
+                        } else {
+                            Toast.makeText(context, "Lỗi!", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                 }

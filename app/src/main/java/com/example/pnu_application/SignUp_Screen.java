@@ -108,17 +108,6 @@ public class SignUp_Screen extends AppCompatActivity{
                     edtPhone.setError(context.getResources().getString(R.string.error_phone));
                     error = true;
                 }
-                if(phone.charAt(0) != '0'){
-                    edtPhone.requestFocus();
-                    edtPhone.setError(context.getResources().getString(R.string.error_phone));
-                    error = true;
-                }
-                if(phone.charAt(1) != '3' && phone.charAt(1) != '7' && phone.charAt(1) != '8' && phone.charAt(1) != '9'){
-                    edtPhone.requestFocus();
-                    edtPhone.setError(context.getResources().getString(R.string.error_phone));
-                    error = true;
-                }
-
                 //bỏ trống ô Password
                 if (TextUtils.isEmpty(password)) {
                     edtPassword.requestFocus();
@@ -131,41 +120,54 @@ public class SignUp_Screen extends AppCompatActivity{
                     edtPhone.setError(context.getResources().getString(R.string.loi_thieu_info));
                     error = true;
                 }
+                if(Loading_Screen.db.isUserNameExists(userName)){
+                    edtUserName.requestFocus();
+                    edtUserName.setError(context.getResources().getString(R.string.error_userName));
+                    error = true;
+                }
                 //bỏ trống ô tên đăng nhập
                 if(TextUtils.isEmpty(userName)){
                     edtUserName.requestFocus();
                     edtUserName.setError(context.getResources().getString(R.string.loi_thieu_info));
                     error = true;
                 }
-                if(Loading_Screen.db.isUserNameExists(userName)){
-                    edtUserName.requestFocus();
-                    edtUserName.setError(context.getResources().getString(R.string.error_userName));
-                    error = true;
-                }
                 if (!error) {
-                    Random random = new Random();
-                    int max = 999999;
-                    int min = 100000;
-                    int OTP = random.nextInt(max - min +1) +min;
-                    AlertDialog.Builder builder = new AlertDialog.Builder(SignUp_Screen.this);
-                    builder.setTitle("OTP");
-                    builder.setIcon(android.R.drawable.ic_menu_info_details);
-                    builder.setMessage("OTP của bạn là: "+ OTP);
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(context, OTP_Screen.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("phone", phone);
-                            bundle.putString("userName", userName);
-                            bundle.putString("password",password);
-                            bundle.putString("OTP", String.valueOf(OTP));
-                            intent.putExtras(bundle);
-                            startActivity(intent);
-                        }
-                    });
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    boolean error1 = false;
+                    if(phone.charAt(0) != '0'){
+                        edtPhone.requestFocus();
+                        edtPhone.setError(context.getResources().getString(R.string.error_phone));
+                        error1 = true;
+                    }
+                    if(phone.charAt(1) != '3' && phone.charAt(1) != '7' && phone.charAt(1) != '8' && phone.charAt(1) != '9'){
+                        edtPhone.requestFocus();
+                        edtPhone.setError(context.getResources().getString(R.string.error_phone));
+                        error1 = true;
+                    }
+                    if(!error1) {
+                        Random random = new Random();
+                        int max = 999999;
+                        int min = 100000;
+                        int OTP = random.nextInt(max - min + 1) + min;
+                        AlertDialog.Builder builder = new AlertDialog.Builder(SignUp_Screen.this);
+                        builder.setTitle("OTP");
+                        builder.setIcon(android.R.drawable.ic_menu_info_details);
+                        builder.setMessage("OTP của bạn là: " + OTP);
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(context, OTP_Screen.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putString("phone", phone);
+                                bundle.putString("userName", userName);
+                                bundle.putString("password", password);
+                                bundle.putString("OTP", String.valueOf(OTP));
+                                intent.putExtras(bundle);
+                                startActivity(intent);
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
                 }
             }
         });
