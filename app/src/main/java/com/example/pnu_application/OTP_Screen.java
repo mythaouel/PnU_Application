@@ -56,7 +56,6 @@ public class OTP_Screen extends AppCompatActivity {
         txtUserName.setText(intent.getStringExtra("userName"));
         txtOTP.setText(intent.getStringExtra("OTP"));
     }
-
     private void linkViews() {
         imvBack=findViewById(R.id.imvBack);
 
@@ -69,7 +68,6 @@ public class OTP_Screen extends AppCompatActivity {
         txtOTP = findViewById(R.id.txtOTPFromSignUp);
 
         edtOTP = findViewById(R.id.edtOTP);
-
     }
     private void addEvents() {
         imvBack.setOnClickListener(new View.OnClickListener() {

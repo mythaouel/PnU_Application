@@ -64,6 +64,7 @@ public class SignIn_Screen extends AppCompatActivity{
                 String userName = edtUserName.getText().toString();
                 String password = edtPassword.getText().toString();
 
+                //kiểm tra độ dài mật khẩu
                 if(password.length()<5){
                     edtPassword.requestFocus();
                     edtPassword.setError(context.getResources().getString(R.string.error_password));

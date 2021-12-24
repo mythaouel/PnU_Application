@@ -36,7 +36,7 @@ public class Loading_Screen extends AppCompatActivity {
                     if (cursor1!=null && cursor1.moveToFirst())
                     {
                         Intent intent = new Intent(Loading_Screen.this, MainActivity.class);
-                        Toast.makeText(Loading_Screen.this, "Chào mừng "+ cursor1.getString(1) +" đã quay trờ lại <3", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Loading_Screen.this, "Chào mừng "+ cursor1.getString(1) +" đã quay trở lại <3", Toast.LENGTH_SHORT).show();
                         Bundle bundle = new Bundle();
                         bundle.putInt(MainActivity.KEY_USER_TO_MAIN, Integer.parseInt(cursor.getString(0)));
                         intent.putExtras(bundle);
