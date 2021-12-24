@@ -103,15 +103,15 @@ public class SignUp_Screen extends AppCompatActivity{
                     edtPassword.setError(context.getResources().getString(R.string.error_password));
                     error = true;
                 }
-                if(phone.length()!=10 && phone.length()!=11){
-                    edtPhone.requestFocus();
-                    edtPhone.setError(context.getResources().getString(R.string.error_phone));
-                    error = true;
-                }
                 //bỏ trống ô Password
                 if (TextUtils.isEmpty(password)) {
                     edtPassword.requestFocus();
                     edtPassword.setError(context.getResources().getString(R.string.loi_thieu_info));
+                    error = true;
+                }
+                if(phone.length()!=10 && phone.length()!=11){
+                    edtPhone.requestFocus();
+                    edtPhone.setError(context.getResources().getString(R.string.error_phone));
                     error = true;
                 }
                 //bỏ trống ô Số điện thoại

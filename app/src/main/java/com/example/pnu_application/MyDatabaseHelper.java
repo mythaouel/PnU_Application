@@ -197,6 +197,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    //Kiểm tra Username khi đăng ký
     public boolean isUserNameExists (String username){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(ACCOUNT_TB_NAME,
@@ -210,6 +211,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return false;
     }
 
+    //Kiểm tra thông tin đăng nhập
     public User Authenticate(User user) {
 
         SQLiteDatabase db = this.getReadableDatabase();
