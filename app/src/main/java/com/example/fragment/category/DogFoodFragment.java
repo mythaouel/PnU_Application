@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,16 +59,17 @@ public class DogFoodFragment extends Fragment {
     }
 
     private ArrayList<Product> initData() {
+
         products = new ArrayList<>();
 
-        products.add(new Product("sp0009",R.drawable.dog_food_01, "Hạt thức ăn khô cho chó Royal Canin Poodle Puppy", 394, "Description"));
-        products.add(new Product("sp0010",R.drawable.dog_food_02, "Hạt khô cho chó Poodle trưởng thành Royal Canin Poodle Adult", 350, "Description"));
-        products.add(new Product("sp0011",R.drawable.dog_food_03, "Thức ăn cho chó trưởng thành SMARTHEART", 290, "Description"));
-        products.add(new Product("sp0012",R.drawable.dog_food_04, "Thức ăn cho chó con vị sữa Classic", 150, "Description"));
-        products.add(new Product("sp0013",R.drawable.dog_food_05, "Thức ăn cho chó MOSHM", 294, "Description"));
-        products.add(new Product("sp0014",R.drawable.dog_food_06, "Thức ăn cho chó trưởng thành Pedigree vị bò", 355, "Description"));
-        products.add(new Product("sp0015",R.drawable.dog_food_07, "Thức ăn cho chó con hạt mềm ZENITH Puppy Chicken & Potato", 275, "Description"));
-        products.add(new Product("sp0016",R.drawable.dog_food_08, "Thức ăn cho chó vị cá biển MEC Wild Taste Ocean Deep Fish", 380, "Description"));
+        products.add(new Product("sp0009",R.drawable.dog_food_01, getString(R.string.dog_food_01), 394, getString(R.string.des_dog_food_01)));
+        products.add(new Product("sp0010",R.drawable.dog_food_02, getString(R.string.dog_food_02), 350, getString(R.string.des_dog_food_02)));
+        products.add(new Product("sp0011",R.drawable.dog_food_03, getString(R.string.dog_food_03), 290, getString(R.string.des_dog_food_03)));
+        products.add(new Product("sp0012",R.drawable.dog_food_04, getString(R.string.dog_food_04), 150, getString(R.string.des_dog_food_04)));
+        products.add(new Product("sp0013",R.drawable.dog_food_05, getString(R.string.dog_food_05), 294, getString(R.string.des_dog_food_05)));
+        products.add(new Product("sp0014",R.drawable.dog_food_06, getString(R.string.dog_food_06), 355, getString(R.string.des_dog_food_06)));
+        products.add(new Product("sp0015",R.drawable.dog_food_07, getString(R.string.dog_food_07), 275, getString(R.string.des_dog_food_07)));
+        products.add(new Product("sp0016",R.drawable.dog_food_08, getString(R.string.dog_food_08), 380, getString(R.string.des_dog_food_08)));
 
         return products;
     }

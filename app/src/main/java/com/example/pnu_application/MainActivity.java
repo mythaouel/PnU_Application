@@ -21,6 +21,7 @@ import com.example.fragment.NoLoginAccountFragment;
 import com.example.fragment.NotificationBlogFragment;
 import com.example.fragment.OrderDetailFragment;
 
+import com.example.fragment.category.DesProductFragment;
 import com.example.fragment.category.ProductDetailsFragment;
 import com.example.fragment.home.HomeBlogFragment;
 import com.example.model.Blog;
@@ -124,14 +125,19 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
         ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("SelectedProduct", p);
+//        Bundle bundle = new Bundle();
+        bundle.putSerializable(Constant.SELECTED_ITEM, p);
         productDetailsFragment.setArguments(bundle);
+
+        DesProductFragment desProductFragment = new DesProductFragment();
+        desProductFragment.setArguments(bundle);
 
         fragmentTransaction.add(R.id.layoutContainer, productDetailsFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+    public static Bundle bundle = new Bundle();
 
     @Override
     public void click(Blog b) {

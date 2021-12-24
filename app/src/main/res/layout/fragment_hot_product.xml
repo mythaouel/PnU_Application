@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.fragment.category.HotProductFragment"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:id="@+id/layoutHotProduct">
 
     <GridView
         android:id="@+id/gvHotProduct"

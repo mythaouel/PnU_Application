@@ -65,4 +65,310 @@
     <string name="suggest">-------------------- Có thể bạn sẽ thích --------------------</string>
     <string name="shipping_2">Giao hàng nhanh</string>
     <string name="choose_shipping_method">Chọn phương thức giao hàng</string>
+    <string name="you_may_like">Bạn có thể thích</string>
+
+    <!-- start - tên sản phẩm -->
+    //thức ăn cho chó
+    <string name="dog_food_01">Hạt thức ăn khô cho chó Royal Canin Poodle Puppy</string>
+    <string name="dog_food_02">Hạt khô cho chó Poodle trưởng thành Royal Canin Poodle Adult</string>
+    <string name="dog_food_03">Thức ăn cho chó trưởng thành SMARTHEART</string>
+    <string name="dog_food_04">Thức ăn cho chó con vị sữa Classic</string>
+    <string name="dog_food_05">Thức ăn cho chó MOSHM</string>
+    <string name="dog_food_06">Thức ăn cho chó trưởng thành Pedigree vị bò</string>
+    <string name="dog_food_07">Thức ăn cho chó con hạt mềm ZENITH Puppy Chicken - Potato</string>
+    <string name="dog_food_08">Thức ăn cho chó vị cá biển MEC Wild Taste Ocean Deep Fish</string>
+    //thức ăn cho mèo
+    <string name="cat_food_01">Hạt khô cho mèo con Royal Canin Kitten</string>
+    <string name="cat_food_02">Hạt thức ăn khô cho mèo Royal Canin Renal</string>
+    <string name="cat_food_03">Thức ăn hạt WHISKAS cho mèo</string>
+    <string name="cat_food_04">Thức ăn cho mèo MININO Vị cá Ngừ</string>
+    <string name="cat_food_05">Thức ăn cho mèo ME-O 1,2KG</string>
+    <string name="cat_food_06">Thức ăn cho mèo Kitekat Vị Cá Thu</string>
+    <string name="cat_food_07">Hạt Reflex Food Chicken cho mèo</string>
+    <string name="cat_food_08">Thức Ăn Hạt Cho Mèo Trưởng Thành Catsrang</string>
+    //đồ chơi chó mèo
+    <string name="pet_toy_01">Đồ chơi bóng mặt chó</string>
+    <string name="pet_toy_02">Con gà đồ chơi chó mèo</string>
+    <string name="pet_toy_03">Đồ chơi hình tôm hùm cho chó mèo</string>
+    <string name="pet_toy_04">Đồ chơi cao su cho Squeaky Dog</string>
+    <string name="pet_toy_05">Đồ chơi cho chó mèo hình cá chim</string>
+    <string name="pet_toy_06">Bóng lồng chuột cho chó mèo</string>
+    <string name="pet_toy_07">Đồ chơi cao su hình xương cá</string>
+    <string name="pet_toy_08">Đồ chơi xương bông phát ra tiếng</string>
+    //thời trang chó mèo
+    <string name="pet_fashion_01">Áo thun có tay màu Hồng cho chó</string>
+    <string name="pet_fashion_02">Vòng cổ thú cưng hình cổ áo</string>
+    <string name="pet_fashion_03">Mũ len thời trang dễ thương cho chó mèo</string>
+    <string name="pet_fashion_04">Thời Trang Chó Mèo nhện Haloween</string>
+    <string name="pet_fashion_05">Áo thun liền quần cho chó mèo</string>
+    <string name="pet_fashion_06">Quần áo thú cưng thoải mái mùa hè</string>
+    <string name="pet_fashion_07">Quần áo cho chó mùa hè cho chó nhỏ</string>
+    <string name="pet_fashion_08">Mũ ếch dễ thương cho thú cưng</string>
+    <!-- end - tên sản phẩm -->
+
+    <!-- start - mô tả sản phẩm -->
+    //thức ăn cho chó
+    <string name="des_dog_food_01" formatted="false">
+        <![CDATA[
+        <p>Sau giai đoạn sơ sinh, cai sữa chó con cần một lượng khẩu phần ăn khá khắt khe. Bởi giai đoạn này dạ dày của Poodle vẫn còn khá yếu. Chúng không hấp thu được những chất quá nhiều dinh dưỡng, hoặc các loại thức ăn quá cứng. Sản phẩm Hạt thức ăn khô cho chó Royal Canin Poodle Puppy là sản phẩm dành cho giống chó Poodle từ 2 – 10 tháng tuổi.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Xuất xứ:</b> Pháp</p>
+        <p><b>Trọng lượng:</b> 500gr, 1.5kg</p>
+        <p><b>Thành phần</b></p>
+        <p>Bắp, mỡ gà, gluten lúa mì, bột gluten bắp, lúa mì, hương vị tự nhiên, dầu cá. Aluminat silic natri, dầu thực vật, dầu ăn khô, monocalcium phosphate, canxi Carbonat. Canxi sulfat, DL-methionine, clorua kali, vỏ hạt psyllium, muối, fructooligosaccharides, tripolyphosphate natri. Menhydrolyzed, vitamin [DL-alpha tocopherol acetate (nguồn vitamin E), inositol, niacin bổ sung, L-ascorbyl-2 (Vitamin C), D-canxi pantothenate, biotin, pyridoxin hydrochloride (vitamin B6),v.v.</p>
+        <p><b>Công Dụng</b></p>
+        <ul>
+            <li>&nbsp; Thức ăn khô cho chó Royal Canin Poodle Puppy giúp duy trì sức khoẻ của chó Poodle sau cai sữa, hỗ trợ năng lượng phát triển cho cún.</li>
+            <li>&nbsp; Hình dạng hạt độc quyền, với hạt mềm, giúp chó dễ dàng nhai.</li>
+            <li>&nbsp; Với các dưỡng chất dễ tiêu hóa, thức ăn hạt còn hỗ trợ tiêu hóa khỏe mạnh.</li>
+            <li>&nbsp; Hỗ trợ sức khỏe tăng cường hệ thống miễn dịch.</li>
+            <li>&nbsp; 100% dinh dưỡng cân bằng.</li>
+            <li>&nbsp; 100% đảm bảo an toàn.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_dog_food_02">
+        <![CDATA[
+        <p>Những bé Poodle trưởng thành trên 10 tháng tuổi cần một nguồn dinh dưỡng đặc thù hơn để có thể khỏe mạnh. Hạt khô cho chó Poodle trưởng thành Royal Canin Poodle Adult với công thức dinh dưỡng phù hợp sẽ là một sự lựa chọn tuyệt vời cho những chú chó Poodle lớn!</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p>Thức ăn Royal Canin Poodle Adult là loại thức ăn dạng hạt cho chó Poodle trên 10 tháng tuổi của hãng Royal Canin, Pháp.</p>
+        <p><b>Khối lượng:</b> 500gr, 1.5kg</p>
+        <p><b>Thành phần</b></p>
+        <p>Bắp, mỡ gà, gluten lúa mì, bột gluten bắp, lúa mì, hương vị tự nhiên, dầu cá. Aluminat silic natri, dầu thực vật, dầu ăn khô, monocalcium phosphate, canxi Carbonat. Canxi sulfat, DL-methionine, clorua kali, vỏ hạt psyllium, muối, fructooligosaccharides, tripolyphosphate natri. Menhydrolyzed, vitamin [DL-alpha tocopherol acetate (nguồn vitamin E), inositol, niacin bổ sung, L-ascorbyl-2 (Vitamin C), D-canxi pantothenate, biotin, pyridoxin hydrochloride (vitamin B6),v.v.</p>
+        <p><b>Công Dụng</b></p>
+        <ul>
+            <li>&nbsp; <b>Bóng màu lông:</b> Thành phần Omega3 (EPA/DHA) và Omega6 axit béo. Tăng cường làm đẹp lông hiệu quả, tránh các bệnh viêm da. Tăng cường Protein và hàm lượng axit amin lưu huỳnh để đảm bảo sự tăng trưởng của lông cún.</li>
+            <li>&nbsp; <b>Tăng trưởng tối ưu:</b> Với hàm lượng Protein 33% tăng cường chất đạm và tỷ lệ dinh dưỡng. Thích hợp để kiểm soát sự phát triển và trọng lượng của chó con.</li>
+            <li>&nbsp; <b>Giảm cao răng:</b> kết cấu dạng hạt đặc biệt có vai trò ngăn ngừa sự hình thành của các mảng bám cao răng, khiến cho răng cún luôn chắc khỏe.</li>
+            <li>&nbsp; <b>Tăng sức đề kháng:</b> Nâng cao sức đề kháng dành cho chó con. Giàu chất Oxy hóa bằng các Vitamin E, C, Taurine và Lutein.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_dog_food_03">
+        <![CDATA[
+        <p>Thức ăn cho chó trưởng thành SMARTHEART có thành phần dinh dưỡng tốt. Thức ăn SmartHeart bổ sung từ Dầu cá biển nguồn DHA, Axit béo Omega – 3 và Lecithin, giàu Colin. Sản phẩm giúp tăng cường sự phát triển chức năng não và hệ thần kinh, tăng cường sức khỏe tim mạch.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Khối lượng:</b> 1.5kg, 3 kg</p>
+        <p>Với túi 3kg bạn có thể dùng trong thời gian dài hơn. Tiết kiệm hơn. Còn với túi 1.5kg bạn sẽ tiện lợi hơn nếu có việc đi xa nhé!!</p>
+        <p>Với thú cưng dưới 1 năm tuổi, nguồn dinh dưỡng luôn cần chú ý để cho sự phát triển toàn diện sau này. Do đó, bạn cần đặc biệt chú ý tới thành phần dinh dưỡngvà lựa chọn những loại thức ăn an toàn, đạt chuẩn để chúng phát triển tốt nhất. Và thương hiệu SmartHeart là sự lựa chọn tuyệt vời cho bạn</p>
+        <p>Thức ăn cho chó trưởng thành SMARTHEART 3Kg dành cho chó trưởng thành phát triển nhằm đáp ứng hoặc vượt qua các tiêu chuẩn dinh dưỡng thức ăn cho chó AAFCO để duy trì cho chó trưởng thành đước thiết lập bởi hiệp hội thức ăn chăn nuôi Hoa Kì.</p>
+        <p>Chó trưởng thành cần nguồn dinh dưỡng cân bằng và đầy đủ để có sức khỏe tốt, vóc dáng đẹp. Thức ăn SmartHeart cho chó trưởng thành đáp ứng đầy đủ nhu cầu dinh dưỡng, bổ sung dầu cá và lecithin, giàu cholin giúp tăng cường sự phát triển chức năng não và hệ thần kinh, tăng cường chức năng tim mạch</p>
+        <p><b>Công Dụng</b></p>
+        <ul>
+            <li>&nbsp; Thức Ăn Khô Cho Chó SmartHeart Adult Roast Beef Flavor chứa DHA (từ dầu cá) và Colin (từ celithin). Giúp tăng cường sự phát triển trí não và chức năng Hệ thần kinh.</li>
+            <li>&nbsp; Axit béo Omega3 từ dầu cá cho tim mạch khỏe mạnh.</li>
+            <li>&nbsp; Vitamin E và Selenium giúp tăng cường hệ thống miễn dịch.</li>
+            <li>&nbsp; Giúp tim mạch khỏe mạnh: Axit béo Omega-3 từ dầu cá cho tim mạch khỏe mạnh.</li>
+            <li>&nbsp; Tăng cường hệ thống miễn dịch, hệ tiêu hóa khỏe mạnh: Vitamin E và Selenium giúp tăng cường hệ thống miễn dịch.</li>
+            <li>&nbsp; Da và lông khỏe mạnh: Axit béo Omega 3 & 6 cân bằng và đảm bảo cho da khỏe và lông óng mượt.</li>
+            <li>&nbsp; Xương và răng khỏe mạnh: Canxi và Phốt pho cho xương hông chắc và răng khỏe mạnh.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_dog_food_04">
+        <![CDATA[
+        <p>Dành riêng cho chó con, Thức Ăn Cho Chó Con Vị Sữa Classic Puppy Milk Flavor 2kg sẽ là lựa chọn lý tưởng cho bữa ăn dinh dưỡng của cún cưng. Thức ăn khô Classic chứa thành phần gồm tinh bột, các loại vitamin và khoáng chất, sản phẩm giúp chó hấp thu tối đa chất dinh dưỡng, tối ưu hóa canxi và photpho giúp phát triển răng xương hiệu quả, đồng thời tăng cường hệ miễn dịch tự nhiên.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Công dụng:</b> Thức ăn cho chó, dùng cho các bữa chính.</p>
+        <p><b>Khối lượng:</b> 2kg</p>
+        <p><b>Đối tượng:</b> Chó con </p>
+        <p><b>Thành phần:</b></p>
+        <ul>
+            <li>&nbsp; Thức ăn khô cho chó Classic chứa một lượng lớn Tinh bột là nguồn năng lượng chính trong cơ thể của thú nuôi, ngoài ra tinh bột trong thức ăn viên khô giúp ngăn chặn bệnh táo bón ruột.</li>
+            <li>&nbsp; Chất béo kích thích sự ăn uống ngon miệng, cung cấp axit béo cần thiết giúp duy làn da và bộ lông khỏe mạnh mượt mà.</li>
+            <li>&nbsp; Khoáng chất hình thành xương và sụn (như Ca và P), tạo ra các phản ứng Enzyme giúp tiêu hóa tốt, duy trì và cân bằng chất lỏng, ổn định sự co thắt của cơ bắp và chức năng thần kinh.</li>
+            <li>&nbsp; Vitamin giúp chống lão hóa, cân bằng Canxi trong máu, tạo khoáng chất cho xương và răng, ổn định thể trạng trong sinh sản, tăng cường hệ miễn dịch, tăng cường thị giác.</li>
+            <li>&nbsp; Nước là một môi trường lỏng cho máu và hệ thống bạch huyết giúp ổn định nhiệt độ cơ thể. Tuy nhiên do đây là loại thức ăn khô cho chó nên lượng nước không nhiều, khi cho ăn cần lưu ý bổ sung thêm.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_dog_food_05">
+        <![CDATA[
+        <p>Thức ăn cho chó BullDog của hãng MOSHM (Max Power) với các thành phần từ tự nhiên là lựa chọn hoàn hảo cho thú cưng của bạn. Cung cấp dinh dưỡng thiết yếu phù hợp cho giống chó BullDog. Thành phần hoàn toàn không có phẩm màu công nghiệp, không chất tạo mùi, phụ gia thực phẩm. Do đó không ảnh hưởng đến màu lông và sức khỏe của thú cưng rất an toàn cho thú cưng của bạn. Mùi vị thức ăn khô cho thú cưng MOSHM có thể làm hài lòng ngay cả những chú chó kén ăn nhất. Không gây kích ứng da cho chó ngay cả với những chú chó nhạy cảm nhất. Dầu cá hồi tự nhiên giúp bảo vệ đôi mắt cho cún cưng. Đồng thời duy trì độ sáng bóng và độ ẩm cho lông. Ngoài ra, nó còn cung cấp giúp cơ bắp của giống cho này khỏe mạnh hơn. Đây chắc chắn là sự lựa chọn hoàn hảo cho người bạn bốn chân của bạn.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Khối lượng:</b> 1.5 kg</p>
+        <p><b>Thành phần:</b></p>
+        <p>Thành phần thức ăn cho chó BullDog của hãng MOSHM (Max Power) được làm 75% từ thịt thật. Bao gồm 5 loại cá và 7 loại thịt gia súc. Bao gồm: thịt bò, thịt dê, cá thu ngừ, cá hồi, cá mú đỏ, thịt thỏ, thịt nai, dầu cá… Tỉ lệ thịt cá biển cao hơn thịt gia súc. Giúp cung cấp đầy đủ năng lượng cho cún cưng hoạt động cả ngày. Bao gồm các loại rau củ quả như khoai lang, khoai tây, đậu hà lan, quả việt quất, dâu rừng, rau cải xanh giúp hệ tiêu hóa của thú cưng tốt hơn.</p>
+        ]]>
+    </string>
+    <string name="des_dog_food_06">
+        <![CDATA[
+        <p>Thức Ăn Cho Chó Trưởng Thành Pedigree Vị Bò Và Rau Củ được chế biến từ các loại rau củ quả nhiều chất dinh dưỡng. Với vị thịt bò thơm ngon sẽ đem lại sự thích thú cho chó cưng nhà bạn. Sản phẩm giúp bổ sung nhiều chất cần thiết cho chó. Nhờ vậy bảo đảm sự tăng trưởng và phát triển đồng đều cho cún cưng.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Khối lượng:</b> 1.5kg</p>
+        <p><b>Đối tượng:</b> Chó trưởng thành</p>
+        <p><b>Thành phần:</b></p>
+        <p>Ngũ cốc (gạo, bắp, bột mì), protein động vật (thịt gia cầm và các phụ phẩm từ gia cầm), protein thực vật (tinh bột bắp, tinh bột đậu nành, béo đậu nành), chất béo và dầu (stearin cọ, dầu nành), vitamin và khoáng chất, xơ, methionine, màu thực phẩm, chất bảo quản kali sorbat, hương bò, carrot sấy khô, sau bina sấy khô.</p>
+        <p><b>Công dụng:</b></p>
+        <ul>
+            <li>&nbsp; Sản phẩm Thức Ăn Cho Chó Trưởng Thành Pedigree Vị Bò Và Rau Củ cung cấp dinh dưỡng hoàn hảo. Nó giúp cún cưng của bạn có thể phát triển một cách toàn diện. Sản phẩm có chứa độ béo và khoáng chất tối đa giúp nuôi dưỡng những bộ lông mềm mượt. Bên cạnh đó các thành phần rất dễ tiêu hóa cho nên chất dinh dưỡng sẽ được hấp thu một cách nhanh chóng.</li>
+            <li>&nbsp; Thức ăn khô Pedigree vị bò thơm ngon sẽ kích thích vị giác của cún. Giúp chúng ngon miệng hơn. Nhờ chất xơ giúp tiêu thụ thức ăn một cách dễ dàng.</li>
+            <li>&nbsp; Các chất rau củ quả, vitamin giúp tăng cường hệ miễn dịch cho cún cưng. Nhằm loại bỏ một số bệnh về da, lông, tiểu đường, béo phì.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_dog_food_07">
+        <![CDATA[
+        <p>Thức ăn cho chó con hạt mềm ZENITH  Puppy Chicken Potato được chế biến từ thịt cừu tươi, thịt nạc gà rút xương, gạo lứt, yến mạch và dầu cá hồi. Với các thành phần tươi sạch, giàu dinh dưỡng, Zenith Puppy hạt mềm, cung cấp độ ẩm cao và lượng muối thấp, thơm ngon, dễ nhai, dễ tiêu hóa và tốt cho sức khỏe chó con.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Khối lượng:</b> 1.2 kg</p>
+        <p><b>Xuất xứ:</b> Hàn Quốc</p>        <
+        <ul>
+            <li>&nbsp; Dành cho chó con dưới 1 tuổi</li>
+            <li>&nbsp; Không chứa ngũ cốc, không gây dị ứng</li>
+            <li>&nbsp; Được chế biến từ thịt cừu, bột gà, gạo lứt, yến mạch</li>
+            <li>&nbsp; Giúp giảm bớt mùi phân và mùi cơ thể</li>
+            <li>&nbsp; Giúp tăng cường sức đề kháng, phòng ngừa bệnh tật</li>
+            <li>&nbsp; Làm đẹp da, đẹp lông</li>
+            <li>&nbsp; Cung cấp chất dinh dưỡng cần thiết cho sự tăng trưởng của chó con</li>
+            <li>&nbsp; Giúp tăng cường sức khỏe đường ruột, tiêu hóa tốt, ngừa tiêu chảy</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_dog_food_08">
+        <![CDATA[
+        <p>Thức ăn cho chó vị cá biển MKB  MEC Wild Taste Ocean Deep Fish dành cho chó ở mọi lứa tuổi. Có thành phần từ các nguyên liệu hoàn toàn tự nhiên. Là lựa chọn số 1 dành cho cún cưng của bạn.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Khối lượng:</b> 1kg</p>
+        <p><b>Thành phần:</b></p>
+        <p>Thức ăn cho chó vị cá biển MKB MEC Wild Taste Ocean Deep Fish có thành phần chính là các loại cá biển. Phối hợp các loại thịt gia súc, rau củ quả tự nhiên. Thành phần bao gồm:</p>
+        <ul>
+            <li>&nbsp; Thịt: 2 loại cá hồi, cá ngừ, cá tráp, cá trắm đen, thịt gà, mỡ gà, gan gà, thịt bò, dê</li>
+            <li>&nbsp; Rau củ: bột lúa mạch đen, khoai tây, khoai lang, ngô, quả việt quất, đậu tương, rau chân vịt, táo, bông cải xanh, xà lách</li>
+            <li>&nbsp; Phụ phẩm: men bia, dầu oliu, dầu cá, vitamin, caroten, lecithin, muối biển, khoáng chất và nguyên tố vi lượng</li>
+            <p>Các nguyên liệu được tuyển chọn nghiêm ngặt, hoàn toàn không chứa phụ gia độc hại, phẩm màu và chất bảo quản thực phẩm. Sản phẩm được đóng gói trọng lượng: 1kg, 2kg và 10kg.</p>
+        </ul>
+        ]]>
+    </string>
+
+    //thức ăn cho mèo
+    <string name="des_cat_food_01" formatted="false">
+        <![CDATA[
+        <p>Đối với những chú mèo con từ 3-4 tháng tuổi cho đến 12 tháng tuổi, khi đã dần cai sữa và chuyển sang ăn dặm thì chế độ dinh dưỡng cũng có sự thay đổi nhất đinh. Thời gian này, dạ dày của bé mèo cũng mới dần hoàn thiện nên không nên ăn quá nhiều đồ thừa chất, nhưng lượng dinh dưỡng cũng cần vừa đủ cho mèo con phát triển.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Thương hiệu:</b> Royal Canin</p>
+        <p><b>Xuất xứ:</b> Pháp</p>
+        <p><b>Đối tượng sử dụng:</b> Mèo con từ 4 - 12 tháng tuổi.</p>
+        <p><b>Thành phần:</b> Thịt gà, gạo lứt, bắp, mỡ gà, trứng sấy khô, bột lúa mì, bột củ cải khô, dầu cá cơm, dầu đậu nành, nấm men, men bia khô, chiết xuất hương thảo và cúc vạn thọ, vitamin (B1, B2, B6, B9, B12, C, D, D3 và E), và khoáng chất.</p>
+        <p><b>Cách dùng:</b></p>
+        <ul>
+            <li>&nbsp; Mèo 4 tháng tuổi nên cho ăn 55 - 75g thức ăn.</li>
+            <li>&nbsp; Mèo từ 6 - 12 tháng tuổi nên ăn 60 - 80g.</li>
+            <li>&nbsp; Có thể cho mèo ăn trực tiếp Thức Ăn Cho Mèo Royal Canin, hoặc trộn với cơm cho các "boss".</li>
+            <li>&nbsp; Bảo quản sản phẩm ở nơi khô ráo, thoáng mát.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_cat_food_02">
+        <![CDATA[
+        <p>Thận của Boss làm rất nhiều việc quan trọng. Chúng giúp kiểm soát huyết áp, tạo ra kích thích tố, kích thích tủy xương tạo ra nhiều tế bào hồng cầu hơn và loại bỏ chất thải ra khỏi máu..</p>
+        <p>Sen đang đau đầu vì không biết lựa chọn thức ăn nào phù hợp với lũ Boss của mình khi chúng đang bị thận ?? Hãy yên tâm vì đã có ROYAL CANIN ^^</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Xuất xứ:</b> Pháp</p>
+        <p><b>Công Dụng</b></p>
+        <ul>
+            <li>&nbsp; Với EPA và DHA, hệ dưỡng chất chống oxy hóa và lượng phospho thấp, công thức đặc chế để hỗ trợ, tăng cường chức năng thận đối với bệnh thận mãn tính.</li>
+            <li>&nbsp; Thận hoạt động quá mức có thể gây ra khủng hoảng urê huyết. Protein chất lượng cao giúp giảm hoạt động ở thận và giảm lượng chất thải tích tụ.</li>
+            <li>&nbsp; Đặc chế alkalinizing, công thức giúp chống nhiễm axit chuyển hóa ở thận, cân bằng nồng độ pH.</li>
+            <li>&nbsp; Thiết kế đặc biệt để đáp ứng sở thích của mèo, chống lại các vấn đề chán ăn, bỏ ăn, sợ thực phẩm dẫn đến giảm sức khỏe.</li>
+        </ul>
+        <p><b>Cách dùng</b></p>
+        <p>Ban đầu nuôi thận cho đến 6 tháng trong trường hợp suy thận mãn tính, giảm hình thành sỏi oxalat. Đối với trường hợp rối loạn chức năng thận tạm thời một thời gian từ 2 đến 4 tuần cho ăn là  theo đề nghị ý kiến ​​của một bác sĩ thú y được tìm kiếm trước khi sử dụng hoặc trước khi mở rộng thời gian sử dụng.</p>
+        ]]>
+    </string>
+    <string name="des_cat_food_03">
+        <![CDATA[
+        <p>Chăm sóc mèo con là hành trình đòi hỏi sự tận tuỵ của các "sen". Chọn thức ăn cho mèo con cũng là 1 trong những điều cần hết sức quan tâm. Các sản phẩm thức ăn cho mèo con không chỉ bổ sung năng lượng mà còn giúp mèo lớn nhanh, phát triển cân đối. Bên cạnh nguồn sữa mẹ thì Thức Ăn Cho Mèo Con Whiskas Vị Cá Biển Và Sữa 1,1kg cũng là loại thức ăn mèo cần có.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p>Sản phẩm Thức Ăn Cho Mèo Con Whiskas Vị Cá Biển Và Sữa 1,1kg là điểm khởi đầu cơ sở của một cuộc sống khỏe mạnh và hạnh phúc cho những chú mèo con sau này khi cung cấp đầy đủ dưỡng chất để mèo sơ sinh có thể hấp thu và phát triển khỏe mạnh.</p>
+        <p>Đối tượng sử dụng là mèo con, mèo sơ sinh từ 2 - 12 tháng tuổi. Các thành phần có trong sản phẩm sẽ giúp mèo lớn nhanh, hấp thu đầy đủ dinh dưỡng. Ngoài ra, sản phẩm còn có thể dùng cho mèo mẹ mang thai và cho con bú.</p>
+        <p><b>Thành phần</b></p>
+        <p>Mỗi túi Thức Ăn Cho Mèo Con Whiskas Vị Cá Biển Và Sữa có khối lượng 1,1kg. Tất cả đều chứa những thành phần chất lượng cao, đảm bảo những bé mèo con sẽ khoẻ mạnh, lớn nhanh.</p>
+        <p><b>Thành phần:</b> Thịt, cá tươi, sữa, các khoáng chất, vitamin tổng hợp</p>
+        <p>Với những nguyên liệu được chọn loc kỹ lưỡng, đảm bảo an toàn vệ sinh thực phẩm, Thức Ăn Cho Mèo Con Whiskas Vị Cá Biển Và Sữa 1,1kg chắc chắn sẽ đem đến cho mèo những chất dinh dưỡng cần thiết.</p>
+        ]]>
+    </string>
+    <string name="des_cat_food_04">
+        <![CDATA[
+        <p>Dành riêng cho chó con, Thức Ăn Cho Chó Con Vị Sữa Classic Puppy Milk Flavor 2kg sẽ là lựa chọn lý tưởng cho bữa ăn dinh dưỡng của cún cưng. Thức ăn khô Classic chứa thành phần gồm tinh bột, các loại vitamin và khoáng chất, sản phẩm giúp chó hấp thu tối đa chất dinh dưỡng, tối ưu hóa canxi và photpho giúp phát triển răng xương hiệu quả, đồng thời tăng cường hệ miễn dịch tự nhiên.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Công dụng:</b> Thức ăn cho chó, dùng cho các bữa chính.</p>
+        <p><b>Khối lượng:</b> 2kg</p>
+        <p><b>Đối tượng:</b> Chó con </p>
+        <p><b>Thành phần:</b></p>
+        <ul>
+            <li>&nbsp; Thức ăn khô cho chó Classic chứa một lượng lớn Tinh bột là nguồn năng lượng chính trong cơ thể của thú nuôi, ngoài ra tinh bột trong thức ăn viên khô giúp ngăn chặn bệnh táo bón ruột.</li>
+            <li>&nbsp; Chất béo kích thích sự ăn uống ngon miệng, cung cấp axit béo cần thiết giúp duy làn da và bộ lông khỏe mạnh mượt mà.</li>
+            <li>&nbsp; Khoáng chất hình thành xương và sụn (như Ca và P), tạo ra các phản ứng Enzyme giúp tiêu hóa tốt, duy trì và cân bằng chất lỏng, ổn định sự co thắt của cơ bắp và chức năng thần kinh.</li>
+            <li>&nbsp; Vitamin giúp chống lão hóa, cân bằng Canxi trong máu, tạo khoáng chất cho xương và răng, ổn định thể trạng trong sinh sản, tăng cường hệ miễn dịch, tăng cường thị giác.</li>
+            <li>&nbsp; Nước là một môi trường lỏng cho máu và hệ thống bạch huyết giúp ổn định nhiệt độ cơ thể. Tuy nhiên do đây là loại thức ăn khô cho chó nên lượng nước không nhiều, khi cho ăn cần lưu ý bổ sung thêm.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_cat_food_05">
+        <![CDATA[
+        <p>Thức ăn cho chó BullDog của hãng MOSHM (Max Power) với các thành phần từ tự nhiên là lựa chọn hoàn hảo cho thú cưng của bạn. Cung cấp dinh dưỡng thiết yếu phù hợp cho giống chó BullDog. Thành phần hoàn toàn không có phẩm màu công nghiệp, không chất tạo mùi, phụ gia thực phẩm. Do đó không ảnh hưởng đến màu lông và sức khỏe của thú cưng rất an toàn cho thú cưng của bạn. Mùi vị thức ăn khô cho thú cưng MOSHM có thể làm hài lòng ngay cả những chú chó kén ăn nhất. Không gây kích ứng da cho chó ngay cả với những chú chó nhạy cảm nhất. Dầu cá hồi tự nhiên giúp bảo vệ đôi mắt cho cún cưng. Đồng thời duy trì độ sáng bóng và độ ẩm cho lông. Ngoài ra, nó còn cung cấp giúp cơ bắp của giống cho này khỏe mạnh hơn. Đây chắc chắn là sự lựa chọn hoàn hảo cho người bạn bốn chân của bạn.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Khối lượng:</b> 1.5 kg</p>
+        <p><b>Thành phần:</b></p>
+        <p>Thành phần thức ăn cho chó BullDog của hãng MOSHM (Max Power) được làm 75% từ thịt thật. Bao gồm 5 loại cá và 7 loại thịt gia súc. Bao gồm: thịt bò, thịt dê, cá thu ngừ, cá hồi, cá mú đỏ, thịt thỏ, thịt nai, dầu cá… Tỉ lệ thịt cá biển cao hơn thịt gia súc. Giúp cung cấp đầy đủ năng lượng cho cún cưng hoạt động cả ngày. Bao gồm các loại rau củ quả như khoai lang, khoai tây, đậu hà lan, quả việt quất, dâu rừng, rau cải xanh giúp hệ tiêu hóa của thú cưng tốt hơn.</p>
+        ]]>
+    </string>
+    <string name="des_cat_food_06">
+        <![CDATA[
+        <p>Thức Ăn Cho Chó Trưởng Thành Pedigree Vị Bò Và Rau Củ được chế biến từ các loại rau củ quả nhiều chất dinh dưỡng. Với vị thịt bò thơm ngon sẽ đem lại sự thích thú cho chó cưng nhà bạn. Sản phẩm giúp bổ sung nhiều chất cần thiết cho chó. Nhờ vậy bảo đảm sự tăng trưởng và phát triển đồng đều cho cún cưng.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Khối lượng:</b> 1.5kg</p>
+        <p><b>Đối tượng:</b> Chó trưởng thành</p>
+        <p><b>Thành phần:</b></p>
+        <p>Ngũ cốc (gạo, bắp, bột mì), protein động vật (thịt gia cầm và các phụ phẩm từ gia cầm), protein thực vật (tinh bột bắp, tinh bột đậu nành, béo đậu nành), chất béo và dầu (stearin cọ, dầu nành), vitamin và khoáng chất, xơ, methionine, màu thực phẩm, chất bảo quản kali sorbat, hương bò, carrot sấy khô, sau bina sấy khô.</p>
+        <p><b>Công dụng:</b></p>
+        <ul>
+            <li>&nbsp; Sản phẩm Thức Ăn Cho Chó Trưởng Thành Pedigree Vị Bò Và Rau Củ cung cấp dinh dưỡng hoàn hảo. Nó giúp cún cưng của bạn có thể phát triển một cách toàn diện. Sản phẩm có chứa độ béo và khoáng chất tối đa giúp nuôi dưỡng những bộ lông mềm mượt. Bên cạnh đó các thành phần rất dễ tiêu hóa cho nên chất dinh dưỡng sẽ được hấp thu một cách nhanh chóng.</li>
+            <li>&nbsp; Thức ăn khô Pedigree vị bò thơm ngon sẽ kích thích vị giác của cún. Giúp chúng ngon miệng hơn. Nhờ chất xơ giúp tiêu thụ thức ăn một cách dễ dàng.</li>
+            <li>&nbsp; Các chất rau củ quả, vitamin giúp tăng cường hệ miễn dịch cho cún cưng. Nhằm loại bỏ một số bệnh về da, lông, tiểu đường, béo phì.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_cat_food_07">
+        <![CDATA[
+        <p>Thức ăn cho chó con hạt mềm ZENITH  Puppy Chicken Potato được chế biến từ thịt cừu tươi, thịt nạc gà rút xương, gạo lứt, yến mạch và dầu cá hồi. Với các thành phần tươi sạch, giàu dinh dưỡng, Zenith Puppy hạt mềm, cung cấp độ ẩm cao và lượng muối thấp, thơm ngon, dễ nhai, dễ tiêu hóa và tốt cho sức khỏe chó con.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Khối lượng:</b> 1.2 kg</p>
+        <p><b>Xuất xứ:</b> Hàn Quốc</p>        <
+        <ul>
+            <li>&nbsp; Dành cho chó con dưới 1 tuổi</li>
+            <li>&nbsp; Không chứa ngũ cốc, không gây dị ứng</li>
+            <li>&nbsp; Được chế biến từ thịt cừu, bột gà, gạo lứt, yến mạch</li>
+            <li>&nbsp; Giúp giảm bớt mùi phân và mùi cơ thể</li>
+            <li>&nbsp; Giúp tăng cường sức đề kháng, phòng ngừa bệnh tật</li>
+            <li>&nbsp; Làm đẹp da, đẹp lông</li>
+            <li>&nbsp; Cung cấp chất dinh dưỡng cần thiết cho sự tăng trưởng của chó con</li>
+            <li>&nbsp; Giúp tăng cường sức khỏe đường ruột, tiêu hóa tốt, ngừa tiêu chảy</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_cat_food_08">
+        <![CDATA[
+        <p>Thức ăn cho chó vị cá biển MKB  MEC Wild Taste Ocean Deep Fish dành cho chó ở mọi lứa tuổi. Có thành phần từ các nguyên liệu hoàn toàn tự nhiên. Là lựa chọn số 1 dành cho cún cưng của bạn.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Khối lượng:</b> 1kg</p>
+        <p><b>Thành phần:</b></p>
+        <p>Thức ăn cho chó vị cá biển MKB MEC Wild Taste Ocean Deep Fish có thành phần chính là các loại cá biển. Phối hợp các loại thịt gia súc, rau củ quả tự nhiên. Thành phần bao gồm:</p>
+        <ul>
+            <li>&nbsp; Thịt: 2 loại cá hồi, cá ngừ, cá tráp, cá trắm đen, thịt gà, mỡ gà, gan gà, thịt bò, dê</li>
+            <li>&nbsp; Rau củ: bột lúa mạch đen, khoai tây, khoai lang, ngô, quả việt quất, đậu tương, rau chân vịt, táo, bông cải xanh, xà lách</li>
+            <li>&nbsp; Phụ phẩm: men bia, dầu oliu, dầu cá, vitamin, caroten, lecithin, muối biển, khoáng chất và nguyên tố vi lượng</li>
+            <p>Các nguyên liệu được tuyển chọn nghiêm ngặt, hoàn toàn không chứa phụ gia độc hại, phẩm màu và chất bảo quản thực phẩm. Sản phẩm được đóng gói trọng lượng: 1kg, 2kg và 10kg.</p>
+        </ul>
+        ]]>
+    </string>
+    <string name="view_all">Xem tất cả</string>
+    <string name="des_product">Mô tả sản phẩm</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="product_name">Tên sản phẩm</string>
+
+    <!-- end - mô tả sản phẩm -->
+
 </resources>
