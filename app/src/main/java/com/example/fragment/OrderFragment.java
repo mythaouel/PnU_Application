@@ -240,14 +240,29 @@ public class OrderFragment extends Fragment {
                 }
             }
         } );
+        //Button xác nhận
+        Button btnChoose = bottomSheetDialog.findViewById( R.id.btnChoose );
+        btnChoose.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getShipDateAndCost();
+                calTotal();
+                String str = "";
+                if (shipping_method == 0)
+                    str = "Giao hàng tiêu chuẩn";
+                else if (shipping_method == 1)
+                    str = "Giao hàng nhanh";
+                Toast.makeText( getContext(), "Bạn đã chọn " + str, Toast.LENGTH_SHORT ).show();
+                bottomSheetDialog.dismiss();
+            }
+        } );
+
         //Close Dialog
         ImageView imvClose = bottomSheetDialog.findViewById(R.id.imvClose);
         imvClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bottomSheetDialog.dismiss();
-                getShipDateAndCost();
-                calTotal();
             }
         });
         bottomSheetDialog.show();
