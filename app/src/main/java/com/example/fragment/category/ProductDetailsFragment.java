@@ -93,13 +93,7 @@ public class ProductDetailsFragment extends Fragment {
                         //Kiểm tra sản phẩm đã có sẵn trong giỏ hàng chưa => nếu có gắn flag = true và tăng số lượng
                         for (int i = 0; i < Constant.arrCartProduct.size(); i++){
                             if(Constant.arrCartProduct.get( i ).getProductId() == product.getProductId()){
-                                if(Constant.arrCartProduct.get( i ).getProductQuantity() < 10 ) {
-                                    //Kiểm tra số lượng sản phẩm đó trong giỏ hàng hiện tại có hơn 10 không
-                                    Constant.arrCartProduct.get( i ).setProductQuantity( Constant.arrCartProduct.get( i ).getProductQuantity() + 1 );
-                                    //show bottom sheet dialog
-                                    showBottomSheetDialog();
-                                }
-                                else {Toast.makeText(getContext(), "Không thể mua một sản phẩm với số lượng hơn 10", Toast.LENGTH_SHORT ).show();}
+                                Constant.arrCartProduct.get( i ).setProductQuantity( Constant.arrCartProduct.get( i ).getProductQuantity() + 1 );
                                 flag = true;
                             }
                         }
@@ -110,8 +104,6 @@ public class ProductDetailsFragment extends Fragment {
                                     product.getProductName(),
                                     product.getProductPrice(), 1);
                             Constant.arrCartProduct.add( cartProduct );
-                            //show bottom sheet dialog
-                            showBottomSheetDialog();
                         }
                     }
                     //Giỏ hàng trống
@@ -121,9 +113,9 @@ public class ProductDetailsFragment extends Fragment {
                                 product.getProductName(),
                                 product.getProductPrice(), 1);
                         Constant.arrCartProduct.add( cartProduct );
-                        //show bottom sheet dialog
-                        showBottomSheetDialog();
                     }
+                    //show bottom sheet dialog
+                    showBottomSheetDialog();
                     //update số lượng sản phẩm trong giỏ hàng
                     changeCountQty();
                 }catch (Exception ex){
@@ -206,5 +198,4 @@ public class ProductDetailsFragment extends Fragment {
         super.onDetach();
         MainActivity.showBottomNav();
     }
-
 }

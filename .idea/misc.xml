@@ -20,7 +20,9 @@
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication - Copy/app/src/main/res/layout/fragment_cart.xml" value="0.264" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication - Copy/app/src/main/res/layout/fragment_order.xml" value="0.2" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication - Copy/app/src/main/res/layout/order_item.xml" value="0.25" />
+        <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/drawable/ic_add_box.xml" value="0.2703125" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.2703125" />
+        <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/drawable/ic_minus_box.xml" value="0.2703125" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/drawable/view_cart_custom_dialog.xml" value="0.190625" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/act_custom_toolbar.xml" value="0.25416666666666665" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/act_custom_toolbar_as.xml" value="0.25416666666666665" />
@@ -28,7 +30,7 @@
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/activity_order_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/activity_sign_in_screen.xml" value="0.12360688956433637" />
-        <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/card_list_item.xml" value="0.536" />
+        <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/card_list_item.xml" value="0.264" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/choose_shipping_method_dialog.xml" value="0.264" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/fragement_order_detail.xml" value="0.25416666666666665" />
         <entry key="..\:/College/Sem5/Android/PROJECT/PnuApplication/app/src/main/res/layout/fragment_account.xml" value="0.25416666666666665" />

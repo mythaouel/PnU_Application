@@ -99,7 +99,7 @@ public class OrderFragment extends Fragment {
 
     private void getShipDateAndCost() {
 
-        if (shipping_method == 0 || shipping_method == 1){
+        if (shipping_method == 0){
             Calendar calendar = Calendar.getInstance();
             calendar.add( Calendar.DATE, 3 );
             String fromDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
@@ -110,7 +110,7 @@ public class OrderFragment extends Fragment {
             txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
             txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
         }
-        else if (shipping_method == 2){
+        else if (shipping_method == 1){
             Calendar calendar = Calendar.getInstance();
             calendar.add( Calendar.DATE, 2 );
             String fromDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
@@ -153,9 +153,9 @@ public class OrderFragment extends Fragment {
         for (int i = 0; i < Constant.arrCartProduct.size(); i++)
             TongTien += Constant.arrCartProduct.get( i ).getProductPrice() * Constant.arrCartProduct.get( i ).getProductQuantity();
         txtTienTamTinh.setText( Constant.decimalFormat.format( TongTien ));
-        if (shipping_method == 0 || shipping_method == 1)
+        if (shipping_method == 0)
             total = TongTien + Constant.PHI_SHIP;
-        else if (shipping_method == 2)
+        else if (shipping_method == 1)
             total = TongTien + Constant.PHI_SHIP_NHANH;
         txtTongTien.setText( Constant.decimalFormat.format(total));
         txtGiaTongCong.setText( Constant.decimalFormat.format(total));
@@ -226,15 +226,16 @@ public class OrderFragment extends Fragment {
         RadioGroup rdGiaoHang = bottomSheetDialog.findViewById( R.id.rdGiaoHang );
         RadioButton rdGHTieuChuan = bottomSheetDialog.findViewById( R.id.rdGHTieuChuan );
         RadioButton rdGHNhanh = bottomSheetDialog.findViewById( R.id.rdGHNhanh );
+
         rdGiaoHang.setOnCheckedChangeListener( new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i){
                     case R.id.rdGHTieuChuan:
-                        OrderFragment.shipping_method = 1;
+                        OrderFragment.shipping_method = 0;
                         break;
                     case R.id.rdGHNhanh:
-                        OrderFragment.shipping_method = 2;
+                        OrderFragment.shipping_method = 1;
                         break;
                 }
             }

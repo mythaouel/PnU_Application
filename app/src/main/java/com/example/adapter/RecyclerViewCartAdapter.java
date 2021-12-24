@@ -61,10 +61,8 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
                             arrCartProduct.get( position ).setProductQuantity( newQty );
                         }
                     }else if (flag == 2){
-                        if(arrCartProduct.get( position ).getProductQuantity() < 10) {
-                            int newQty = arrCartProduct.get( position ).getProductQuantity() + 1;
-                            arrCartProduct.get( position ).setProductQuantity( newQty );
-                        }
+                        int newQty = arrCartProduct.get( position ).getProductQuantity() + 1;
+                        arrCartProduct.get( position ).setProductQuantity( newQty );
                     }
                     //change quantity in textview
                     holder.txtCartQuantity.setText(String.valueOf(arrCartProduct.get( position ).getProductQuantity()));
