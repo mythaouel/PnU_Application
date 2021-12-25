@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".SignIn_Screen"
     android:orientation="vertical"
-    android:background="@color/primary_yellow">
+    android:background="@color/primary_yellow"
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:orientation="vertical">
         <ImageView
             android:id="@+id/logo_slogan"
@@ -23,7 +23,7 @@
     <LinearLayout
         android:id="@+id/formSignIn"
         android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_height="340dp"
         android:background="@drawable/drop_shadow"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
@@ -40,8 +40,7 @@
             android:id="@+id/edtUserName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Nhập tên đăng nhập"
-            />
+            android:hint="Nhập tên đăng nhập"/>
         <TextView
             android:id="@+id/txtPassword"
             android:layout_width="match_parent"
@@ -66,12 +65,11 @@
                 android:hint="Hiện mật khẩu" />
             <TextView
                 android:id="@+id/txtQuenMatKhau"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Quên mật khẩu?"
                 android:layout_gravity="center"
-                android:gravity="right"
-                android:layout_marginLeft="75dp"/>
+                android:gravity="right"/>
         </LinearLayout>
         <Button
             android:id="@+id/btnSignIn"
@@ -94,7 +92,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Bạn không có tài khoản?"/>
-
             <Button
                 android:id="@+id/btnSignUp1"
                 style="?android:attr/borderlessButtonStyle"
