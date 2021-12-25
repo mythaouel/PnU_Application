@@ -197,7 +197,8 @@ public class AccountFragment extends Fragment {
     }
 
     public static void loadData() {
-        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME +
+                " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
         if( cursor!=null && cursor.moveToFirst()) {
             {
 
@@ -268,13 +269,16 @@ public class AccountFragment extends Fragment {
             public void onClick(View view) {
                 boolean flag= Loading_Screen.db.updateAccountStatus(0,MATK);
                 if(flag =true){
-                    getActivity().finishAndRemoveTask();
+                    Constant.arrCartProduct.clear();
+                    dialog.dismiss();
+                    getActivity().finish();
                     Intent intent = new Intent(getContext(), MainActivity.class);
                     startActivity(intent);
-                    Constant.arrCartProduct.clear();
+
                 }
                 else {
                     Toast.makeText(getContext(), "Hệ thống gặp lỗi!", Toast.LENGTH_LONG).show();
+                    dialog.dismiss();
                     System.exit(0);
                 }
                 }

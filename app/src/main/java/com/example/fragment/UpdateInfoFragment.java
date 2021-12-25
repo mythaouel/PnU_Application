@@ -137,11 +137,12 @@ public class UpdateInfoFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //Insert Customer Data
+
 
                 if(checkValidation()){
                     getValues();
-                    Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+                    Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME +
+                            " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
 
                     // trường hợp account đã thông tin trước đó có ->sẽ cập nhật lại
                     if(cursor!=null && cursor.moveToFirst()) {
@@ -151,8 +152,8 @@ public class UpdateInfoFragment extends Fragment {
                         } else {
                             Toast.makeText(getContext(), "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
                         }
-                        // trường hợp account chưa bấm cập nhật thông tin lần nào ->insert vào
-                    }else{
+                        // trường hợp account chưa bấm cập nhật thông tin lần nào ->Insert Customer TableTable
+               }else{
                         boolean flag = Loading_Screen.db.insertCustomerData(name, birthday, email, phone, address, covertPhoto(), MATK);
                         if (flag) {
                             Toast.makeText(getContext(), "Thêm mới thành công", Toast.LENGTH_SHORT).show();

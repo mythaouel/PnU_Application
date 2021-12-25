@@ -88,6 +88,7 @@ public class ChangePassFragment extends Fragment {
             }
         });
 
+
         btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,7 +135,7 @@ public class ChangePassFragment extends Fragment {
         }
 
 
-        // bỏ trống ô Xác hận ật hẩu
+        // bỏ trống ô Xác nhận mật khẩu
         if(TextUtils.isEmpty(rePass)){
             edtRepass.requestFocus();
             edtRepass.setError(getContext().getResources().getString(R.string.check_empty_repass));
@@ -149,7 +150,8 @@ public class ChangePassFragment extends Fragment {
         }
 
         //check database của password hien tai
-        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
+        Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME +
+                " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
         if (cursor.moveToFirst()){
             String check= cursor.getString( 3 );
             if (!passNow.equals(check)){

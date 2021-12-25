@@ -94,7 +94,8 @@ public class OrderHistoryHandlingFragment extends Fragment {
     private ArrayList<OrderDetail> getDataFromDb(){
             orderList= new ArrayList<>();
             String orderId,orderTotal;
-            Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ORDER_TB_NAME + " WHERE " + MyDatabaseHelper.ORDER_COL_ACT_ID + " = " + MATK );
+            Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ORDER_TB_NAME +
+                    " WHERE " + MyDatabaseHelper.ORDER_COL_ACT_ID + " = " + MATK );
             orderList.clear();
 
             while (cursor!=null && cursor.moveToNext())

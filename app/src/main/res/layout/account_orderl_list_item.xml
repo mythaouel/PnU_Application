@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:padding="8dp"
+    android:padding="9dp"
     android:weightSum="10"
     android:orientation="horizontal"
     android:layout_height="wrap_content">
     <ImageView
         android:paddingLeft="10dp"
         android:id="@+id/imvIconOrder"
-        android:layout_weight="1.55"
+        android:layout_weight="1.6"
         android:layout_gravity="center"
         android:src="@drawable/act_ic_order_list"
         android:layout_width="0dp"
@@ -23,7 +23,7 @@
         <TextView
             android:id="@+id/txtOrderId"
             android:textStyle="bold"
-            android:text="#Order345"
+            android:text="Đơn hàng #1"
             android:textSize="15sp"
             android:textColor="@color/ink_01"
             android:layout_width="wrap_content"

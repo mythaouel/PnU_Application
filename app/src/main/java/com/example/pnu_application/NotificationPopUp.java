@@ -18,7 +18,7 @@ public class NotificationPopUp extends Application {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            //Config Channel 2
+            //Config Channel 1
             CharSequence name = getString(R.string.channel_name);
             String description = getString(R.string.channel_description);
             int importance1 = NotificationManager.IMPORTANCE_HIGH;
