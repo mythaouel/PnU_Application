@@ -357,12 +357,12 @@ public class HomeFragment extends Fragment {
 
         //SP nổi bật
         products=new ArrayList<>();
-        products.add(new Product("sp0017",R.drawable.pet_toy_01, getString(R.string.pet_toy_01), 25, getString(R.string.des_pet_toy_01)));
-        products.add(new Product("sp0025",R.drawable.pet_fashion_01, getString(R.string.pet_fashion_01), 62, getString(R.string.des_pet_fashion_01)));
-        products.add(new Product("sp0027",R.drawable.pet_fashion_03, getString(R.string.pet_fashion_03), 119, getString(R.string.des_pet_fashion_03)));
-        products.add(new Product("sp0031",R.drawable.pet_fashion_07, getString(R.string.pet_fashion_07), 29, getString(R.string.des_pet_fashion_07)));
-        products.add(new Product("sp0032",R.drawable.pet_fashion_08, getString(R.string.pet_fashion_08), 50, getString(R.string.des_pet_fashion_08)));
-        products.add(new Product("sp0024",R.drawable.pet_toy_08, getString(R.string.pet_toy_08), 15, getString(R.string.des_pet_toy_08)));
+        products.add(new Product("sp0017",R.drawable.pet_toy_01, getString(R.string.hot_product_01), 25, getString(R.string.des_pet_toy_01)));
+        products.add(new Product("sp0025",R.drawable.pet_fashion_01, getString(R.string.hot_product_02), 62, getString(R.string.des_pet_fashion_01)));
+        products.add(new Product("sp0027",R.drawable.pet_fashion_03, getString(R.string.hot_product_03), 119, getString(R.string.des_pet_fashion_03)));
+        products.add(new Product("sp0031",R.drawable.pet_fashion_07, getString(R.string.hot_product_04), 29, getString(R.string.des_pet_fashion_07)));
+        products.add(new Product("sp0032",R.drawable.pet_fashion_08, getString(R.string.hot_product_05), 50, getString(R.string.des_pet_fashion_08)));
+        products.add(new Product("sp0024",R.drawable.pet_toy_08, getString(R.string.hot_product_06), 15, getString(R.string.des_pet_toy_08)));
 
         productAdapter = new HotProductAdapter(getContext(), R.layout.item_spnoibat, products);
         gvNoiBat.setAdapter(productAdapter);

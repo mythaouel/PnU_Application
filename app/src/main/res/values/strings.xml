@@ -71,6 +71,13 @@
     <string name="product_name">Tên sản phẩm</string>
 
     <!-- start - tên sản phẩm -->
+    //sản phẩm nổi bật
+    <string name="hot_product_01">Đồ chơi mặt chó</string>
+    <string name="hot_product_02">Áo thun tay hồng</string>
+    <string name="hot_product_03">Mũ len thời trang</string>
+    <string name="hot_product_04">Quần áo mùa hè</string>
+    <string name="hot_product_05">Mũ ếch xanh</string>
+    <string name="hot_product_06">Xương bông</string>
     //thức ăn cho chó
     <string name="dog_food_01">Hạt thức ăn khô cho chó Royal Canin Poodle Puppy</string>
     <string name="dog_food_02">Hạt khô cho chó Poodle trưởng thành Royal Canin Poodle Adult</string>
