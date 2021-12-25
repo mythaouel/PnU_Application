@@ -14,5 +14,6 @@ public class Constant {
     public static double PHI_SHIP = 35000;
     public static double PHI_SHIP_NHANH = 45000;
     public static int shipping_method = 0;
+    public static int payment_method = 0;
     public static DecimalFormat decimalFormat = new DecimalFormat("###,###,### đ");
 }

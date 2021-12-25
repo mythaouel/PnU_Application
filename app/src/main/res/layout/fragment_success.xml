@@ -67,6 +67,7 @@
                 android:layout_height="26dp"
                 android:src="@drawable/money_bill_wave"/>
             <TextView
+                android:id="@+id/txtPTThanhToan"
                 android:layout_weight="6"
                 android:layout_marginStart="5dp"
                 android:layout_width="0dp"
@@ -89,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/txtNote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/nhac_nho"

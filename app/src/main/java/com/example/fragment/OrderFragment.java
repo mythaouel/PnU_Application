@@ -50,9 +50,9 @@ public class OrderFragment extends Fragment {
 
     Button btnDatHang2;
     RecyclerView rcvOrder;
-    TextView txtGiaTongCong, txtTienTamTinh, txtTongTien, txtPhiShip1, txtPhiShip2, txtHoTen, txtSDT, txtDiaChi, txtNgayGiao, txtPTGiaoHang;
+    TextView txtGiaTongCong, txtTienTamTinh, txtTongTien, txtPhiShip1, txtPhiShip2, txtHoTen, txtSDT, txtDiaChi, txtNgayGiao, txtPTGiaoHang, txtPTThanhToan;
     ImageView imvBack;
-    MaterialCardView cardInfor, cardShipping;
+    MaterialCardView cardInfor, cardShipping, cardPayment;
 
     MainActivity mainActivity;
     int MATK;
@@ -80,15 +80,19 @@ public class OrderFragment extends Fragment {
         txtDiaChi = view.findViewById( R.id.txtDiaChi );
         txtNgayGiao = view.findViewById( R.id.txtNgayGiao );
         txtPTGiaoHang = view.findViewById( R.id.txtPTGiaoHang );
+        txtPTThanhToan = view.findViewById( R.id.txtPTThanhToan );
 
         cardInfor = view.findViewById( R.id.cardInfor );
         cardShipping = view.findViewById( R.id.cardShipping );
+        cardPayment = view.findViewById( R.id.cardPayment );
+
         MainActivity.hideBottomNav();
 
         mainActivity = (MainActivity) getActivity();
         MATK = mainActivity.getMATK();
 
         getShipDateAndCost();
+        getPayment();
         configRecyclerView();
         initData();
         calTotal();
@@ -109,17 +113,26 @@ public class OrderFragment extends Fragment {
             txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
             txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
         }
-        else if (Constant.shipping_method == 1){
+        else if (Constant.shipping_method == 1) {
             Calendar calendar = Calendar.getInstance();
             calendar.add( Calendar.DATE, 2 );
-            String fromDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
-            calendar.add( Calendar.DATE,4 );
-            String toDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
-            txtNgayGiao.setText("Nhận hàng vào: " + fromDate + " - " + toDate );
+            String fromDate = DateFormat.getDateInstance( DateFormat.DEFAULT ).format( calendar.getTime() );
+            calendar.add( Calendar.DATE, 4 );
+            String toDate = DateFormat.getDateInstance( DateFormat.DEFAULT ).format( calendar.getTime() );
+            txtNgayGiao.setText( "Nhận hàng vào: " + fromDate + " - " + toDate );
             txtPTGiaoHang.setText( "Giao hàng nhanh" );
             txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP_NHANH ) );
             txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP_NHANH ) );
         }
+    }
+
+    private void getPayment() {
+        if (Constant.payment_method == 0)
+            txtPTThanhToan.setText( "Thanh toán khi nhận hàng (COD)" );
+        else if (Constant.payment_method == 1)
+            txtPTThanhToan.setText( "Thanh toán bằng Thẻ ATM" );
+        else if (Constant.payment_method == 2)
+            txtPTThanhToan.setText( "Thanh toán bằng Ví MOMO" );
     }
 
 
@@ -201,7 +214,7 @@ public class OrderFragment extends Fragment {
                     getFragmentManager().popBackStack();
             }
         } );
-
+        //Bấm vào khùng thông tin => hiện màn hình cập nhật thông tin
         cardInfor.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -210,16 +223,23 @@ public class OrderFragment extends Fragment {
                 transaction.commit();
             }
         } );
-
+        //Chọn phương thức giao hàng
         cardShipping.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showBottomSheetDialog();
+                showBottomSheetDialogShipping();
+            }
+        } );
+
+        cardPayment.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBottomSheetDialogPayment();
             }
         } );
     }
 
-    private void showBottomSheetDialog() {
+    private void showBottomSheetDialogShipping() {
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity(), R.style.BottomSheetDialogTheme);
         bottomSheetDialog.setContentView(R.layout.choose_shipping_method_dialog);
         RadioGroup rdGiaoHang = bottomSheetDialog.findViewById( R.id.rdGiaoHang );
@@ -251,6 +271,59 @@ public class OrderFragment extends Fragment {
                     str = "Giao hàng tiêu chuẩn";
                 else if (Constant.shipping_method == 1)
                     str = "Giao hàng nhanh";
+                Toast.makeText( getContext(), "Bạn đã chọn " + str, Toast.LENGTH_SHORT ).show();
+                bottomSheetDialog.dismiss();
+            }
+        } );
+
+        //Close Dialog
+        ImageView imvClose = bottomSheetDialog.findViewById(R.id.imvClose);
+        imvClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetDialog.dismiss();
+            }
+        });
+        bottomSheetDialog.show();
+    }
+
+    private void showBottomSheetDialogPayment() {
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity(), R.style.BottomSheetDialogTheme);
+        bottomSheetDialog.setContentView(R.layout.choose_payment_method_dialog);
+        RadioGroup rdThanhToan = bottomSheetDialog.findViewById( R.id.rdThanhToan );
+        RadioButton rdCOD = bottomSheetDialog.findViewById( R.id.rdCOD );
+        RadioButton rdATM = bottomSheetDialog.findViewById( R.id.rdATM );
+        RadioButton rdMOMO = bottomSheetDialog.findViewById( R.id.rdMomo );
+
+        rdThanhToan.setOnCheckedChangeListener( new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i){
+                    case R.id.rdCOD:
+                        Constant.payment_method = 0;
+                        break;
+                    case R.id.rdATM:
+                        Constant.payment_method = 1;
+                        break;
+                    case R.id.rdMomo:
+                        Constant.payment_method = 2;
+                        break;
+                }
+            }
+        } );
+        //Button xác nhận
+        Button btnChoose = bottomSheetDialog.findViewById( R.id.btnChoose );
+        btnChoose.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getPayment();
+                String str = "";
+                if (Constant.payment_method == 0)
+                    str = "Thanh toán khi nhận hàng (COD)";
+                else if (Constant.payment_method == 1)
+                    str = "Thanh toán bằng Thẻ ATM";
+                else if (Constant.payment_method == 2)
+                    str = "Thanh toán bằng Ví MOMO";
                 Toast.makeText( getContext(), "Bạn đã chọn " + str, Toast.LENGTH_SHORT ).show();
                 bottomSheetDialog.dismiss();
             }

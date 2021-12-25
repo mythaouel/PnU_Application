@@ -665,5 +665,6 @@
     <string name="back_to_home">Trở về Trang chủ</string>
     <string name="my_account">Tài khoản của tôi</string>
     <string name="options">Tùy chọn</string>
+    <string name="choose_payment_method">Chọn phương thức thanh toán</string>
     <!-- end - mô tả sản phẩm -->
 </resources>

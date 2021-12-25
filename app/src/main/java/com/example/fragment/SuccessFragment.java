@@ -27,7 +27,7 @@ import utils.Constant;
 public class SuccessFragment extends Fragment {
 
     Button btnTiepTuc;
-    TextView txtTongCong;
+    TextView txtTongCong, txtPTThanhToan, txtNote;
 
     @Nullable
     @Override
@@ -35,8 +35,34 @@ public class SuccessFragment extends Fragment {
         View view = inflater.inflate( R.layout.fragment_success,container,false);
         btnTiepTuc = view.findViewById( R.id.btnTiepTuc );
         txtTongCong = view.findViewById( R.id.txtTongCong );
+        txtPTThanhToan = view.findViewById( R.id.txtPTThanhToan );
+        txtNote = view.findViewById( R.id.txtNote );
 
+        setTextPayment();
+        addEvents();
+
+        return view;
+    }
+
+    private void setTextPayment() {
+        if (Constant.payment_method == 0){
+            txtNote.setVisibility( View.VISIBLE );
+            txtPTThanhToan.setText( "Thanh toán khi nhận hàng (COD)" );
+        }
+        else if (Constant.payment_method == 1)
+        {
+            txtNote.setVisibility( View.GONE );
+            txtPTThanhToan.setText( "Thanh toán bằng Thẻ ATM" );
+        }
+        else if (Constant.payment_method == 2)
+        {
+            txtNote.setVisibility( View.GONE );
+            txtPTThanhToan.setText( "Thanh toán bằng Ví MOMO" );
+        }
         txtTongCong.setText( Constant.decimalFormat.format(OrderFragment.total) );
+    }
+
+    private void addEvents() {
         //Bấm nút Tiếp tục sẽ quay lại trang chủ
         btnTiepTuc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +74,6 @@ public class SuccessFragment extends Fragment {
                 bottomNavigationView.setSelectedItemId( R.id.itCategory );
             }
         } );
-        return view;
     }
 
     @Override
