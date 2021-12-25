@@ -271,14 +271,13 @@ public class AccountFragment extends Fragment {
                 if(flag =true){
                     Constant.arrCartProduct.clear();
                     dialog.dismiss();
-                    getActivity().finish();
+                    getActivity().finishAndRemoveTask();
                     Intent intent = new Intent(getContext(), MainActivity.class);
                     startActivity(intent);
-
                 }
                 else {
-                    Toast.makeText(getContext(), "Hệ thống gặp lỗi!", Toast.LENGTH_LONG).show();
                     dialog.dismiss();
+                    Toast.makeText(getContext(), "Hệ thống gặp lỗi!", Toast.LENGTH_LONG).show();
                     System.exit(0);
                 }
                 }
