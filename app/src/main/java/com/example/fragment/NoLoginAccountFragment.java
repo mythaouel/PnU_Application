@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.adapter.AccountLineAdapter;
 import com.example.model.AccountLineItem;
+import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.NotificationPopUp;
 import com.example.pnu_application.R;
 import com.example.pnu_application.SignIn_Screen;
@@ -59,6 +60,9 @@ public class NoLoginAccountFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         view=inflater.inflate(R.layout.fragment_account_no_login, container, false);
+
+        MainActivity.showBottomNav();
+
         linkViews();
         initData();
         addEvents();

@@ -4,10 +4,13 @@ import static com.example.pnu_application.MainActivity.bottomNavigationView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.view.menu.MenuBuilder;
+import androidx.appcompat.view.menu.MenuPopupHelper;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -16,6 +19,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -31,11 +35,16 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.adapter.ProductAdapter;
+import com.example.fragment.AccountFragment;
 import com.example.fragment.CartFragment;
+import com.example.fragment.HomeFragment;
+import com.example.fragment.NoLoginAccountFragment;
 import com.example.model.CartProduct;
 import com.example.model.Product;
 import com.example.model.ProductItemClick;
+import com.example.pnu_application.Loading_Screen;
 import com.example.pnu_application.MainActivity;
+import com.example.pnu_application.MyDatabaseHelper;
 import com.example.pnu_application.R;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.nex3z.notificationbadge.NotificationBadge;
@@ -44,6 +53,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import utils.Constant;
+
 
 
 public class ProductDetailsFragment extends Fragment {
@@ -58,7 +68,6 @@ public class ProductDetailsFragment extends Fragment {
     GridView gvLikeProduct;
     ArrayList<Product> products;
     ProductItemClick productItemClick;
-    Toolbar toolbar;
 
     @Nullable
     @Override
@@ -81,9 +90,6 @@ public class ProductDetailsFragment extends Fragment {
 
         btnAddToCart = view.findViewById(R.id.btnAddToCart);
         btnCart = view.findViewById( R.id.btnCart );
-
-//        toolbar = view.findViewById(R.id.tbProductDetails);
-//        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
 
         countQty = view.findViewById( R.id.countQty );
 
@@ -247,17 +253,42 @@ public class ProductDetailsFragment extends Fragment {
         imvOptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupMenu optionsMenu = new PopupMenu(getActivity(), imvOptions);
+                PopupMenu optionsMenu = new PopupMenu(getContext(), imvOptions);
                 //Adding menu items to the Options Menu
-                optionsMenu.getMenuInflater().inflate(R.menu.menu_options, optionsMenu.getMenu());
+                MenuInflater inflater = optionsMenu.getMenuInflater();
+                inflater.inflate(R.menu.menu_options, optionsMenu.getMenu());
+
+                optionsMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        Fragment selectedFragment = null;
+                        switch (menuItem.getItemId()){
+                            case R.id.menu_item_home:
+                                selectedFragment = new HomeFragment();
+                                bottomNavigationView.setSelectedItemId(R.id.itHome);
+                                break;
+                            case R.id.menu_item_account:
+                                //Chọn màn hình Account Đăng nhập
+                                Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_STATUS + " = 1");
+                                if (cursor!=null && cursor.moveToFirst()){
+                                    MainActivity.MATK = cursor.getInt(0);
+                                    selectedFragment  = new AccountFragment();
+                                }else{
+                                    selectedFragment = new NoLoginAccountFragment();
+                                }
+                                bottomNavigationView.setSelectedItemId(R.id.itAccount);
+                                break;
+                        }
+                        getParentFragmentManager().beginTransaction().replace(R.id.fragmentContainer,selectedFragment).commit();
+                        return true;
+                    }
+                });
+
+                optionsMenu.show();
             }
         });
     }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-
-    }
 
     private void openCart() {
         //remove current fragment when add new fragment
@@ -310,6 +341,7 @@ public class ProductDetailsFragment extends Fragment {
 
         bottomSheetDialog.show();
     }
+
 
     //reference the method that shows Bottom Navigation Bar when returning to the previous screen
     @Override
