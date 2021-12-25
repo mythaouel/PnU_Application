@@ -58,7 +58,6 @@ public class OrderFragment extends Fragment {
     int MATK;
 
     public static double total = 0;
-    public static int shipping_method = 0;
 
     @Nullable
     @Override
@@ -99,7 +98,7 @@ public class OrderFragment extends Fragment {
 
     private void getShipDateAndCost() {
 
-        if (shipping_method == 0){
+        if (Constant.shipping_method == 0){
             Calendar calendar = Calendar.getInstance();
             calendar.add( Calendar.DATE, 3 );
             String fromDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
@@ -110,7 +109,7 @@ public class OrderFragment extends Fragment {
             txtPhiShip1.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
             txtPhiShip2.setText( Constant.decimalFormat.format( Constant.PHI_SHIP ) );
         }
-        else if (shipping_method == 1){
+        else if (Constant.shipping_method == 1){
             Calendar calendar = Calendar.getInstance();
             calendar.add( Calendar.DATE, 2 );
             String fromDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format( calendar.getTime() );
@@ -153,9 +152,9 @@ public class OrderFragment extends Fragment {
         for (int i = 0; i < Constant.arrCartProduct.size(); i++)
             TongTien += Constant.arrCartProduct.get( i ).getProductPrice() * Constant.arrCartProduct.get( i ).getProductQuantity();
         txtTienTamTinh.setText( Constant.decimalFormat.format( TongTien ));
-        if (shipping_method == 0)
+        if (Constant.shipping_method == 0)
             total = TongTien + Constant.PHI_SHIP;
-        else if (shipping_method == 1)
+        else if (Constant.shipping_method == 1)
             total = TongTien + Constant.PHI_SHIP_NHANH;
         txtTongTien.setText( Constant.decimalFormat.format(total));
         txtGiaTongCong.setText( Constant.decimalFormat.format(total));
@@ -191,7 +190,7 @@ public class OrderFragment extends Fragment {
                 transaction.add(R.id.fragmentContainer, new SuccessFragment());
                 transaction.commit();
                 Constant.arrCartProduct.clear();
-                OrderFragment.shipping_method = 0;
+                Constant.shipping_method = 0;
             }
         } );
         //Event cho nút Back
@@ -232,10 +231,10 @@ public class OrderFragment extends Fragment {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i){
                     case R.id.rdGHTieuChuan:
-                        OrderFragment.shipping_method = 0;
+                        Constant.shipping_method = 0;
                         break;
                     case R.id.rdGHNhanh:
-                        OrderFragment.shipping_method = 1;
+                        Constant.shipping_method = 1;
                         break;
                 }
             }
@@ -248,9 +247,9 @@ public class OrderFragment extends Fragment {
                 getShipDateAndCost();
                 calTotal();
                 String str = "";
-                if (shipping_method == 0)
+                if (Constant.shipping_method == 0)
                     str = "Giao hàng tiêu chuẩn";
-                else if (shipping_method == 1)
+                else if (Constant.shipping_method == 1)
                     str = "Giao hàng nhanh";
                 Toast.makeText( getContext(), "Bạn đã chọn " + str, Toast.LENGTH_SHORT ).show();
                 bottomSheetDialog.dismiss();

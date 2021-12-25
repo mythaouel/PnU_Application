@@ -272,7 +272,6 @@ public class AccountFragment extends Fragment {
                     Intent intent = new Intent(getContext(), MainActivity.class);
                     startActivity(intent);
                     Constant.arrCartProduct.clear();
-                    OrderFragment.shipping_method = 0;
                 }
                 else {
                     Toast.makeText(getContext(), "Hệ thống gặp lỗi!", Toast.LENGTH_LONG).show();

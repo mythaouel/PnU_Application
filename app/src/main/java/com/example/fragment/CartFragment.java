@@ -135,15 +135,15 @@ public class CartFragment extends Fragment {
         products = new ArrayList<>();
 
         //Dog Food
-        products.add(new Product("sp0016",R.drawable.dog_food_08, "Thức ăn cho chó vị cá biển MEC Wild Taste Ocean Deep Fish", 380, "Description"));
-        products.add(new Product("sp0014",R.drawable.dog_food_06, "Thức ăn cho chó trưởng thành Pedigree vị bò", 355, "Description"));
+        products.add(new Product("sp0016",R.drawable.dog_food_08, getString(R.string.dog_food_08), 380, getString(R.string.des_dog_food_08)));
+        products.add(new Product("sp0014",R.drawable.dog_food_06, getString(R.string.dog_food_06), 355, getString(R.string.des_dog_food_06)));
         //Cat Food
-        products.add(new Product("sp0008",R.drawable.cat_food_08, "Thức Ăn Hạt Cho Mèo Trưởng Thành Catsrang", 422, "Description"));
-        products.add(new Product("sp0007",R.drawable.cat_food_07, "Hạt Reflex Food Chicken cho mèo", 360, "Description"));
+        products.add(new Product("sp0008",R.drawable.cat_food_08, getString(R.string.cat_food_08), 422, getString(R.string.des_cat_food_08)));
+        products.add(new Product("sp0007",R.drawable.cat_food_07, getString(R.string.cat_food_07), 360, getString(R.string.des_cat_food_07)));
         //Pet Toys
-        products.add(new Product("sp0017",R.drawable.pet_toy_01, "Đồ chơi bóng mặt chó", 25, "Description"));
+        products.add(new Product("sp0017",R.drawable.pet_toy_01, getString(R.string.pet_toy_01), 25, "Description"));
         //Pet Fashion
-        products.add(new Product("sp0026",R.drawable.pet_fashion_02, "Vòng cổ thú cưng hình cổ áo", 188, "Description"));
+        products.add(new Product("sp0026",R.drawable.pet_fashion_02, getString(R.string.pet_fashion_02), 188, "Description"));
 
         return products;
     }
@@ -182,6 +182,7 @@ public class CartFragment extends Fragment {
                         transaction.replace(R.id.fragmentContainer, new OrderFragment());
                         transaction.addToBackStack( OrderFragment.TAG );
                         transaction.commit();
+                        Constant.shipping_method = 0;
                     }else{
                         Toast.makeText( getContext(), "Bạn cần cập nhật thông tin cá nhân trước khi đặt hàng", Toast.LENGTH_SHORT ).show();
                         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
