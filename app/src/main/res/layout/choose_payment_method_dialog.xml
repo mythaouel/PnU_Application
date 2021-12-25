@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="15dp">
+    android:padding="20dp">
     <LinearLayout
         android:weightSum="8"
         android:layout_marginBottom="10dp"
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="@string/choose_payment_method"
             android:textColor="@color/tick"
-            android:textSize="17sp"/>
+            android:textSize="15sp"/>
         <ImageView
             android:layout_weight="0.5"
             android:id="@+id/imvClose"
@@ -43,8 +43,7 @@
             android:paddingTop="7dp"
             android:layout_marginBottom="5dp"
             android:text="Thanh toán khi nhận hàng"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textSize="16sp"/>
         <RadioButton
             android:id="@+id/rdATM"
             android:layout_width="match_parent"
@@ -58,8 +57,7 @@
             android:paddingTop="7dp"
             android:layout_marginBottom="5dp"
             android:text="Thanh toán bằng Thẻ ATM"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textSize="16sp"/>
         <RadioButton
             android:id="@+id/rdMomo"
             android:layout_width="match_parent"
@@ -72,8 +70,7 @@
             android:paddingBottom="7dp"
             android:paddingTop="7dp"
             android:text="Thanh toán bằng Ví MOMO"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textSize="16sp"/>
     </RadioGroup>
     <Button
         android:layout_gravity="center"
