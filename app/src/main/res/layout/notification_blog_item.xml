@@ -18,7 +18,8 @@
     <TextView
         android:id="@+id/txtDetail"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
         android:text="@string/blog_detail"
         android:textSize="15sp" />
 
