@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tbProductDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primary_yellow">
@@ -53,9 +54,9 @@
                     android:layout_width="55dp"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView"
+                    app:layout_constraintEnd_toStartOf="@+id/imvOptions"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="6dp"
                     android:layout_marginTop="10dp">
 
                     <ImageView
@@ -77,7 +78,7 @@
                 </FrameLayout>
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/imvOptions"
                     android:layout_width="10dp"
                     android:layout_height="22dp"
                     android:src="@drawable/more_icon"
@@ -195,7 +196,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -248,6 +250,16 @@
                     android:numColumns="2"
                     android:layout_marginTop="10dp"
                     android:nestedScrollingEnabled="true"/>
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/layoutLikeProduct"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:nestedScrollingEnabled="true">-->
+
+<!--                </LinearLayout>-->
 
             </LinearLayout>
 

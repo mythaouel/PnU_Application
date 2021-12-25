@@ -5,4 +5,7 @@
     <string name="price_demo">394000</string>
     <string name="you_may_like">Bạn có thể thích</string>
     <string name="product_name">Tên sản phẩm</string>
+    <string name="back_to_home">Trở về Trang chủ</string>
+    <string name="my_account">Tài khoản của tôi</string>
+    <string name="options">Tùy chọn</string>
 </resources>

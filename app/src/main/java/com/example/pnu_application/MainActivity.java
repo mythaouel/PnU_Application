@@ -54,9 +54,12 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         bottomNavigationView = findViewById(R.id.navContainer);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new HomeFragment()).commit();
         bottomNavigationView.setOnItemSelectedListener(navListener);
+
+
 
         if(Constant.arrCartProduct == null)
             Constant.arrCartProduct = new ArrayList<>();
@@ -119,25 +122,23 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
         bottomNavigationView.setVisibility(View.VISIBLE);
     }
 
+    public static Bundle bundle = new Bundle();
+
     @Override
     public void click(Product p) {
 
         ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
-//        Bundle bundle = new Bundle();
         bundle.putSerializable(Constant.SELECTED_ITEM, p);
         productDetailsFragment.setArguments(bundle);
 
-        DesProductFragment desProductFragment = new DesProductFragment();
-        desProductFragment.setArguments(bundle);
-
-        fragmentTransaction.add(R.id.layoutContainer, productDetailsFragment);
+        fragmentTransaction.add(R.id.fragmentContainer, productDetailsFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
-    public static Bundle bundle = new Bundle();
+
 
     @Override
     public void click(Blog b) {
@@ -148,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
         bundle.putSerializable(Constant.SELECTED_BLOG, b);
         blogDetailFragment.setArguments(bundle);
 
-        transaction.add(R.id.layoutContainer, blogDetailFragment);
+        transaction.replace(R.id.layoutContainer, blogDetailFragment);
         transaction.addToBackStack( BlogDetailFragment.class.getName() );
         transaction.commit();
     }
@@ -183,6 +184,5 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
         fragmentTransaction.commit();
 
     }
-
 
 }

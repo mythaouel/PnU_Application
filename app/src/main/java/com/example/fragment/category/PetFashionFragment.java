@@ -60,14 +60,14 @@ public class PetFashionFragment extends Fragment {
     private ArrayList<Product> initData() {
         products = new ArrayList<>();
 
-        products.add(new Product("sp0025",R.drawable.pet_fashion_01, getString(R.string.pet_fashion_01), 62, "Description"));
-        products.add(new Product("sp0026",R.drawable.pet_fashion_02, getString(R.string.pet_fashion_02), 188, "Description"));
-        products.add(new Product("sp0027",R.drawable.pet_fashion_03, getString(R.string.pet_fashion_03), 119, "Description"));
-        products.add(new Product("sp0028",R.drawable.pet_fashion_04, getString(R.string.pet_fashion_04), 125, "Description"));
-        products.add(new Product("sp0029",R.drawable.pet_fashion_05, getString(R.string.pet_fashion_05), 100, "Description"));
-        products.add(new Product("sp0030",R.drawable.pet_fashion_06, getString(R.string.pet_fashion_06), 63, "Description"));
-        products.add(new Product("sp0031",R.drawable.pet_fashion_07, getString(R.string.pet_fashion_07), 29, "Description"));
-        products.add(new Product("sp0032",R.drawable.pet_fashion_08, getString(R.string.pet_fashion_08), 50, "Mũ ếch dễ thương cho thú cưng\", 50000, \"Kích cỡ đường kính:\\n  - Size S: 26-28cm\\n  - Size M: 28-34cm\\nChất liệu: làm từ vải len\\nBạn có thể giữ ấm đầu bé khi trời trở lạnh. Thời tiết Sài Gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào."));
+        products.add(new Product("sp0025",R.drawable.pet_fashion_01, getString(R.string.pet_fashion_01), 62, getString(R.string.des_pet_fashion_01)));
+        products.add(new Product("sp0026",R.drawable.pet_fashion_02, getString(R.string.pet_fashion_02), 188, getString(R.string.des_pet_fashion_02)));
+        products.add(new Product("sp0027",R.drawable.pet_fashion_03, getString(R.string.pet_fashion_03), 119, getString(R.string.des_pet_fashion_03)));
+        products.add(new Product("sp0028",R.drawable.pet_fashion_04, getString(R.string.pet_fashion_04), 125, getString(R.string.des_pet_fashion_04)));
+        products.add(new Product("sp0029",R.drawable.pet_fashion_05, getString(R.string.pet_fashion_05), 100, getString(R.string.des_pet_fashion_05)));
+        products.add(new Product("sp0030",R.drawable.pet_fashion_06, getString(R.string.pet_fashion_06), 63, getString(R.string.des_pet_fashion_06)));
+        products.add(new Product("sp0031",R.drawable.pet_fashion_07, getString(R.string.pet_fashion_07), 29, getString(R.string.des_pet_fashion_07)));
+        products.add(new Product("sp0032",R.drawable.pet_fashion_08, getString(R.string.pet_fashion_08), 50, getString(R.string.des_pet_fashion_08)));
 
         return products;
     }

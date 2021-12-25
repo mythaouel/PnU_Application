@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">PnU</string>
-    <string name="danh_muc_san_pham">Danh mục sản phẩm...</string>
+    <string name="danh_muc_san_pham">Danh mục sản phẩm…</string>
     <string name="loi_thieu_info">Thông tin không được bỏ trống</string>
     <string name="thieu_OTP">Bạn chưa nhập mã xác thực</string>
     <string name="error_password">Mật khẩu phải chứa ít nhất 5 ký tự</string>
@@ -12,7 +12,7 @@
     <string name="dat_hang_thanh_cong">ĐẶT HÀNG THÀNH CÔNG</string>
     <string name="don_hang_duoc_dat_thanh_cong">Đơn hàng của bạn đã được đặt thành công</string>
     <string name="ma_giam_gia">Mã giảm giá:</string>
-    <string name="mo_ta_sp">Mũ tai ếch dễ thương cho mèo - Mũ trùm đầu hóa trang cho thú cưng\n Mô Tả Sản Phẩm: Kích cỡ đường kính:\n Size S: 26-28cm\n Size M: 28-34cm\n Chất liệu: làm từ vải len\n Bạn có thể Giữ Ấm đầu bé khi trời trở lạnh. Thời tiết sài gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào.</string>
+    <string name="mo_ta_sp">Mũ tai ếch dễ thương cho mèo. Kích cỡ đường kính. Size S: 26–28cm, Size M: 28–34cm. Chất liệu: làm từ vải len Bạn có thể Giữ Ấm đầu bé khi trời trở lạnh. Thời tiết sài gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào.</string>
     <string name="ten_sp">Mũ ếch dễ thương cho thú cưng</string>
     <string name="gia_sp">62000</string>
     <string name="add_to_cart">Thêm vào giỏ hàng</string>
@@ -66,6 +66,9 @@
     <string name="shipping_2">Giao hàng nhanh</string>
     <string name="choose_shipping_method">Chọn phương thức giao hàng</string>
     <string name="you_may_like">Bạn có thể thích</string>
+    <string name="view_all">Xem tất cả</string>
+    <string name="des_product">Mô tả sản phẩm</string>
+    <string name="product_name">Tên sản phẩm</string>
 
     <!-- start - tên sản phẩm -->
     //thức ăn cho chó
@@ -99,7 +102,7 @@
     <string name="pet_fashion_01">Áo thun có tay màu Hồng cho chó</string>
     <string name="pet_fashion_02">Vòng cổ thú cưng hình cổ áo</string>
     <string name="pet_fashion_03">Mũ len thời trang dễ thương cho chó mèo</string>
-    <string name="pet_fashion_04">Thời Trang Chó Mèo nhện Haloween</string>
+    <string name="pet_fashion_04">Thời Trang Chó Mèo nhện Halloween</string>
     <string name="pet_fashion_05">Áo thun liền quần cho chó mèo</string>
     <string name="pet_fashion_06">Quần áo thú cưng thoải mái mùa hè</string>
     <string name="pet_fashion_07">Quần áo cho chó mùa hè cho chó nhỏ</string>
@@ -240,7 +243,6 @@
         </ul>
         ]]>
     </string>
-
     //thức ăn cho mèo
     <string name="des_cat_food_01" formatted="false">
         <![CDATA[
@@ -261,7 +263,7 @@
     </string>
     <string name="des_cat_food_02">
         <![CDATA[
-        <p>Thận của Boss làm rất nhiều việc quan trọng. Chúng giúp kiểm soát huyết áp, tạo ra kích thích tố, kích thích tủy xương tạo ra nhiều tế bào hồng cầu hơn và loại bỏ chất thải ra khỏi máu..</p>
+        <p>Thận của Boss làm rất nhiều việc quan trọng. Chúng giúp kiểm soát huyết áp, tạo ra kích thích tố, kích thích tủy xương tạo ra nhiều tế bào hồng cầu hơn và loại bỏ chất thải ra khỏi máu.</p>
         <p>Sen đang đau đầu vì không biết lựa chọn thức ăn nào phù hợp với lũ Boss của mình khi chúng đang bị thận ?? Hãy yên tâm vì đã có ROYAL CANIN ^^</p>
         <p><b>Chi tiết sản phẩm</b></p>
         <p><b>Xuất xứ:</b> Pháp</p>
@@ -273,7 +275,7 @@
             <li>&nbsp; Thiết kế đặc biệt để đáp ứng sở thích của mèo, chống lại các vấn đề chán ăn, bỏ ăn, sợ thực phẩm dẫn đến giảm sức khỏe.</li>
         </ul>
         <p><b>Cách dùng</b></p>
-        <p>Ban đầu nuôi thận cho đến 6 tháng trong trường hợp suy thận mãn tính, giảm hình thành sỏi oxalat. Đối với trường hợp rối loạn chức năng thận tạm thời một thời gian từ 2 đến 4 tuần cho ăn là  theo đề nghị ý kiến ​​của một bác sĩ thú y được tìm kiếm trước khi sử dụng hoặc trước khi mở rộng thời gian sử dụng.</p>
+        <p>Ban đầu nuôi thận cho đến 6 tháng trong trường hợp suy thận mãn tính, giảm hình thành sỏi oxalat. Đối với trường hợp rối loạn chức năng thận tạm thời một thời gian từ 2 đến 4 tuần cho ăn là  theo đề nghị ý kiến của một bác sĩ thú y được tìm kiếm trước khi sử dụng hoặc trước khi mở rộng thời gian sử dụng.</p>
         ]]>
     </string>
     <string name="des_cat_food_03">
@@ -335,7 +337,7 @@
         <p>Thức ăn cho chó con hạt mềm ZENITH  Puppy Chicken Potato được chế biến từ thịt cừu tươi, thịt nạc gà rút xương, gạo lứt, yến mạch và dầu cá hồi. Với các thành phần tươi sạch, giàu dinh dưỡng, Zenith Puppy hạt mềm, cung cấp độ ẩm cao và lượng muối thấp, thơm ngon, dễ nhai, dễ tiêu hóa và tốt cho sức khỏe chó con.</p>
         <p><b>Chi tiết sản phẩm</b></p>
         <p><b>Khối lượng:</b> 1.2 kg</p>
-        <p><b>Xuất xứ:</b> Hàn Quốc</p>        <
+        <p><b>Xuất xứ:</b> Hàn Quốc</p>
         <ul>
             <li>&nbsp; Dành cho chó con dưới 1 tuổi</li>
             <li>&nbsp; Không chứa ngũ cốc, không gây dị ứng</li>
@@ -363,12 +365,298 @@
         </ul>
         ]]>
     </string>
-    <string name="view_all">Xem tất cả</string>
-    <string name="des_product">Mô tả sản phẩm</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="product_name">Tên sản phẩm</string>
-
+    //đồ chơi chó mèo
+    <string name="des_pet_toy_01" formatted="false">
+        <![CDATA[
+        <p><b>Thông tin chi tiết</b></p>
+        <ul>
+            <li>&nbsp; Thương hiệu: OEM</li>
+            <li>&nbsp; Xuất xứ: Việt Nam</li>
+            <li>&nbsp; Hạn sử dụng: 1 năm</li>
+            <li>&nbsp; Kích Thước: đường kính 6cm</li>
+            <li>&nbsp; Chất liệu: cao su dẻo</li>
+            <li>&nbsp; Màu sắc: đa dạng</li>
+        </ul>
+        <p><b>Đặc điểm nổi bật</b></p>
+        <p>Bạn đang đau đầu khi cún cưng của bạn hay cắn vật dụng trong nhà.</p>
+        <p>Bạn đang cần tìm đồ chơi chó bé cún bé miu của mình vừa an toàn,không gây hại tới sức khỏe vừa phải đẹp nữa?</p>
+        <ul>
+            <li>&nbsp; Đồ Chơi Bóng Hình Cún làm từ chất liệu cao su cao cấp, không chứa các chất độc hại, thân thiện với môi trường đảm bảo an toàn cho sức khỏe thú cưng nhà bạn.</li>
+            <li>&nbsp; Sản phẩm với kiểu dáng, màu sắc tươi tắn thu hút, giúp thú cưng hăng say vui đùa tạo sự vận động khỏe mạnh và nhanh nhẹn. Bên cạnh đó, đồ chơi cũng rất tốt cho quá trình phát triển răng của thú cưng nhà bạn.</li>
+            <li>&nbsp; Ngoài ra, bên trong còn có 1 chiếc còi nhỏ, tạo nên âm thanh chút chít vui nhộn, sống động cho cuộc sống, tạo sự vui thích cho thú cưng.</li>
+            <li>&nbsp; Với hình mặt chú cún dễ thương sẽ thu hút thú cưng của bạn chơi đùa cùng bóng.</li>
+            <li>&nbsp; Là đồ chơi cho chó mèo mỗi khi chủ vắng nhà. Giúp cho thú cưng không còn nhai hoặc cắn các vật dụng trong nhà.</li>
+            <li>&nbsp; Với sản phẩm Đồ Chơi Bóng Hình Cún luôn là người phụ tá đắc lực của bạn.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_pet_toy_02">
+        <![CDATA[
+        <p>Đồ chơi con gà huyền thoại cho chó không chỉ dành cho vật nuôi, mà kể cả người lớn hay trẻ con trong gia đình cũng đều có thể chơi được, tiếng kêu này sẽ khiến cho bạn càng chơi càng muốn chơi thêm nữa. Hãy đem đến cho thú cưng nhà bạn phát minh này. Những chú chó sẽ rất thích chơi một chú gà có kích thước lớn, bởi vì gà càng to, âm thanh nghe càng thảm, các chú chó sẽ càng hưng phấn, càng thích thú hơn.</p>
+        <p><b>Lợi ích chính</b></p>
+        <ul>
+            <li>&nbsp; Đồ chơi cho chó mèo Paw hình con gà có một tiếng kêu rất đặc biệt, họ nói tiếng kêu của sản phẩm nghe rất khổ sở nên họ đều gọi sản phẩm này là chú gà có tiếng kêu thảm thiết.</li>
+            <li>&nbsp; Sản phẩm được làm từ nhựa dẻo, rất an toàn với môi trường, khỏe mạnh, không hề có độc tố, không làm lọt hơi ra ngoài… chắc chắn thú cưng của bạn sẽ thích khi nghe tiếng kêu của sản phẩm này đấy</li>
+            <li>&nbsp; Đồ chơi con gà huyền thoại cho chó không chỉ dành cho vật nuôi, mà kể cả người lớn hay trẻ con trong gia đình cũng đều có thể chơi được</li>
+            <li>&nbsp; Tiếng kêu này sẽ khiến cho bạn càng chơi càng muốn chơi thêm nữa</li>
+            <li>&nbsp; Hãy đem đến cho thú cưng nhà bạn phát minh này</li>
+            <li>&nbsp; Những chú chó sẽ rất thích chơi một chú gà có kích thước lớn, bởi vì gà càng to, âm thanh nghe càng thảm, các chú chó sẽ càng hưng phấn, càng thích thú hơn.</li>
+            <li>&nbsp; Quy cách sản phẩm: có nhiều size cho bạn lựa chọn. Kích thước từ 17 – 40cm.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_pet_toy_03">
+        <![CDATA[
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Kích thước:</b> Dài 11.5cm</p>
+        <p><b>Trọng lượng:</b> 47g</p>
+        <p><b>Chất liệu:</b> Cao su TPR thân thiện với môi trường</p>
+        <p><b>Màu sắc:</b> Hồng, Xanh lá, Xanh Dương</p>
+        <p>Đồ chơi này thực sự khá nặng trong tay. Nó được làm bằng cao su tự nhiên, không quá cứng và có độ đàn hồi nhất định. Nó sẽ nảy trên mặt đất khi rơi xuống, vì vậy bạn có thể sử dụng nó để huấn luyện chó mèo tốt hơn. Sự nhanh nhẹn của con chó không chỉ có thể đạt được hiệu quả mà còn tăng cường sự phát triển cơ bắp, hàm răng của chó ! Đặc biệt hơn nữa mùi sữa của cao su làm cho chó thích hơn và nó cũng có thể loại bỏ mùi hôi miệng cho chó mèo.</p>
+        <p>Nguyên liệu sản xuất đồ chơi: TPR là loại cao su có độ đàn hồi cao, độ bền cao, không độc hại và an toàn với môi trường. Đồ chơi có màu sắc bắt mắt, mềm mại chịu được thời tiết xấu, nhiệt độ cao.</p>
+        ]]>
+    </string>
+    <string name="des_pet_toy_04">
+        <![CDATA[
+        <p>Đồ chơi cao su cho Chó Mèo Squeaky Dog  Đào tạo Tương tác Thả chó con Đồ chơi, giúp huấn luyện chó mèo.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Chất liệu:</b> Mủ cao su thiên nhiên</p>
+        <p><b>Kích thước:</b> 3,2 * 2,5 * 2,6 inch</p>
+        <p><b>Màu sắc:</b> Cam, Hồng , Vàng</p>
+        <p><b>Khối lượng:</b> 30g</p>
+        <p><b>Moq:</b> 10 chiếc</p>
+        <p><b>Chứng nhận:</b> TUV</p>
+        <p><b>Đặc tính</b></p>
+        <ul>
+            <li>&nbsp; An toàn & thân thiện với môi trường, giá rẻ & sáng tạo, mới lạ & phong cách</li>
+            <li>&nbsp; Kiểm tra chất lượng trước khi bán ra thị trường</li>
+            <li>&nbsp; Giá xuất xưởng cạnh tranh</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_pet_toy_05">
+        <![CDATA[
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Vật liệu:</b> Vải cotton, bông và cỏ mèo. Nguyên liệu đạt chứng nhận CE, Reach, RoHS,v.v. đảm bảo an toàn tuyệt đối cho thú cưng và người sử dụng.</p>
+        <p><b>Khối lượng sản phẩm:</b> 35gram</p>
+        <p><b>Kích thước:</b> 10cm</p>
+        <p><b>Đặc tính</b></p>
+        <ul>
+            <li>&nbsp; Vải êm nhẹ, bên trong lót vải bông thích hợp cho các bé mèo thỏa sức cào cấu và cắn phá</li>
+            <li>&nbsp; Trọng lượng thấp, không lo sợ gây hỏng đồ đạc trong nhà khi boss chơi</li>
+            <li>&nbsp; Có cỏ mèo bên trong, làm boss vô cùng sảng khoái khi chơi, tăng thích thú với sản phẩm</li>
+            <li>&nbsp; Có nhiều màu sắc để lựa chọn</li>
+        </ul>
+        <p><b>Công dụng:</b> xả stress cho mèo, giúp mèo hưng phấn. Ban đêm có thể sử dụng để mèo ôm ngủ</p>
+        <p><b>Cách chơi:</b> để mèo tự chơi và khám phá sản phẩm</p>
+        ]]>
+    </string>
+    <string name="des_pet_toy_06">
+        <![CDATA[
+        <p>Mèo sinh ra đã có tập tính vờn bắt, nên việc mua cho bé nhà mình một món đồ chơi như Bóng Lồng Sắt Có Chuột Cho Mèo là sự lựa chọn hoàn hảo</p>
+        <p>Bạn không cần bỏ ra quá nhiều thời gian chơi cùng với các bé, chỉ cần một quả bóng mèo nhà bạn có thể tự chơi</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Chất liệu:</b> Kim loại tốt. Không làm ảnh hưởng răng của thú cưng khi cắn/ngoạm.</p>
+        <p><b>Đường kính bóng:</b> ~6cm</p>
+        <p>Màu sắc đa dạng, kích thích sự tò mò cũng như làm thú cưng của bạn hứng thú hơn khi chơi.</p>
+        <p>Bạn cũng có thể sử dụng sản phẩm để chơi đùa cùng thú cưng, huấn luyện cho thú cưng cách bắt/tha đồ.</p>
+        <p>Cấu tạo của đồ chơi bóng chuột là 1 hình cầu với lưới thép được sơn chống gỉ, bên trong là 1 chú chuột lông dễ thương với màu sắc bắt mắt.</p>
+        <p>Đồ chơi bóng chuột cho chó mèo phù hợp với những chú chó, mèo tinh nghịch giúp chúng có thể chơi 1 mình cả ngày không chán, giảm stress cho chó mèo.</p>
+        <p>Sản phẩm sẽ là một dụng cụ xả stress lý tưởng cho bạn, cũng như thú cưng</p>
+        <p>Sản phẩm được làm bằng chất liệu cao cấp nên rất an toàn cho bé yêu nhà bạn</p>
+        ]]>
+    </string>
+    <string name="des_pet_toy_07">
+        <![CDATA[
+        <p>Thức ăn cho chó con hạt mềm ZENITH  Puppy Chicken Potato được chế biến từ thịt cừu tươi, thịt nạc gà rút xương, gạo lứt, yến mạch và dầu cá hồi. Với các thành phần tươi sạch, giàu dinh dưỡng, Zenith Puppy hạt mềm, cung cấp độ ẩm cao và lượng muối thấp, thơm ngon, dễ nhai, dễ tiêu hóa và tốt cho sức khỏe chó con.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Chất liệu:</b> TPR (cao su nhiệt dẻo)</p>
+        <p><b>Kích thước:</b> Chiều dài 12.5cm</p>
+        <p><b>Trọng lượng:</b> 43g</p>
+        <p><b>Màu sắc:</b> Xanh dương, hồng, xanh lá</p>
+        <p>Đồ chơi săn đuổi yêu thích của con chó, được làm bằng vật liệu cao su mềm, an toàn và không độc hại, và không làm tổn thương răng.</p>
+        <p><b>Đặc điểm nổi bật</b></p>
+        <ul>
+            <li>&nbsp; Vật liệu cao su tự nhiên với độ đàn hồi nhất định</li>
+            <li>&nbsp; Đồ chơi đào tạo cho Boss đuổi bắt nhanh nhẹn</li>
+            <li>&nbsp; Vật liệu sử dụng trong thực phẩm là cao su thiên nhiên, thân thiện với môi trường, không độc hại, mùi dễ chịu</li>
+            <li>&nbsp; Làm sạch răng miệng và tốt cho răng của chó giúp hơi thở thơm tho</li>
+        </ul>
+        <p>Đồ chơi này thực sự khá nặng trong tay. Nó được làm bằng cao su tự nhiên, không quá cứng và có độ đàn hồi nhất định. Nó sẽ nảy trên mặt đất khi rơi xuống, vì vậy bạn có thể sử dụng nó để huấn luyện chó mèo tốt hơn. Sự nhanh nhẹn của con chó không chỉ có thể đạt được hiệu quả mà còn tăng cường sự phát triển cơ bắp, hàm răng của chó ! Đặc biệt hơn nữa mùi sữa của cao su làm cho chó thích hơn và nó cũng có thể loại bỏ mùi hôi miệng cho chó mèo.</p>
+        <p>Nguyên liệu sản xuất đồ chơi: TPR là loại cao su có độ đàn hồi cao, độ bền cao, không độc hại và an toàn với môi trường. Đồ chơi có màu sắc bắt mắt,  mềm mại chịu được thời tiết xấu, nhiệt độ cao.</p>
+        ]]>
+    </string>
+    <string name="des_pet_toy_08">
+        <![CDATA[
+        <p>Đồ chơi hình cục xương tạo sự thích thú cho cún. Nhồi bông mềm mại, min, có phát âm thanh chip chip.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Chất liệu:</b> Nhồi bông</p>
+        <p><b>Chức năng:</b> Đồ chơi âm thanh, có thể tạo ra âm thanh</p>
+        <p><b>Kích thước:</b> 16-18cm</p>
+        <p><b>Trọng lượng:</b> 30g</p>
+        <p><b>Kiểu dáng:</b> Xương</p>
+        <p><b>Màu sắc:</b> Nâu</p>
+        <p><b>Đặc điểm:</b></p>
+        <ul>
+            <li>&nbsp; Chất liệu tốt, không làm hại răng thú cưng cùng với thiết kế bắt mắt với hình dáng cây xương thịt; sản phẩm sẽ tạo cảm giác thoải mái cho thú cưng của bạn khi chơi.</li>
+             <li>&nbsp; Đùi gà được nhồi bông ú ụ không gây đau răng các bé khi cắn và thoải mái cho các bé khi ôm</li>
+            <li>&nbsp; Tạo ra tiếng kêu vui nhộn khi bóp.</li>
+            <li>&nbsp; Không chỉ để thú cưng nhai, gặm. Bạn cũng có thể sử dụng sản phẩm để tập cho thú cưng tha/bắt về. Hoặc đơn giản là để bạn xả stress sau những giờ làm việc/học tập mệt mỏi.</li>
+            <li>&nbsp; Đồ chơi đùi gà nhồi bông được làm bằng bông mềm rất thích hợp với những chú mèo con và chó con tinh nghịch.</li>
+            <li>&nbsp; Đồ chơi an toàn huấn luyện các bé, không chứa chất gây nghiện đồ chơi lành mạnh giúp các bé bớt căng thằng mệt mỏi thỏa thích vui chơi.</li>
+        </ul>
+        ]]>
+    </string>
+    //thời trang chó mèo
+    <string name="des_pet_fashion_01" formatted="false">
+        <![CDATA[
+        <p>Quần áo chó mèo nhiều size</p>
+        <p>Các loại Áo thun chó chất liệu cotton thấm hút tốt</p>
+        <p><b>Bảng Size</b> (nên căn cứ vào số đo 23 vòng, theo trọng lượng đôi khi không chính xác)</p>
+        <ul>
+            <li>&nbsp; [XL]: kích thước quần áo dài 36CM ngực 47CM cổ 34CM</li>
+            <li>&nbsp; [M] Quần áo cỡ trung 30CM ngực 44CM cổ 29CM</li>
+            <li>&nbsp; [S] Quần áo kích thước nhỏ dài 23CM ngực 36CM cổ 25CM</li>
+            <li>&nbsp; [XS] Quần áo kích thước siêu nhỏ Chiều dài 18CM Bust 31CM Cổ 21CM</li>
+        </ul>
+        <p><b>Đặc điểm nổi bật:</b> Có lông cừu bên trong giúp giữ ấm</p>
+        <p>Áo thun có tay màu Hồng cho chó mèo có nhiều size, thích hợp với các bạn chó mèo vóc nhỏ đến các bé vóc trung bình, tối đa là các bé cún lông sát 12kg. </p>
+        <p>Áo thun có tay màu Hồng cho chó mèo thích hợp cho các bé mặc đi dạo, đi chụp ảnh hay đơn giản chỉ là mặc để giữ ấm.</p>
+        ]]>
+    </string>
+    <string name="des_pet_fashion_02">
+        <![CDATA[
+        <p>Có Cần Vòng Cổ Cho Mèo Nuôi Trong Nhà?</p>
+        <p>Bạn có thể nghĩ rằng không cần thiết để sắm một chiếc vòng cổ cho một chú mèo đang được nuôi trong nhà. Nhưng trong trường hợp mèo thoát ra ngoài khi bạn mở cửa, hoặc mèo chạy đi trong những trường hợp có thảm họa, thì chiếc vòng cổ sẽ là đầu mối quan trọng nhất để nhận dạng và tìm ra mèo nuôi của bạn.</p>
+        <p>Cũng có một cách khác là gắn chip theo dõi cho mèo nhưng người đang giữ mèo sẽ khó nhận biết. Vì vậy tạo thói quen đeo vòng cổ cho mèo là một giải pháp hay, vì với chiếc vòng trên cổ, mọi người có thể dễ dàng nhận ra một chú mèo đã có chủ.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Thương hiệu:</b> No Brand</p>
+        <p><b>Dòng sản phẩm:</b> Cat collar</p>
+        <p><b>Loại bảo hành:</b> No Warranty</p>
+        <p><b>Bộ sản phẩm gồm:</b> 1 x Pet collar"</p>
+        <p><b>Cách chọn vòng đeo cổ cho chó mèo</b></p>
+        <ul>
+            <li>&nbsp; Tốt nhất là chọn kch thước phù hợp với chó mèo: Kích thước vòng cổ là đặc điểm đầu tiên bạn phải lưu ý. Nếu chiếc vòng quá chật, mèo sẽ cảm thấy ngột ngạt khó chịu. Ngược lại, nếu quá rộng mèo sẽ tìm cách tháo ra, gây hiện tượng vòng bị mắc kẹt ngay miệng mèo. Vì vậy, hãy kiểm tra kỹ lưỡng kích thước vòng cổ trước khi mua.</li>
+            <li>&nbsp; Luồn vừa đủ hai ngón tay vào giữa chiếc vòng và cổ chó mèo: Một chiếc vòng được xem là vừa vặn khi có chiều dài bằng chu vi cổ mèo cộng thêm 4cm. Một mẹo nhỏ để chọn vòng cổ cho mèo là khi bạn có thể vừa vặn luồn hai ngón tay vào khoảng trống giữa chiếc vòng và cổ mèo. Trong trường hợp mèo nhà bạn là loại lông dài, thì chọn loại có thể luồn 3 ngón tay vào.</li>
+            <li>&nbsp; Nên sử dụng thước dây để xác định chính xác chiều dài vòng cổ. Nhưng nếu mèo không thích, bạn cũng có thể sử dụng các loại sợi không co giãn như chỉ cotton để đo.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_pet_fashion_03">
+        <![CDATA[
+        <p>Mũ Nón Đội Cho Chó Mèo , Len Đan Handmade là 1 món phụ kiện không thể thiếu trong giỏ đồ của Cún, Mèo cưng.</p>
+        <ul>
+            <li>&nbsp; Với nhiều họa tiết ngộ nghĩnh như lợn, hươu, cáo v.v.</li>
+            <li>&nbsp; Size S phù hợp với Pet dưới 3kg : chu vvi đầu 22-23cm</li>
+            <li>&nbsp; size M cho bé trên 3kg - 7kg: Chu Vi đầu 30 - 33cm</li>
+            <li>&nbsp; Rất thích hợp cho bé cỡ nhỏ và những bé cỡ trung. Khi đội vào nhìn bé cực đáng yêu lun khi ba mẹ ôm bé cũng sẽ cực kì thích luôn đó nha!</li>
+            <li>&nbsp; Bạn có thể Giữ Ấm đầu bé khi trời trở lạnh. Thời tiết sài gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào.</li>
+            <li>&nbsp; Mũ cũng rất thích hợp để cho bé đi du lịch, ra ngoài đường ai nhìn cũng sẽ thích.</li>
+        </ul>
+        <p>Kích cỡ: free size, thích hợp cho mèo nhỏ và vừa</p>
+        ]]>
+    </string>
+    <string name="des_pet_fashion_04">
+        <![CDATA[
+        <p>Lễ hội haloween đang đến gần rồi, với những bạn thú cưng thì đây cũng là lúc để "diện" những bộ cánh đẹp đẽ! Không chỉ giúp các bé thêm phần lộng lẫy mà thời trang cho chó mèo nhện nước amazon gây thích thú cho trẻ con và người xung quanh .Chính vì vậy, chọn cho thú cưng 1 bộ nhện nước amazon siêu hót nè.</p>
+        <p>Đây sẽ là sản phẩm hot nhất trong mọi mùa! Còn chờ gì mà không sắm ngay cho thú cưng nhà mình Thời trang nhện nước amazon Cho Chó Mèo đi nào!! Sản phẩm có sẵn và được bán với giá tốt nhất tại PnU PetShop</p>
+        <p><b>Thông tin sản phẩm</b></p>
+        <p><b>Màu sắc:</b> đen, đỏ</p>
+        <p><b>Chiều dài dây:</b> 120 cm, đường kính 1 cm</p>
+        <p><b>Chu vi cổ:</b> khoảng 20 - 30cm</p>
+        <p><b>Vòng ngực:</b> khoảng 24 - 41 cm</p>
+        <p><b>Chất liệu:</b> nhung lông, kẹp tôm hùm, Nylon</p>
+        <p><b>Trọng lượng:</b> 50 gam</p>
+        <p><b>Bảng Size:</b></p>
+        <ul>
+            <li>&nbsp; <b>S:</b> 50cm</li>
+            <li>&nbsp; <b>M:</b> 53cm</li>
+            <li>&nbsp; <b>L:</b> 60cm</li>
+        </ul>
+        <p><b>Các tính năng:</b></p>
+        <ul>
+            <li>&nbsp; Chất lượng tốt: nó được làm bằng nylon và có độ dày 5mm, rất thoải mái và bền khi mặc.</li>
+            <li>&nbsp; Thoải mái và phù hợp cho thú cưng mặc.</li>
+            <li>&nbsp; Tiệc trang phục cho ngày lễ Halloween hoàn hảo, hóa trang, tiệc hóa trang, v. v.</li>
+            <li>&nbsp; Đây là một phụ kiện Cosplay tuyệt vời, có thể làm cho chú chó của bạn và mèo trông rất Buồn Cười, và nó chắc chắn sẽ thu hút sự chú ý của người khác.</li>
+            <li>&nbsp; Thích hợp cho trang phục hàng ngày, tiệc cuối tuần, Halloween, Giáng sinh, tiệc tùng, bắn súng hoặc chơi ngày.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_pet_fashion_05">
+        <![CDATA[
+        <p>Áo khủng long xanh cho chó mèo được may với chất liệu vải bông, đảm bảo mềm mại, thoải mái cho chó mèo khi mặc. Phần gai lưng được gia công kĩ, chất lượng.</p>
+        <p>Mẫu áo khủng long luôn nằm trong top best seller quần áo chó mèo tại PnU.</p>
+        <p><b>Bảng Size</b></p>
+        <ul>
+            <li>&nbsp; <b>XS:</b> 800g – 1,2kg, dài lưng ~20cm</li>
+            <li>&nbsp; <b>S:</b> 1,2kg – 2,5kg, dài lưng ~25cm</li>
+            <li>&nbsp; <b>M:</b> 2.5kg – 3.5kg, dài lưng ~30cm</li>
+            <li>&nbsp; <b>L:</b> 3,5kg – 4.5kg, dài lưng ~35cm</li>
+            <li>&nbsp; <b>XL:</b> 4,5kg – 7kg, dài lưng ~40cm</li>
+            <li>&nbsp; <b>XXL:</b> 7 – 10kg, dài lưng ~45cm</li>
+        </ul>
+        <p><b>Đặc điểm nổi bật</b></p>
+        <ul>
+            <li>&nbsp; Áo cho chó mèo sẽ làm cho thú cưng của bạn thêm phần nổi bật, thu hút sự chú ý bởi vẻ ngoài thật sự xinh xắn và ngộ nghĩnh.</li>
+            <li>&nbsp; Đường may tỉ mỉ cùng thiết kế hướng đến sự thoải mái tối đa giúp thú cưng không có cảm giác bị gò bó khi diện những bộ cánh độc đáo này.</li>
+            <li>&nbsp; Áo phù hợp đủ size cho các giống chó mèo từ 0.5-11kg</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_pet_fashion_06">
+        <![CDATA[
+        <p>Áo cho thú cưng mùa hè với họa tiết hoa.Chất liệu cotton thông thoáng, mỏng mát cho thời tiết nắng nóng của mùa hè. Áo trang trí đẹp cho con mèo hoặc con chó yêu quý của quý khách.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Chất liệu:</b> Lụa sữa</p>
+        <p><b>Gói bao gồm:</b> 1 chiếc * Áo thun cho thú cưng</p>
+        <p><b>Họa tiết:</b> hoa cúc</p>
+        <p><b>Màu sắc:</b> Đen, Hồng</p>
+        <p><b>Kích thước:</b> XS/S/M/L/XL/XXL</p>
+        <p><b>Chi tiết kích thước</b></p>
+        <ul>
+            <li>&nbsp; <b>XS:</b> 800g – 1,2kg, dài lưng ~20cm</li>
+            <li>&nbsp; <b>S:</b> 1,2kg – 2,5kg, dài lưng ~25cm</li>
+            <li>&nbsp; <b>M:</b> 2.5kg – 3.5kg, dài lưng ~30cm</li>
+            <li>&nbsp; <b>L:</b> 3,5kg – 4.5kg, dài lưng ~35cm</li>
+            <li>&nbsp; <b>XL:</b> 4,5kg – 7kg, dài lưng ~40cm</li>
+            <li>&nbsp; <b>XXL:</b> 7 – 10kg, dài lưng ~45cm</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_pet_fashion_07">
+        <![CDATA[
+        <p>Áo thun mùa hè chó mèo bên ngoài nổi bật là màu sắc tươi tắn với những họa tiết đáng yêu, sinh động, chất liệu vải lưới siêu mát.</p>
+        <p>Áo có chất liệu vải lưới siêu mát, sát nách thích hợp mặc vào mùa hè nóng bức cho các bé.</p>
+        <p>Màu sắc đa dạng, họa tiết nhí nhảnh, đáng yêu – Giúp lam dịu cái nắng gay gắt cho thú yêu</p>
+        <p>Đủ size cho bé từ 1-12kg</p>
+        <p><b>Đặc điểm nổi bật</b></p>
+        <ul>
+            <li>&nbsp; Được làm từ chất liệu polyester, thiết kế dạng lưới, kết cấu mát mẻ, thoáng khí, thích hợp cho những ngày nóng để bảo vệ làn da thú cưng của bạn khỏi ánh g mặt trời.</li>
+            <li>&nbsp; Dễ dàng sử dụng: Thiết kế hai dây dễ dàng mặc vào hoặc cởi ra, chỉ cần đeo vào người là có thể giúp chó cưng của bạn tránh g và tận hưởng mùa hè.</li>
+            <li>&nbsp; Lưu ý về kích thước: Bạn có thể lấy quần áo của thú cưng của bạn để đo kích thước, sau đó mua theo bảng kích thước của chúng tôi.</li>
+            <li>&nbsp; Áo kiểu hai dây đáng yêu dành cho thú cưng. Áo kiểu hai dây cho chó cưng này giúp cho thú cưng của bạn nổi bật, thích hợp cho mọi dịp. Thích hợp để đi dạo, chạy bộ, thích hợp cho thú cưng của bạn mặc hàng ngày.</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="des_pet_fashion_08">
+        <![CDATA[
+        <p>Bạn có thể Giữ Ấm đầu bé khi trời trở lạnh. Thời tiết sài gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào.</p>
+        <p><b>Chi tiết sản phẩm</b></p>
+        <p><b>Chất liệu:</b> Len đan</p>
+        <p><b>Kích thước:</b> free size</p>
+        <p><b>Màu sắc:</b> Xanh lá</p>
+        <p><b>Đặc điểm:</b></p>
+        <ul>
+            <li>&nbsp; Rất thích hợp cho bé cỡ nhỏ và những bé cỡ trung. Khi đội vào nhìn bé cực đáng yêu lun khi ba mẹ ôm bé cũng sẽ cực kì thích luôn đó nha!</li>
+            <li>&nbsp; Bạn có thể Giữ Ấm đầu bé khi trời trở lạnh. Thời tiết sài gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào.</li>
+            <li>&nbsp; Mũ cũng rất thích hợp để cho bé đi du lịch, ra ngoài đường ai nhìn cũng sẽ thích.</li>
+            <li>&nbsp; Kích cỡ: free size, thích hợp cho mèo nhỏ và vừa</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="back_to_home">Trở về Trang chủ</string>
+    <string name="my_account">Tài khoản của tôi</string>
+    <string name="options">Tùy chọn</string>
     <!-- end - mô tả sản phẩm -->
-
 </resources>

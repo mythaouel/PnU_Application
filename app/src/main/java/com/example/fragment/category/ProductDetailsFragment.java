@@ -2,6 +2,7 @@ package com.example.fragment.category;
 
 import static com.example.pnu_application.MainActivity.bottomNavigationView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,6 +14,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -22,8 +25,10 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.adapter.ProductAdapter;
 import com.example.fragment.CartFragment;
@@ -44,29 +49,30 @@ import utils.Constant;
 public class ProductDetailsFragment extends Fragment {
 
     Product product = null;
-    ImageView imvThumbDetails, imvBack;
+    ImageView imvThumbDetails, imvBack, imvOptions;
     TextView txtNameDetails, txtPriceDetails, txtDescription;
-
     LinearLayout viewAll;
-
     Button btnAddToCart;
     NotificationBadge countQty;
     FrameLayout btnCart;
-
     GridView gvLikeProduct;
     ArrayList<Product> products;
-//    ProductAdapter productAdapter;
     ProductItemClick productItemClick;
+    Toolbar toolbar;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_details, container, false);
+
         //reference the method that hides Bottom Navigation Bar
         MainActivity.hideBottomNav();
 
+        //linkViews
         imvThumbDetails = view.findViewById(R.id.imvThumbDetails);
         imvBack = view.findViewById(R.id.imvBack);
+        imvOptions = view.findViewById(R.id.imvOptions);
+
         txtNameDetails = view.findViewById(R.id.txtNameDetails);
         txtPriceDetails = view.findViewById(R.id.txtPriceDetails);
         txtDescription = view.findViewById(R.id.txtDescription);
@@ -75,23 +81,11 @@ public class ProductDetailsFragment extends Fragment {
 
         btnAddToCart = view.findViewById(R.id.btnAddToCart);
         btnCart = view.findViewById( R.id.btnCart );
+
+//        toolbar = view.findViewById(R.id.tbProductDetails);
+//        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+
         countQty = view.findViewById( R.id.countQty );
-
-        gvLikeProduct = view.findViewById(R.id.gvLikeProduct);
-
-        gvLikeProduct.setFocusable(false);
-
-        initDataGridview();
-
-        gvLikeProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                productItemClick = (ProductItemClick) getActivity();
-                if (productItemClick != null){
-                    productItemClick.click(products.get(i));
-                }
-            }
-        });
 
 //        //layout Bạn có thể thích
 //        HotProductFragment hotProductFragment = new HotProductFragment();
@@ -100,6 +94,21 @@ public class ProductDetailsFragment extends Fragment {
 //        ft.addToBackStack(null);
 //        ft.commit();
 
+        gvLikeProduct = view.findViewById(R.id.gvLikeProduct);
+
+        initDataGridview();
+
+        gvLikeProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                productItemClick = (ProductItemClick) getActivity();
+                if (productItemClick != null){
+                    productItemClick.click(products.get(i));
+                }
+            }
+        });
+
         changeCountQty();
 
         Bundle bundle = getArguments();
@@ -107,10 +116,12 @@ public class ProductDetailsFragment extends Fragment {
             product = (Product) bundle.getSerializable(Constant.SELECTED_ITEM);
             imvThumbDetails.setImageResource(product.getProductThumbnail());
             txtNameDetails.setText(product.getProductName());
-            txtPriceDetails.setText(Constant.decimalFormat.format( product.getProductPrice() ));
+            txtPriceDetails.setText(Constant.decimalFormat.format(product.getProductPrice()));
             txtDescription.setText(Html.fromHtml(product.getProductDescription()));
         }
+
         addEvents();
+
         return view;
     }
 
@@ -123,25 +134,25 @@ public class ProductDetailsFragment extends Fragment {
         products = new ArrayList<>();
 
         //Hot Dog Food
-        products.add(new Product("sp0009",R.drawable.dog_food_01, getString(R.string.dog_food_01), 394, "Description"));
-        products.add(new Product("sp0016",R.drawable.dog_food_08, getString(R.string.dog_food_08), 380, "Description"));
-        products.add(new Product("sp0012",R.drawable.dog_food_04, getString(R.string.dog_food_04), 150, "Description"));
+        products.add(new Product("sp0009",R.drawable.dog_food_01, getString(R.string.dog_food_01), 394, getString(R.string.des_dog_food_01)));
+        products.add(new Product("sp0016",R.drawable.dog_food_08, getString(R.string.dog_food_08), 380, getString(R.string.des_dog_food_08)));
+        products.add(new Product("sp0012",R.drawable.dog_food_04, getString(R.string.dog_food_04), 150, getString(R.string.des_dog_food_04)));
 
 
         //Hot Cat Food
-        products.add(new Product("sp0001",R.drawable.cat_food_01, getString(R.string.cat_food_01), 349, "Description"));
-        products.add(new Product("sp0002",R.drawable.cat_food_02, getString(R.string.cat_food_02), 258, "Description"));
-        products.add(new Product("sp0008",R.drawable.cat_food_08, getString(R.string.cat_food_08), 422, "Description"));
+        products.add(new Product("sp0001",R.drawable.cat_food_01, getString(R.string.cat_food_01), 349, getString(R.string.des_cat_food_01)));
+        products.add(new Product("sp0002",R.drawable.cat_food_02, getString(R.string.cat_food_02), 258, getString(R.string.des_cat_food_02)));
+        products.add(new Product("sp0008",R.drawable.cat_food_08, getString(R.string.cat_food_08), 422, getString(R.string.des_cat_food_08)));
 
         //Hot Pet Toys
-        products.add(new Product("sp0023",R.drawable.pet_toy_07, getString(R.string.pet_toy_07), 21.5, "Description"));
-        products.add(new Product("sp0020",R.drawable.pet_toy_04, getString(R.string.pet_toy_04), 200, "Description"));
-        products.add(new Product("sp0021",R.drawable.pet_toy_05, getString(R.string.pet_toy_05), 46, "Description"));
+        products.add(new Product("sp0023",R.drawable.pet_toy_07, getString(R.string.pet_toy_07), 21.5, getString(R.string.des_pet_toy_07)));
+        products.add(new Product("sp0020",R.drawable.pet_toy_04, getString(R.string.pet_toy_04), 200, getString(R.string.des_pet_toy_04)));
+        products.add(new Product("sp0021",R.drawable.pet_toy_05, getString(R.string.pet_toy_05), 46, getString(R.string.des_pet_toy_05)));
 
         //Hot Pet Fashion
-        products.add(new Product("sp0027",R.drawable.pet_fashion_03, getString(R.string.pet_toy_03), 119, "Description"));
-        products.add(new Product("sp0028",R.drawable.pet_fashion_04, getString(R.string.pet_toy_04), 125, "Description"));
-        products.add(new Product("sp0032",R.drawable.pet_fashion_08, getString(R.string.pet_toy_08), 50, "Kích cỡ đường kính:\n  - Size S: 26-28cm\n  - Size M: 28-34cm\nChất liệu: làm từ vải len\nBạn có thể giữ ấm đầu bé khi trời trở lạnh. Thời tiết Sài Gòn cũng sấp chuyển sang trời lạnh rồi vì vậy hãy sấm ngay một chiếc mũ cho bé nhà mình đi nào."));
+        products.add(new Product("sp0027",R.drawable.pet_fashion_03, getString(R.string.pet_toy_03), 119, getString(R.string.des_pet_fashion_03)));
+        products.add(new Product("sp0028",R.drawable.pet_fashion_04, getString(R.string.pet_toy_04), 125, getString(R.string.des_pet_fashion_04)));
+        products.add(new Product("sp0032",R.drawable.pet_fashion_08, getString(R.string.pet_toy_08), 50, getString(R.string.des_pet_fashion_08)));
 
         return products;
     }
@@ -198,6 +209,7 @@ public class ProductDetailsFragment extends Fragment {
                 }
             }
         } );
+
         //Event show Order screen when click in button cart
         btnCart.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -227,8 +239,24 @@ public class ProductDetailsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 getActivity().onBackPressed();
+//                MainActivity.hideBottomNav();
             }
         });
+
+        //Event Options Menu
+        imvOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu optionsMenu = new PopupMenu(getActivity(), imvOptions);
+                //Adding menu items to the Options Menu
+                optionsMenu.getMenuInflater().inflate(R.menu.menu_options, optionsMenu.getMenu());
+            }
+        });
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+
     }
 
     private void openCart() {
@@ -268,7 +296,6 @@ public class ProductDetailsFragment extends Fragment {
             public void onClick(View view) {
                 openCart();
                 bottomSheetDialog.dismiss();
-
             }
         });
 
@@ -290,4 +317,5 @@ public class ProductDetailsFragment extends Fragment {
         super.onDetach();
         MainActivity.showBottomNav();
     }
+
 }

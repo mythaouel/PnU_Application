@@ -60,14 +60,14 @@ public class PetToyFragment extends Fragment {
     private ArrayList<Product> initData() {
         products = new ArrayList<>();
 
-        products.add(new Product("sp0017",R.drawable.pet_toy_01, getString(R.string.pet_toy_01), 25, "Description"));
-        products.add(new Product("sp0018",R.drawable.pet_toy_02, getString(R.string.pet_toy_02), 15, "Description"));
-        products.add(new Product("sp0019",R.drawable.pet_toy_03, getString(R.string.pet_toy_03), 24, "Description"));
-        products.add(new Product("sp0020",R.drawable.pet_toy_04, getString(R.string.pet_toy_04), 200, "Description"));
-        products.add(new Product("sp0021",R.drawable.pet_toy_05, getString(R.string.pet_toy_05), 46, "Description"));
-        products.add(new Product("sp0022",R.drawable.pet_toy_06, getString(R.string.pet_toy_06), 20, "Description"));
-        products.add(new Product("sp0023",R.drawable.pet_toy_07, getString(R.string.pet_toy_07), 21.5, "Description"));
-        products.add(new Product("sp0024",R.drawable.pet_toy_08, getString(R.string.pet_toy_08), 15, "Description"));
+        products.add(new Product("sp0017",R.drawable.pet_toy_01, getString(R.string.pet_toy_01), 25, getString(R.string.des_pet_toy_01)));
+        products.add(new Product("sp0018",R.drawable.pet_toy_02, getString(R.string.pet_toy_02), 15, getString(R.string.des_pet_toy_02)));
+        products.add(new Product("sp0019",R.drawable.pet_toy_03, getString(R.string.pet_toy_03), 24, getString(R.string.des_pet_toy_03)));
+        products.add(new Product("sp0020",R.drawable.pet_toy_04, getString(R.string.pet_toy_04), 200, getString(R.string.des_pet_toy_04)));
+        products.add(new Product("sp0021",R.drawable.pet_toy_05, getString(R.string.pet_toy_05), 46, getString(R.string.des_pet_toy_05)));
+        products.add(new Product("sp0022",R.drawable.pet_toy_06, getString(R.string.pet_toy_06), 20, getString(R.string.des_pet_toy_06)));
+        products.add(new Product("sp0023",R.drawable.pet_toy_07, getString(R.string.pet_toy_07), 21.5, getString(R.string.des_pet_toy_07)));
+        products.add(new Product("sp0024",R.drawable.pet_toy_08, getString(R.string.pet_toy_08), 15, getString(R.string.des_pet_toy_08)));
 
         return products;
     }

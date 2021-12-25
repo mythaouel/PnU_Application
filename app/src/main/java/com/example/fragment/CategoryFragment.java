@@ -1,5 +1,6 @@
 package com.example.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toolbar;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -17,19 +20,20 @@ import com.example.adapter.ViewPager2ProductAdapter;
 import com.example.fragment.category.ProductDetailsFragment;
 import com.example.model.Product;
 import com.example.model.ProductItemClick;
+import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
 import com.google.android.material.tabs.TabLayout;
 
-
 public class CategoryFragment extends Fragment{
-    private Toolbar toolBarCategory;
-    private FragmentManager fragmentManager, fragmentManager1;
 
+    private FragmentManager fragmentManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
+
+        //MainActivity.showBottomNav();
 
         fragmentManager = getChildFragmentManager();
         ViewPager2ProductAdapter productAdapter = new ViewPager2ProductAdapter(fragmentManager, getLifecycle());
@@ -73,4 +77,5 @@ public class CategoryFragment extends Fragment{
 
         return view;
     }
+
 }
