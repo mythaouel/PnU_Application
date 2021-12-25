@@ -1,6 +1,7 @@
 package com.example.fragment.home;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ import utils.Constant;
 
 public class HomeBlogFragment extends Fragment {
 
-    ImageButton btnBlogBack;
+    ImageView imvBack;
     HomeBlog homeBlog=null;
     ImageView imvBlogBanner;
     TextView txtBlogDetailsName, txtBlogContent;
@@ -34,7 +35,7 @@ public class HomeBlogFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_blog_details, container, false);
         MainActivity.hideBottomNav();
 
-        btnBlogBack=view.findViewById(R.id.btnBlogBack);
+        imvBack=view.findViewById(R.id.imvBlogBack);
         imvBlogBanner=view.findViewById(R.id.imvBlogBanner);
         txtBlogDetailsName=view.findViewById(R.id.txtBlogDetailsName);
         txtBlogContent=view.findViewById(R.id.txtBlogContent);
@@ -44,12 +45,12 @@ public class HomeBlogFragment extends Fragment {
             homeBlog = (HomeBlog) bundle.getSerializable(Constant.SELECTED_HOME_BLOG);
             imvBlogBanner.setImageResource(homeBlog.getBlogBanner());
             txtBlogDetailsName.setText(homeBlog.getBlogName());
-            txtBlogContent.setText(homeBlog.getBlogContent());
+            txtBlogContent.setText(Html.fromHtml(homeBlog.getBlogContent()));
         }
 
 
 
-        btnBlogBack.setOnClickListener(new View.OnClickListener() {
+        imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();

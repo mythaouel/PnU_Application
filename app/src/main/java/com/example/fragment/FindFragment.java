@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,14 +17,14 @@ import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
 
 public class FindFragment extends Fragment {
-    ImageButton btnBack;
+    ImageView imvBack;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_find, container, false);
-        btnBack=view.findViewById(R.id.btnBack);
+        imvBack=view.findViewById(R.id.imvFindBack);
         MainActivity.hideBottomNav();
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();

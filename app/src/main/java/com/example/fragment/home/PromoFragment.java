@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,14 +17,14 @@ import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.R;
 
 public class PromoFragment extends Fragment {
-    ImageButton btnBack;
+    ImageView imvBack;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_promotion, container, false);
-        btnBack=view.findViewById(R.id.btnPromoBack);
+        imvBack=view.findViewById(R.id.imvPromoBack);
         MainActivity.hideBottomNav();
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
