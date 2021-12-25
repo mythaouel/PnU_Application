@@ -10,6 +10,11 @@
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/shipping_fast_green"
+            android:layout_marginEnd="10dp"/>
         <TextView
             android:layout_weight="7.5"
             android:id="@+id/txtProductIsAdded"
@@ -23,7 +28,8 @@
             android:id="@+id/imvClose"
             android:layout_width="0dp"
             android:layout_height="20dp"
-            android:src="@drawable/close_icon"/>
+            android:src="@drawable/close_icon"
+            android:layout_marginEnd="2dp"/>
     </LinearLayout>
 
     <RadioGroup

@@ -257,7 +257,7 @@ public class ProductDetailsFragment extends Fragment {
                 //Adding menu items to the Options Menu
                 MenuInflater inflater = optionsMenu.getMenuInflater();
                 inflater.inflate(R.menu.menu_options, optionsMenu.getMenu());
-
+                //Event when click item on menu
                 optionsMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
@@ -283,7 +283,6 @@ public class ProductDetailsFragment extends Fragment {
                         return true;
                     }
                 });
-
                 optionsMenu.show();
             }
         });
@@ -304,13 +303,16 @@ public class ProductDetailsFragment extends Fragment {
         bottomNavigationView.setSelectedItemId( R.id.itCart );
     }
 
+    //show Bottom Sheet Dialog
     private void showBottomSheetDialog() {
+        //apply style for dialog
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity(), R.style.BottomSheetDialogTheme);
+        //link views
         bottomSheetDialog.setContentView(R.layout.view_cart_dialog);
         ImageView imvThumb = bottomSheetDialog.findViewById(R.id.imvProductThumb);
         TextView txtName = bottomSheetDialog.findViewById(R.id.txtProductName);
         TextView txtPrice = bottomSheetDialog.findViewById(R.id.txtProductPrice);
-
+        //get Data
         Product p = null;
         Bundle bundleDialog = getArguments();
         if (bundleDialog != null){
@@ -319,7 +321,7 @@ public class ProductDetailsFragment extends Fragment {
             txtName.setText(p.getProductName());
             txtPrice.setText(Constant.decimalFormat.format(p.getProductPrice()));
         }
-
+        //View Cart Button - open Cart Fragment
         Button btnViewCart;
         btnViewCart = bottomSheetDialog.findViewById(R.id.btnViewCart);
         btnViewCart.setOnClickListener(new View.OnClickListener() {
@@ -329,7 +331,6 @@ public class ProductDetailsFragment extends Fragment {
                 bottomSheetDialog.dismiss();
             }
         });
-
         //Close Dialog
         ImageView imvClose = bottomSheetDialog.findViewById(R.id.imvClose);
         imvClose.setOnClickListener(new View.OnClickListener() {
@@ -338,7 +339,6 @@ public class ProductDetailsFragment extends Fragment {
                 bottomSheetDialog.dismiss();
             }
         });
-
         bottomSheetDialog.show();
     }
 

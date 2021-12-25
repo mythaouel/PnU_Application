@@ -10,6 +10,13 @@
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/money_check_green"
+            android:layout_marginEnd="10dp"/>
+
         <TextView
             android:layout_weight="7.5"
             android:id="@+id/txtProductIsAdded"
@@ -17,13 +24,14 @@
             android:layout_height="wrap_content"
             android:text="@string/choose_payment_method"
             android:textColor="@color/tick"
-            android:textSize="15sp"/>
+            android:textSize="16sp"/>
         <ImageView
             android:layout_weight="0.5"
             android:id="@+id/imvClose"
             android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:src="@drawable/close_icon"/>
+            android:layout_height="15dp"
+            android:src="@drawable/close_icon"
+            android:layout_marginEnd="2dp"/>
     </LinearLayout>
 
     <RadioGroup
@@ -36,6 +44,7 @@
             android:layout_height="wrap_content"
             android:button="@null"
             android:drawableRight="?android:attr/listChoiceIndicatorSingle"
+
             android:background="?android:selectableItemBackground"
             android:layout_gravity="start"
             android:textAlignment="textStart"
