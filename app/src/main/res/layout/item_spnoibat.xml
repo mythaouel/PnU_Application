@@ -38,7 +38,8 @@
                 android:gravity="center"
                 android:layout_margin="5dp"
                 android:textColor="@color/black"
-                android:textSize="12sp"/>
+                android:textSize="12sp"
+                android:maxLines="1"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
