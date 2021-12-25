@@ -47,7 +47,7 @@ public class SuccessFragment extends Fragment {
     private void setTextPayment() {
         if (Constant.payment_method == 0){
             txtNote.setVisibility( View.VISIBLE );
-            txtPTThanhToan.setText( "Thanh toán khi nhận hàng (COD)" );
+            txtPTThanhToan.setText( "Thanh toán khi nhận hàng" );
         }
         else if (Constant.payment_method == 1)
         {

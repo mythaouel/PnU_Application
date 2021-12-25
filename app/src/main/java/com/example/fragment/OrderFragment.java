@@ -128,7 +128,7 @@ public class OrderFragment extends Fragment {
 
     private void getPayment() {
         if (Constant.payment_method == 0)
-            txtPTThanhToan.setText( "Thanh toán khi nhận hàng (COD)" );
+            txtPTThanhToan.setText( "Thanh toán khi nhận hàng" );
         else if (Constant.payment_method == 1)
             txtPTThanhToan.setText( "Thanh toán bằng Thẻ ATM" );
         else if (Constant.payment_method == 2)
@@ -319,7 +319,7 @@ public class OrderFragment extends Fragment {
                 getPayment();
                 String str = "";
                 if (Constant.payment_method == 0)
-                    str = "Thanh toán khi nhận hàng (COD)";
+                    str = "Thanh toán khi nhận hàng";
                 else if (Constant.payment_method == 1)
                     str = "Thanh toán bằng Thẻ ATM";
                 else if (Constant.payment_method == 2)
