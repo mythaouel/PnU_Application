@@ -5,7 +5,7 @@
     android:id="@+id/fragment_account"
     android:orientation="vertical"
     android:weightSum="7"
-    android:background="@color/ink_03"
+    android:background="@color/ink_04"
     tools:context="com.example.fragment.AccountFragment">
     <!--Khung Info-->
 
