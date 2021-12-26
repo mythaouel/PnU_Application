@@ -38,6 +38,7 @@ public class NotificationPopUp extends Application {
                 notificationManager.createNotificationChannel(channel_1);
                 notificationManager.createNotificationChannel(channel_2);
             }
+
         }
     }
 

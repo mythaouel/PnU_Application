@@ -24,6 +24,7 @@ import com.example.fragment.OrderDetailFragment;
 import com.example.fragment.category.DesProductFragment;
 import com.example.fragment.category.ProductDetailsFragment;
 import com.example.fragment.home.HomeBlogFragment;
+import com.example.fragment.home.PromoFragment;
 import com.example.model.Blog;
 import com.example.model.BlogItemClick;
 import com.example.model.HomeBlog;
@@ -59,11 +60,20 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new HomeFragment()).commit();
         bottomNavigationView.setOnItemSelectedListener(navListener);
 
-
-
         if(Constant.arrCartProduct == null)
             Constant.arrCartProduct = new ArrayList<>();
 
+        //Nhận thông báo
+        String type = getIntent().getStringExtra("From");
+        if (type != null) {
+            switch (type) {
+                case "notifyFrag":
+                    PromoFragment fragment = new PromoFragment();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fragmentContainer, fragment).addToBackStack(null);
+                    transaction.commit();
+            }
+        }
 
     }
     public NavigationBarView.OnItemSelectedListener navListener = new NavigationBarView.OnItemSelectedListener() {

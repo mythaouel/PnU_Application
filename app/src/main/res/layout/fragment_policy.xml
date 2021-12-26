@@ -137,7 +137,7 @@
                 android:textColor="@color/ink_01"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="1.Phương thức vận chuyển và thời gian giao hàng:"
+                android:text="1. Phương thức vận chuyển và thời gian giao hàng:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -164,7 +164,7 @@
                 android:textColor="@color/ink_01"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="2.Chi phí giao nhận:"
+                android:text="2. Chi phí giao nhận:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView

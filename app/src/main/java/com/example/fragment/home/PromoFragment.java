@@ -27,9 +27,7 @@ public class PromoFragment extends Fragment {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentContainer,new HomeFragment());
-                transaction.commit();
+                  getActivity().onBackPressed();
                 MainActivity.showBottomNav();
             }
         });

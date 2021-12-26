@@ -1,7 +1,10 @@
 package com.example.fragment;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.Notification;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -26,11 +29,14 @@ import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.adapter.AccountLineAdapter;
 
+import com.example.fragment.home.PromoFragment;
 import com.example.model.AccountLineItem;
 
 
@@ -203,7 +209,6 @@ public class AccountFragment extends Fragment {
                 " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
         if( cursor!=null && cursor.moveToFirst()) {
             {
-
                 txtNameAct.setText( cursor.getString( 1 ) );
                 //Covert to byte array->Bitmap
                 byte[] photo= cursor.getBlob(6);
@@ -290,7 +295,7 @@ public class AccountFragment extends Fragment {
 
     private void sendCustomNotification(){
 
-        //collapsed-small
+        // Collapsed-small
         RemoteViews notificationLayout = new RemoteViews(getContext().getPackageName(), R.layout.account_custom_notification_small_1);
         notificationLayout.setTextViewText(R.id.txtTitleCustom1,Title_Notification_1);
         notificationLayout.setTextViewText(R.id.txtInfoCustom1,Content_Notification_Small_1);
@@ -299,21 +304,33 @@ public class AccountFragment extends Fragment {
         String strDateFromated = dateFormat.format(new Date());
         notificationLayout.setTextViewText(R.id.txtIimeCustom1,strDateFromated);
 
-        //expanded
+        // Expanded
         RemoteViews notificationLayoutExpand = new RemoteViews(getContext().getPackageName(), R.layout.account_custom_notification_expand_1);
         notificationLayoutExpand.setTextViewText(R.id.txtTitleCustomExpand1,Title_Notification_1);
         notificationLayoutExpand.setTextViewText(R.id.txtInfoCustomExpand1,Content_Notification_Expand_1);
         notificationLayoutExpand.setImageViewResource(R.id.imvCustomExpand1,R.drawable.event1);
 
+        // Create an Intent for the activity you want to start
+        Intent resultIntent = new Intent(getContext(),MainActivity.class);
+        resultIntent.putExtra("From", "notifyFrag");
+
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(getContext());
+        stackBuilder.addNextIntentWithParentStack(resultIntent);
+
+        // Get the PendingIntent containing the entire back stack
+        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(getNotificationID(), PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification = new NotificationCompat.Builder(getContext(), NotificationPopUp.CHANNEL_ID_1)
                 .setSmallIcon(R.drawable.act_ic_noti_small)
                 .setCustomContentView(notificationLayout)
                 .setCustomBigContentView(notificationLayoutExpand)
+                .setContentIntent(resultPendingIntent)
+                .setAutoCancel(true)
                 .build();
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getContext());
         notificationManagerCompat.notify(getNotificationID(),notification);
+
     }
 
     private int getNotificationID(){

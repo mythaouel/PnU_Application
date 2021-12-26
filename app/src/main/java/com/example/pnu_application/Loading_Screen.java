@@ -1,6 +1,7 @@
 package com.example.pnu_application;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,6 +13,7 @@ import com.example.adapter.OnboardingAdapter;
 import com.example.fragment.AccountFragment;
 import com.example.fragment.HomeFragment;
 import com.example.fragment.NoLoginAccountFragment;
+import com.example.fragment.home.PromoFragment;
 
 public class Loading_Screen extends AppCompatActivity {
 
@@ -21,7 +23,7 @@ public class Loading_Screen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        prepareDatabase();
+        db=new MyDatabaseHelper(Loading_Screen.this);
 
         setContentView(R.layout.activity_loading_screen);
 
@@ -30,6 +32,7 @@ public class Loading_Screen extends AppCompatActivity {
             public void run() {
                 Cursor cursor = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.ACCOUNT_TB_NAME + " WHERE " + MyDatabaseHelper.ACCOUNT_COL_STATUS + " = 1");
                 if (cursor!=null && cursor.moveToFirst()){
+
                     Cursor cursor1 = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = "
                             +Integer.parseInt(cursor.getString(0)));
 
@@ -42,6 +45,7 @@ public class Loading_Screen extends AppCompatActivity {
                         intent.putExtras(bundle);
                         startActivity(intent);
                     }else{
+
                         Intent intent = new Intent(Loading_Screen.this, MainActivity.class);
                         Toast.makeText(Loading_Screen.this, "Chào mừng bạn quay trở lại với PnU. Cập nhật thông tin ngay để bắt đầu mua sắm cùng PnU nhé <3", Toast.LENGTH_SHORT).show();
                         Bundle bundle = new Bundle();
@@ -55,7 +59,9 @@ public class Loading_Screen extends AppCompatActivity {
                 }
                 finish();
             }
+
         },SPLASH_TIME_OUT);
+
     }
 
     public void prepareDatabase() {
