@@ -179,7 +179,7 @@ public class CartFragment extends Fragment {
                     Cursor cursor2 = Loading_Screen.db.getData( "SELECT  * FROM "+ MyDatabaseHelper.CUSTOMER_TB_NAME + " WHERE " + MyDatabaseHelper.CUSTOMER_COL_ACT_ID + " = " + MATK );
                     if (cursor2!=null && cursor2.moveToFirst()){
                         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                        transaction.replace(R.id.fragmentContainer, new OrderFragment());
+                        transaction.add(R.id.fragmentContainer, new OrderFragment(), "orderFragment");
                         transaction.addToBackStack( OrderFragment.TAG );
                         transaction.commit();
                         Constant.shipping_method = 0;

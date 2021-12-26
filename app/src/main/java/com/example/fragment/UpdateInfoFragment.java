@@ -34,6 +34,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.fragment.category.ProductDetailsFragment;
 import com.example.pnu_application.Loading_Screen;
 import com.example.pnu_application.MainActivity;
 import com.example.pnu_application.MyDatabaseHelper;
@@ -456,7 +457,14 @@ public class UpdateInfoFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        MainActivity.showBottomNav();
+        OrderFragment orderFragment = (OrderFragment) getParentFragmentManager().findFragmentByTag("orderFragment");
+
+        if (orderFragment != null && orderFragment.isAdded()){
+            MainActivity.hideBottomNav();
+        }
+        else {
+            MainActivity.showBottomNav();
+        }
         //Load thông tin vừa mới cập nhật cho AccountFragment khi bấm Back
         AccountFragment.loadData();
     }

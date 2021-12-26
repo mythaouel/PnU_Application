@@ -219,7 +219,8 @@ public class OrderFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentContainer, new UpdateInfoFragment());
+                transaction.replace( R.id.fragmentContainer, new UpdateInfoFragment());
+                transaction.addToBackStack( null );
                 transaction.commit();
             }
         } );
@@ -230,7 +231,7 @@ public class OrderFragment extends Fragment {
                 showBottomSheetDialogShipping();
             }
         } );
-
+        //Chọn phương thức thanh toán
         cardPayment.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
