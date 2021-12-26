@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="5dp">
 
     <ImageView
@@ -11,8 +11,7 @@
         android:layout_height="180dp"
         android:src="@drawable/dog_food_01"
         android:layout_gravity="center"
-        android:scaleType="centerCrop"
-        android:padding="5dp"/>
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/txtName"
@@ -20,14 +19,16 @@
         android:layout_height="wrap_content"
         android:text="@string/text_demo"
         android:textSize="15sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:layout_marginTop="7dp"
+        android:maxLines="2"/>
 
     <TextView
         android:id="@+id/txtPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/price_demo"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/price_tag"/>
 

@@ -49,24 +49,28 @@
         android:orientation="horizontal"
         android:layout_marginTop="20dp">
 
-        <ImageView
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imvProductThumb"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/pet_fashion_03"/>
+            android:src="@drawable/pet_fashion_03"
+            app:riv_corner_radius="8dp"
+            android:scaleType="fitCenter"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_gravity="bottom">
 
             <TextView
                 android:id="@+id/txtProductName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mũ len thời trang dễ thương cho chó mèo"
+                android:text="@string/pet_fashion_03"
                 android:textColor="@color/black"
                 android:textSize="18sp"/>
 
@@ -74,7 +78,7 @@
                 android:id="@+id/txtProductPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="119,000 đ"
+                android:text="@string/price_demo"
                 android:textColor="@color/price_tag"
                 android:textSize="18sp"
                 android:textStyle="bold"

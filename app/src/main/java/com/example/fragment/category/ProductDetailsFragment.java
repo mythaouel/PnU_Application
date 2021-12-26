@@ -342,12 +342,18 @@ public class ProductDetailsFragment extends Fragment {
         bottomSheetDialog.show();
     }
 
-
     //reference the method that shows Bottom Navigation Bar when returning to the previous screen
     @Override
     public void onDetach() {
         super.onDetach();
-        MainActivity.showBottomNav();
-    }
 
+        ProductDetailsFragment productDetailsFragment = (ProductDetailsFragment) getParentFragmentManager().findFragmentByTag("productDetails");
+
+        if (productDetailsFragment != null && productDetailsFragment.isResumed()){
+            MainActivity.hideBottomNav();
+        }
+        else {
+            MainActivity.showBottomNav();
+        }
+    }
 }

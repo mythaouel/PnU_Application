@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements ProductItemClick,
         bundle.putSerializable(Constant.SELECTED_ITEM, p);
         productDetailsFragment.setArguments(bundle);
 
-        fragmentTransaction.add(R.id.fragmentContainer, productDetailsFragment);
+        fragmentTransaction.add(R.id.fragmentContainer, productDetailsFragment, "productDetails");
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
