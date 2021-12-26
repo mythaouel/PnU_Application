@@ -23,10 +23,8 @@ public class Loading_Screen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        db=new MyDatabaseHelper(Loading_Screen.this);
-
         setContentView(R.layout.activity_loading_screen);
-
+        prepareDatabase();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
