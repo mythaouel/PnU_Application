@@ -24,7 +24,7 @@ import utils.Constant;
 public class DesProductFragment extends Fragment {
 
     TextView txtDesName, txtDes;
-    ImageView imvClose;
+    ImageView imvClose, imvDesThumb;
     Product product = null;
 
     @Nullable
@@ -38,11 +38,13 @@ public class DesProductFragment extends Fragment {
         txtDesName = view.findViewById(R.id.txtDesName);
         txtDes = view.findViewById(R.id.txtDes);
         imvClose = view.findViewById(R.id.imvClose);
+        imvDesThumb = view.findViewById(R.id.imvDesThumb);
 
         Bundle bundle = getArguments();
         if (bundle != null){
             product = (Product) bundle.getSerializable(Constant.SELECTED_ITEM);
             txtDesName.setText(product.getProductName());
+            imvDesThumb.setImageResource(product.getProductThumbnail());
             txtDes.setText(Html.fromHtml(product.getProductDescription()));
         }
 
